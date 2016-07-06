@@ -1373,7 +1373,7 @@
 					"$(PROJECT_DIR)/baiduSDK",
 					"/Users/zdzx-008/Desktop",
 				);
-				GCC_PREFIX_HEADER = "/Users/zdzx-008/Desktop/中鼎项目/1.个人考勤app/项目一/中鼎职信3－统一样式/ZhongDingZhiXin/工具类/PrefixHeader.pch";
+				GCC_PREFIX_HEADER = "/Users/zdzx-008/Desktop/PersonCredit/ZhongDingZhiXin/工具类/PrefixHeader.pch";
 				INFOPLIST_FILE = ZhongDingZhiXin/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1397,7 +1397,7 @@
 					"$(PROJECT_DIR)/baiduSDK",
 					"/Users/zdzx-008/Desktop",
 				);
-				GCC_PREFIX_HEADER = "/Users/zdzx-008/Desktop/中鼎项目/1.个人考勤app/项目一/中鼎职信3－统一样式/ZhongDingZhiXin/工具类/PrefixHeader.pch";
+				GCC_PREFIX_HEADER = "/Users/zdzx-008/Desktop/PersonCredit/ZhongDingZhiXin/工具类/PrefixHeader.pch";
 				INFOPLIST_FILE = ZhongDingZhiXin/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

@@ -93,7 +93,7 @@
     }
 }
 - (IBAction)passButton:(id)sender {
-    }
+}
 - (IBAction)noteButton:(id)sender {
 }
 
