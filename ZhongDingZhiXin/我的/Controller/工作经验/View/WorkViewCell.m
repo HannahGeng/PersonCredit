@@ -60,8 +60,9 @@
 }
 
 -(void)setContentView:(WorkInfo*)workInfo{
-    NSString *tit = [[NSUserDefaults standardUserDefaults] objectForKey:@"keycode"];
-    NSString *strMark=[AESCrypt decrypt:workInfo.job password:tit];
+   
+    AppShare;
+    NSString *strMark=[AESCrypt decrypt:workInfo.job password:app.loginKeycode];
     [_titleLable setText:strMark];
     [_timeLable setText:workInfo.worktime];
 }

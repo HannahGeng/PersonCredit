@@ -57,9 +57,9 @@
 }
 
 -(void)setContentView:(PunishmentInfo*)punishmentInfo{
-    NSString *tit = [[NSUserDefaults standardUserDefaults] objectForKey:@"keycode"];
-    NSString *strTitle  = [AESCrypt decrypt:punishmentInfo.descrip password:tit];
-    NSString *strMark=[AESCrypt decrypt:punishmentInfo.topic password:tit];
+    AppShare;
+    NSString *strTitle  = [AESCrypt decrypt:punishmentInfo.descrip password:app.loginKeycode];
+    NSString *strMark=[AESCrypt decrypt:punishmentInfo.topic password:app.loginKeycode];
     [_titleLable setText:strTitle];
     [_timeLable setText:strMark];
 }

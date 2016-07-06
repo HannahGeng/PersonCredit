@@ -57,8 +57,8 @@
 }
 - (IBAction)presentButton:(UIButton *)sender {
 }
-#pragma mark UITextViewDelegation
 
+#pragma mark UITextViewDelegation
 - (BOOL)textViewShouldBeginEditing:(UITextView *)textView{
     
     self.writeTextView.text=@"";

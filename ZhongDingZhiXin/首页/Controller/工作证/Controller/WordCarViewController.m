@@ -55,6 +55,7 @@
 //添加内容视图
 -(void)addContentView
 {
+    AppShare;
     //数组内存放的是图片
      NSArray *arr=[NSArray arrayWithObjects:@"gongzuoz",@"gongzuoz2", nil];
     self.scrollView.frame=CGRectMake(0, 0, [UIUtils getWindowWidth], [UIUtils getWindowHeight]);
@@ -82,8 +83,7 @@
             [imageView addSubview:NLabel];
             
             UILabel *XMLabel=[[UILabel alloc]initWithFrame:CGRectMake(CGRectGetMaxX(nameLabel.frame)+10, CGRectGetMaxY(AImageView.frame)+10, 100, 35)];
-            NSString *tit = [[NSUserDefaults standardUserDefaults] objectForKey:@"keycode"];
-            NSString *strMark=[AESCrypt decrypt:_resultDic[@"jobphone"] password:tit];
+            NSString *strMark=[AESCrypt decrypt:_resultDic[@"jobphone"] password:app.loginKeycode];
             XMLabel.text=strMark;
             XMLabel.textColor=[UIColor blueColor];
             XMLabel.textAlignment=NSTextAlignmentCenter;

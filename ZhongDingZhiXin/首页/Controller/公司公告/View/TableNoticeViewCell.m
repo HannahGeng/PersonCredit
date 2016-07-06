@@ -61,9 +61,9 @@
 
 -(void)setContentView:(NoticeInfo*)noticeInfo{
     
-    NSString *tit  =   [[NSUserDefaults standardUserDefaults] objectForKey:@"keycode"];
-    NSString *strTitle  = [AESCrypt decrypt:noticeInfo.title password:tit];
-    NSString *strMark=[AESCrypt decrypt:noticeInfo.mark password:tit];
+    AppShare;
+    NSString *strTitle  = [AESCrypt decrypt:noticeInfo.title password:app.loginKeycode];
+    NSString *strMark=[AESCrypt decrypt:noticeInfo.mark password:app.loginKeycode];
     [_titleLable setText:strTitle];
     [_timeLable setText:strMark];
 }

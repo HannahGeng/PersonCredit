@@ -69,8 +69,7 @@
                 NoticeInfo *noticeInfo = [[NoticeInfo alloc] initWithDictionary:dictionary];
                 [_noticeInfoArray addObject:noticeInfo];
             }
-            self.noticeTableView.dataSource=self;
-            self.noticeTableView.delegate=self;
+           
             self.noticeTableView.backgroundColor=[UIColor clearColor];
             self.noticeTableView.scrollEnabled =YES; //设置tableview滚动
             self.noticeTableView.tableFooterView=[[UIView alloc]init];//影藏多余的分割线
@@ -84,6 +83,7 @@
     }];
     
 }
+
 #pragma mark UITableViewDataSource
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
@@ -91,8 +91,10 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
     static NSString *identifier=@"Identifier";
     TableNoticeViewCell *cell=[tableView dequeueReusableCellWithIdentifier:identifier];
+    
     if (!cell) {
         cell=[[TableNoticeViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
     }

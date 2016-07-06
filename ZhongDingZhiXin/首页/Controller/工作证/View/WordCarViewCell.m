@@ -47,8 +47,8 @@
 }
 
 -(void)setContentView:(WordCarInfo *)wordCarInfo{
-    NSString *tit = [[NSUserDefaults standardUserDefaults] objectForKey:@"keycode"];
-    NSString *strMark=[AESCrypt decrypt:wordCarInfo.job password:tit];
+    AppShare;
+    NSString *strMark=[AESCrypt decrypt:wordCarInfo.job password:app.loginKeycode];
     [_titleLable setText:strMark];
     [_timeLable setText:wordCarInfo.worktime];
 }

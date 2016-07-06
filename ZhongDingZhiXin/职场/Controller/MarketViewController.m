@@ -34,11 +34,7 @@
 -(void)setNavigationBar
 {
     //设置导航栏的颜色
-    self.navigationController.navigationBar.barTintColor=LIGHT_WHITE_COLOR;
-    self.title=@"职场";
-    [self.navigationController.navigationBar setTitleTextAttributes:
-     @{NSFontAttributeName:[UIFont systemFontOfSize:20],
-       NSForegroundColorAttributeName:[UIColor whiteColor]}];
+    NavBarType(@"职场")
 }
 //加载tableView
 - (void)addTableView {
@@ -57,12 +53,6 @@
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-//    if (section) {
-//        
-//        //隐藏背景图片
-//        _backgroundImageView.hidden=YES;
-//    }
-
     return 1;
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -73,7 +63,6 @@
         cell=[[MarketViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
     }
     cell.selectionStyle = UITableViewCellSelectionStyleGray;
-//    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator; //显示最右边的箭头
     [cell setContentView:_tableDataArray[indexPath.row]];
     
     return cell;

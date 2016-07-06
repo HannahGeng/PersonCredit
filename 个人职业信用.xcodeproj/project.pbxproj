@@ -254,7 +254,7 @@
 		3DF2BA631BF1FAB600CB163C /* NSData+CommonCrypto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+CommonCrypto.m"; sourceTree = "<group>"; };
 		3DF2BA641BF1FAB600CB163C /* NSString+Base64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Base64.h"; sourceTree = "<group>"; };
 		3DF2BA651BF1FAB600CB163C /* NSString+Base64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Base64.m"; sourceTree = "<group>"; };
-		3DFC2F911BB3A46B004A83B0 /* ZhongDingZhiXin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZhongDingZhiXin.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		3DFC2F911BB3A46B004A83B0 /* 个人职业信用.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "个人职业信用.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3DFC2F951BB3A46B004A83B0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3DFC2F961BB3A46B004A83B0 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		3DFC2F981BB3A46B004A83B0 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -262,7 +262,7 @@
 		3DFC2F9F1BB3A46B004A83B0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3DFC2FA11BB3A46B004A83B0 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		3DFC2FA41BB3A46B004A83B0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		3DFC2FAA1BB3A46B004A83B0 /* ZhongDingZhiXinTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ZhongDingZhiXinTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		3DFC2FAA1BB3A46B004A83B0 /* 个人职业信用.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "个人职业信用.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3DFC2FAF1BB3A46B004A83B0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3DFC2FB01BB3A46B004A83B0 /* ZhongDingZhiXinTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZhongDingZhiXinTests.m; sourceTree = "<group>"; };
 		677522D154E4D9E2F819AC15 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
@@ -923,8 +923,8 @@
 		3DFC2F881BB3A46B004A83B0 = {
 			isa = PBXGroup;
 			children = (
-				3DFC2F931BB3A46B004A83B0 /* ZhongDingZhiXin */,
-				3DFC2FAD1BB3A46B004A83B0 /* ZhongDingZhiXinTests */,
+				3DFC2F931BB3A46B004A83B0 /* 个人职业信用 */,
+				3DFC2FAD1BB3A46B004A83B0 /* 个人职业信用Tests */,
 				3DFC2F921BB3A46B004A83B0 /* Products */,
 				C79F6F5357FACFE677C04D75 /* Pods */,
 				5A23F34454B76E75AB23661B /* Frameworks */,
@@ -934,13 +934,13 @@
 		3DFC2F921BB3A46B004A83B0 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				3DFC2F911BB3A46B004A83B0 /* ZhongDingZhiXin.app */,
-				3DFC2FAA1BB3A46B004A83B0 /* ZhongDingZhiXinTests.xctest */,
+				3DFC2F911BB3A46B004A83B0 /* 个人职业信用.app */,
+				3DFC2FAA1BB3A46B004A83B0 /* 个人职业信用.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		3DFC2F931BB3A46B004A83B0 /* ZhongDingZhiXin */ = {
+		3DFC2F931BB3A46B004A83B0 /* 个人职业信用 */ = {
 			isa = PBXGroup;
 			children = (
 				3D6313701BE8A5180093A637 /* framework */,
@@ -961,6 +961,7 @@
 				3DFC2FA31BB3A46B004A83B0 /* LaunchScreen.xib */,
 				3DFC2F941BB3A46B004A83B0 /* Supporting Files */,
 			);
+			name = "个人职业信用";
 			path = ZhongDingZhiXin;
 			sourceTree = "<group>";
 		};
@@ -973,12 +974,13 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		3DFC2FAD1BB3A46B004A83B0 /* ZhongDingZhiXinTests */ = {
+		3DFC2FAD1BB3A46B004A83B0 /* 个人职业信用Tests */ = {
 			isa = PBXGroup;
 			children = (
 				3DFC2FB01BB3A46B004A83B0 /* ZhongDingZhiXinTests.m */,
 				3DFC2FAE1BB3A46B004A83B0 /* Supporting Files */,
 			);
+			name = "个人职业信用Tests";
 			path = ZhongDingZhiXinTests;
 			sourceTree = "<group>";
 		};
@@ -1020,9 +1022,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		3DFC2F901BB3A46B004A83B0 /* ZhongDingZhiXin */ = {
+		3DFC2F901BB3A46B004A83B0 /* 个人职业信用 */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 3DFC2FB41BB3A46B004A83B0 /* Build configuration list for PBXNativeTarget "ZhongDingZhiXin" */;
+			buildConfigurationList = 3DFC2FB41BB3A46B004A83B0 /* Build configuration list for PBXNativeTarget "个人职业信用" */;
 			buildPhases = (
 				219958623F7C484EFD138D48 /* Check Pods Manifest.lock */,
 				3DFC2F8D1BB3A46B004A83B0 /* Sources */,
@@ -1035,14 +1037,14 @@
 			);
 			dependencies = (
 			);
-			name = ZhongDingZhiXin;
+			name = "个人职业信用";
 			productName = ZhongDingZhiXin;
-			productReference = 3DFC2F911BB3A46B004A83B0 /* ZhongDingZhiXin.app */;
+			productReference = 3DFC2F911BB3A46B004A83B0 /* 个人职业信用.app */;
 			productType = "com.apple.product-type.application";
 		};
-		3DFC2FA91BB3A46B004A83B0 /* ZhongDingZhiXinTests */ = {
+		3DFC2FA91BB3A46B004A83B0 /* 个人职业信用Tests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 3DFC2FB71BB3A46B004A83B0 /* Build configuration list for PBXNativeTarget "ZhongDingZhiXinTests" */;
+			buildConfigurationList = 3DFC2FB71BB3A46B004A83B0 /* Build configuration list for PBXNativeTarget "个人职业信用Tests" */;
 			buildPhases = (
 				3DFC2FA61BB3A46B004A83B0 /* Sources */,
 				3DFC2FA71BB3A46B004A83B0 /* Frameworks */,
@@ -1053,9 +1055,9 @@
 			dependencies = (
 				3DFC2FAC1BB3A46B004A83B0 /* PBXTargetDependency */,
 			);
-			name = ZhongDingZhiXinTests;
+			name = "个人职业信用Tests";
 			productName = ZhongDingZhiXinTests;
-			productReference = 3DFC2FAA1BB3A46B004A83B0 /* ZhongDingZhiXinTests.xctest */;
+			productReference = 3DFC2FAA1BB3A46B004A83B0 /* 个人职业信用.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -1065,7 +1067,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0730;
-				ORGANIZATIONNAME = "张豪";
+				ORGANIZATIONNAME = "北京职信鼎程";
 				TargetAttributes = {
 					3DFC2F901BB3A46B004A83B0 = {
 						CreatedOnToolsVersion = 6.4;
@@ -1077,7 +1079,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 3DFC2F8C1BB3A46B004A83B0 /* Build configuration list for PBXProject "ZhongDingZhiXin" */;
+			buildConfigurationList = 3DFC2F8C1BB3A46B004A83B0 /* Build configuration list for PBXProject "个人职业信用" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -1090,8 +1092,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				3DFC2F901BB3A46B004A83B0 /* ZhongDingZhiXin */,
-				3DFC2FA91BB3A46B004A83B0 /* ZhongDingZhiXinTests */,
+				3DFC2F901BB3A46B004A83B0 /* 个人职业信用 */,
+				3DFC2FA91BB3A46B004A83B0 /* 个人职业信用Tests */,
 			);
 		};
 /* End PBXProject section */
@@ -1257,7 +1259,7 @@
 /* Begin PBXTargetDependency section */
 		3DFC2FAC1BB3A46B004A83B0 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 3DFC2F901BB3A46B004A83B0 /* ZhongDingZhiXin */;
+			target = 3DFC2F901BB3A46B004A83B0 /* 个人职业信用 */;
 			targetProxy = 3DFC2FAB1BB3A46B004A83B0 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -1383,7 +1385,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "-ObjC ";
 				PRODUCT_BUNDLE_IDENTIFIER = "zdzx-008.";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "个人职业信用";
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -1407,7 +1409,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "-ObjC ";
 				PRODUCT_BUNDLE_IDENTIFIER = "zdzx-008.";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "个人职业信用";
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -1429,8 +1431,8 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "zdzx-008.";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ZhongDingZhiXin.app/ZhongDingZhiXin";
+				PRODUCT_NAME = "个人职业信用";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/个人职业信用.app/个人职业信用";
 			};
 			name = Debug;
 		};
@@ -1446,15 +1448,15 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "zdzx-008.";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ZhongDingZhiXin.app/ZhongDingZhiXin";
+				PRODUCT_NAME = "个人职业信用";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/个人职业信用.app/个人职业信用";
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		3DFC2F8C1BB3A46B004A83B0 /* Build configuration list for PBXProject "ZhongDingZhiXin" */ = {
+		3DFC2F8C1BB3A46B004A83B0 /* Build configuration list for PBXProject "个人职业信用" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				3DFC2FB21BB3A46B004A83B0 /* Debug */,
@@ -1463,7 +1465,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		3DFC2FB41BB3A46B004A83B0 /* Build configuration list for PBXNativeTarget "ZhongDingZhiXin" */ = {
+		3DFC2FB41BB3A46B004A83B0 /* Build configuration list for PBXNativeTarget "个人职业信用" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				3DFC2FB51BB3A46B004A83B0 /* Debug */,
@@ -1472,7 +1474,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		3DFC2FB71BB3A46B004A83B0 /* Build configuration list for PBXNativeTarget "ZhongDingZhiXinTests" */ = {
+		3DFC2FB71BB3A46B004A83B0 /* Build configuration list for PBXNativeTarget "个人职业信用Tests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				3DFC2FB81BB3A46B004A83B0 /* Debug */,

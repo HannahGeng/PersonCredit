@@ -43,12 +43,7 @@
 -(void)setNavigationBar
 {
     //设置导航栏的颜色
-    self.navigationController.navigationBar.barTintColor=LIGHT_WHITE_COLOR;
-    self.title=@"公司公告";
-    [self.navigationController.navigationBar setTitleTextAttributes:
-     @{NSFontAttributeName:[UIFont systemFontOfSize:20],
-       NSForegroundColorAttributeName:[UIColor whiteColor]}];
-    
+    NavBarType(@"公司公告");
     //为导航栏添加左侧按钮
     leftButton;
 
@@ -65,16 +60,19 @@
 // 添加内容视图
 -(void)addContentView
 {
+    AppShare;
     NSString *str=APP_Font;
     if (!str){
         [[NSUserDefaults standardUserDefaults]setObject:@"1" forKey:@"change_font"];
         [[NSUserDefaults standardUserDefaults]synchronize];
     }
 
-    NSString *tit = [[NSUserDefaults standardUserDefaults] objectForKey:@"keycode"];
-    NSString *strTitle=[AESCrypt decrypt:self.noticeInfo.title password:tit];
-    NSString *strContent=[AESCrypt decrypt:self.noticeInfo.content password:tit];
-    NSString *strMark=[AESCrypt decrypt:self.noticeInfo.mark password:tit];
+    NSString *strTitle=[AESCrypt decrypt:self.noticeInfo.title password:app.loginKeycode];
+    
+    NSLog(@"\n%@",strTitle);
+    
+    NSString *strContent=[AESCrypt decrypt:self.noticeInfo.content password:app.loginKeycode];
+    NSString *strMark=[AESCrypt decrypt:self.noticeInfo.mark password:app.loginKeycode];
     
     _titleLabel=[[UILabel alloc]initWithFrame:CGRectMake(([UIUtils getWindowWidth]-200)/2, 70, 200, 30)];
     _titleLabel.font=[UIFont systemFontOfSize:16];
@@ -94,12 +92,5 @@
     _timeLabel.textAlignment=NSTextAlignmentCenter;
     [self.view addSubview:_timeLabel];
 }
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    
-}
-
-
 
 @end

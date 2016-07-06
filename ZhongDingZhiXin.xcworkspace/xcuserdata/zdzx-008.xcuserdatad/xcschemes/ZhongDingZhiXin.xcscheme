@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "3DFC2F901BB3A46B004A83B0"
-               BuildableName = "ZhongDingZhiXin.app"
-               BlueprintName = "ZhongDingZhiXin"
-               ReferencedContainer = "container:ZhongDingZhiXin.xcodeproj">
+               BuildableName = "&#x4e2a;&#x4eba;&#x804c;&#x4e1a;&#x4fe1;&#x7528;.app"
+               BlueprintName = "&#x4e2a;&#x4eba;&#x804c;&#x4e1a;&#x4fe1;&#x7528;"
+               ReferencedContainer = "container:&#x4e2a;&#x4eba;&#x804c;&#x4e1a;&#x4fe1;&#x7528;.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -29,9 +29,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "3DFC2FA91BB3A46B004A83B0"
-               BuildableName = "ZhongDingZhiXinTests.xctest"
-               BlueprintName = "ZhongDingZhiXinTests"
-               ReferencedContainer = "container:ZhongDingZhiXin.xcodeproj">
+               BuildableName = "&#x4e2a;&#x4eba;&#x804c;&#x4e1a;&#x4fe1;&#x7528;.xctest"
+               BlueprintName = "&#x4e2a;&#x4eba;&#x804c;&#x4e1a;&#x4fe1;&#x7528;Tests"
+               ReferencedContainer = "container:&#x4e2a;&#x4eba;&#x804c;&#x4e1a;&#x4fe1;&#x7528;.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -47,9 +47,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "3DFC2FA91BB3A46B004A83B0"
-               BuildableName = "ZhongDingZhiXinTests.xctest"
-               BlueprintName = "ZhongDingZhiXinTests"
-               ReferencedContainer = "container:ZhongDingZhiXin.xcodeproj">
+               BuildableName = "&#x4e2a;&#x4eba;&#x804c;&#x4e1a;&#x4fe1;&#x7528;.xctest"
+               BlueprintName = "&#x4e2a;&#x4eba;&#x804c;&#x4e1a;&#x4fe1;&#x7528;Tests"
+               ReferencedContainer = "container:&#x4e2a;&#x4eba;&#x804c;&#x4e1a;&#x4fe1;&#x7528;.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -57,9 +57,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "3DFC2F901BB3A46B004A83B0"
-            BuildableName = "ZhongDingZhiXin.app"
-            BlueprintName = "ZhongDingZhiXin"
-            ReferencedContainer = "container:ZhongDingZhiXin.xcodeproj">
+            BuildableName = "&#x4e2a;&#x4eba;&#x804c;&#x4e1a;&#x4fe1;&#x7528;.app"
+            BlueprintName = "&#x4e2a;&#x4eba;&#x804c;&#x4e1a;&#x4fe1;&#x7528;"
+            ReferencedContainer = "container:&#x4e2a;&#x4eba;&#x804c;&#x4e1a;&#x4fe1;&#x7528;.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -80,9 +80,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "3DFC2F901BB3A46B004A83B0"
-            BuildableName = "ZhongDingZhiXin.app"
-            BlueprintName = "ZhongDingZhiXin"
-            ReferencedContainer = "container:ZhongDingZhiXin.xcodeproj">
+            BuildableName = "&#x4e2a;&#x4eba;&#x804c;&#x4e1a;&#x4fe1;&#x7528;.app"
+            BlueprintName = "&#x4e2a;&#x4eba;&#x804c;&#x4e1a;&#x4fe1;&#x7528;"
+            ReferencedContainer = "container:&#x4e2a;&#x4eba;&#x804c;&#x4e1a;&#x4fe1;&#x7528;.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -99,9 +99,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "3DFC2F901BB3A46B004A83B0"
-            BuildableName = "ZhongDingZhiXin.app"
-            BlueprintName = "ZhongDingZhiXin"
-            ReferencedContainer = "container:ZhongDingZhiXin.xcodeproj">
+            BuildableName = "&#x4e2a;&#x4eba;&#x804c;&#x4e1a;&#x4fe1;&#x7528;.app"
+            BlueprintName = "&#x4e2a;&#x4eba;&#x804c;&#x4e1a;&#x4fe1;&#x7528;"
+            ReferencedContainer = "container:&#x4e2a;&#x4eba;&#x804c;&#x4e1a;&#x4fe1;&#x7528;.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
@@ -110,6 +110,7 @@
    </AnalyzeAction>
    <ArchiveAction
       buildConfiguration = "Release"
+      customArchiveName = "&#x4e2a;&#x4eba;&#x804c;&#x4e1a;&#x4fe1;&#x7528;"
       revealArchiveInOrganizer = "YES">
    </ArchiveAction>
 </Scheme>

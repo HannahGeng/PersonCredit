@@ -60,8 +60,8 @@
 }
 
 -(void)setContentView:(EducationInfo *)educationInfo{
-    NSString *tit = [[NSUserDefaults standardUserDefaults] objectForKey:@"keycode"];
-    NSString *strMark=[AESCrypt decrypt:educationInfo.job password:tit];
+    AppShare;
+    NSString *strMark=[AESCrypt decrypt:educationInfo.job password:app.loginKeycode];
     [_titleLable setText:strMark];
     [_timeLable setText:educationInfo.worktime];
 }

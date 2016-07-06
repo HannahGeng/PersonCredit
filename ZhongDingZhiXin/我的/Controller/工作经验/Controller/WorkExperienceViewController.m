@@ -90,8 +90,6 @@
             hudHide;
             
         }
-        NSString *stri=[[NSUserDefaults standardUserDefaults] objectForKey:@"keycode"];
-        NSLog(@"%@",stri);
 
     }];
     

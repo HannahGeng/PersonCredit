@@ -59,10 +59,10 @@
 }
 
 -(void)setContentView:(RewardInfo*)rewardInfo{
-    NSString *tit = [[NSUserDefaults standardUserDefaults] objectForKey:@"keycode"];
-    NSString *strTitle  = [AESCrypt decrypt:rewardInfo.point password:tit];
-    NSString *strMark=[AESCrypt decrypt:rewardInfo.topic password:tit];
-    [_titleLable setText:strTitle];
+    AppShare;
+    NSString *strTitle  = [AESCrypt decrypt:rewardInfo.point password:app.loginKeycode];
+    NSString *strMark=[AESCrypt decrypt:rewardInfo.topic password:app.loginKeycode];
+    [_titleLable setText:app.loginKeycode];
     [_timeLable setText:strMark];
 }
 
