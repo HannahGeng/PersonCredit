@@ -51,7 +51,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     //设置背景颜色
-    [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"backgroundImage.png"]]];
+    [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"backgroundImage"]]];
     //设置导航栏
     [self setNavigationBar];
     //添加内容视图
@@ -163,7 +163,7 @@
             //设置cell不可选择
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
             
-            UIImage *image1=[UIImage imageNamed:@"ziti-5.png"];
+            UIImage *image1=[UIImage imageNamed:@"ziti-5"];
             _btn1 = [UIButton buttonWithType:UIButtonTypeCustom];
             _btn1.frame = CGRectMake([UIUtils getWindowWidth]-100, 10, 30, 30);
             [_btn1 setTitle:@"小" forState:UIControlStateNormal];
@@ -177,7 +177,7 @@
             [cell addSubview:_btn1];
 
             
-            UIImage *image2=[UIImage imageNamed:@"ziti-5.png"];
+            UIImage *image2=[UIImage imageNamed:@"ziti-5"];
             _btn2 = [UIButton buttonWithType:UIButtonTypeCustom];
             _btn2.frame = CGRectMake([UIUtils getWindowWidth]-70, 10, 30, 30);
             [_btn2 setTitle:@"中" forState:UIControlStateNormal];
@@ -190,7 +190,7 @@
             [_btn2 addTarget:self action:@selector(onClick1) forControlEvents:UIControlEventTouchUpInside];
             [cell addSubview:_btn2];
             
-            UIImage *image3=[UIImage imageNamed:@"ziti-5.png"];
+            UIImage *image3=[UIImage imageNamed:@"ziti-5"];
             _btn3 = [UIButton buttonWithType:UIButtonTypeCustom];
             _btn3.frame = CGRectMake([UIUtils getWindowWidth]-40, 10, 30, 30);
             [_btn3 setTitle:@"大" forState:UIControlStateNormal];

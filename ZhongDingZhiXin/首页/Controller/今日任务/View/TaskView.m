@@ -40,12 +40,12 @@
 
 -(void)loadData{
     
-    _tableDataArray=@[@{@"image":@"jrrwdizhi1@2x.png",@"image2":@"jrrwdingw.png"},
-                      @{@"image":@"jrrwdizhi2@2x.png",@"image2":@"jrrwdingw.png"},
-                      @{@"image":@"jrrwdizhi3@2x.png",@"image2":@"jrrwdingw.png"},
-                      @{@"image":@"jrrwdizhi4@2x.png",@"image2":@"jrrwdingw.png"},
-                      @{@"image":@"jrrwdizhi5@2x.png",@"image2":@"jrrwdingw.png"},
-                      @{@"image":@"jrrwdizhi6@2x.png",@"image2":@"jrrwdingw.png"}];
+    _tableDataArray=@[@{@"image":@"jrrwdizhi1@2x",@"image2":@"jrrwdingw"},
+                      @{@"image":@"jrrwdizhi2@2xg",@"image2":@"jrrwdingw"},
+                      @{@"image":@"jrrwdizhi3@2x",@"image2":@"jrrwdingw"},
+                      @{@"image":@"jrrwdizhi4@2x",@"image2":@"jrrwdingw"},
+                      @{@"image":@"jrrwdizhi5@2x",@"image2":@"jrrwdingw"},
+                      @{@"image":@"jrrwdizhi6@2x",@"image2":@"jrrwdingw"}];
 }
 
 -(void)addTableView

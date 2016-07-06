@@ -32,7 +32,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     //设置背景颜色
-    [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"backgroundImage.png"]]];
+    [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"backgroundImage"]]];
     //设置导航栏
     [self setNavigationBar];
     //加载数据
@@ -56,7 +56,7 @@
 -(void)addContentView
 {
     //数组内存放的是图片
-     NSArray *arr=[NSArray arrayWithObjects:@"gongzuoz.png",@"gongzuoz2.png", nil];
+     NSArray *arr=[NSArray arrayWithObjects:@"gongzuoz",@"gongzuoz2", nil];
     self.scrollView.frame=CGRectMake(0, 0, [UIUtils getWindowWidth], [UIUtils getWindowHeight]);
     self.scrollView.contentSize=CGSizeMake([UIUtils getWindowWidth]*arr.count, [UIUtils getWindowHeight]-64);
     self.scrollView.pagingEnabled=YES;
@@ -68,7 +68,7 @@
             UIImageView *AImageView=[[UIImageView alloc]initWithFrame:CGRectMake(([UIUtils getWindowWidth]-150)/2, ([UIUtils getWindowHeight]-350)/2, 150, 150)];
             AImageView.backgroundColor=[UIColor blueColor];
             AImageView.layer.cornerRadius=75;
-            AImageView.image=[UIImage imageNamed:@"touxiang.png"];
+            AImageView.image=[UIImage imageNamed:@"touxiang"];
             [imageView addSubview:AImageView];
             
             UILabel *nameLabel=[[UILabel alloc]initWithFrame:CGRectMake(([UIUtils getWindowWidth]-200)/2, CGRectGetMaxY(AImageView.frame)+10, 60, 20)];

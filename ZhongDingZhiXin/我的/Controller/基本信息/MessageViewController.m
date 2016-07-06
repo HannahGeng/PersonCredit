@@ -43,7 +43,7 @@
     [super viewDidLoad];
     
     //设置背景颜色
-    [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"backgroundImage.png"]]];
+    [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"backgroundImage"]]];
     //设置导航栏
     [self setNavigationBar];
     //添加视图
@@ -131,7 +131,7 @@
     [[HTTPSessionManager sharedManager] POST:JUCHU_URL parameters:Dic result:^(id responseObject, NSError *error) {
         
         NSArray *array = (NSArray *)responseObject[@"result"];
-        if (array.count!=0) {
+        if (array==nil) {
             app.request=responseObject[@"response"];
         }
         [self.messageTableView reloadData];

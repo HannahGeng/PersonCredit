@@ -34,7 +34,7 @@
 -(void)addContentView{
     
     _topImage=[[UIImageView alloc] initWithFrame:CGRectMake(0, 0, [UIUtils getWindowWidth], 10)];
-    _topImage.image=[UIImage imageNamed:@"backgroundImage.png"];
+    _topImage.image=[UIImage imageNamed:@"backgroundImage"];
     [self addSubview:_topImage];
     
     _titleLable=[[UILabel alloc] initWithFrame:CGRectMake(15, CGRectGetMaxY(_topImage.frame)+5, 210, 40)];

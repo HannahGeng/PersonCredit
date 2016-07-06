@@ -16,7 +16,7 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="jrrwdw.png" translatesAutoresizingMaskIntoConstraints="NO" id="es0-5w-pld">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="jrrwdw" translatesAutoresizingMaskIntoConstraints="NO" id="es0-5w-pld">
                     <rect key="frame" x="15" y="350" width="15" height="20"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="15" id="ocA-nL-hJ9"/>
@@ -39,7 +39,7 @@
                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="jrrwrl.png" translatesAutoresizingMaskIntoConstraints="NO" id="Fsu-Yo-LdY">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="jrrwrl" translatesAutoresizingMaskIntoConstraints="NO" id="Fsu-Yo-LdY">
                     <rect key="frame" x="15" y="395" width="15" height="15"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="15" id="Gff-GC-kwf"/>
@@ -64,7 +64,7 @@
                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="jrrwsj.png" translatesAutoresizingMaskIntoConstraints="NO" id="roU-WE-IGb">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="jrrwsj" translatesAutoresizingMaskIntoConstraints="NO" id="roU-WE-IGb">
                     <rect key="frame" x="245" y="395" width="15" height="15"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="15" id="TFx-8H-h1H"/>
@@ -85,7 +85,7 @@
                         <constraint firstAttribute="width" constant="80" id="oHn-Eq-Tyw"/>
                         <constraint firstAttribute="height" constant="80" id="vDi-cS-zjS"/>
                     </constraints>
-                    <state key="normal" image="qiandao.png">
+                    <state key="normal" image="qiandao">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>
@@ -126,9 +126,9 @@
         </view>
     </objects>
     <resources>
-        <image name="jrrwdw.png" width="10" height="13"/>
-        <image name="jrrwrl.png" width="13" height="11"/>
-        <image name="jrrwsj.png" width="12" height="12"/>
-        <image name="qiandao.png" width="74" height="76"/>
+        <image name="jrrwdw" width="10" height="13"/>
+        <image name="jrrwrl" width="13" height="11"/>
+        <image name="jrrwsj" width="12" height="12"/>
+        <image name="qiandao" width="74" height="76"/>
     </resources>
 </document>

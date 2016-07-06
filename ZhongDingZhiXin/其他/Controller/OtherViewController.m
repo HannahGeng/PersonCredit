@@ -31,7 +31,7 @@
     [super viewDidLoad];
     
     //设置背景颜色
-    [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"backgroundImage.png"]]];
+    [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"backgroundImage"]]];
     //设置导航栏
     [self setNavigationBar];
     //加载tableView
@@ -52,10 +52,10 @@
 }
 -(void)loadData{
     
-    _tableDataArray=@[@{@"image":@"guanyuzhongding.png",@"title":@"关于中鼎"},
-                      @{@"image":@"tuijianpy.png",@"title":@"推荐给朋友"},
-                      @{@"image":@"fankui.png",@"title":@"用户反馈"},
-                      @{@"image":@"shezhi.png",@"title":@"设置"}];
+    _tableDataArray=@[@{@"image":@"guanyuzhongding",@"title":@"关于中鼎"},
+                      @{@"image":@"tuijianpy",@"title":@"推荐给朋友"},
+                      @{@"image":@"fankui",@"title":@"用户反馈"},
+                      @{@"image":@"shezhi",@"title":@"设置"}];
 }
 
 //加载tableView
@@ -122,15 +122,15 @@
         [_shareView addSubview:_contentView];
         
         //添加contentView底部视图
-        UIImage *contentFootImage = [UIImage imageNamed:@"ShareMenuFooter_light.png"];
+        UIImage *contentFootImage = [UIImage imageNamed:@"ShareMenuFooter_light"];
         UIImageView *contentFootView = [[UIImageView alloc] initWithFrame:CGRectMake(0, _contentView.frame.size.height-contentFootImage.size.height, _contentView.frame.size.width, contentFootImage.size.height)];
         [contentFootView setUserInteractionEnabled:YES];
         [contentFootView setImage:contentFootImage];
         [_contentView addSubview:contentFootView];
 
         //添加取消按钮
-        UIImage *cancelButtonNormal = [UIImage imageNamed:@"ShareMenuCancel_light_normal.png"];
-        UIImage *cancelButtonHighlight = [UIImage imageNamed:@"ShareMenuCancel_light_selected.png"];
+        UIImage *cancelButtonNormal = [UIImage imageNamed:@"ShareMenuCancel_light_normal"];
+        UIImage *cancelButtonHighlight = [UIImage imageNamed:@"ShareMenuCancel_light_selected"];
         UIButton *cancelButton = [UIButton buttonWithType:UIButtonTypeCustom];
         [cancelButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
         [cancelButton setTitle:@"取消" forState:UIControlStateNormal];
@@ -213,21 +213,21 @@
     //获取相应图片
     UIImage *shareButtonImage;
     if ([platform isEqualToString:SOCIAL_SHARE_PLATFORM_SINAWEIBO]) {
-        shareButtonImage = [UIImage imageNamed:@"SocialSharePlatformIcon_sinaweibo.png"];
+        shareButtonImage = [UIImage imageNamed:@"SocialSharePlatformIcon_sinaweibo"];
     } else if ([platform isEqualToString:SOCIAL_SHARE_PLATFORM_WEIXIN]) {
-        shareButtonImage = [UIImage imageNamed:@"SocialSharePlatformIcon_weixin.png"];
+        shareButtonImage = [UIImage imageNamed:@"SocialSharePlatformIcon_weixin"];
     } else if ([platform isEqualToString:SOCIAL_SHARE_PLATFORM_WEIXIN_TIMELINE]) {
-        shareButtonImage = [UIImage imageNamed:@"SocialSharePlatformIcon_weixinTimeline.png"];
+        shareButtonImage = [UIImage imageNamed:@"SocialSharePlatformIcon_weixinTimeline"];
     } else if ([platform isEqualToString:SOCIAL_SHARE_PLATFORM_QQ]) {
-        shareButtonImage = [UIImage imageNamed:@"SocialSharePlatformIcon_qqfriend.png"];
+        shareButtonImage = [UIImage imageNamed:@"SocialSharePlatformIcon_qqfriend"];
     } else if ([platform isEqualToString:SOCIAL_SHARE_PLATFORM_QQ_ZONE]) {
-        shareButtonImage = [UIImage imageNamed:@"SocialSharePlatformIcon_qzone.png"];
+        shareButtonImage = [UIImage imageNamed:@"SocialSharePlatformIcon_qzone"];
     } else if ([platform isEqualToString:SOCIAL_SHARE_PLATFORM_EMAIL]) {
-        shareButtonImage = [UIImage imageNamed:@"SocialSharePlatformIcon_email.png"];
+        shareButtonImage = [UIImage imageNamed:@"SocialSharePlatformIcon_email"];
     } else if ([platform isEqualToString:SOCIAL_SHARE_PLATFORM_SMS]) {
-        shareButtonImage = [UIImage imageNamed:@"SocialSharePlatformIcon_sms.png"];
+        shareButtonImage = [UIImage imageNamed:@"SocialSharePlatformIcon_sms"];
     } else if ([platform isEqualToString:SOCIAL_SHARE_PLATFORM_COPY]) {
-        shareButtonImage = [UIImage imageNamed:@"SocialSharePlatformIcon_copy.png"];
+        shareButtonImage = [UIImage imageNamed:@"SocialSharePlatformIcon_copy"];
     }
     
     //初始化按钮

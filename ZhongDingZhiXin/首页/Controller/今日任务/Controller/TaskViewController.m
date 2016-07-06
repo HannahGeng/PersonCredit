@@ -114,7 +114,7 @@
     
     UIButton *locationButton=[UIButton buttonWithType:UIButtonTypeCustom];
     locationButton.frame=CGRectMake(5, 5, 20, 20);
-    [locationButton setBackgroundImage:[UIImage imageNamed:@"jrrwxq.png"] forState:UIControlStateNormal];
+    [locationButton setBackgroundImage:[UIImage imageNamed:@"jrrwxq"] forState:UIControlStateNormal];
     [locationButton addTarget:self action:@selector(locationButton) forControlEvents:UIControlEventTouchUpInside];
     [locationView addSubview:locationButton];
     
@@ -130,7 +130,7 @@
     
     UIButton *notarizeButton=[UIButton buttonWithType:UIButtonTypeCustom];
     notarizeButton.frame=CGRectMake(5, 5, 20, 20);
-    [notarizeButton setBackgroundImage:[UIImage imageNamed:@"jrrwqd.png"] forState:UIControlStateNormal];
+    [notarizeButton setBackgroundImage:[UIImage imageNamed:@"jrrwqd"] forState:UIControlStateNormal];
     [notarizeView addSubview:notarizeButton];
     
     UILabel *notarizeLabel=[[UILabel alloc]initWithFrame:CGRectMake(CGRectGetMaxX(notarizeButton.frame)+5, 0, 70, 30)];

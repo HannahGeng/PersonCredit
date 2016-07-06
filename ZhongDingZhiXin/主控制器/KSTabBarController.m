@@ -25,19 +25,19 @@
     
     // 1.初始化子控制器
     MarketViewController *marketVC = [[MarketViewController alloc] init];
-    [self addChildVc:marketVC title:@"职场" image:@"tabbarzzhichang2.png" selectedImage:@"tabbarzzhichang.png"];
+    [self addChildVc:marketVC title:@"职场" image:@"tabbarzzhichang2" selectedImage:@"tabbarzzhichang"];
     
     MyViewController *myVC = [[MyViewController alloc] init];
-    [self addChildVc:myVC title:@"我的" image:@"tabbarwode2.png" selectedImage:@"tabbarwode.png"];
+    [self addChildVc:myVC title:@"我的" image:@"tabbarwode2" selectedImage:@"tabbarwode"];
     
     HomeViewController *homeVC = [[HomeViewController alloc] init];
-    [self addChildVc:homeVC title:@"首页" image:@"tabbarhome2.png" selectedImage:@"tabbarhome.png"];
+    [self addChildVc:homeVC title:@"首页" image:@"tabbarhome2" selectedImage:@"tabbarhome"];
     
     CompanyViewController *companyVC = [[CompanyViewController alloc] init];
-    [self addChildVc:companyVC title:@"在职" image:@"tabbarzaizhi2.png" selectedImage:@"tabbarzaizhi.png"];
+    [self addChildVc:companyVC title:@"在职" image:@"tabbarzaizhi2" selectedImage:@"tabbarzaizhi"];
     
     OtherViewController *otherVC = [[OtherViewController alloc] init];
-    [self addChildVc:otherVC title:@"其他" image:@"tabbarqita2.png" selectedImage:@"tabbarqita.png"];
+    [self addChildVc:otherVC title:@"其他" image:@"tabbarqita2" selectedImage:@"tabbarqita"];
     rootTabBar.selectedIndex = 2;
     
 }

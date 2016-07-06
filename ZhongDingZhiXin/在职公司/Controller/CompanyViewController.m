@@ -26,7 +26,7 @@
     [super viewDidLoad];
     
     //设置背景颜色
-    [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"backgroundImage.png"]]];
+    [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"backgroundImage"]]];
     //设置导航栏
     [self setNavigationBar];
     //加载tableView
@@ -47,9 +47,9 @@
 }
 -(void)loadData{
     
-    _tableDataArray=@[@{@"image":@"zzgg.png",@"title":@"在职公司公告"},
-                      @{@"image":@"wdcf.png",@"title":@"我的惩罚"},
-                      @{@"image":@"wdjl.png",@"title":@"我的奖励"}
+    _tableDataArray=@[@{@"image":@"zzgg",@"title":@"在职公司公告"},
+                      @{@"image":@"wdcf",@"title":@"我的惩罚"},
+                      @{@"image":@"wdjl",@"title":@"我的奖励"}
                      ];
 }
 

@@ -11,6 +11,7 @@
 @interface EducationExperienceViewController ()<UITableViewDataSource,UITableViewDelegate>
 {
     NSMutableArray *_educationInfoArray;
+    NSArray * array;
     MBProgressHUD * mbHud;//提示
 }
 @property (weak, nonatomic) IBOutlet UITableView *educationTableView;
@@ -28,7 +29,7 @@
     [super viewDidLoad];
     
     //设置背景颜色
-    [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"backgroundImage.png"]]];
+    [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"backgroundImage"]]];
     //设置导航栏
     [self setNavigationBar];
     
@@ -40,11 +41,7 @@
 -(void)setNavigationBar
 {
     //设置导航栏的颜色
-    self.navigationController.navigationBar.barTintColor=LIGHT_WHITE_COLOR;
-    self.title=@"教育经历";
-    [self.navigationController.navigationBar setTitleTextAttributes:
-     @{NSFontAttributeName:[UIFont systemFontOfSize:20],
-       NSForegroundColorAttributeName:[UIColor whiteColor]}];
+    NavBarType(@"教育经历");
     
     //为导航栏添加左侧按钮
     leftButton;
@@ -69,27 +66,25 @@
     }
 
     //初始化请求（同时也创建了一个线程）
-
     [[HTTPSessionManager sharedManager] POST:GZJL_URL parameters:Dic result:^(id responseObject, NSError *error) {
         
-        NSArray *array = (NSArray *)responseObject[@"result"];
-        
-        if (array.count!=0) {
+        array = responseObject[@"result"];
+
+        if (array.count != 0) {
+            
             app.request=responseObject[@"response"];
             for (NSDictionary *dictionary in array) {
                 EducationInfo *educationInfo = [[EducationInfo alloc] initWithDictionary:dictionary];
                 [_educationInfoArray addObject:educationInfo];
             }
         }
-            self.educationTableView.dataSource=self;
-            self.educationTableView.delegate=self;
-            self.educationTableView.backgroundColor=[UIColor clearColor];
-            self.educationTableView.scrollEnabled =YES; //设置tableview滚动
-            self.educationTableView.tableFooterView=[[UIView alloc]init];//影藏多余的分割线
-            
-            [self.educationTableView reloadData];
         
-            hudHide;
+        self.educationTableView.scrollEnabled =YES; //设置tableview滚动
+        self.educationTableView.tableFooterView=[[UIView alloc]init];//影藏多余的分割线
+        
+        [self.educationTableView reloadData];
+    
+        hudHide;
 
     }];
     

@@ -71,20 +71,20 @@
                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                     <textInputTraits key="textInputTraits"/>
                 </textField>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="yonghuming.png" translatesAutoresizingMaskIntoConstraints="NO" id="6MO-VB-IeP">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="yonghuming" translatesAutoresizingMaskIntoConstraints="NO" id="6MO-VB-IeP">
                     <rect key="frame" x="27" y="150" width="20" height="20"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="20" id="7Fq-ZY-lsP"/>
                         <constraint firstAttribute="width" constant="20" id="Wjq-hi-FDT"/>
                     </constraints>
                 </imageView>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mima.png" translatesAutoresizingMaskIntoConstraints="NO" id="vEk-2x-nq1">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mima" translatesAutoresizingMaskIntoConstraints="NO" id="vEk-2x-nq1">
                     <rect key="frame" x="27" y="200" width="20" height="20"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="20" id="VZe-h6-0cN"/>
                     </constraints>
                 </imageView>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo.png" translatesAutoresizingMaskIntoConstraints="NO" id="PmM-w4-aim">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="PmM-w4-aim">
                     <rect key="frame" x="110" y="20" width="100" height="100"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="100" id="FDK-P3-pGW"/>
@@ -157,8 +157,8 @@
         </view>
     </objects>
     <resources>
-        <image name="logo.png" width="82" height="82"/>
-        <image name="mima.png" width="16" height="20"/>
-        <image name="yonghuming.png" width="18" height="19"/>
+        <image name="logo" width="82" height="82"/>
+        <image name="mima" width="16" height="20"/>
+        <image name="yonghuming" width="18" height="19"/>
     </resources>
 </document>

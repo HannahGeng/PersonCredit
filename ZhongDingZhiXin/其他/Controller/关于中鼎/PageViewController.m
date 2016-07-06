@@ -28,7 +28,7 @@
     [super viewDidLoad];
     
     //设置背景颜色
-    [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"backgroundImage.png"]]];
+    [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"backgroundImage"]]];
     //设置导航栏
     [self setNavigationBar];
     //添加视图
@@ -57,7 +57,7 @@
 -(void)addContentView
 {
     //数组内存放的是图片
-    NSArray *arr=[NSArray arrayWithObjects:@"yindao-1.1.png",@"yindao-1.2.png", nil];
+    NSArray *arr=[NSArray arrayWithObjects:@"yindao-1.1",@"yindao-1.2", nil];
     self.scrollView.frame=CGRectMake(0, 0, [UIUtils getWindowWidth], [UIUtils getWindowHeight]);
     self.scrollView.contentSize=CGSizeMake([UIUtils getWindowWidth]*arr.count, [UIUtils getWindowHeight]-64);
     self.scrollView.pagingEnabled=YES;

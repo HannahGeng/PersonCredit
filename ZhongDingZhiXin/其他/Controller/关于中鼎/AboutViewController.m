@@ -41,7 +41,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     //设置背景颜色
-    [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"backgroundImage.png"]]];
+    [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"backgroundImage"]]];
     //设置导航栏
     [self setNavigationBar];
     //添加视图
@@ -80,19 +80,19 @@
     
     _imageView1=[[UIImageView alloc]initWithFrame:CGRectMake(10, 20, 40, 40)];
     _imageView1.layer.cornerRadius=5;//设置圆角
-    _imageView1.image=[UIImage imageNamed:@"logo.png"];
+    _imageView1.image=[UIImage imageNamed:@"logo"];
     [_tableView addSubview:_imageView1];
     
     _imageView2=[[UIImageView alloc]initWithFrame:CGRectMake(20, 95, 20, 20)];
-    _imageView2.image=[UIImage imageNamed:@"wangzhan.png"];
+    _imageView2.image=[UIImage imageNamed:@"wangzhan"];
     [_tableView addSubview:_imageView2];
     
     _imageView3=[[UIImageView alloc]initWithFrame:CGRectMake(20, 145, 20, 20)];
-    _imageView3.image=[UIImage imageNamed:@"dianhua.png"];
+    _imageView3.image=[UIImage imageNamed:@"dianhua"];
     [_tableView addSubview:_imageView3];
     
     _imageView4=[[UIImageView alloc]initWithFrame:CGRectMake(20, 205, 20, 20)];
-    _imageView4.image=[UIImage imageNamed:@"huanyingye.png"];
+    _imageView4.image=[UIImage imageNamed:@"huanyingye"];
     [_tableView addSubview:_imageView4];
     
     _fontLabel1=[[UILabel alloc]initWithFrame:CGRectMake(60, 25, 200, 30)];

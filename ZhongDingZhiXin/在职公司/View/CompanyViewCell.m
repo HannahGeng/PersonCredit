@@ -45,7 +45,7 @@
     }
 
     _topImage=[[UIImageView alloc] initWithFrame:CGRectMake(0, 0, [UIUtils getWindowWidth], 10)];
-    _topImage.image=[UIImage imageNamed:@"backgroundImage.png"];
+    _topImage.image=[UIImage imageNamed:@"backgroundImage"];
     [self addSubview:_topImage];
     
     _pointImage =[[UIImageView alloc] initWithFrame:CGRectMake(15, CGRectGetMaxY(_topImage.frame)+15, 40, 40)];

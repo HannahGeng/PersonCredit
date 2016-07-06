@@ -11,7 +11,7 @@
 @interface WorkExperienceViewController ()<UITableViewDataSource,UITableViewDelegate>
 {
     NSMutableArray *_workInfoArray;
-    MBProgressHUD *_HUD;//提示
+    MBProgressHUD *mbHud;//提示
 }
 
 @property (weak, nonatomic) IBOutlet UITableView *workTableView;
@@ -31,7 +31,7 @@
     [super viewDidLoad];
     
     //设置背景颜色
-    [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"backgroundImage.png"]]];
+    [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"backgroundImage"]]];
     //设置导航栏
     [self setNavigationBar];
     
@@ -62,7 +62,7 @@
 {
     AppShare;
     //显示提示
-    [self show:MBProgressHUDModeIndeterminate message:@"努力加载中......" customView:self.view];
+    mbHUDinit;
     
     //初始化_noticeInfoArray
     if (!_workInfoArray) {
@@ -74,7 +74,7 @@
         
         NSArray *array = (NSArray *)responseObject[@"result"];
         if (array.count!=0) {
-            app.noLoginkeycode=responseObject[@"response"];
+            app.request=responseObject[@"response"];
             for (NSDictionary *dictionary in array) {
                 WorkInfo *workInfo = [[WorkInfo alloc] initWithDictionary:dictionary];
                 [_workInfoArray addObject:workInfo];
@@ -87,7 +87,7 @@
             
             [self.workTableView reloadData];
             //隐藏HUD
-            [self hideHUDafterDelay:0.3f];
+            hudHide;
             
         }
         NSString *stri=[[NSUserDefaults standardUserDefaults] objectForKey:@"keycode"];
@@ -95,29 +95,6 @@
 
     }];
     
-}
-#pragma mark HUD
-//展示HUD
--(void) show:(MBProgressHUDMode )_mode message:(NSString *)_message customView:(id)_customView
-{
-    _HUD = [[MBProgressHUD alloc] initWithView:_customView];
-    [_customView addSubview:_HUD];
-    _HUD.mode=_mode;
-    _HUD.customView = _customView;
-    _HUD.animationType = MBProgressHUDAnimationZoom;
-    _HUD.labelText = _message;
-    [_HUD show:YES];
-}
-
-//隐藏HUD
-- (void)hideHUDafterDelay:(CGFloat)delay
-{
-    [_HUD hide:YES afterDelay:delay];
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 #pragma mark UITableViewDataSource
 

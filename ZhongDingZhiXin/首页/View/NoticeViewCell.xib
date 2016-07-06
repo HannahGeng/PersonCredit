@@ -34,7 +34,7 @@
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gonggao.png" translatesAutoresizingMaskIntoConstraints="NO" id="YQc-Lk-p1P">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gonggao" translatesAutoresizingMaskIntoConstraints="NO" id="YQc-Lk-p1P">
                         <rect key="frame" x="20" y="13" width="40" height="40"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="40" id="IYG-ax-Ljr"/>
@@ -62,6 +62,6 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="gonggao.png" width="34" height="34"/>
+        <image name="gonggao" width="34" height="34"/>
     </resources>
 </document>

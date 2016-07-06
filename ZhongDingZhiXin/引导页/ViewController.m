@@ -34,7 +34,7 @@
 }
 //假引导页面
 -(void)makeLaunchView{
-    NSArray *arr=[NSArray arrayWithObjects:@"yindao-1.1.png",@"yindao-1.2.png", nil];//数组内存放的是我要显示的假引导页面图片
+    NSArray *arr=[NSArray arrayWithObjects:@"yindao-1.1",@"yindao-1.2", nil];//数组内存放的是我要显示的假引导页面图片
     //通过scrollView 将这些图片添加在上面，从而达到滚动这些图片
     scrollview=[[UIScrollView alloc] initWithFrame:CGRectMake(0, -20, [UIUtils getWindowWidth], [UIUtils getWindowHeight]+20)];
     scrollview.contentSize=CGSizeMake([UIUtils getWindowWidth]*arr.count , [UIUtils getWindowHeight]);

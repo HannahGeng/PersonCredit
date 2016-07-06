@@ -16,7 +16,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="149"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="touxiang.png" translatesAutoresizingMaskIntoConstraints="NO" id="Mdc-aj-mmx">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="touxiang" translatesAutoresizingMaskIntoConstraints="NO" id="Mdc-aj-mmx">
                         <rect key="frame" x="120" y="15" width="80" height="80"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="80" id="If9-He-fXO"/>
@@ -37,7 +37,7 @@
                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dingwei.png" translatesAutoresizingMaskIntoConstraints="NO" id="uDs-e4-jzG">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dingwei" translatesAutoresizingMaskIntoConstraints="NO" id="uDs-e4-jzG">
                         <rect key="frame" x="79" y="125" width="15" height="20"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="20" id="dSd-ZM-4gv"/>
@@ -85,7 +85,7 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="dingwei.png" width="11" height="14"/>
-        <image name="touxiang.png" width="94" height="94"/>
+        <image name="dingwei" width="11" height="14"/>
+        <image name="touxiang" width="94" height="94"/>
     </resources>
 </document>

@@ -17,7 +17,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="79"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="renwu.png" translatesAutoresizingMaskIntoConstraints="NO" id="hUn-zt-G2X">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="renwu" translatesAutoresizingMaskIntoConstraints="NO" id="hUn-zt-G2X">
                         <rect key="frame" x="10" y="15" width="50" height="50"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="50" id="0cZ-Zb-Wiu"/>
@@ -28,7 +28,7 @@
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                     </imageView>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gongzuozheng.png" translatesAutoresizingMaskIntoConstraints="NO" id="mz8-Gm-cAT">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gongzuozheng" translatesAutoresizingMaskIntoConstraints="NO" id="mz8-Gm-cAT">
                         <rect key="frame" x="170" y="15" width="50" height="50"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="50" id="LaB-WI-IwS"/>
@@ -109,7 +109,7 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="gongzuozheng.png" width="34" height="34"/>
-        <image name="renwu.png" width="34" height="34"/>
+        <image name="gongzuozheng" width="34" height="34"/>
+        <image name="renwu" width="34" height="34"/>
     </resources>
 </document>
