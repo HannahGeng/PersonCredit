@@ -1,0 +1,226 @@
+//
+//  MessageViewController.m
+//  ZhongDingZhiXin
+//
+//  Created by zdzx-008 on 15/10/26.
+//  Copyright (c) 2015年 张豪. All rights reserved.
+//
+
+#import "MessageViewController.h"
+
+@interface MessageViewController ()<UITableViewDataSource,UITableViewDelegate>
+{
+    UIImageView *_imageView;
+    UILabel *_fontLabel1;
+    UILabel *_fontLabel2;
+    UILabel *_fontLabel3;
+    UILabel *_fontLabel4;
+    UILabel *_fontLabel5;
+    UILabel *_fontLabel6;
+    NSMutableArray *_messageArray;
+    NSDictionary *_dic;
+    UITableViewCell *_cell;
+
+}
+@property (weak, nonatomic) IBOutlet UITableView *messageTableView;
+@end
+
+@implementation MessageViewController
+
+//隐藏TabBar
+-(void)viewWillAppear:(BOOL)animated{
+    
+    NSString *string=APP_Font;
+    _fontLabel1.font=[UIFont systemFontOfSize:15*[string floatValue]];
+    _fontLabel2.font=[UIFont systemFontOfSize:15*[string floatValue]];
+    _fontLabel3.font=[UIFont systemFontOfSize:15*[string floatValue]];
+    _fontLabel4.font=[UIFont systemFontOfSize:15*[string floatValue]];
+    _fontLabel5.font=[UIFont systemFontOfSize:15*[string floatValue]];
+    _fontLabel6.font=[UIFont systemFontOfSize:15*[string floatValue]];
+    _cell.detailTextLabel.font=[UIFont systemFontOfSize:15*[string floatValue]];
+    self.tabBarController.tabBar.hidden=YES;
+    
+}
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    
+    //设置背景颜色
+    [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"backgroundImage.png"]]];
+    //设置导航栏
+    [self setNavigationBar];
+    //添加视图
+    [self addContentView];
+    
+    //加载数据
+    [self loadData];
+}
+//设置导航栏
+-(void)setNavigationBar
+{
+    self.title=@"个人信息";
+    [self.navigationController.navigationBar setTitleTextAttributes:
+     @{NSFontAttributeName:[UIFont systemFontOfSize:20],
+       NSForegroundColorAttributeName:[UIColor whiteColor]}];
+    
+    //为导航栏添加左侧按钮
+    UIButton* leftBtn= [UIButton buttonWithType:UIButtonTypeCustom];
+    leftBtn.frame = CGRectMake(0, 0, 20, 20);
+    [leftBtn setImage:[UIImage imageNamed:@"fanhui-5.png"] forState:UIControlStateNormal];
+    [leftBtn addTarget:self action:@selector(cancelButton) forControlEvents:UIControlEventTouchUpInside];
+    UIBarButtonItem *leftButtonItem = [[UIBarButtonItem alloc] initWithCustomView:leftBtn];
+    self.navigationItem.leftBarButtonItem = leftButtonItem;
+}
+//添加内容视图
+-(void)addContentView
+{
+    
+    NSString *str=APP_Font;
+    if (!str){
+        [[NSUserDefaults standardUserDefaults]setObject:@"1" forKey:@"change_font"];
+        [[NSUserDefaults standardUserDefaults]synchronize];
+    }
+
+    self.messageTableView.dataSource=self;
+    self.messageTableView.delegate=self;
+    self.messageTableView.backgroundColor=[UIColor clearColor];
+    self.messageTableView.scrollEnabled =NO; //设置tableview 不能滚动
+    self.messageTableView.tableFooterView=[[UIView alloc]init];//影藏多余的分割线
+    
+    _imageView=[[UIImageView alloc]initWithFrame:CGRectMake(15, 20, 50, 50)];
+    _imageView.backgroundColor=[UIColor lightGrayColor];
+    _imageView.layer.cornerRadius=5;
+    [self.messageTableView addSubview:_imageView];
+    
+    _fontLabel1=[[UILabel alloc]initWithFrame:CGRectMake(15, 90, 50, 30)];
+    _fontLabel1.text=@"昵称";
+    _fontLabel1.font=[UIFont systemFontOfSize:15];
+    [self.messageTableView addSubview:_fontLabel1];
+    
+    _fontLabel2=[[UILabel alloc]initWithFrame:CGRectMake(15, 140, 70, 30)];
+    _fontLabel2.text=@"手机号";
+    _fontLabel2.font=[UIFont systemFontOfSize:15];
+    [self.messageTableView addSubview:_fontLabel2];
+    
+    _fontLabel3=[[UILabel alloc]initWithFrame:CGRectMake(15, 190, 130, 30)];
+    _fontLabel3.text=@"第三方账号绑定";
+    _fontLabel3.font=[UIFont systemFontOfSize:15];
+    [self.messageTableView addSubview:_fontLabel3];
+    
+    _fontLabel4=[[UILabel alloc]initWithFrame:CGRectMake(15, 240, 50, 30)];
+    _fontLabel4.text=@"密码";
+    _fontLabel4.font=[UIFont systemFontOfSize:15];
+    [self.messageTableView addSubview:_fontLabel4];
+    
+    _fontLabel5=[[UILabel alloc]initWithFrame:CGRectMake(15, 300, 50, 30)];
+    _fontLabel5.text=@"性别";
+    _fontLabel5.font=[UIFont systemFontOfSize:15];
+    [self.messageTableView addSubview:_fontLabel5];
+    
+    _fontLabel6=[[UILabel alloc]initWithFrame:CGRectMake(15, 350, 50, 30)];
+    _fontLabel6.text=@"地区";
+    _fontLabel6.font=[UIFont systemFontOfSize:15];
+    [self.messageTableView addSubview:_fontLabel6];
+}
+-(void)cancelButton
+{
+    [self.navigationController popViewControllerAnimated:YES];
+}
+//加载数据
+- (void)loadData
+{
+    //初始化_noticeInfoArray
+    if (!_messageArray) {
+        _messageArray = [[NSMutableArray alloc] init];
+    }
+    AppDelegate *app = [AppDelegate sharedAppDelegate];
+    NSString *str=app.keycode;
+    NSString *stri=[[NSUserDefaults standardUserDefaults] objectForKey:@"uid"];
+    _dic=[[NSDictionary alloc]initWithObjectsAndKeys:stri,@"uid",str,@"request",nil];
+    
+    //初始化请求（同时也创建了一个线程）
+    [[HTTPSessionManager sharedManager] POST:JUCHU_URL parameters:_dic result:^(id responseObject, NSError *error) {
+        
+        
+        NSArray *array = (NSArray *)responseObject[@"result"];
+        if (array.count!=0) {
+            AppDelegate *app = [AppDelegate sharedAppDelegate];
+            app.keycode=responseObject[@"response"];
+        }
+        [self.messageTableView reloadData];
+        NSString *stri=[[NSUserDefaults standardUserDefaults] objectForKey:@"keycode"];
+        NSLog(@"%@",stri);
+
+    }];
+    
+}
+
+#pragma mark UITableViewDataSource
+-(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return 2;
+}
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    if (section==0) {
+        return 5;
+    }else{
+        return 2;
+    }
+}
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    static NSString *cellIdentifier=@"cellIdentifier";
+    _cell=[tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+    if (!_cell) {
+        _cell=[[UITableViewCell alloc]initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:cellIdentifier];
+        if (indexPath.section==0) {
+            if (indexPath.row==0) {
+                _cell.detailTextLabel.font=[UIFont systemFontOfSize:15];
+                _cell.detailTextLabel.text=@"设置头像";
+            }else if (indexPath.row==1||indexPath.row==4){
+                _cell.detailTextLabel.font=[UIFont systemFontOfSize:15];
+                _cell.detailTextLabel.text=@"修改";
+            }else if (indexPath.row==2){
+                _cell.detailTextLabel.font=[UIFont systemFontOfSize:15];
+                _cell.detailTextLabel.text=@"186****9516";
+                
+            }else{
+                _cell.detailTextLabel.font=[UIFont systemFontOfSize:15];
+                _cell.detailTextLabel.text=@"立即绑定";
+            }
+        }
+        if (indexPath.section==1) {
+            if (indexPath.row==0) {
+                _cell.detailTextLabel.font=[UIFont systemFontOfSize:15];
+                _cell.detailTextLabel.text=@"设置";
+            }else{
+                _cell.detailTextLabel.font=[UIFont systemFontOfSize:15];
+                _cell.detailTextLabel.text=@"深圳";
+            }
+        }
+    }
+    _cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator; //显示最右边的箭头
+    _cell.detailTextLabel.textColor=PASS_COLOR;
+    _cell.detailTextLabel.font=[UIFont systemFontOfSize:13];
+    return _cell;
+}
+
+#pragma mark UITableViewDelegate
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (indexPath.section==0) {
+        if (indexPath.row==0) {
+            return 70;
+        }else{
+            return 50;
+        }
+    }else{
+        return 50;
+    }
+}
+-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    return 10;
+}
+
+@end

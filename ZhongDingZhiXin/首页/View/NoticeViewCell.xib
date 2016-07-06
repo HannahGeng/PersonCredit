@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="NoticeViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="70"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="69"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="公司公告" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r8E-Ih-pUB">
+                        <rect key="frame" x="70" y="15" width="70" height="40"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="70" id="44J-Ke-A9z"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BOU-ab-rzh">
+                        <rect key="frame" x="0.0" y="0.0" width="2" height="70"/>
+                        <color key="backgroundColor" red="0.11747414790000001" green="0.32566657859999998" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="2" id="oS4-Ls-G6Y"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gonggao.png" translatesAutoresizingMaskIntoConstraints="NO" id="YQc-Lk-p1P">
+                        <rect key="frame" x="20" y="13" width="40" height="40"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="40" id="IYG-ax-Ljr"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                <integer key="value" value="15"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </imageView>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottomMargin" secondItem="YQc-Lk-p1P" secondAttribute="bottom" constant="8" id="2ba-Ho-22s"/>
+                    <constraint firstItem="r8E-Ih-pUB" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="7" id="Ges-WM-xj5"/>
+                    <constraint firstItem="YQc-Lk-p1P" firstAttribute="leading" secondItem="BOU-ab-rzh" secondAttribute="trailing" constant="18" id="Niw-xj-T1C"/>
+                    <constraint firstItem="BOU-ab-rzh" firstAttribute="centerY" secondItem="r8E-Ih-pUB" secondAttribute="centerY" id="Pda-94-iNh"/>
+                    <constraint firstItem="BOU-ab-rzh" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="WU3-Dn-q6t"/>
+                    <constraint firstItem="YQc-Lk-p1P" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="5" id="Zbo-XJ-WMr"/>
+                    <constraint firstItem="BOU-ab-rzh" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="ere-2T-iXD"/>
+                    <constraint firstItem="r8E-Ih-pUB" firstAttribute="leading" secondItem="YQc-Lk-p1P" secondAttribute="trailing" constant="10" id="ig7-Ox-f2J"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="r8E-Ih-pUB" secondAttribute="bottom" constant="6" id="ynG-0D-eAU"/>
+                </constraints>
+            </tableViewCellContentView>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="gonggao.png" width="34" height="34"/>
+    </resources>
+</document>

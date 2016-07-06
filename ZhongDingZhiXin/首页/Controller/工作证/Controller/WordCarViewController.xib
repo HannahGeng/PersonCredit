@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="WordCarViewController">
+            <connections>
+                <outlet property="scrollView" destination="CDk-c7-K3E" id="qOx-Th-CyY"/>
+                <outlet property="view" destination="iN0-l3-epB" id="aLh-7Z-fqQ"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <scrollView autoresizesSubviews="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CDk-c7-K3E">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                </scrollView>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="CDk-c7-K3E" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="4KI-7x-Evv"/>
+                <constraint firstAttribute="bottom" secondItem="CDk-c7-K3E" secondAttribute="bottom" id="Oax-mi-SAa"/>
+                <constraint firstAttribute="trailing" secondItem="CDk-c7-K3E" secondAttribute="trailing" id="YIV-gA-oPl"/>
+                <constraint firstItem="CDk-c7-K3E" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="es9-U9-kYK"/>
+            </constraints>
+            <point key="canvasLocation" x="218" y="311"/>
+        </view>
+    </objects>
+</document>

@@ -1,0 +1,185 @@
+//
+//  PrefixHeader.pch
+//  ZhongDingZhiXin
+//
+//  Created by zdzx-008 on 15/11/3.
+//  Copyright (c) 2015年 张豪. All rights reserved.
+//
+
+#ifndef ZhongDingZhiXin_PrefixHeader_pch
+#define ZhongDingZhiXin_PrefixHeader_pch
+
+//头文件
+#import "AFNetworking.h"
+#import "MBProgressHUD.h"
+#import "AppDelegate.h"
+#import "HTTPSessionManager.h"
+#import "LoginViewController.h"
+#import "UIUtils.h"
+#import <CoreLocation/CoreLocation.h>
+#import <BaiduMapAPI_Map/BMKMapComponent.h>
+#import <BaiduMapAPI_Base/BMKBaseComponent.h>
+#import <BaiduMapAPI_Map/BMKMapComponent.h>
+#import <BaiduMapAPI_Search/BMKSearchComponent.h>
+#import <BaiduMapAPI_Location/BMKLocationComponent.h>
+#import <MapKit/MapKit.h>
+#import "ViewController.h"
+#import "KSTabBarController.h"
+#import "AESCrypt.h"
+#import "HomeViewController.h"
+#import "MarketViewController.h"
+#import "MyViewController.h"
+#import "CompanyViewController.h"
+#import "OtherViewController.h"
+#import "HomeViewController.h"
+#import "NoticeViewController.h"
+#import "TaskViewController.h"
+#import "WordCarViewController.h"
+#import "TitleViewCell.h"
+#import "NoticeViewCell.h"
+#import "ListViewCell.h"
+#import "ButtonViewCell.h"
+#import "NoticeViewController.h"
+#import "AfficheViewController.h"
+#import "TaskViewController.h"
+#import <Foundation/Foundation.h>
+#import "CustomAnnotation.h"
+#import "TaskView.h"
+#import "TaskViewCell.h"
+#import "HomeViewController.h"
+#import "TableNoticeViewCell.h"
+#import "NoticeInfo.h"
+#import <UIKit/UIKit.h>
+#import "WordCarViewController.h"
+#import "WordCarInfo.h"
+#import "WordCarViewCell.h"
+#import "MarketViewController.h"
+#import "MarketViewCell.h"
+#import "MyViewController.h"
+#import "MyViewCell.h"
+#import "MessageViewController.h"
+#import "WorkExperienceViewController.h"
+#import "EducationExperienceViewController.h"
+#import "WorkViewCell.h"
+#import "WorkInfo.h"
+#import "EducationViewCell.h"
+#import "EducationInfo.h"
+#import "CompanyViewCell.h"
+#import "RewardViewController.h"
+#import "PunishmentViewController.h"
+#import "PunishmentViewCell.h"
+#import "PunishmentInfo.h"
+#import "RewardViewCell.h"
+#import "RewardInfo.h"
+#import "OtherViewController.h"
+#import "OtherViewCell.h"
+#import "AboutViewController.h"
+#import "FeedbackViewController.h"
+#import "SetViewController.h"
+#import "PageViewController.h"
+
+#define LIGHT_WHITE_COLOR [UIColor colorWithRed:22.0/255.0f green:106.0/255.0f blue:220.0/255.0f alpha:1.0f]
+#define BACKER_COLOR [UIColor colorWithRed:210.0/255.0f green:210.0/255.0f blue:210.0/255.0f alpha:1.0f]
+#define PASS_COLOR [UIColor colorWithRed:92.0/255.0f green:163.0/255.0f blue:225.0/255.0f alpha:1.0f]
+#define LINE_COLOR [UIColor colorWithRed:204.0/255.0f green:204.0/255.0f blue:204.0/255.0f alpha:1.0f]
+#define SHARE_CONTENT_WHITE_COLOR [UIColor colorWithRed:239.0/255.0f green:239.0/255.0f blue:239.0/255.0f alpha:1.0f]
+#define LIGHT_OPAQUE_BLACK_COLOR [UIColor colorWithRed:1.0/255.0 green:1.0/255.0 blue:1.0/255.0 alpha:0.4f]
+
+//结构体
+typedef enum _UpdateType {
+    UPDATETYPE_FOR_ADD_MORE_OBJECTS,
+    UPDATETYPE_FOR_ADD_ONE_OBJECT,
+    UPDATETYPE_FOR_EDIT_ONE_OBJECT,
+    UPDATETYPE_FOR_DELETE_ONE_OBJECT,
+    UPDATETYPE_FOR_DELETE_ALL_OBJECTS
+} UpdateType;
+
+//新浪微博
+#define SOCIAL_SHARE_PLATFORM_SINAWEIBO @"sinaweibo"
+//微信好友
+#define SOCIAL_SHARE_PLATFORM_WEIXIN @"weixinfriend"
+//微信朋友圈
+#define SOCIAL_SHARE_PLATFORM_WEIXIN_TIMELINE @"weixintimeline"
+//QQ
+#define SOCIAL_SHARE_PLATFORM_QQ @"qq"
+//QQZone
+#define SOCIAL_SHARE_PLATFORM_QQ_ZONE @"qqzone"
+//邮件
+#define SOCIAL_SHARE_PLATFORM_EMAIL @"email"
+//短信
+#define SOCIAL_SHARE_PLATFORM_SMS @"sms"
+//复制链接
+#define SOCIAL_SHARE_PLATFORM_COPY @"copy"
+
+#define APP_Font [[NSUserDefaults standardUserDefaults] objectForKey:@"change_font"];
+
+//1、登录前获取加密登录参数的密钥(称为key1)
+#define CANSHU_URL @"http://www.newqc.cn/webapi/cryptkeywithoutuid/"
+
+//3、提交登录
+#define DENGLU_URL @"http://www.newqc.cn/webapi/login/"
+
+//4、个人信息-基本信息
+#define JUCHU_URL @"http://www.newqc.cn/webapi/mine/usrinfo"
+
+//5、个人信息-工作经历
+#define GZJL_URL @"http://www.newqc.cn/webapi/mine/workexperience"
+
+//6、个人信息-教育经历
+#define JYJL_URL @"http://www.newqc.cn/webapi/mine/education"
+
+//7、在职公司-公告通知
+#define GGTZ_URL @"http://www.newqc.cn/webapi/company/notice"
+
+//8、在职公司-惩罚信息
+#define CHXX_URL @"http://www.newqc.cn/webapi/company/punish"
+
+//9、在职公司-奖励信息
+#define JLXX_URL @"http://www.newqc.cn/webapi/company/reward"
+
+//10、首页-签到/打卡
+#define JIANDAO_URL @"http://www.newqc.cn/webapi/company/task/"
+
+//11、首页-工作证
+#define ZUOZHENG_URL @"http://www.newqc.cn/webapi/company/empcard/"
+
+//12、其他-反馈
+#define FANKUI_URL @"http://www.newqc.cn/webapi/other/tickling/"
+
+//自定义宏
+#define NavBarType(navName) \
+self.navigationController.navigationBar.barTintColor=LIGHT_WHITE_COLOR; \
+self.title= navName; \
+[self.navigationController.navigationBar setTitleTextAttributes: \
+ @{NSFontAttributeName:[UIFont systemFontOfSize:20], \
+   NSForegroundColorAttributeName:[UIColor whiteColor]}];
+
+//接上
+#define navName [NSString stringWithFormat:@"%@",##navName];
+
+//自定义hud
+#define MBhud(alertname) \
+mbHud = [MBProgressHUD showHUDAddedTo:self.view animated:YES]; \
+[mbHud setMode:MBProgressHUDModeText]; \
+mbHud.labelText = alertname; \
+[mbHud setYOffset:0]; \
+[mbHud hide:YES afterDelay:1.0];
+//接上
+#define alertname  [NSString stringWithFormat:@"%@",##alertname];
+
+//网络连接失败
+#define noWebhud \
+mbHud = [MBProgressHUD showHUDAddedTo:self.view animated:YES]; \
+[mbHud setMode:MBProgressHUDModeText]; \
+mbHud.labelText = @"网络连接失败"; \
+[mbHud setYOffset:0]; \
+[mbHud hide:YES afterDelay:2.0];
+
+//mbhud
+#define mbHUDinit mbHud = [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
+
+//mbhud hide
+#define hudHide [mbHud hide:YES];
+
+#endif /* PrefixHeader_pch */
+
