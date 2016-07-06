@@ -13,7 +13,6 @@
     NSMutableArray *_cityInfoArray;
     NSDictionary *dic;
     MBProgressHUD * mbHud;
-    AppDelegate *app;
 }
 
 @property (strong, nonatomic) IBOutlet UIView *headImageView;
@@ -62,13 +61,13 @@
 //加载数据
 - (void)loadData
 {
-    app = [AppDelegate sharedAppDelegate];
+    AppShare;
     //初始化请求（同时也创建了一个线程）
     [[HTTPSessionManager sharedManager] GET:CANSHU_URL parameters:nil result:^(id responseObject, NSError *error) {
         
         dic=responseObject[@"result"];
         
-        app.keycode = [AESCrypt decrypt:dic[@"keycode"]];
+        app.noLoginkeycode = [AESCrypt decrypt:dic[@"keycode"]];
     
     }];
     
@@ -105,9 +104,11 @@
 //登录成功时候调用该方法
 -(void)loginSuccess
 {
+    AppShare;
+
     //加密
-    NSString *encryptionStr1=[AESCrypt encrypt:_userName.text password:app.keycode];
-    NSString *encryptionStr2=[AESCrypt encrypt:_userPass.text password:app.keycode];
+    NSString *encryptionStr1=[AESCrypt encrypt:_userName.text password:app.noLoginkeycode];
+    NSString *encryptionStr2=[AESCrypt encrypt:_userPass.text password:app.noLoginkeycode];
 
     NSDictionary *pDict =[NSDictionary dictionaryWithObjectsAndKeys:dic[@"keycode"],@"keycode",encryptionStr1,@"username",encryptionStr2,@"userpass",nil];
 
@@ -116,7 +117,6 @@
         if ([responseObject[@"status"] intValue]==1) {
             NSDictionary *dict=responseObject[@"result"];
             
-            app = [AppDelegate sharedAppDelegate];
             app.request=responseObject[@"response"];
             
             app.uid = dict[@"uid"];

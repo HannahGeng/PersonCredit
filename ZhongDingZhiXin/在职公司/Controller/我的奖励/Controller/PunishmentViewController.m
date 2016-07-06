@@ -11,7 +11,6 @@
 @interface PunishmentViewController ()<UITableViewDataSource,UITableViewDelegate>
 {
     NSMutableArray *_punishmentInfoArray;
-    NSDictionary *_dic;
     UITableView *_tableView;
     MBProgressHUD *_HUD;//提示
 }
@@ -49,12 +48,7 @@
        NSForegroundColorAttributeName:[UIColor whiteColor]}];
     
     //为导航栏添加左侧按钮
-    UIButton* leftBtn= [UIButton buttonWithType:UIButtonTypeCustom];
-    leftBtn.frame = CGRectMake(0, 0, 20, 20);
-    [leftBtn setImage:[UIImage imageNamed:@"fanhui-5.png"] forState:UIControlStateNormal];
-    [leftBtn addTarget:self action:@selector(backButton) forControlEvents:UIControlEventTouchUpInside];
-    UIBarButtonItem *leftButtonItem = [[UIBarButtonItem alloc] initWithCustomView:leftBtn];
-    self.navigationItem.leftBarButtonItem = leftButtonItem;
+    leftButton;
 }
 -(void)backButton
 {
@@ -64,6 +58,8 @@
 //加载数据
 - (void)loadData
 {
+    AppShare;
+
     //显示提示
     [self show:MBProgressHUDModeIndeterminate message:@"努力加载中......" customView:self.view];
     
@@ -71,13 +67,9 @@
     if (!_punishmentInfoArray) {
         _punishmentInfoArray = [[NSMutableArray alloc] init];
     }
-    AppDelegate *app = [AppDelegate sharedAppDelegate];
-    NSString *str=app.keycode;
-    NSString *stri=[[NSUserDefaults standardUserDefaults] objectForKey:@"uid"];
-    _dic=[[NSDictionary alloc]initWithObjectsAndKeys:stri,@"uid",str,@"request",nil];
-    
+
     //初始化请求（同时也创建了一个线程）
-    [[HTTPSessionManager sharedManager] POST:JLXX_URL parameters:_dic result:^(id responseObject, NSError *error) {
+    [[HTTPSessionManager sharedManager] POST:JLXX_URL parameters:Dic result:^(id responseObject, NSError *error) {
      
         NSArray *array = (NSArray *)responseObject[@"result"];
         if (array.count==0) {
@@ -85,8 +77,7 @@
         }
         
         if (array.count!=0) {
-            AppDelegate *app = [AppDelegate sharedAppDelegate];
-            app.keycode=responseObject[@"response"];
+            app.request=responseObject[@"response"];
             for (NSDictionary *dictionary in array) {
                 PunishmentInfo *punishmentInfo = [[PunishmentInfo alloc] initWithDictionary:dictionary];
                 [_punishmentInfoArray addObject:punishmentInfo];

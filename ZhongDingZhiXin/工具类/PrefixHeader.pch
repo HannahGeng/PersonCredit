@@ -181,5 +181,19 @@ mbHud.labelText = @"网络连接失败"; \
 //mbhud hide
 #define hudHide [mbHud hide:YES];
 
+//导航栏左侧返回按钮
+#define leftButton \
+UIButton* leftBtn= [UIButton buttonWithType:UIButtonTypeCustom]; \
+leftBtn.frame = CGRectMake(0, 0, 20, 20); \
+[leftBtn setImage:[UIImage imageNamed:@"fanhui-5.png"] forState:UIControlStateNormal]; \
+[leftBtn addTarget:self action:@selector(backButton) forControlEvents:UIControlEventTouchUpInside]; \
+UIBarButtonItem *leftButtonItem = [[UIBarButtonItem alloc] initWithCustomView:leftBtn]; \
+self.navigationItem.leftBarButtonItem = leftButtonItem;
+
+//参数字典封装
+#define Dic [[NSDictionary alloc]initWithObjectsAndKeys:app.uid,@"uid",app.request,@"request",nil]
+
+#define AppShare AppDelegate *app = [AppDelegate sharedAppDelegate]
+
 #endif /* PrefixHeader_pch */
 

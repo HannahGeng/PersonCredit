@@ -11,8 +11,7 @@
 @interface NoticeViewController ()<UITableViewDataSource,UITableViewDelegate>
 {
     NSMutableArray *_noticeInfoArray;
-    NSDictionary *_dic;
-    MBProgressHUD *_HUD;//提示
+    MBProgressHUD *mbHud;//提示
 }
 @property (weak, nonatomic) IBOutlet UITableView *noticeTableView;
 
@@ -40,19 +39,9 @@
 -(void)setNavigationBar
 {
     //设置导航栏的颜色
-    self.navigationController.navigationBar.barTintColor=LIGHT_WHITE_COLOR;
-    self.title=@"公司公告";
-    [self.navigationController.navigationBar setTitleTextAttributes:
-     @{NSFontAttributeName:[UIFont systemFontOfSize:20],
-       NSForegroundColorAttributeName:[UIColor whiteColor]}];
-    
+    NavBarType(@"公司公告");
     //为导航栏添加左侧按钮
-    UIButton* leftBtn= [UIButton buttonWithType:UIButtonTypeCustom];
-    leftBtn.frame = CGRectMake(0, 0, 20, 20);
-    [leftBtn setImage:[UIImage imageNamed:@"fanhui-5.png"] forState:UIControlStateNormal];
-    [leftBtn addTarget:self action:@selector(backButton) forControlEvents:UIControlEventTouchUpInside];
-    UIBarButtonItem *leftButtonItem = [[UIBarButtonItem alloc] initWithCustomView:leftBtn];
-    self.navigationItem.leftBarButtonItem = leftButtonItem;
+    leftButton;
 }
 -(void)backButton
 {
@@ -62,24 +51,20 @@
 - (void)loadData
 {
     //显示提示
-    [self show:MBProgressHUDModeIndeterminate message:@"努力加载中......" customView:self.view];
+    mbHUDinit;
     
+    AppShare;
     //初始化_noticeInfoArray
     if (!_noticeInfoArray) {
         _noticeInfoArray = [[NSMutableArray alloc] init];
     }
-    AppDelegate *app = [AppDelegate sharedAppDelegate];
-    NSString *str=app.keycode;
-    NSString *stri=[[NSUserDefaults standardUserDefaults] objectForKey:@"uid"];
-    _dic=[[NSDictionary alloc]initWithObjectsAndKeys:stri,@"uid",str,@"request",nil];
     
     //初始化请求（同时也创建了一个线程）
-    [[HTTPSessionManager sharedManager] POST:GGTZ_URL parameters:_dic result:^(id responseObject, NSError *error) {
+    [[HTTPSessionManager sharedManager] POST:GGTZ_URL parameters:Dic result:^(id responseObject, NSError *error) {
         
         NSArray *array = (NSArray *)responseObject[@"result"];
         if (array.count!=0) {
-            AppDelegate *app = [AppDelegate sharedAppDelegate];
-            app.keycode=responseObject[@"response"];
+            app.request=responseObject[@"response"];
             for (NSDictionary *dictionary in array) {
                 NoticeInfo *noticeInfo = [[NoticeInfo alloc] initWithDictionary:dictionary];
                 [_noticeInfoArray addObject:noticeInfo];
@@ -92,36 +77,12 @@
             
             [self.noticeTableView reloadData];
             //隐藏HUD
-            [self hideHUDafterDelay:0.3f];
+            hudHide;
             
         }
-        NSString *stri=[[NSUserDefaults standardUserDefaults] objectForKey:@"keycode"];
-        NSLog(@"%@",stri);
-
+        
     }];
     
-}
-#pragma mark HUD
-//展示HUD
--(void) show:(MBProgressHUDMode )_mode message:(NSString *)_message customView:(id)_customView
-{
-    _HUD = [[MBProgressHUD alloc] initWithView:_customView];
-    [_customView addSubview:_HUD];
-    _HUD.mode=_mode;
-    _HUD.customView = _customView;
-    _HUD.animationType = MBProgressHUDAnimationZoom;
-    _HUD.labelText = _message;
-    [_HUD show:YES];
-}
-//隐藏HUD
-- (void)hideHUDafterDelay:(CGFloat)delay
-{
-    [_HUD hide:YES afterDelay:delay];
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 #pragma mark UITableViewDataSource
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -156,7 +117,5 @@
     
     [self.navigationController pushViewController:affPage animated:YES];
 }
-
-
 
 @end

@@ -12,9 +12,7 @@
 {
     TaskViewController *_taskVC;
     WordCarViewController *_wordCarVC;
-    NSDictionary *_dic;
     MBProgressHUD * mbHud;
-    AppDelegate *app;
 }
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property(nonatomic,strong)NSMutableArray * noticeInfoArray;
@@ -51,15 +49,15 @@
     if (!_noticeInfoArray) {
         _noticeInfoArray = [[NSMutableArray alloc] init];
     }
-    app = [AppDelegate sharedAppDelegate];
-    _dic=[[NSDictionary alloc]initWithObjectsAndKeys:app.uid,@"uid",app.request,@"request",nil];
+
+    AppShare;
     
     //初始化请求（同时也创建了一个线程）
-    [[HTTPSessionManager sharedManager] POST:GGTZ_URL parameters:_dic result:^(id responseObject, NSError *error) {
+    [[HTTPSessionManager sharedManager] POST:GGTZ_URL parameters:Dic result:^(id responseObject, NSError *error) {
         
         NSArray *array = (NSArray *)responseObject[@"result"];
         if (array.count!=0) {
-
+            
             app.request = responseObject[@"response"];
             for (NSDictionary *dictionary in array) {
                 NoticeInfo *noticeInfo = [[NoticeInfo alloc] initWithDictionary:dictionary];
@@ -101,6 +99,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
+    AppShare;
     if (indexPath.row==0) {
         TitleViewCell *cell=[TitleViewCell cellWithTableView:self.tableView];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
@@ -118,9 +117,9 @@
         ListViewCell *cell=[ListViewCell cellWithTableView:self.tableView];
         if (_noticeInfoArray.count>0) {
         NoticeInfo *noticeInfo = _noticeInfoArray[0];
-        NSString *tit  =   [[NSUserDefaults standardUserDefaults] objectForKey:@"keycode"];
-        NSString *strTitle = [AESCrypt decrypt:noticeInfo.title password:tit];
-        NSString *strMark  = [AESCrypt decrypt:noticeInfo.mark password:tit];
+        
+        NSString *strTitle = [AESCrypt decrypt:noticeInfo.title password:app.loginKeycode];
+        NSString *strMark  = [AESCrypt decrypt:noticeInfo.mark password:app.loginKeycode];
         cell.titleName.text=strTitle;
         cell.dateLabel.text=strMark;
         }
@@ -131,9 +130,9 @@
         
         if (_noticeInfoArray.count>1) {
             NoticeInfo *noticeInfo = _noticeInfoArray[1];
-            NSString *tit  =   [[NSUserDefaults standardUserDefaults] objectForKey:@"keycode"];
-            NSString *strTitle = [AESCrypt decrypt:noticeInfo.title password:tit];
-            NSString *strMark  = [AESCrypt decrypt:noticeInfo.mark password:tit];
+           
+            NSString *strTitle = [AESCrypt decrypt:noticeInfo.title password:app.loginKeycode];
+            NSString *strMark  = [AESCrypt decrypt:noticeInfo.mark password:app.loginKeycode];
             cell.titleName.text=strTitle;
             cell.dateLabel.text=strMark;
         }
@@ -143,9 +142,9 @@
         ListViewCell *cell=[ListViewCell cellWithTableView:self.tableView];
         if (_noticeInfoArray.count>2) {
             NoticeInfo *noticeInfo = _noticeInfoArray[2];
-            NSString *tit  =   [[NSUserDefaults standardUserDefaults] objectForKey:@"keycode"];
-            NSString *strTitle = [AESCrypt decrypt:noticeInfo.title password:tit];
-            NSString *strMark  = [AESCrypt decrypt:noticeInfo.mark password:tit];
+           
+            NSString *strTitle = [AESCrypt decrypt:noticeInfo.title password:app.loginKeycode];
+            NSString *strMark  = [AESCrypt decrypt:noticeInfo.mark password:app.loginKeycode];
             cell.titleName.text=strTitle;
             cell.dateLabel.text=strMark;
         }

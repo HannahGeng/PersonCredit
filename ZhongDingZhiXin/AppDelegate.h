@@ -22,6 +22,6 @@
 /** 登录成功解密的keycode */
 @property (nonatomic,strong) NSString * loginKeycode;
 /** 未登陆解密的keycode */
-@property (nonatomic,strong) NSString * keycode;
+@property (nonatomic,strong) NSString * noLoginkeycode;
 @end
 

@@ -90,6 +90,7 @@
 		3DC3C6531D2B859100D40844 /* HTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DC3C6521D2B859100D40844 /* HTTPSessionManager.m */; };
 		3DC3C6551D2B909600D40844 /* libAFNetworking.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DC3C6541D2B909600D40844 /* libAFNetworking.a */; };
 		3DC3C6571D2B909800D40844 /* libMBProgressHUD.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DC3C6561D2B909800D40844 /* libMBProgressHUD.a */; };
+		3DD68B701D2C91CE002BCDD6 /* Foundation+Log.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DD68B6F1D2C91CE002BCDD6 /* Foundation+Log.m */; };
 		3DF2BA661BF1FAB600CB163C /* AESCrypt.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DF2BA5F1BF1FAB600CB163C /* AESCrypt.m */; };
 		3DF2BA671BF1FAB600CB163C /* NSData+Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DF2BA611BF1FAB600CB163C /* NSData+Base64.m */; };
 		3DF2BA681BF1FAB600CB163C /* NSData+CommonCrypto.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DF2BA631BF1FAB600CB163C /* NSData+CommonCrypto.m */; };
@@ -244,6 +245,7 @@
 		3DC3C6521D2B859100D40844 /* HTTPSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTTPSessionManager.m; sourceTree = "<group>"; };
 		3DC3C6541D2B909600D40844 /* libAFNetworking.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libAFNetworking.a; path = "../../../../../Library/Developer/Xcode/DerivedData/ZhongDingZhiXin-fteexjvzezhxigckshnhyjmgzwpm/Build/Products/Debug-iphonesimulator/libAFNetworking.a"; sourceTree = "<group>"; };
 		3DC3C6561D2B909800D40844 /* libMBProgressHUD.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libMBProgressHUD.a; path = "../../../../../Library/Developer/Xcode/DerivedData/ZhongDingZhiXin-fteexjvzezhxigckshnhyjmgzwpm/Build/Products/Debug-iphonesimulator/libMBProgressHUD.a"; sourceTree = "<group>"; };
+		3DD68B6F1D2C91CE002BCDD6 /* Foundation+Log.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Foundation+Log.m"; sourceTree = "<group>"; };
 		3DF2BA5E1BF1FAB600CB163C /* AESCrypt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AESCrypt.h; sourceTree = "<group>"; };
 		3DF2BA5F1BF1FAB600CB163C /* AESCrypt.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AESCrypt.m; sourceTree = "<group>"; };
 		3DF2BA601BF1FAB600CB163C /* NSData+Base64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+Base64.h"; sourceTree = "<group>"; };
@@ -318,6 +320,7 @@
 		3D4F9EF01D2B63EB00A1C1A5 /* 工具类 */ = {
 			isa = PBXGroup;
 			children = (
+				3DD68B6F1D2C91CE002BCDD6 /* Foundation+Log.m */,
 				3DC3C6501D2B859100D40844 /* 网络请求 */,
 				3D4F9EF21D2B63EB00A1C1A5 /* PrefixHeader.pch */,
 				3D4F9EF31D2B63EB00A1C1A5 /* UIUtils.h */,
@@ -1203,6 +1206,7 @@
 				3D4F9F8C1D2B67C100A1C1A5 /* EducationExperienceViewController.m in Sources */,
 				3D4F9F451D2B663800A1C1A5 /* NoticeViewController.m in Sources */,
 				3D4F9F491D2B663800A1C1A5 /* WordCarViewController.m in Sources */,
+				3DD68B701D2C91CE002BCDD6 /* Foundation+Log.m in Sources */,
 				3D4F9F8B1D2B67C100A1C1A5 /* WorkViewCell.m in Sources */,
 				3D4F9EF91D2B63EB00A1C1A5 /* ViewController.m in Sources */,
 				3D4F9FB81D2B80B800A1C1A5 /* CompanyViewCell.m in Sources */,

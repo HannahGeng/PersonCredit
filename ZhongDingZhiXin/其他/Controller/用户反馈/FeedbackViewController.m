@@ -46,12 +46,8 @@
        NSForegroundColorAttributeName:[UIColor whiteColor]}];
     
     //为导航栏添加左侧按钮
-    UIButton* leftBtn= [UIButton buttonWithType:UIButtonTypeCustom];
-    leftBtn.frame = CGRectMake(0, 0, 20, 20);
-    [leftBtn setImage:[UIImage imageNamed:@"fanhui-5.png"] forState:UIControlStateNormal];
-    [leftBtn addTarget:self action:@selector(backButton) forControlEvents:UIControlEventTouchUpInside];
-    UIBarButtonItem *leftButtonItem = [[UIBarButtonItem alloc] initWithCustomView:leftBtn];
-    self.navigationItem.leftBarButtonItem = leftButtonItem;
+    leftButton;
+
 }
 
 -(void)backButton

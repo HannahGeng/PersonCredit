@@ -18,9 +18,7 @@
     UILabel *_fontLabel5;
     UILabel *_fontLabel6;
     NSMutableArray *_messageArray;
-    NSDictionary *_dic;
     UITableViewCell *_cell;
-
 }
 @property (weak, nonatomic) IBOutlet UITableView *messageTableView;
 @end
@@ -63,12 +61,7 @@
        NSForegroundColorAttributeName:[UIColor whiteColor]}];
     
     //为导航栏添加左侧按钮
-    UIButton* leftBtn= [UIButton buttonWithType:UIButtonTypeCustom];
-    leftBtn.frame = CGRectMake(0, 0, 20, 20);
-    [leftBtn setImage:[UIImage imageNamed:@"fanhui-5.png"] forState:UIControlStateNormal];
-    [leftBtn addTarget:self action:@selector(cancelButton) forControlEvents:UIControlEventTouchUpInside];
-    UIBarButtonItem *leftButtonItem = [[UIBarButtonItem alloc] initWithCustomView:leftBtn];
-    self.navigationItem.leftBarButtonItem = leftButtonItem;
+    leftButton;
 }
 //添加内容视图
 -(void)addContentView
@@ -121,35 +114,28 @@
     _fontLabel6.font=[UIFont systemFontOfSize:15];
     [self.messageTableView addSubview:_fontLabel6];
 }
--(void)cancelButton
+-(void)backButton
 {
     [self.navigationController popViewControllerAnimated:YES];
 }
 //加载数据
 - (void)loadData
 {
+    AppShare;
     //初始化_noticeInfoArray
     if (!_messageArray) {
         _messageArray = [[NSMutableArray alloc] init];
     }
-    AppDelegate *app = [AppDelegate sharedAppDelegate];
-    NSString *str=app.keycode;
-    NSString *stri=[[NSUserDefaults standardUserDefaults] objectForKey:@"uid"];
-    _dic=[[NSDictionary alloc]initWithObjectsAndKeys:stri,@"uid",str,@"request",nil];
     
     //初始化请求（同时也创建了一个线程）
-    [[HTTPSessionManager sharedManager] POST:JUCHU_URL parameters:_dic result:^(id responseObject, NSError *error) {
-        
+    [[HTTPSessionManager sharedManager] POST:JUCHU_URL parameters:Dic result:^(id responseObject, NSError *error) {
         
         NSArray *array = (NSArray *)responseObject[@"result"];
         if (array.count!=0) {
-            AppDelegate *app = [AppDelegate sharedAppDelegate];
-            app.keycode=responseObject[@"response"];
+            app.request=responseObject[@"response"];
         }
         [self.messageTableView reloadData];
-        NSString *stri=[[NSUserDefaults standardUserDefaults] objectForKey:@"keycode"];
-        NSLog(@"%@",stri);
-
+        
     }];
     
 }

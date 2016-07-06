@@ -11,8 +11,7 @@
 @interface EducationExperienceViewController ()<UITableViewDataSource,UITableViewDelegate>
 {
     NSMutableArray *_educationInfoArray;
-    NSDictionary *_dic;
-    MBProgressHUD *_HUD;//提示
+    MBProgressHUD * mbHud;//提示
 }
 @property (weak, nonatomic) IBOutlet UITableView *educationTableView;
 
@@ -48,12 +47,8 @@
        NSForegroundColorAttributeName:[UIColor whiteColor]}];
     
     //为导航栏添加左侧按钮
-    UIButton* leftBtn= [UIButton buttonWithType:UIButtonTypeCustom];
-    leftBtn.frame = CGRectMake(0, 0, 20, 20);
-    [leftBtn setImage:[UIImage imageNamed:@"fanhui-5.png"] forState:UIControlStateNormal];
-    [leftBtn addTarget:self action:@selector(backButton) forControlEvents:UIControlEventTouchUpInside];
-    UIBarButtonItem *leftButtonItem = [[UIBarButtonItem alloc] initWithCustomView:leftBtn];
-    self.navigationItem.leftBarButtonItem = leftButtonItem;
+    leftButton;
+
 }
 
 -(void)backButton
@@ -64,27 +59,23 @@
 - (void)loadData
 {
     //显示提示
-    [self show:MBProgressHUDModeIndeterminate message:@"努力加载中......" customView:self.view];
+    mbHUDinit;
     
+    AppShare;
+
     //初始化_noticeInfoArray
     if (!_educationInfoArray) {
         _educationInfoArray = [[NSMutableArray alloc] init];
     }
-    
-    AppDelegate *app = [AppDelegate sharedAppDelegate];
-    NSString *str=app.keycode;
-    NSString *stri=[[NSUserDefaults standardUserDefaults] objectForKey:@"uid"];
-    _dic=[[NSDictionary alloc]initWithObjectsAndKeys:stri,@"uid",str,@"request",nil];
-    
+
     //初始化请求（同时也创建了一个线程）
 
-    [[HTTPSessionManager sharedManager] POST:GZJL_URL parameters:_dic result:^(id responseObject, NSError *error) {
+    [[HTTPSessionManager sharedManager] POST:GZJL_URL parameters:Dic result:^(id responseObject, NSError *error) {
         
         NSArray *array = (NSArray *)responseObject[@"result"];
         
         if (array.count!=0) {
-            AppDelegate *app = [AppDelegate sharedAppDelegate];
-            app.keycode=responseObject[@"response"];
+            app.request=responseObject[@"response"];
             for (NSDictionary *dictionary in array) {
                 EducationInfo *educationInfo = [[EducationInfo alloc] initWithDictionary:dictionary];
                 [_educationInfoArray addObject:educationInfo];
@@ -97,36 +88,12 @@
             self.educationTableView.tableFooterView=[[UIView alloc]init];//影藏多余的分割线
             
             [self.educationTableView reloadData];
-            //隐藏HUD
-            [self hideHUDafterDelay:0.3f];
+        
+            hudHide;
 
     }];
     
 }
-#pragma mark HUD
-//展示HUD
--(void) show:(MBProgressHUDMode )_mode message:(NSString *)_message customView:(id)_customView
-{
-    _HUD = [[MBProgressHUD alloc] initWithView:_customView];
-    [_customView addSubview:_HUD];
-    _HUD.mode=_mode;
-    _HUD.customView = _customView;
-    _HUD.animationType = MBProgressHUDAnimationZoom;
-    _HUD.labelText = _message;
-    [_HUD show:YES];
-}
-
-//隐藏HUD
-- (void)hideHUDafterDelay:(CGFloat)delay
-{
-    [_HUD hide:YES afterDelay:delay];
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
 #pragma mark UITableViewDataSource
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
