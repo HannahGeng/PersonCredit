@@ -27,7 +27,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
+    
+    //加载数据
+    [self loadData];
+    
     //设置导航栏不透明
     self.navigationController.navigationBar.translucent = NO;
     //设置导航栏
@@ -42,9 +45,6 @@
     [self.view setBackgroundColor:[UIColor whiteColor]];
     [_userName setText:@"waiwai400@sina.com"];
     [_userPass setText:@"lx1437"];
-    
-    //加载数据 
-    [self loadData];
     
 }
 //设置导航栏
@@ -69,6 +69,7 @@
         
         app.noLoginkeycode = [AESCrypt decrypt:dic[@"keycode"]];
     
+        NSLog(@"\n%@",app.noLoginkeycode);
     }];
     
 }

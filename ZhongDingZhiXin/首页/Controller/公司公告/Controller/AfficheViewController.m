@@ -69,8 +69,6 @@
 
     NSString *strTitle=[AESCrypt decrypt:self.noticeInfo.title password:app.loginKeycode];
     
-    NSLog(@"\n%@",strTitle);
-    
     NSString *strContent=[AESCrypt decrypt:self.noticeInfo.content password:app.loginKeycode];
     NSString *strMark=[AESCrypt decrypt:self.noticeInfo.mark password:app.loginKeycode];
     
