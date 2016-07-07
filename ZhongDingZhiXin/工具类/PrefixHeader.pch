@@ -115,6 +115,7 @@ typedef enum _UpdateType {
 #pragma mark - 复制链接
 #define SOCIAL_SHARE_PLATFORM_COPY @"copy"
 
+#pragma mark - APP_Font
 #define APP_Font [[NSUserDefaults standardUserDefaults] objectForKey:@"change_font"];
 
 #pragma mark - 1、登录前获取加密登录参数的密钥(称为key1)
