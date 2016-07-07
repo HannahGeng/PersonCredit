@@ -77,7 +77,7 @@
                     <constraint firstItem="Mdc-aj-mmx" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="udX-ex-nT0"/>
                 </constraints>
             </tableViewCellContentView>
-            <color key="backgroundColor" red="0.29322870746453467" green="0.49862578380467693" blue="0.90588235294117647" alpha="1" colorSpace="calibratedRGB"/>
+            <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
             <connections>
                 <outlet property="nameLable" destination="K6R-CF-eIn" id="9iJ-fj-faI"/>
             </connections>

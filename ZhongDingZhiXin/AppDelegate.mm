@@ -43,7 +43,7 @@
   
     NSUserDefaults *defau = [NSUserDefaults standardUserDefaults];
     NSString * blog = [defau objectForKey:@"first"];
-    NSLog(@"%@",blog);
+
     if ([blog isEqualToString:@"2"]) {
         
         LoginViewController *loginVC=[[LoginViewController alloc] initWithNibName:@"LoginViewController" bundle:nil];

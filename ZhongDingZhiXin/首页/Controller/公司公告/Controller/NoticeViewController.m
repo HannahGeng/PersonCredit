@@ -64,7 +64,9 @@
         
         NSArray *array = (NSArray *)responseObject[@"result"];
         if (array.count!=0) {
+            
             app.request=responseObject[@"response"];
+            
             for (NSDictionary *dictionary in array) {
                 NoticeInfo *noticeInfo = [[NoticeInfo alloc] initWithDictionary:dictionary];
                 [_noticeInfoArray addObject:noticeInfo];
@@ -92,7 +94,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    static NSString *identifier=@"Identifier";
+    static NSString *identifier = @"Identifier";
     TableNoticeViewCell *cell=[tableView dequeueReusableCellWithIdentifier:identifier];
     
     if (!cell) {

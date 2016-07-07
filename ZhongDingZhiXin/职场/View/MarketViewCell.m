@@ -48,12 +48,12 @@
     _topImage.image=[UIImage imageNamed:@"backgroundImage"];
     [self addSubview:_topImage];
     
-    _pointImage =[[UIImageView alloc] initWithFrame:CGRectMake(15, CGRectGetMaxY(_topImage.frame)+7, 30, 30)];
-    [self addSubview:_pointImage];
+//    _pointImage =[[UIImageView alloc] initWithFrame:CGRectMake(15, CGRectGetMaxY(_topImage.frame)+7, 30, 30)];
+//    [self addSubview:_pointImage];
     
-    _titleLabel=[[UILabel alloc] initWithFrame:CGRectMake(CGRectGetMaxX(_pointImage.frame)+10, CGRectGetMaxY(_topImage.frame)+7, [UIUtils getWindowWidth]-CGRectGetMaxX(_pointImage.frame)-50-10, 30)];
-    _titleLabel.font=[UIFont systemFontOfSize:17];
-    [self addSubview:_titleLabel];
+//    _titleLabel=[[UILabel alloc] initWithFrame:CGRectMake(CGRectGetMaxX(_pointImage.frame)+10, CGRectGetMaxY(_topImage.frame)+7, [UIUtils getWindowWidth]-CGRectGetMaxX(_pointImage.frame)-50-10, 30)];
+//    _titleLabel.font=[UIFont systemFontOfSize:17];
+//    [self addSubview:_titleLabel];
     
 }
 

@@ -61,8 +61,8 @@
 -(void)addContentView
 {
     AppShare;
-    NSString *str=APP_Font;
-    if (!str){
+    NSString *strr=APP_Font;
+    if (!strr){
         [[NSUserDefaults standardUserDefaults]setObject:@"1" forKey:@"change_font"];
         [[NSUserDefaults standardUserDefaults]synchronize];
     }
@@ -86,7 +86,9 @@
     
     _timeLabel=[[UILabel alloc]initWithFrame:CGRectMake([UIUtils getWindowWidth]-130, CGRectGetMaxY(_textView.frame)+10, 120, 30)];
     _timeLabel.font=[UIFont systemFontOfSize:15];
-    _timeLabel.text=strMark;
+    NSString * str = strMark;
+    timeCover;
+    _timeLabel.text = currentDateStr;
     _timeLabel.textAlignment=NSTextAlignmentCenter;
     [self.view addSubview:_timeLabel];
 }

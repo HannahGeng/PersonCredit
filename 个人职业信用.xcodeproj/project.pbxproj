@@ -432,12 +432,12 @@
 		3D4F9F171D2B663800A1C1A5 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				3D4F9F181D2B663800A1C1A5 /* AfficheViewController.h */,
-				3D4F9F191D2B663800A1C1A5 /* AfficheViewController.m */,
-				3D4F9F1A1D2B663800A1C1A5 /* AfficheViewController.xib */,
 				3D4F9F1B1D2B663800A1C1A5 /* NoticeViewController.h */,
 				3D4F9F1C1D2B663800A1C1A5 /* NoticeViewController.m */,
 				3D4F9F1D1D2B663800A1C1A5 /* NoticeViewController.xib */,
+				3D4F9F181D2B663800A1C1A5 /* AfficheViewController.h */,
+				3D4F9F191D2B663800A1C1A5 /* AfficheViewController.m */,
+				3D4F9F1A1D2B663800A1C1A5 /* AfficheViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";

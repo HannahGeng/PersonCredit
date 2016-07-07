@@ -33,15 +33,17 @@
     
     //设置背景颜色
     [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"backgroundImage"]]];
+    
     //设置导航栏
     [self setNavigationBar];
 
     [self loadData];
     
     self.tableView.backgroundColor=[UIColor clearColor];
-    self.tableView.scrollEnabled =YES; //设置tableview滚动
+    self.tableView.scrollEnabled = NO; //设置tableview滚动
     self.tableView.tableFooterView=[[UIView alloc]init];//影藏多余的分割线
 }
+
 //加载数据
 - (void)loadData
 {
@@ -55,7 +57,8 @@
     //初始化请求（同时也创建了一个线程）
     [[HTTPSessionManager sharedManager] POST:GGTZ_URL parameters:Dic result:^(id responseObject, NSError *error) {
         
-        NSArray *array = (NSArray *)responseObject[@"result"];
+        NSArray *array = responseObject[@"result"];
+        
         if (array.count!=0) {
             
             app.request = responseObject[@"response"];
@@ -76,18 +79,6 @@
     //设置导航栏的颜色
     NavBarType(@"首页");
     
-    //为导航栏添加右侧按钮
-    UIButton* rightBtn= [UIButton buttonWithType:UIButtonTypeCustom];
-    rightBtn.frame = CGRectMake([UIUtils getWindowWidth]-25, 0, 20, 20);
-    [rightBtn setImage:[UIImage imageNamed:@"xiaoxi"] forState:UIControlStateNormal];
-    [rightBtn addTarget:self action:@selector(remindButton) forControlEvents:UIControlEventTouchUpInside];
-    UIBarButtonItem *rightButtonItem = [[UIBarButtonItem alloc] initWithCustomView:rightBtn];
-    self.navigationItem.rightBarButtonItem = rightButtonItem;
-}
-
--(void)remindButton
-{
-    NSLog(@"remindButton");
 }
 
 #pragma mark UITableViewDataSource
@@ -116,13 +107,17 @@
         
         ListViewCell *cell=[ListViewCell cellWithTableView:self.tableView];
         if (_noticeInfoArray.count>0) {
-        NoticeInfo *noticeInfo = _noticeInfoArray[0];
-        
-        NSString *strTitle = [AESCrypt decrypt:noticeInfo.title password:app.loginKeycode];
-        NSString *strMark  = [AESCrypt decrypt:noticeInfo.mark password:app.loginKeycode];
-        cell.titleName.text=strTitle;
-        cell.dateLabel.text=strMark;
+            
+            NoticeInfo *noticeInfo = _noticeInfoArray[0];
+            
+            NSString *strTitle = [AESCrypt decrypt:noticeInfo.title password:app.loginKeycode];
+            NSString *strMark  = [AESCrypt decrypt:noticeInfo.mark password:app.loginKeycode];
+            cell.titleName.text=strTitle;
+            NSString * str = strMark;
+            timeCover;
+            cell.dateLabel.text = currentDateStr;
         }
+        
         return cell;
     }
     if (indexPath.row==3) {
@@ -134,7 +129,9 @@
             NSString *strTitle = [AESCrypt decrypt:noticeInfo.title password:app.loginKeycode];
             NSString *strMark  = [AESCrypt decrypt:noticeInfo.mark password:app.loginKeycode];
             cell.titleName.text=strTitle;
-            cell.dateLabel.text=strMark;
+            NSString * str = strMark;
+            timeCover;
+            cell.dateLabel.text = currentDateStr;
         }
         return cell;
     }
@@ -146,7 +143,9 @@
             NSString *strTitle = [AESCrypt decrypt:noticeInfo.title password:app.loginKeycode];
             NSString *strMark  = [AESCrypt decrypt:noticeInfo.mark password:app.loginKeycode];
             cell.titleName.text=strTitle;
-            cell.dateLabel.text=strMark;
+            NSString * str = strMark;
+            timeCover;
+            cell.dateLabel.text = currentDateStr;
         }
         
         return cell;

@@ -55,10 +55,7 @@
 //设置导航栏
 -(void)setNavigationBar
 {
-    self.title=@"个人信息";
-    [self.navigationController.navigationBar setTitleTextAttributes:
-     @{NSFontAttributeName:[UIFont systemFontOfSize:20],
-       NSForegroundColorAttributeName:[UIColor whiteColor]}];
+    NavBarType(@"个人信息");
     
     //为导航栏添加左侧按钮
     leftButton;
@@ -66,15 +63,12 @@
 //添加内容视图
 -(void)addContentView
 {
-    
     NSString *str=APP_Font;
     if (!str){
         [[NSUserDefaults standardUserDefaults]setObject:@"1" forKey:@"change_font"];
         [[NSUserDefaults standardUserDefaults]synchronize];
     }
 
-    self.messageTableView.dataSource=self;
-    self.messageTableView.delegate=self;
     self.messageTableView.backgroundColor=[UIColor clearColor];
     self.messageTableView.scrollEnabled =NO; //设置tableview 不能滚动
     self.messageTableView.tableFooterView=[[UIView alloc]init];//影藏多余的分割线
@@ -118,6 +112,7 @@
 {
     [self.navigationController popViewControllerAnimated:YES];
 }
+
 //加载数据
 - (void)loadData
 {
@@ -131,8 +126,10 @@
     [[HTTPSessionManager sharedManager] POST:JUCHU_URL parameters:Dic result:^(id responseObject, NSError *error) {
         
         NSArray *array = (NSArray *)responseObject[@"result"];
-        if (array==nil) {
+        if (array.count != 0) {
+            
             app.request=responseObject[@"response"];
+        
         }
         [self.messageTableView reloadData];
         
@@ -145,6 +142,7 @@
 {
     return 2;
 }
+
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     if (section==0) {

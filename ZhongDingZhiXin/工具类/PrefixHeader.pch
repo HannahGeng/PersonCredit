@@ -152,7 +152,8 @@ self.navigationController.navigationBar.barTintColor=LIGHT_WHITE_COLOR; \
 self.title= navName; \
 [self.navigationController.navigationBar setTitleTextAttributes: \
  @{NSFontAttributeName:[UIFont systemFontOfSize:20], \
-   NSForegroundColorAttributeName:[UIColor whiteColor]}];
+   NSForegroundColorAttributeName:[UIColor whiteColor]}]; \
+self.navigationController.navigationBar.translucent = NO;
 
 //接上
 #define navName [NSString stringWithFormat:@"%@",##navName];
@@ -194,6 +195,14 @@ self.navigationItem.leftBarButtonItem = leftButtonItem;
 #define Dic [[NSDictionary alloc]initWithObjectsAndKeys:app.uid,@"uid",app.request,@"request",nil]
 
 #define AppShare AppDelegate *app = [AppDelegate sharedAppDelegate]
+
+//时间戳转标准时间
+#define timeCover \
+NSTimeInterval time = [str doubleValue]+ 28800; \
+NSDate*detaildate = [NSDate dateWithTimeIntervalSince1970:time]; \
+NSDateFormatter * dateFormatter = [[NSDateFormatter alloc]init]; \
+[dateFormatter setDateFormat:@"yyyy-MM-dd"]; \
+NSString * currentDateStr = [dateFormatter stringFromDate:detaildate]; 
 
 #endif /* PrefixHeader_pch */
 

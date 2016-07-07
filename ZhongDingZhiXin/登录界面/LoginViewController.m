@@ -36,13 +36,10 @@
     //设置导航栏
     [self setNavigationBar];
     
-    NSArray *arrays=[[NSBundle mainBundle] loadNibNamed:@"LoginViewController" owner:self options:nil];
-    UIView *view=arrays[0];
-    view.frame=CGRectMake(0,44, [UIUtils getWindowWidth], [UIUtils getWindowHeight]);
+    UIView *view = [[NSBundle mainBundle] loadNibNamed:@"LoginViewController" owner:self options:nil][0];
     self.view=view;
     
     //设置背景颜色
-    [self.view setBackgroundColor:[UIColor whiteColor]];
     [_userName setText:@"waiwai400@sina.com"];
     [_userPass setText:@"lx1437"];
     
@@ -52,10 +49,6 @@
 {
     //设置导航栏的颜色
     NavBarType(@"登陆");
-}
--(void)registerButton
-{
-    NSLog(@"注册");
 }
 
 //加载数据
@@ -69,7 +62,6 @@
         
         app.noLoginkeycode = [AESCrypt decrypt:dic[@"keycode"]];
     
-        NSLog(@"\n%@",app.noLoginkeycode);
     }];
     
 }
@@ -77,8 +69,7 @@
 #pragma mark - 登录按钮
 - (IBAction)loginButton:(id)sender {
     
-    [_userName resignFirstResponder];
-    [_userPass resignFirstResponder];
+    [self.view endEditing:YES];
     
     mbHUDinit;
     
@@ -92,8 +83,10 @@
         [self loginSuccess];
     }
 }
+
 - (IBAction)passButton:(id)sender {
 }
+
 - (IBAction)noteButton:(id)sender {
 }
 
@@ -102,23 +95,24 @@
 {
     [self.view endEditing:YES];
 }
+
 //登录成功时候调用该方法
 -(void)loginSuccess
 {
     AppShare;
 
     //加密
-    NSString *encryptionStr1=[AESCrypt encrypt:_userName.text password:app.noLoginkeycode];
-    NSString *encryptionStr2=[AESCrypt encrypt:_userPass.text password:app.noLoginkeycode];
+    NSString *encryptionStr1 = [AESCrypt encrypt:_userName.text password:app.noLoginkeycode];
+    NSString *encryptionStr2 = [AESCrypt encrypt:_userPass.text password:app.noLoginkeycode];
 
-    NSDictionary *pDict =[NSDictionary dictionaryWithObjectsAndKeys:dic[@"keycode"],@"keycode",encryptionStr1,@"username",encryptionStr2,@"userpass",nil];
+    NSDictionary *pDict = [NSDictionary dictionaryWithObjectsAndKeys:dic[@"keycode"],@"keycode",encryptionStr1,@"username",encryptionStr2,@"userpass",nil];
 
     [[HTTPSessionManager sharedManager] POST:DENGLU_URL parameters:pDict result:^(id responseObject, NSError *error) {
         
-        if ([responseObject[@"status"] intValue]==1) {
-            NSDictionary *dict=responseObject[@"result"];
+        if ([responseObject[@"status"] intValue]== 1) {
+            NSDictionary *dict = responseObject[@"result"];
             
-            app.request=responseObject[@"response"];
+            app.request = responseObject[@"response"];
             
             app.uid = dict[@"uid"];
             app.loginKeycode = [AESCrypt decrypt:dict[@"keycode"]];

@@ -62,11 +62,18 @@
 -(void)setContentView:(NoticeInfo*)noticeInfo{
     
     AppShare;
-    NSString *strTitle  = [AESCrypt decrypt:noticeInfo.title password:app.loginKeycode];
-    NSString *strMark=[AESCrypt decrypt:noticeInfo.mark password:app.loginKeycode];
+    NSString * strTitle  = [AESCrypt decrypt:noticeInfo.title password:app.loginKeycode];
+    NSString * strMark = [AESCrypt decrypt:noticeInfo.mark password:app.loginKeycode];
+    
     [_titleLable setText:strTitle];
-    [_timeLable setText:strMark];
-}
+    
+    //时间戳转标准时间
+    NSString * str= strMark;//时间戳
+    
+    timeCover;
+    
+    [_timeLable setText:currentDateStr];
 
+}
 
 @end

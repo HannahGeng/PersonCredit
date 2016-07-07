@@ -54,7 +54,7 @@
     _titleLable.font=[UIFont systemFontOfSize:15];
     [self addSubview:_titleLable];
     
-    _timeLable =[[UILabel alloc] initWithFrame:CGRectMake([UIUtils getWindowWidth]-150, CGRectGetMaxY(_topImage.frame)+5, 120, 40)];
+    _timeLable =[[UILabel alloc] initWithFrame:CGRectMake([UIUtils getWindowWidth]-150, CGRectGetMaxY(_topImage.frame)+5, 140, 40)];
     _timeLable.font=[UIFont systemFontOfSize:15];
     [self addSubview:_timeLable];
 }
@@ -64,7 +64,7 @@
     AppShare;
     NSString *strMark=[AESCrypt decrypt:workInfo.job password:app.loginKeycode];
     [_titleLable setText:strMark];
-    [_timeLable setText:workInfo.worktime];
+    [_timeLable setText:[AESCrypt decrypt:workInfo.worktime password:app.loginKeycode]];
 }
 
 @end

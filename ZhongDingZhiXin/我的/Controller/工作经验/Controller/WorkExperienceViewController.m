@@ -42,11 +42,7 @@
 -(void)setNavigationBar
 {
     //设置导航栏的颜色
-    self.navigationController.navigationBar.barTintColor=LIGHT_WHITE_COLOR;
-    self.title=@"工作经验";
-    [self.navigationController.navigationBar setTitleTextAttributes:
-     @{NSFontAttributeName:[UIFont systemFontOfSize:20],
-       NSForegroundColorAttributeName:[UIColor whiteColor]}];
+    NavBarType(@"工作经验");
     
     //为导航栏添加左侧按钮
     leftButton;
@@ -72,15 +68,19 @@
     //初始化请求（同时也创建了一个线程）
     [[HTTPSessionManager sharedManager] POST:GZJL_URL parameters:Dic result:^(id responseObject, NSError *error) {
         
-        NSArray *array = (NSArray *)responseObject[@"result"];
+        NSArray *array = responseObject[@"result"];
         if (array.count!=0) {
+            
             app.request=responseObject[@"response"];
+            
+            NSLog(@"\n工作经验request：%@",app.request);
+
             for (NSDictionary *dictionary in array) {
                 WorkInfo *workInfo = [[WorkInfo alloc] initWithDictionary:dictionary];
                 [_workInfoArray addObject:workInfo];
             }
-            self.workTableView.dataSource=self;
-            self.workTableView.delegate=self;
+           
+            
             self.workTableView.backgroundColor=[UIColor clearColor];
             self.workTableView.scrollEnabled =YES; //设置tableview滚动
             self.workTableView.tableFooterView=[[UIView alloc]init];//影藏多余的分割线

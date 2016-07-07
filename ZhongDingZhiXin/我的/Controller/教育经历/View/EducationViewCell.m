@@ -63,7 +63,7 @@
     AppShare;
     NSString *strMark=[AESCrypt decrypt:educationInfo.job password:app.loginKeycode];
     [_titleLable setText:strMark];
-    [_timeLable setText:educationInfo.worktime];
+    [_timeLable setText:[AESCrypt decrypt:educationInfo.worktime password:app.loginKeycode]];
 }
 
 @end

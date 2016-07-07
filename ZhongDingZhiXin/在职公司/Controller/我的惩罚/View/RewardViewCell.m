@@ -62,7 +62,7 @@
     AppShare;
     NSString *strTitle  = [AESCrypt decrypt:rewardInfo.point password:app.loginKeycode];
     NSString *strMark=[AESCrypt decrypt:rewardInfo.topic password:app.loginKeycode];
-    [_titleLable setText:app.loginKeycode];
+    [_titleLable setText:strTitle];
     [_timeLable setText:strMark];
 }
 
