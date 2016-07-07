@@ -61,11 +61,7 @@
 -(void)setNavigationBar
 {
     //设置导航栏的颜色
-    self.navigationController.navigationBar.barTintColor=LIGHT_WHITE_COLOR;
-    self.title=@"设置";
-    [self.navigationController.navigationBar setTitleTextAttributes:
-     @{NSFontAttributeName:[UIFont systemFontOfSize:20],
-       NSForegroundColorAttributeName:[UIColor whiteColor]}];
+    NavBarType(@"设置");
     
     //为导航栏添加左侧按钮
     leftButton;
@@ -91,42 +87,42 @@
     _tableView.sectionFooterHeight=1;
     [self.view addSubview:_tableView];
     
-    _titleLable1=[[UILabel alloc]initWithFrame:CGRectMake(20, 85, 150, 30)];
+    _titleLable1=[[UILabel alloc]initWithFrame:CGRectMake(20, 20, 150, 30)];
     _titleLable1.text=@"字号设置";
     _titleLable1.font=[UIFont systemFontOfSize:17];
     [self.view addSubview:_titleLable1];
     
-    _titleLable2=[[UILabel alloc]initWithFrame:CGRectMake(20, 145, 150, 30)];
+    _titleLable2=[[UILabel alloc]initWithFrame:CGRectMake(20, 80, 150, 30)];
     _titleLable2.text=@"清除缓存";
     _titleLable2.font=[UIFont systemFontOfSize:17];
     [self.view addSubview:_titleLable2];
     
-    _titleLable3=[[UILabel alloc]initWithFrame:CGRectMake(20, 195, 150, 30)];
+    _titleLable3=[[UILabel alloc]initWithFrame:CGRectMake(20, 130, 150, 30)];
     _titleLable3.text=@"推送设置";
     _titleLable3.font=[UIFont systemFontOfSize:17];
     [self.view addSubview:_titleLable3];
     
-    _titleLable4=[[UILabel alloc]initWithFrame:CGRectMake(20, 255, 150, 30)];
+    _titleLable4=[[UILabel alloc]initWithFrame:CGRectMake(20, 190, 150, 30)];
     _titleLable4.text=@"常见问题";
     _titleLable4.font=[UIFont systemFontOfSize:17];
     [self.view addSubview:_titleLable4];
     
-    _titleLable5=[[UILabel alloc]initWithFrame:CGRectMake(20, 305, 300, 30)];
+    _titleLable5=[[UILabel alloc]initWithFrame:CGRectMake(20, 240, 300, 30)];
     _titleLable5.text=@"亲 去App Store给个好评吧！";
     _titleLable5.font=[UIFont systemFontOfSize:17];
     [self.view addSubview:_titleLable5];
     
-    _titleLable6=[[UILabel alloc]initWithFrame:CGRectMake(20, 355, 150, 30)];
+    _titleLable6=[[UILabel alloc]initWithFrame:CGRectMake(20, 290, 150, 30)];
     _titleLable6.text=@"检测更新";
     _titleLable6.font=[UIFont systemFontOfSize:17];
     [self.view addSubview:_titleLable6];
     
-    _titleLable7=[[UILabel alloc]initWithFrame:CGRectMake([UIUtils getWindowWidth]-55, 145, 50, 30)];
+    _titleLable7=[[UILabel alloc]initWithFrame:CGRectMake([UIUtils getWindowWidth]-55, 80, 50, 30)];
     _titleLable7.text=@"1.6M";
     _titleLable7.font=[UIFont systemFontOfSize:17];
     [self.view addSubview:_titleLable7];
 
-    _titleLable8=[[UILabel alloc]initWithFrame:CGRectMake(([UIUtils getWindowWidth]-200)/2, 415, 200, 30)];
+    _titleLable8=[[UILabel alloc]initWithFrame:CGRectMake(([UIUtils getWindowWidth]-200)/2, 355, 200, 30)];
     _titleLable8.text=@"退出当前账号";
     _titleLable8.font=[UIFont systemFontOfSize:17];
     _titleLable8.textAlignment = NSTextAlignmentCenter;
@@ -136,6 +132,7 @@
 {
     [self.navigationController popViewControllerAnimated:YES];
 }
+
 #pragma mark UITableViewDataSource
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
@@ -157,6 +154,7 @@
 {
     static NSString *cellIdentifier=@"cellIdentifier";
     UITableViewCell *cell=[tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+        
     if (!cell) {
         cell=[[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
         if (indexPath.section==0) {
@@ -176,7 +174,6 @@
             [_btn1 addTarget:self action:@selector(onClick0) forControlEvents:UIControlEventTouchUpInside];
             [cell addSubview:_btn1];
 
-            
             UIImage *image2=[UIImage imageNamed:@"ziti-5"];
             _btn2 = [UIButton buttonWithType:UIButtonTypeCustom];
             _btn2.frame = CGRectMake([UIUtils getWindowWidth]-70, 10, 30, 30);
@@ -216,6 +213,8 @@
     }
     return cell;
 }
+
+
 -(void)onClick0
 {
     NSLog(@"小");
@@ -269,8 +268,7 @@
         
         UIAlertView* alter=[[UIAlertView alloc]initWithTitle:@"温馨提示" message:@"亲，你确定要退出吗？？" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:@"取消", nil];
         [alter show];
-//        LoginViewController *loginView=[[LoginViewController alloc]initWithNibName:@"LoginViewController" bundle:nil];
-//        [self.navigationController pushViewController:loginView animated:NO];
+
     }
 }
 
@@ -289,10 +287,6 @@
         [alertView removeFromSuperview];
 
     }
-}
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 @end

@@ -18,11 +18,11 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hu4-sf-bXu">
-                    <rect key="frame" x="10" y="74" width="300" height="200"/>
+                    <rect key="frame" x="10" y="20" width="300" height="200"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 </view>
                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="请描述您遇到的问题或想提供的建议，我们将尽快回复，如果没有联系方式，请留下联系方式！" translatesAutoresizingMaskIntoConstraints="NO" id="3SW-GH-cIx">
-                    <rect key="frame" x="10" y="74" width="300" height="200"/>
+                    <rect key="frame" x="10" y="20" width="300" height="200"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="200" id="Gdx-oo-mFM"/>
@@ -35,7 +35,7 @@
                     </connections>
                 </textView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6wa-Hc-8bf">
-                    <rect key="frame" x="10" y="295" width="300" height="40"/>
+                    <rect key="frame" x="10" y="241" width="300" height="40"/>
                     <color key="backgroundColor" red="0.1082744504" green="0.52238516869999996" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="40" id="jtj-Np-L9d"/>
@@ -62,7 +62,7 @@
                 <constraint firstItem="6wa-Hc-8bf" firstAttribute="top" secondItem="hu4-sf-bXu" secondAttribute="bottom" constant="21" id="Pmi-4p-6rR"/>
                 <constraint firstItem="3SW-GH-cIx" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="10" id="cpo-u9-JRl"/>
                 <constraint firstItem="hu4-sf-bXu" firstAttribute="trailing" secondItem="6wa-Hc-8bf" secondAttribute="trailing" id="gI6-yT-vsQ"/>
-                <constraint firstItem="hu4-sf-bXu" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="74" id="oKd-qb-jRe"/>
+                <constraint firstItem="3SW-GH-cIx" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="20" id="gLx-w9-rOr"/>
                 <constraint firstItem="hu4-sf-bXu" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="pSu-o2-gqD"/>
                 <constraint firstItem="hu4-sf-bXu" firstAttribute="bottom" secondItem="3SW-GH-cIx" secondAttribute="bottom" id="rIw-X5-iN7"/>
                 <constraint firstItem="hu4-sf-bXu" firstAttribute="leading" secondItem="3SW-GH-cIx" secondAttribute="leading" id="rOZ-EK-Ljh"/>

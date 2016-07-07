@@ -44,11 +44,7 @@
 -(void)setNavigationBar
 {
     //设置导航栏的颜色
-    self.navigationController.navigationBar.barTintColor=LIGHT_WHITE_COLOR;
-    self.title=@"其他";
-    [self.navigationController.navigationBar setTitleTextAttributes:
-     @{NSFontAttributeName:[UIFont systemFontOfSize:20],
-       NSForegroundColorAttributeName:[UIColor whiteColor]}];
+    NavBarType(@"其他")
 }
 -(void)loadData{
     
@@ -242,9 +238,7 @@
 - (void)shareButtonPress:(UIButton *)button
 {
     NSLog(@"分享按钮被点击 %@",button.currentTitle);
-    //    if (self.delegate && [self.delegate respondsToSelector:@selector(shareViewButtonPressed:)]) {
-    //        [self.delegate shareViewButtonPressed:button.currentTitle];
-    //    }
+
 }
 
 - (void)removeView
@@ -257,11 +251,6 @@
                          [_shareView removeFromSuperview];
                      }];
     
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 @end

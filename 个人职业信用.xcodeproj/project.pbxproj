@@ -23,6 +23,9 @@
 		3D1CDF3E1BE8890B0097C924 /* mapapi.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 3D1CDF3D1BE8890B0097C924 /* mapapi.bundle */; };
 		3D1CDF401BE889450097C924 /* libstdc++.6.0.9.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D1CDF3F1BE889450097C924 /* libstdc++.6.0.9.dylib */; };
 		3D1CDF421BE889620097C924 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D1CDF411BE889620097C924 /* libsqlite3.0.dylib */; };
+		3D1FEEDA1D2E3CB500C54C41 /* FDAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D1FEED91D2E3CB500C54C41 /* FDAlertView.m */; };
+		3D1FEEDE1D2E3CEC00C54C41 /* ContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D1FEEDC1D2E3CEC00C54C41 /* ContentView.m */; };
+		3D1FEEDF1D2E3CEC00C54C41 /* ContentView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D1FEEDD1D2E3CEC00C54C41 /* ContentView.xib */; };
 		3D4F9EF81D2B63EB00A1C1A5 /* UIUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D4F9EF41D2B63EB00A1C1A5 /* UIUtils.m */; };
 		3D4F9EF91D2B63EB00A1C1A5 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D4F9EF71D2B63EB00A1C1A5 /* ViewController.m */; };
 		3D4F9EFE1D2B641D00A1C1A5 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D4F9EFC1D2B641D00A1C1A5 /* LoginViewController.m */; };
@@ -131,6 +134,11 @@
 		3D1CDF3D1BE8890B0097C924 /* mapapi.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = mapapi.bundle; path = ../mapapi.bundle; sourceTree = "<group>"; };
 		3D1CDF3F1BE889450097C924 /* libstdc++.6.0.9.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libstdc++.6.0.9.dylib"; path = "usr/lib/libstdc++.6.0.9.dylib"; sourceTree = SDKROOT; };
 		3D1CDF411BE889620097C924 /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
+		3D1FEED81D2E3CB500C54C41 /* FDAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FDAlertView.h; sourceTree = "<group>"; };
+		3D1FEED91D2E3CB500C54C41 /* FDAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FDAlertView.m; sourceTree = "<group>"; };
+		3D1FEEDB1D2E3CEC00C54C41 /* ContentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContentView.h; sourceTree = "<group>"; };
+		3D1FEEDC1D2E3CEC00C54C41 /* ContentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContentView.m; sourceTree = "<group>"; };
+		3D1FEEDD1D2E3CEC00C54C41 /* ContentView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ContentView.xib; sourceTree = "<group>"; };
 		3D4F9EF21D2B63EB00A1C1A5 /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		3D4F9EF31D2B63EB00A1C1A5 /* UIUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIUtils.h; sourceTree = "<group>"; };
 		3D4F9EF41D2B63EB00A1C1A5 /* UIUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIUtils.m; sourceTree = "<group>"; };
@@ -317,6 +325,15 @@
 			path = ../baiduSDK;
 			sourceTree = "<group>";
 		};
+		3D1FEED71D2E3CB500C54C41 /* FDAlertView */ = {
+			isa = PBXGroup;
+			children = (
+				3D1FEED81D2E3CB500C54C41 /* FDAlertView.h */,
+				3D1FEED91D2E3CB500C54C41 /* FDAlertView.m */,
+			);
+			path = FDAlertView;
+			sourceTree = "<group>";
+		};
 		3D4F9EF01D2B63EB00A1C1A5 /* 工具类 */ = {
 			isa = PBXGroup;
 			children = (
@@ -494,6 +511,9 @@
 			children = (
 				3D4F9F2D1D2B663800A1C1A5 /* WordCarViewCell.h */,
 				3D4F9F2E1D2B663800A1C1A5 /* WordCarViewCell.m */,
+				3D1FEEDB1D2E3CEC00C54C41 /* ContentView.h */,
+				3D1FEEDC1D2E3CEC00C54C41 /* ContentView.m */,
+				3D1FEEDD1D2E3CEC00C54C41 /* ContentView.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -995,6 +1015,7 @@
 		3DFC2FEC1BB3A94C004A83B0 /* Library */ = {
 			isa = PBXGroup;
 			children = (
+				3D1FEED71D2E3CB500C54C41 /* FDAlertView */,
 				3DF2BA5D1BF1FAB600CB163C /* AES */,
 			);
 			name = Library;
@@ -1104,6 +1125,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3D4F9F441D2B663800A1C1A5 /* AfficheViewController.xib in Resources */,
+				3D1FEEDF1D2E3CEC00C54C41 /* ContentView.xib in Resources */,
 				3D4F9F891D2B67C100A1C1A5 /* WorkExperienceViewController.xib in Resources */,
 				3D4F9F461D2B663800A1C1A5 /* NoticeViewController.xib in Resources */,
 				3D4F9F4A1D2B663800A1C1A5 /* WordCarViewController.xib in Resources */,
@@ -1193,6 +1215,7 @@
 				3DF2BA691BF1FAB600CB163C /* NSString+Base64.m in Sources */,
 				3D4F9F3F1D2B663800A1C1A5 /* TaskViewController.m in Sources */,
 				3D4F9FB21D2B80B800A1C1A5 /* PunishmentInfo.m in Sources */,
+				3D1FEEDA1D2E3CB500C54C41 /* FDAlertView.m in Sources */,
 				3D4F9FD01D2B817100A1C1A5 /* PageViewController.m in Sources */,
 				3D4F9F411D2B663800A1C1A5 /* TaskView.m in Sources */,
 				3D4F9F481D2B663800A1C1A5 /* TableNoticeViewCell.m in Sources */,
@@ -1206,6 +1229,7 @@
 				3D4F9F431D2B663800A1C1A5 /* AfficheViewController.m in Sources */,
 				3D4F9F531D2B663800A1C1A5 /* TitleViewCell.m in Sources */,
 				3D4F9F8C1D2B67C100A1C1A5 /* EducationExperienceViewController.m in Sources */,
+				3D1FEEDE1D2E3CEC00C54C41 /* ContentView.m in Sources */,
 				3D4F9F451D2B663800A1C1A5 /* NoticeViewController.m in Sources */,
 				3D4F9F491D2B663800A1C1A5 /* WordCarViewController.m in Sources */,
 				3DD68B701D2C91CE002BCDD6 /* Foundation+Log.m in Sources */,
