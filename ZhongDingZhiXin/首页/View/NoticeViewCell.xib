@@ -24,16 +24,6 @@
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BOU-ab-rzh">
-                        <rect key="frame" x="0.0" y="0.0" width="2" height="70"/>
-                        <color key="backgroundColor" red="0.11747414790000001" green="0.32566657859999998" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                        <constraints>
-                            <constraint firstAttribute="width" constant="2" id="oS4-Ls-G6Y"/>
-                        </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gonggao" translatesAutoresizingMaskIntoConstraints="NO" id="YQc-Lk-p1P">
                         <rect key="frame" x="20" y="13" width="40" height="40"/>
                         <constraints>
@@ -48,17 +38,15 @@
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="bottomMargin" secondItem="YQc-Lk-p1P" secondAttribute="bottom" constant="8" id="2ba-Ho-22s"/>
+                    <constraint firstItem="YQc-Lk-p1P" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="12" id="8gW-3g-IQ6"/>
                     <constraint firstItem="r8E-Ih-pUB" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="7" id="Ges-WM-xj5"/>
-                    <constraint firstItem="YQc-Lk-p1P" firstAttribute="leading" secondItem="BOU-ab-rzh" secondAttribute="trailing" constant="18" id="Niw-xj-T1C"/>
-                    <constraint firstItem="BOU-ab-rzh" firstAttribute="centerY" secondItem="r8E-Ih-pUB" secondAttribute="centerY" id="Pda-94-iNh"/>
-                    <constraint firstItem="BOU-ab-rzh" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="WU3-Dn-q6t"/>
                     <constraint firstItem="YQc-Lk-p1P" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="5" id="Zbo-XJ-WMr"/>
-                    <constraint firstItem="BOU-ab-rzh" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="ere-2T-iXD"/>
                     <constraint firstItem="r8E-Ih-pUB" firstAttribute="leading" secondItem="YQc-Lk-p1P" secondAttribute="trailing" constant="10" id="ig7-Ox-f2J"/>
                     <constraint firstAttribute="bottomMargin" secondItem="r8E-Ih-pUB" secondAttribute="bottom" constant="6" id="ynG-0D-eAU"/>
                 </constraints>
             </tableViewCellContentView>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <point key="canvasLocation" x="590" y="469"/>
         </tableViewCell>
     </objects>
     <resources>

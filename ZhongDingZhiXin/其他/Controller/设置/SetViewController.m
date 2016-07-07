@@ -154,7 +154,7 @@
 {
     static NSString *cellIdentifier=@"cellIdentifier";
     UITableViewCell *cell=[tableView dequeueReusableCellWithIdentifier:cellIdentifier];
-        
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     if (!cell) {
         cell=[[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
         if (indexPath.section==0) {

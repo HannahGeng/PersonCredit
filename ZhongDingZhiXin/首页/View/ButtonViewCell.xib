@@ -10,7 +10,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="ButtonViewCell">
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="KGk-i7-Jjw" customClass="ButtonViewCell">
             <rect key="frame" x="0.0" y="0.0" width="320" height="80"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
@@ -51,22 +51,15 @@
                     </label>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fao-eg-5n1">
                         <rect key="frame" x="70" y="0.0" width="80" height="80"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="80" id="ACb-sx-mUd"/>
+                        </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <state key="normal" title="今日任务">
                             <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                         </state>
                     </button>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hnW-Ty-7yO">
-                        <rect key="frame" x="0.0" y="0.0" width="2" height="80"/>
-                        <color key="backgroundColor" red="1" green="0.24813884629999999" blue="0.2423275342" alpha="1" colorSpace="calibratedRGB"/>
-                        <constraints>
-                            <constraint firstAttribute="width" constant="2" id="vg9-Ox-JqY"/>
-                        </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
                     <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5zm-Ul-upL">
                         <rect key="frame" x="240" y="0.0" width="80" height="80"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -77,25 +70,21 @@
                     </button>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="hUn-zt-G2X" firstAttribute="leading" secondItem="hnW-Ty-7yO" secondAttribute="trailing" constant="8" symbolic="YES" id="2E5-Iz-b2Z"/>
                     <constraint firstItem="5zm-Ul-upL" firstAttribute="leading" secondItem="mz8-Gm-cAT" secondAttribute="trailing" constant="20" id="2ep-t4-I8t"/>
                     <constraint firstItem="mz8-Gm-cAT" firstAttribute="top" secondItem="vyf-1N-SDf" secondAttribute="top" id="583-ba-c6t"/>
                     <constraint firstAttribute="bottomMargin" secondItem="hUn-zt-G2X" secondAttribute="bottom" constant="6" id="7Oy-4O-Ql6"/>
                     <constraint firstItem="fao-eg-5n1" firstAttribute="leading" secondItem="hUn-zt-G2X" secondAttribute="trailing" constant="10" id="7ZW-cR-CYg"/>
                     <constraint firstItem="5zm-Ul-upL" firstAttribute="baseline" secondItem="fao-eg-5n1" secondAttribute="firstBaseline" id="8fS-BD-Cy9"/>
                     <constraint firstItem="fao-eg-5n1" firstAttribute="baseline" secondItem="5zm-Ul-upL" secondAttribute="firstBaseline" id="9cf-zM-tum"/>
-                    <constraint firstItem="hnW-Ty-7yO" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="G16-Cx-0Cb"/>
+                    <constraint firstItem="fao-eg-5n1" firstAttribute="centerY" secondItem="vyf-1N-SDf" secondAttribute="centerY" id="EjZ-Fh-oN5"/>
+                    <constraint firstItem="fao-eg-5n1" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="N0K-wF-bzR"/>
                     <constraint firstItem="vyf-1N-SDf" firstAttribute="leading" secondItem="fao-eg-5n1" secondAttribute="trailing" constant="10" id="P0W-6L-cLP"/>
-                    <constraint firstItem="fao-eg-5n1" firstAttribute="bottom" secondItem="hnW-Ty-7yO" secondAttribute="bottom" id="QdK-z4-aBX"/>
-                    <constraint firstItem="hnW-Ty-7yO" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="TbH-Ut-ctJ"/>
                     <constraint firstItem="vyf-1N-SDf" firstAttribute="top" secondItem="hUn-zt-G2X" secondAttribute="top" id="VQX-uQ-7j0"/>
                     <constraint firstAttribute="trailing" secondItem="5zm-Ul-upL" secondAttribute="trailing" id="Xae-FF-kBx"/>
-                    <constraint firstItem="hnW-Ty-7yO" firstAttribute="centerY" secondItem="hUn-zt-G2X" secondAttribute="centerY" id="ZDn-vk-uvM"/>
                     <constraint firstItem="5zm-Ul-upL" firstAttribute="top" secondItem="fao-eg-5n1" secondAttribute="top" id="Zyf-mS-NCI"/>
                     <constraint firstItem="mz8-Gm-cAT" firstAttribute="bottom" secondItem="vyf-1N-SDf" secondAttribute="bottom" id="dSi-LW-RRG"/>
                     <constraint firstItem="vyf-1N-SDf" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="iGi-NT-vPr"/>
                     <constraint firstItem="hUn-zt-G2X" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="7" id="q6b-4S-yAw"/>
-                    <constraint firstItem="hnW-Ty-7yO" firstAttribute="top" secondItem="fao-eg-5n1" secondAttribute="top" id="scM-nD-YXk"/>
                     <constraint firstItem="mz8-Gm-cAT" firstAttribute="leading" secondItem="vyf-1N-SDf" secondAttribute="trailing" constant="9" id="vhX-ba-7OT"/>
                     <constraint firstItem="hUn-zt-G2X" firstAttribute="bottom" secondItem="vyf-1N-SDf" secondAttribute="bottom" id="zyu-ok-M5J"/>
                 </constraints>
