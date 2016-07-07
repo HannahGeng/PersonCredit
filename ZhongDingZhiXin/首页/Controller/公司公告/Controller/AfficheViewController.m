@@ -11,10 +11,12 @@
 @interface AfficheViewController ()
 {
     NSString *_pwd;
-    UILabel *_titleLabel;
-    UITextView *_textView;
-    UILabel *_timeLabel;
 }
+
+@property (weak, nonatomic) IBOutlet UILabel *timeLabel;
+@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
+@property (weak, nonatomic) IBOutlet UILabel *textView;
+
 @end
 
 @implementation AfficheViewController
@@ -48,10 +50,12 @@
     leftButton;
 
 }
+
 -(void)backButton
 {
     [self.navigationController popViewControllerAnimated:YES];
 }
+
 -(void)remindButton
 {
     NSLog(@"remindButton");
@@ -72,25 +76,13 @@
     NSString *strContent=[AESCrypt decrypt:self.noticeInfo.content password:app.loginKeycode];
     NSString *strMark=[AESCrypt decrypt:self.noticeInfo.mark password:app.loginKeycode];
     
-    _titleLabel=[[UILabel alloc]initWithFrame:CGRectMake(([UIUtils getWindowWidth]-200)/2, 70, 200, 30)];
-    _titleLabel.font=[UIFont systemFontOfSize:16];
     _titleLabel.text=strTitle;
-    _titleLabel.textAlignment=NSTextAlignmentCenter;
-    [self.view addSubview:_titleLabel];
-    
-    _textView=[[UITextView alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(_titleLabel.frame)+10, [UIUtils getWindowWidth], 0)];
+
     _textView.text=strContent;
-    _textView.font=[UIFont systemFontOfSize:15];
-    [self.view addSubview:_textView];
-    _textView.frame=CGRectMake(10, CGRectGetMaxY(_titleLabel.frame)+10, [UIUtils getWindowWidth]-20,_textView.contentSize.height);
     
-    _timeLabel=[[UILabel alloc]initWithFrame:CGRectMake([UIUtils getWindowWidth]-130, CGRectGetMaxY(_textView.frame)+10, 120, 30)];
-    _timeLabel.font=[UIFont systemFontOfSize:15];
     NSString * str = strMark;
     timeCover;
     _timeLabel.text = currentDateStr;
-    _timeLabel.textAlignment=NSTextAlignmentCenter;
-    [self.view addSubview:_timeLabel];
 }
 
 @end

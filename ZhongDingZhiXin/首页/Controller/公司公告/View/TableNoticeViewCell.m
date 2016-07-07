@@ -14,6 +14,7 @@
     UILabel *_titleLable;
     UILabel *_timeLable;
 }
+
 @end
 
 @implementation TableNoticeViewCell
