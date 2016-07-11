@@ -17,12 +17,6 @@
 #import "LoginViewController.h"
 #import "UIUtils.h"
 #import <CoreLocation/CoreLocation.h>
-#import <BaiduMapAPI_Map/BMKMapComponent.h>
-#import <BaiduMapAPI_Base/BMKBaseComponent.h>
-#import <BaiduMapAPI_Map/BMKMapComponent.h>
-#import <BaiduMapAPI_Search/BMKSearchComponent.h>
-#import <BaiduMapAPI_Location/BMKLocationComponent.h>
-#import <MapKit/MapKit.h>
 #import "ViewController.h"
 #import "KSTabBarController.h"
 #import "AESCrypt.h"
@@ -79,6 +73,9 @@
 #import "PageViewController.h"
 #import "FDAlertView.h"
 #import "ContentView.h"
+#import <MapKit/MapKit.h>
+//定位框架
+#import <CoreLocation/CoreLocation.h>
 
 #pragma mark - 自定义颜色
 #define LIGHT_WHITE_COLOR [UIColor colorWithRed:22.0/255.0f green:106.0/255.0f blue:220.0/255.0f alpha:1.0f]

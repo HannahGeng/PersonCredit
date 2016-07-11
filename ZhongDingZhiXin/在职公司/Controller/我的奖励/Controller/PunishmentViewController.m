@@ -41,11 +41,7 @@
 -(void)setNavigationBar
 {
     //设置导航栏的颜色
-    self.navigationController.navigationBar.barTintColor=LIGHT_WHITE_COLOR;
-    self.title=@"我的奖励";
-    [self.navigationController.navigationBar setTitleTextAttributes:
-     @{NSFontAttributeName:[UIFont systemFontOfSize:20],
-       NSForegroundColorAttributeName:[UIColor whiteColor]}];
+    NavBarType(@"我的奖励");
     
     //为导航栏添加左侧按钮
     leftButton;
@@ -71,10 +67,9 @@
     //初始化请求（同时也创建了一个线程）
     [[HTTPSessionManager sharedManager] POST:JLXX_URL parameters:Dic result:^(id responseObject, NSError *error) {
      
+        NSLog(@"我的奖励:%@",responseObject);
+        
         NSArray *array = (NSArray *)responseObject[@"result"];
-        if (array.count==0) {
-            
-        }
         
         if (array.count!=0) {
             app.request=responseObject[@"response"];
@@ -83,7 +78,7 @@
                 [_punishmentInfoArray addObject:punishmentInfo];
             }
             
-            _tableView=[[UITableView alloc]initWithFrame:CGRectMake(0, 64, [UIUtils getWindowWidth], [UIUtils getWindowHeight]-100) style:UITableViewStylePlain];
+            _tableView=[[UITableView alloc]initWithFrame:CGRectMake(0, 10, [UIUtils getWindowWidth], [UIUtils getWindowHeight]-100) style:UITableViewStylePlain];
             _tableView.backgroundColor=[UIColor clearColor];
             _tableView.dataSource=self;
             _tableView.delegate=self;
@@ -128,6 +123,11 @@
     return 60;
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    AfficheViewController * affich = [[AfficheViewController alloc] init];
+    
+    [self.navigationController pushViewController:affich animated:YES];
+    
 }
 
 @end

@@ -93,40 +93,25 @@
     [self.view addSubview:_titleLable1];
     
     _titleLable2=[[UILabel alloc]initWithFrame:CGRectMake(20, 80, 150, 30)];
-    _titleLable2.text=@"清除缓存";
+    _titleLable2.text=@"常见问题";
     _titleLable2.font=[UIFont systemFontOfSize:17];
     [self.view addSubview:_titleLable2];
     
-    _titleLable3=[[UILabel alloc]initWithFrame:CGRectMake(20, 130, 150, 30)];
-    _titleLable3.text=@"推送设置";
+    _titleLable3=[[UILabel alloc]initWithFrame:CGRectMake(20, 130, 300, 30)];
+    _titleLable3.text=@"亲 去App Store给个好评吧";
     _titleLable3.font=[UIFont systemFontOfSize:17];
     [self.view addSubview:_titleLable3];
     
     _titleLable4=[[UILabel alloc]initWithFrame:CGRectMake(20, 190, 150, 30)];
-    _titleLable4.text=@"常见问题";
+    _titleLable4.text=@"检测更新";
     _titleLable4.font=[UIFont systemFontOfSize:17];
     [self.view addSubview:_titleLable4];
     
-    _titleLable5=[[UILabel alloc]initWithFrame:CGRectMake(20, 240, 300, 30)];
-    _titleLable5.text=@"亲 去App Store给个好评吧！";
+    _titleLable5=[[UILabel alloc]initWithFrame:CGRectMake(([UIUtils getWindowWidth]-200)/2 + 50, 250, 200, 30)];
+    _titleLable5.text=@"退出当前账号";
     _titleLable5.font=[UIFont systemFontOfSize:17];
     [self.view addSubview:_titleLable5];
     
-    _titleLable6=[[UILabel alloc]initWithFrame:CGRectMake(20, 290, 150, 30)];
-    _titleLable6.text=@"检测更新";
-    _titleLable6.font=[UIFont systemFontOfSize:17];
-    [self.view addSubview:_titleLable6];
-    
-    _titleLable7=[[UILabel alloc]initWithFrame:CGRectMake([UIUtils getWindowWidth]-55, 80, 50, 30)];
-    _titleLable7.text=@"1.6M";
-    _titleLable7.font=[UIFont systemFontOfSize:17];
-    [self.view addSubview:_titleLable7];
-
-    _titleLable8=[[UILabel alloc]initWithFrame:CGRectMake(([UIUtils getWindowWidth]-200)/2, 355, 200, 30)];
-    _titleLable8.text=@"退出当前账号";
-    _titleLable8.font=[UIFont systemFontOfSize:17];
-    _titleLable8.textAlignment = NSTextAlignmentCenter;
-    [self.view addSubview:_titleLable8];
 }
 -(void)cancelButton
 {
@@ -145,7 +130,7 @@
     }else if (section==1){
         return 2;
     }else if (section==2){
-        return 3;
+        return 1;
     }else{
         return 1;
     }
@@ -154,20 +139,19 @@
 {
     static NSString *cellIdentifier=@"cellIdentifier";
     UITableViewCell *cell=[tableView dequeueReusableCellWithIdentifier:cellIdentifier];
-    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     if (!cell) {
+        
         cell=[[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
         if (indexPath.section==0) {
             //设置cell不可选择
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
-            
             UIImage *image1=[UIImage imageNamed:@"ziti-5"];
             _btn1 = [UIButton buttonWithType:UIButtonTypeCustom];
             _btn1.frame = CGRectMake([UIUtils getWindowWidth]-100, 10, 30, 30);
             [_btn1 setTitle:@"小" forState:UIControlStateNormal];
             
             _string=APP_Font;
-            _btn1.titleLabel.font=[UIFont systemFontOfSize:17*[_string floatValue]];
+            _btn1.titleLabel.font=[UIFont systemFontOfSize:13*[_string floatValue]];
             
             [_btn1 setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
             [_btn1 setBackgroundImage:image1 forState:UIControlStateSelected];
@@ -180,7 +164,7 @@
             [_btn2 setTitle:@"中" forState:UIControlStateNormal];
         
             _string=APP_Font;
-            _btn2.titleLabel.font=[UIFont systemFontOfSize:17*[_string floatValue]];
+            _btn2.titleLabel.font=[UIFont systemFontOfSize:15*[_string floatValue]];
             
             [_btn2 setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
             [_btn2 setBackgroundImage:image2 forState:UIControlStateSelected];
@@ -205,15 +189,17 @@
         if (indexPath.section==1){
             if (indexPath.row==1) {
                 cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator; //显示最右边的箭头
+                cell.selectionStyle = UITableViewCellSelectionStyleNone;
+
             }
         }else if (indexPath.section==2){
             cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator; //显示最右边的箭头
+            cell.selectionStyle = UITableViewCellSelectionStyleNone;
         }
         
     }
     return cell;
 }
-
 
 -(void)onClick0
 {
@@ -258,7 +244,7 @@
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (indexPath.section==2) {
+    if (indexPath.section==1) {
         if (indexPath.row==1) {
             NSString *url = [NSString stringWithFormat:@"itms-apps://ax.itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?type=Purple+Software&id=%d",490062954];//490062954是程序的Apple ID,可以在iTunes Connect中查到。
             [[UIApplication sharedApplication] openURL:[NSURL URLWithString:url]];

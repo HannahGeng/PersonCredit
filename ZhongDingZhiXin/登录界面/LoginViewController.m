@@ -25,12 +25,26 @@
 
 @implementation LoginViewController
 
+- (void)loadView
+{
+    //加载数据
+    AppShare;
+    //初始化请求（同时也创建了一个线程）
+    [[HTTPSessionManager sharedManager] GET:CANSHU_URL parameters:nil result:^(id responseObject, NSError *error) {
+        
+        NSLog(@"参数请求:%@",responseObject);
+        
+        dic=responseObject[@"result"];
+        
+        app.noLoginkeycode = [AESCrypt decrypt:dic[@"keycode"]];
+        
+    }];
+
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    //加载数据
-    [self loadData];
-    
+        
     //设置导航栏不透明
     self.navigationController.navigationBar.translucent = NO;
     //设置导航栏
@@ -52,19 +66,21 @@
 }
 
 //加载数据
-- (void)loadData
-{
-    AppShare;
-    //初始化请求（同时也创建了一个线程）
-    [[HTTPSessionManager sharedManager] GET:CANSHU_URL parameters:nil result:^(id responseObject, NSError *error) {
-        
-        dic=responseObject[@"result"];
-        
-        app.noLoginkeycode = [AESCrypt decrypt:dic[@"keycode"]];
-    
-    }];
-    
-}
+//- (void)loadData
+//{
+//    AppShare;
+//    //初始化请求（同时也创建了一个线程）
+//    [[HTTPSessionManager sharedManager] GET:CANSHU_URL parameters:nil result:^(id responseObject, NSError *error) {
+//        
+//        NSLog(@"参数请求:%@",responseObject);
+//        
+//        dic=responseObject[@"result"];
+//        
+//        app.noLoginkeycode = [AESCrypt decrypt:dic[@"keycode"]];
+//    
+//    }];
+//    
+//}
 
 #pragma mark - 登录按钮
 - (IBAction)loginButton:(id)sender {

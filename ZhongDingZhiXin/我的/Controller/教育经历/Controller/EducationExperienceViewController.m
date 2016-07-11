@@ -73,7 +73,6 @@
         if (array.count != 0) {
             
             app.request=responseObject[@"response"];
-            NSLog(@"\n教育经验request：%@",app.request);
             
             for (NSDictionary *dictionary in array) {
                 

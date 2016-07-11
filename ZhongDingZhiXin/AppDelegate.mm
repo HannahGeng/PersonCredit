@@ -8,11 +8,8 @@
 
 #import "AppDelegate.h"
 
-#import "ViewController.h"
-
 @interface AppDelegate ()<UIScrollViewDelegate>
 {
-    BMKMapManager *_mapManager;
     UIScrollView *scrollview;
     UIPageControl *pageControl;
     NSInteger width;
@@ -30,13 +27,6 @@
 }
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    
-    // 要使用百度地图，请先启动BaiduMapManager
-    _mapManager = [[BMKMapManager alloc]init];
-    BOOL ret = [_mapManager start:@"S4R7t21HsAfEC6rv5BA1ori2" generalDelegate:self];
-    if (!ret) {
-        NSLog(@"manager start failed!");
-    }
 
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.backgroundColor = [UIColor whiteColor];

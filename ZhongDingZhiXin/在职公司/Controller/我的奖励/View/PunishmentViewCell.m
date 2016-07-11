@@ -58,10 +58,10 @@
 
 -(void)setContentView:(PunishmentInfo*)punishmentInfo{
     AppShare;
-    NSString *strTitle  = [AESCrypt decrypt:punishmentInfo.descrip password:app.loginKeycode];
-    NSString *strMark=[AESCrypt decrypt:punishmentInfo.topic password:app.loginKeycode];
+    NSString *strTitle  = [AESCrypt decrypt:punishmentInfo.topic password:app.loginKeycode];
+//    NSString *strMark=[AESCrypt decrypt:punishmentInfo.topic password:app.loginKeycode];
     [_titleLable setText:strTitle];
-    [_timeLable setText:strMark];
+//    [_timeLable setText:strMark];
 }
 
 @end
