@@ -16,7 +16,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="关于中秋、国庆放假的通知" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BgY-dH-Zj2">
-                        <rect key="frame" x="10" y="10" width="214" height="30"/>
+                        <rect key="frame" x="20" y="10" width="204" height="30"/>
                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
@@ -32,7 +32,7 @@
                     </label>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="BgY-dH-Zj2" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="2" id="Vtr-3v-ndq"/>
+                    <constraint firstItem="BgY-dH-Zj2" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="12" id="Vtr-3v-ndq"/>
                     <constraint firstAttribute="bottomMargin" secondItem="BgY-dH-Zj2" secondAttribute="bottom" constant="1" id="WTw-eT-Mxd"/>
                     <constraint firstAttribute="trailingMargin" secondItem="BgY-dH-Zj2" secondAttribute="trailing" constant="88" id="edt-y3-CDB"/>
                     <constraint firstItem="BgY-dH-Zj2" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="2" id="uSr-Um-kl7"/>
@@ -41,7 +41,7 @@
                     <constraint firstItem="WMP-LO-yZu" firstAttribute="baseline" secondItem="BgY-dH-Zj2" secondAttribute="baseline" id="vyc-Rc-Itd"/>
                 </constraints>
             </tableViewCellContentView>
-            <color key="backgroundColor" red="0.94158813389999996" green="0.9746111086" blue="0.98593355429999996" alpha="1" colorSpace="calibratedRGB"/>
+            <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
             <connections>
                 <outlet property="dateLabel" destination="WMP-LO-yZu" id="S8h-Ml-ujB"/>
                 <outlet property="titleName" destination="BgY-dH-Zj2" id="5vM-KX-qTh"/>

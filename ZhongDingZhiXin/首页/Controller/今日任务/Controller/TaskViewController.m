@@ -7,8 +7,6 @@
 //
 
 #import "TaskViewController.h"//系统自带地图框架
-
-
 @interface TaskViewController ()<MKMapViewDelegate, CLLocationManagerDelegate>
 {
     //地图View
@@ -24,6 +22,9 @@
     NSString *_cityName;   // 检索城市名
     NSString *_keyWord;    // 检索关键字
     int currentPage;       //  当前页
+    
+    MBProgressHUD * mbHud;
+    CLPlacemark * placemark;
 }
 //poi结果信息集合
 @property (retain,nonatomic) NSMutableArray *poiResultArray;
@@ -185,7 +186,7 @@
         }
         
         //地址信息
-        CLPlacemark *placemark = [placemarks firstObject];
+        placemark = [placemarks firstObject];
         
         self.addressText.text = [NSString stringWithFormat:@"%@ %@ %@, %@ ", placemark.country, placemark.administrativeArea,placemark.locality, placemark.thoroughfare];
         
@@ -205,7 +206,7 @@
 
 - (IBAction)signButton:(UIButton *)sender {
     
-    NSLog(@"签到");
+    MBhud(@"签到成功");
 }
 
 - (IBAction)nearLoc {
@@ -215,7 +216,7 @@
 
 - (IBAction)confirmLoc {
     
-    NSLog(@"确认坐标");
+    MBhud(placemark.name);
 }
 
 

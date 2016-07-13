@@ -16,7 +16,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="公司公告" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r8E-Ih-pUB">
-                        <rect key="frame" x="70" y="15" width="70" height="40"/>
+                        <rect key="frame" x="80" y="15" width="70" height="40"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="70" id="44J-Ke-A9z"/>
                         </constraints>
@@ -25,9 +25,10 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gonggao" translatesAutoresizingMaskIntoConstraints="NO" id="YQc-Lk-p1P">
-                        <rect key="frame" x="20" y="13" width="40" height="40"/>
+                        <rect key="frame" x="20" y="10" width="50" height="50"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="40" id="IYG-ax-Ljr"/>
+                            <constraint firstAttribute="width" constant="50" id="IYG-ax-Ljr"/>
+                            <constraint firstAttribute="height" constant="50" id="jjv-DL-zcY"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -41,9 +42,16 @@
                     <constraint firstItem="YQc-Lk-p1P" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="12" id="8gW-3g-IQ6"/>
                     <constraint firstItem="r8E-Ih-pUB" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="7" id="Ges-WM-xj5"/>
                     <constraint firstItem="YQc-Lk-p1P" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="5" id="Zbo-XJ-WMr"/>
+                    <constraint firstItem="YQc-Lk-p1P" firstAttribute="centerY" secondItem="r8E-Ih-pUB" secondAttribute="centerY" id="exk-TE-Oxu"/>
                     <constraint firstItem="r8E-Ih-pUB" firstAttribute="leading" secondItem="YQc-Lk-p1P" secondAttribute="trailing" constant="10" id="ig7-Ox-f2J"/>
                     <constraint firstAttribute="bottomMargin" secondItem="r8E-Ih-pUB" secondAttribute="bottom" constant="6" id="ynG-0D-eAU"/>
                 </constraints>
+                <variation key="default">
+                    <mask key="constraints">
+                        <exclude reference="2ba-Ho-22s"/>
+                        <exclude reference="Zbo-XJ-WMr"/>
+                    </mask>
+                </variation>
             </tableViewCellContentView>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <point key="canvasLocation" x="590" y="469"/>
