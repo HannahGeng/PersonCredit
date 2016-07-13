@@ -173,7 +173,6 @@
     //    c) 显示区域
     _mapView.region = region;
 
-    
     //反地理编码(逆地理编码) : 把位置信息转换成地址信息
     //地理编码 : 把地址信息转换成位置信息
     CLGeocoder *geocoder = [[CLGeocoder alloc] init];
@@ -190,7 +189,7 @@
         
         self.addressText.text = [NSString stringWithFormat:@"%@ %@ %@, %@ ", placemark.country, placemark.administrativeArea,placemark.locality, placemark.thoroughfare];
         
-        NSLog(@"%@", placemark.name);
+        NSLog(@"我的地址:%@", placemark.name);
         
     }];
     

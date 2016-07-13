@@ -21,5 +21,9 @@
 @property (nonatomic,strong) NSString * loginKeycode;
 /** 未登陆解密的keycode */
 @property (nonatomic,strong) NSString * noLoginkeycode;
+
+/** 工作证样式 */
+@property (nonatomic,strong) NSString * workStyle;
+
 @end
 

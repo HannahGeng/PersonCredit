@@ -17,6 +17,7 @@
     NSArray *arr;
 }
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
+@property (nonatomic,strong) NSString * workstyle;
 
 @end
 
@@ -32,13 +33,31 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    AppShare;
+    
     //设置背景颜色
     [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"backgroundImage"]]];
+    
     //设置导航栏
     [self setNavigationBar];
+    
     //加载数据
-    [self loadData];
-
+    app.workStyle = [[NSUserDefaults standardUserDefaults] stringForKey:@"style"];
+    
+    if (app.workStyle == nil) {
+        
+        [self loadData2];
+        
+    }else if ([app.workStyle isEqualToString:@"1"]){
+        
+        [self loadData];
+        
+    }else{
+        
+        [self loadData2];
+    }
+    
     //标准
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(standard) name:@"standard" object:nil];
     
@@ -82,36 +101,30 @@
 //切换成标准工作证
 - (void)standard
 {
-    [self loadData];
+    AppShare;
+    app.workStyle = @"2";
+    
+    //标准样式
+    [[NSUserDefaults standardUserDefaults] setObject:app.workStyle forKey:@"style"];
+    
+    [self loadData2];
 }
 
 //切换成清新工作证
 - (void)clever
 {
-    [self loadData1];
-}
-
-//标准样式
--(void)addContentView
-{
     AppShare;
-    //数组内存放的是图片
-    arr=[NSArray arrayWithObjects:@"gongzuoz2",@"gongzuoz2", nil];
-    workType;
-
-}
-
-//清新样式
--(void)addContentView1
-{
-    AppShare;
-    //数组内存放的是图片
-    arr=[NSArray arrayWithObjects:@"gongzuoz", @"gongzuoz", nil];
-    workType;
+    //清新样式
+    app.workStyle = @"1";
+    
+    //标准样式
+    [[NSUserDefaults standardUserDefaults] setObject:app.workStyle forKey:@"style"];
+    
+    [self loadData];
 }
 
 //加载数据
-- (void)loadData
+- (void)loadData2//标准模式
 {
     //显示提示
     mbHUDinit;
@@ -131,14 +144,14 @@
         //隐藏HUD
         hudHide;
         
-        //添加内容视图
-        [self addContentView];
-
+        arr=[NSArray arrayWithObjects:@"gongzuoz2",@"gongzuoz2", nil];
+            
+        workType;
     }];
    
 }
 
-- (void)loadData1
+- (void)loadData//清新模式
 {
     //显示提示
     mbHUDinit;
@@ -158,11 +171,11 @@
         //隐藏HUD
         hudHide;
         
-        //添加内容视图
-        [self addContentView1];
+        arr=[NSArray arrayWithObjects:@"gongzuoz",@"gongzuoz", nil];
         
+        workType;
     }];
-    
+
 }
 
 #pragma mark - InterpolatedUIImage
@@ -203,6 +216,7 @@
 void ProviderReleaseData (void *info, const void *data, size_t size){
     free((void*)data);
 }
+
 - (UIImage*)imageBlackToTransparent:(UIImage*)image withRed:(CGFloat)red andGreen:(CGFloat)green andBlue:(CGFloat)blue{
     const int imageWidth = image.size.width;
     const int imageHeight = image.size.height;
