@@ -9,20 +9,14 @@
 #import "TaskViewController.h"//系统自带地图框架
 @interface TaskViewController ()<MKMapViewDelegate, CLLocationManagerDelegate>
 {
-    //地图View
-    MKMapView * _mapView;
-    
-    //定位管理器
+     //定位管理器
     CLLocationManager *manager;
-    
     CLLocationCoordinate2D coordinate;
-    
     int curPage;
     TaskView *_taskView;
     NSString *_cityName;   // 检索城市名
     NSString *_keyWord;    // 检索关键字
     int currentPage;       //  当前页
-    
     MBProgressHUD * mbHud;
     CLPlacemark * placemark;
 }
@@ -36,6 +30,7 @@
 @property (nonatomic, strong) CLGeocoder *geoC;
 @property (weak, nonatomic) IBOutlet UIButton *nearButton;
 @property (weak, nonatomic) IBOutlet UIButton *confirmButton;
+@property (weak, nonatomic) IBOutlet MKMapView *mapView;
 
 @end
 
@@ -59,33 +54,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    //地图View
-    _mapView = [[MKMapView alloc] initWithFrame:CGRectMake(0, 0, [UIUtils getWindowWidth], 370)];
-    [self.view addSubview:_mapView];
-    
-    //设置代理
-    _mapView.delegate = self;
-    
-    //设置地图类型
-    _mapView.mapType = MKMapTypeStandard;
-    
+    [self.view addSubview:self.mapView];
+
     //设置中心坐标
     [_mapView setCenterCoordinate:CLLocationCoordinate2DMake(22.552377, 114.082450) animated:YES];
-    
-    //是否允许缩放
-    _mapView.zoomEnabled = YES;
-    
-    //是否允许移动
-    _mapView.scrollEnabled = YES;
-    
-    //是否允许旋转
-    _mapView.rotateEnabled = NO;
-    
-    //是否显示建筑物
-    _mapView.showsBuildings = YES;
-    
-    //设置是否允许显示用户位置
-    _mapView.showsUserLocation = YES;
     
     //创建定位管理器
     manager = [[CLLocationManager alloc] init];
@@ -124,7 +96,7 @@
 -(void)backButton
 {
     [self.navigationController popViewControllerAnimated:YES];
-}
+} 
 //添加内容视图
 -(void)addContentView
 {
@@ -132,9 +104,7 @@
     [_mapView addSubview:_confirmButton];
     
     //注册通知
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(addName:)
-                                                 name:@"add_name" object:nil];
+//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(addName:) name:@"add_name" object:nil];
     
     //时间戳
     NSDate *  senddate=[NSDate date];
@@ -219,5 +189,15 @@
     MBhud(placemark.name);
 }
 
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
+{
+    // 1. 获取当前触摸点
+    CGPoint point = [[touches anyObject] locationInView:self.mapView];
+    
+    // 2. 转换成经纬度
+    CLLocationCoordinate2D pt = [self.mapView convertPoint:point toCoordinateFromView:self.mapView];
+    
+    NSLog(@"\n经纬度:%f,%f",pt.latitude,pt.longitude);
+}
 
 @end

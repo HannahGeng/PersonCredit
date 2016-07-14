@@ -10,6 +10,7 @@
                 <outlet property="addressText" destination="cXi-Z1-rfN" id="cWs-h4-BRO"/>
                 <outlet property="confirmButton" destination="1ls-NA-qyt" id="RBg-8B-TzU"/>
                 <outlet property="detailTimeLabel" destination="W17-gc-gkY" id="um5-0l-sc8"/>
+                <outlet property="mapView" destination="8Rl-5S-1GF" id="tMV-oo-gHS"/>
                 <outlet property="nearButton" destination="fQJ-IT-upa" id="OhR-Vl-JuB"/>
                 <outlet property="timeLabel" destination="Zwr-3D-AhT" id="3Ll-oZ-szf"/>
                 <outlet property="view" destination="iN0-l3-epB" id="Q72-of-rPE"/>
@@ -124,8 +125,11 @@
                         <action selector="confirmLoc" destination="-1" eventType="touchUpInside" id="4aM-DH-Zos"/>
                     </connections>
                 </button>
-                <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="8Rl-5S-1GF">
-                    <rect key="frame" x="0.0" y="0.0" width="320" height="342"/>
+                <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8Rl-5S-1GF">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="335"/>
+                    <connections>
+                        <outlet property="delegate" destination="-1" id="7Fm-u4-ukz"/>
+                    </connections>
                 </mapView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -137,23 +141,30 @@
                 <constraint firstItem="cXi-Z1-rfN" firstAttribute="bottom" secondItem="es0-5w-pld" secondAttribute="bottom" id="9tG-4i-BGf"/>
                 <constraint firstItem="QhL-nS-HbL" firstAttribute="top" secondItem="Fsu-Yo-LdY" secondAttribute="bottom" constant="10" id="Bzf-br-vCQ"/>
                 <constraint firstItem="cXi-Z1-rfN" firstAttribute="top" secondItem="fQJ-IT-upa" secondAttribute="bottom" constant="30" id="DV2-DY-Yaz"/>
+                <constraint firstAttribute="trailing" secondItem="8Rl-5S-1GF" secondAttribute="trailing" id="GiS-AM-oUv"/>
                 <constraint firstItem="gZ2-Np-a7Y" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="10" id="HQM-nH-Hoy"/>
                 <constraint firstItem="es0-5w-pld" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="15" id="Ktf-fn-fen"/>
                 <constraint firstItem="W17-gc-gkY" firstAttribute="leading" secondItem="roU-WE-IGb" secondAttribute="trailing" constant="5" id="Lki-xK-vdT"/>
                 <constraint firstItem="roU-WE-IGb" firstAttribute="centerY" secondItem="W17-gc-gkY" secondAttribute="centerY" id="Lmp-N2-nKr"/>
                 <constraint firstAttribute="bottom" secondItem="OR1-Q5-Ljd" secondAttribute="bottom" constant="38" id="LrS-LU-H0H"/>
+                <constraint firstItem="cXi-Z1-rfN" firstAttribute="top" secondItem="8Rl-5S-1GF" secondAttribute="bottom" constant="15" id="MqM-h9-OvA"/>
                 <constraint firstItem="es0-5w-pld" firstAttribute="trailing" secondItem="Fsu-Yo-LdY" secondAttribute="trailing" id="NXF-nw-ond"/>
                 <constraint firstItem="cXi-Z1-rfN" firstAttribute="top" secondItem="es0-5w-pld" secondAttribute="top" id="OKi-7l-qcH"/>
                 <constraint firstItem="Zwr-3D-AhT" firstAttribute="leading" secondItem="cXi-Z1-rfN" secondAttribute="leading" id="ScF-hL-snK"/>
+                <constraint firstItem="8Rl-5S-1GF" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="Uyw-zT-Djy"/>
                 <constraint firstItem="OR1-Q5-Ljd" firstAttribute="top" secondItem="QhL-nS-HbL" secondAttribute="bottom" constant="29" id="YSz-Iq-lbm"/>
+                <constraint firstAttribute="trailing" secondItem="8Rl-5S-1GF" secondAttribute="trailing" id="YqZ-8F-mdw"/>
+                <constraint firstItem="8Rl-5S-1GF" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="Zl5-8W-DcU"/>
                 <constraint firstItem="QhL-nS-HbL" firstAttribute="top" secondItem="Zwr-3D-AhT" secondAttribute="bottom" constant="7" id="bsN-9T-RT2"/>
                 <constraint firstItem="cXi-Z1-rfN" firstAttribute="top" secondItem="1ls-NA-qyt" secondAttribute="bottom" constant="30" id="cNB-oZ-gsd"/>
                 <constraint firstItem="W17-gc-gkY" firstAttribute="top" secondItem="gZ2-Np-a7Y" secondAttribute="bottom" constant="11" id="gp4-L4-YGo"/>
+                <constraint firstItem="8Rl-5S-1GF" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="gpL-Df-o9A"/>
                 <constraint firstItem="cXi-Z1-rfN" firstAttribute="leading" secondItem="es0-5w-pld" secondAttribute="trailing" constant="15" id="iA2-Vf-hMr"/>
                 <constraint firstItem="roU-WE-IGb" firstAttribute="top" secondItem="Fsu-Yo-LdY" secondAttribute="top" id="iC8-Ok-TID"/>
                 <constraint firstItem="gZ2-Np-a7Y" firstAttribute="trailing" secondItem="W17-gc-gkY" secondAttribute="trailing" id="ms6-eg-erh"/>
                 <constraint firstItem="Fsu-Yo-LdY" firstAttribute="leading" secondItem="es0-5w-pld" secondAttribute="leading" id="n8H-du-Wo5"/>
                 <constraint firstItem="fQJ-IT-upa" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="10" id="oyS-kN-km0"/>
+                <constraint firstItem="8Rl-5S-1GF" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="q9y-0j-q6L"/>
                 <constraint firstItem="QhL-nS-HbL" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="sfs-bp-mrl"/>
                 <constraint firstAttribute="trailing" secondItem="1ls-NA-qyt" secondAttribute="trailing" constant="10" id="uAU-60-kQ6"/>
                 <constraint firstAttribute="trailing" secondItem="cXi-Z1-rfN" secondAttribute="trailing" constant="5" id="vA7-d9-D8F"/>
