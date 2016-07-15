@@ -34,7 +34,6 @@
 @property (nonatomic, strong) CLGeocoder *geoC;
 @property (weak, nonatomic) IBOutlet UIButton *nearButton;
 @property (weak, nonatomic) IBOutlet UIButton *confirmButton;
-@property (weak, nonatomic) IBOutlet MKMapView *mapView;
 
 @end
 
@@ -52,14 +51,14 @@
 
     [super viewWillAppear:animated];
     self.tabBarController.tabBar.hidden=YES;
-    
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [self.view addSubview:self.mapView];
-
+    _mapView=[[MKMapView alloc]initWithFrame:CGRectMake(0, 0, [UIUtils getWindowWidth], 370)];
+    [self.view addSubview:_mapView];
+    
     //设置中心坐标
     [_mapView setCenterCoordinate:CLLocationCoordinate2DMake(22.552377, 114.082450) animated:YES];
     
