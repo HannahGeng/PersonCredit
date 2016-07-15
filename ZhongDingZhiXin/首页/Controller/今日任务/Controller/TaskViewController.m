@@ -7,22 +7,20 @@
 //
 
 #import "TaskViewController.h"//系统自带地图框架
-@interface TaskViewController ()<MKMapViewDelegate, CLLocationManagerDelegate>
+#import "XMGAnno.h"
+
+@interface TaskViewController ()<MKMapViewDelegate, CLLocationManagerDelegate,MKAnnotation>
 {
     //地图View
     MKMapView * _mapView;
-    
     //定位管理器
     CLLocationManager *manager;
-    
     CLLocationCoordinate2D coordinate;
-    
     int curPage;
     TaskView *_taskView;
     NSString *_cityName;   // 检索城市名
     NSString *_keyWord;    // 检索关键字
     int currentPage;       //  当前页
-    
     MBProgressHUD * mbHud;
     CLPlacemark * placemark;
 }
@@ -188,7 +186,8 @@
         //地址信息
         placemark = [placemarks firstObject];
         
-        self.addressText.text = [NSString stringWithFormat:@"%@ %@ %@, %@ ", placemark.country, placemark.administrativeArea,placemark.locality, placemark.thoroughfare];
+        self.addressText.text = [NSString stringWithFormat:@"%@ %@ %@, %@", placemark.country, placemark.administrativeArea,placemark.locality,placemark.name];
+//        self.addressText.text = placemark.name;
         
         NSLog(@"我的地址:%@", placemark.name);
         
@@ -216,8 +215,64 @@
 
 - (IBAction)confirmLoc {
     
-    MBhud(placemark.name);
+    MBhud(placemark.thoroughfare);
 }
 
+-(void)touchesEnded:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
+{
+    
+    // 1. 获取当前触摸点
+    CGPoint point = [[touches anyObject] locationInView:_mapView];
+    
+    
+    // 2. 转换成经纬度
+    CLLocationCoordinate2D pt = [_mapView convertPoint:point toCoordinateFromView:_mapView];
+    
+    CLLocation * loc = [[CLLocation alloc] initWithLatitude:pt.latitude longitude:pt.longitude];
+    
+    CLGeocoder *geocoder = [[CLGeocoder alloc] init];
+    
+    //反地理编码
+    [geocoder reverseGeocodeLocation:loc completionHandler:^(NSArray<CLPlacemark *> * _Nullable placemarks, NSError * _Nullable error) {
+       
+        if (error) {
+            NSLog(@"反地理编码失败!");
+            return ;
+        }
+        
+        //地址信息
+        placemark = [placemarks firstObject];
+        
+        self.addressText.text = [NSString stringWithFormat:@"%@",placemark.name];
+        
+        NSLog(@"\n当前触发地址:%@", placemark.name);
+        
+    }];
+    
+    // 3. 添加大头针
+    [self addAnnoWithPT:pt];
+}
+
+- (void)addAnnoWithPT:(CLLocationCoordinate2D)pt
+{
+    __block XMGAnno *anno = [[XMGAnno alloc] init];
+    anno.coordinate = pt;
+    [_mapView addAnnotation:anno];
+    CLLocation *loc = [[CLLocation alloc] initWithLatitude:anno.coordinate.latitude longitude:anno.coordinate.longitude];
+    [self.geoC reverseGeocodeLocation:loc completionHandler:^(NSArray<CLPlacemark *> * _Nullable placemarks, NSError * _Nullable error) {
+        CLPlacemark *pl = [placemarks firstObject];
+        anno.title = pl.locality;
+        anno.subtitle = pl.thoroughfare;
+        
+    }];
+    
+}
+
+-(void)touchesMoved:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
+{
+    // 移除大头针(模型)
+    NSArray *annos = _mapView.annotations;
+    [_mapView removeAnnotations:annos];
+}
 
 @end
