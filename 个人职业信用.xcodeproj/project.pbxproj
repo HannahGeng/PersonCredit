@@ -75,6 +75,11 @@
 		3D8589771BE847C200757C82 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D8589761BE847C200757C82 /* UIKit.framework */; };
 		3DB175DE1D3C7941005F91CB /* WorkViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DB175DC1D3C7941005F91CB /* WorkViewCell.m */; };
 		3DB175DF1D3C7941005F91CB /* WorkViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3DB175DD1D3C7941005F91CB /* WorkViewCell.xib */; };
+		3DC0B0471D3CC30100194166 /* QuestionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DC0B0451D3CC30100194166 /* QuestionViewController.m */; };
+		3DC0B0481D3CC30100194166 /* QuestionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3DC0B0461D3CC30100194166 /* QuestionViewController.xib */; };
+		3DC0B04B1D3CC31300194166 /* QuestionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DC0B04A1D3CC31300194166 /* QuestionModel.m */; };
+		3DC0B04F1D3CC32300194166 /* QuestionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DC0B04D1D3CC32300194166 /* QuestionCell.m */; };
+		3DC0B0501D3CC32300194166 /* QuestionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3DC0B04E1D3CC32300194166 /* QuestionCell.xib */; };
 		3DC3C6531D2B859100D40844 /* HTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DC3C6521D2B859100D40844 /* HTTPSessionManager.m */; };
 		3DC3C6551D2B909600D40844 /* libAFNetworking.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DC3C6541D2B909600D40844 /* libAFNetworking.a */; };
 		3DC3C6571D2B909800D40844 /* libMBProgressHUD.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DC3C6561D2B909800D40844 /* libMBProgressHUD.a */; };
@@ -221,6 +226,14 @@
 		3DB175DB1D3C7941005F91CB /* WorkViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WorkViewCell.h; sourceTree = "<group>"; };
 		3DB175DC1D3C7941005F91CB /* WorkViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WorkViewCell.m; sourceTree = "<group>"; };
 		3DB175DD1D3C7941005F91CB /* WorkViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WorkViewCell.xib; sourceTree = "<group>"; };
+		3DC0B0441D3CC30100194166 /* QuestionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuestionViewController.h; sourceTree = "<group>"; };
+		3DC0B0451D3CC30100194166 /* QuestionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuestionViewController.m; sourceTree = "<group>"; };
+		3DC0B0461D3CC30100194166 /* QuestionViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QuestionViewController.xib; sourceTree = "<group>"; };
+		3DC0B0491D3CC31300194166 /* QuestionModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuestionModel.h; sourceTree = "<group>"; };
+		3DC0B04A1D3CC31300194166 /* QuestionModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuestionModel.m; sourceTree = "<group>"; };
+		3DC0B04C1D3CC32300194166 /* QuestionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuestionCell.h; sourceTree = "<group>"; };
+		3DC0B04D1D3CC32300194166 /* QuestionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuestionCell.m; sourceTree = "<group>"; };
+		3DC0B04E1D3CC32300194166 /* QuestionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QuestionCell.xib; sourceTree = "<group>"; };
 		3DC3C6511D2B859100D40844 /* HTTPSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTTPSessionManager.h; sourceTree = "<group>"; };
 		3DC3C6521D2B859100D40844 /* HTTPSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTTPSessionManager.m; sourceTree = "<group>"; };
 		3DC3C6541D2B909600D40844 /* libAFNetworking.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libAFNetworking.a; path = "../../../../../Library/Developer/Xcode/DerivedData/ZhongDingZhiXin-fteexjvzezhxigckshnhyjmgzwpm/Build/Products/Debug-iphonesimulator/libAFNetworking.a"; sourceTree = "<group>"; };
@@ -787,6 +800,7 @@
 			children = (
 				3D4F9FBB1D2B817100A1C1A5 /* OtherViewController.h */,
 				3D4F9FBC1D2B817100A1C1A5 /* OtherViewController.m */,
+				3DC0B0401D3CC2DF00194166 /* 常见问题 */,
 				3D4F9FBD1D2B817100A1C1A5 /* 关于中鼎 */,
 				3D4F9FC31D2B817100A1C1A5 /* 用户反馈 */,
 				3D4F9FC71D2B817100A1C1A5 /* 设置 */,
@@ -848,6 +862,45 @@
 				3D1CDF1B1BE85C6B0097C924 /* Foundation.framework */,
 			);
 			name = framework;
+			sourceTree = "<group>";
+		};
+		3DC0B0401D3CC2DF00194166 /* 常见问题 */ = {
+			isa = PBXGroup;
+			children = (
+				3DC0B0411D3CC2DF00194166 /* Controller */,
+				3DC0B0421D3CC2DF00194166 /* Model */,
+				3DC0B0431D3CC2DF00194166 /* View */,
+			);
+			path = "常见问题";
+			sourceTree = "<group>";
+		};
+		3DC0B0411D3CC2DF00194166 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				3DC0B0441D3CC30100194166 /* QuestionViewController.h */,
+				3DC0B0451D3CC30100194166 /* QuestionViewController.m */,
+				3DC0B0461D3CC30100194166 /* QuestionViewController.xib */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		3DC0B0421D3CC2DF00194166 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				3DC0B0491D3CC31300194166 /* QuestionModel.h */,
+				3DC0B04A1D3CC31300194166 /* QuestionModel.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		3DC0B0431D3CC2DF00194166 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				3DC0B04C1D3CC32300194166 /* QuestionCell.h */,
+				3DC0B04D1D3CC32300194166 /* QuestionCell.m */,
+				3DC0B04E1D3CC32300194166 /* QuestionCell.xib */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		3DC3C6501D2B859100D40844 /* 网络请求 */ = {
@@ -1070,6 +1123,8 @@
 			files = (
 				3D4F9F441D2B663800A1C1A5 /* AfficheViewController.xib in Resources */,
 				3D1FEEDF1D2E3CEC00C54C41 /* ContentView.xib in Resources */,
+				3DC0B0501D3CC32300194166 /* QuestionCell.xib in Resources */,
+				3DC0B0481D3CC30100194166 /* QuestionViewController.xib in Resources */,
 				3D4F9F891D2B67C100A1C1A5 /* WorkExperienceViewController.xib in Resources */,
 				3DE353871D388449002A68E6 /* TaskViewController.xib in Resources */,
 				3D4F9F461D2B663800A1C1A5 /* NoticeViewController.xib in Resources */,
@@ -1159,6 +1214,8 @@
 				3D4F9F3F1D2B663800A1C1A5 /* TaskViewController.m in Sources */,
 				3D4F9FB21D2B80B800A1C1A5 /* PunishmentInfo.m in Sources */,
 				3D4F9FD01D2B817100A1C1A5 /* PageViewController.m in Sources */,
+				3DC0B04B1D3CC31300194166 /* QuestionModel.m in Sources */,
+				3DC0B04F1D3CC32300194166 /* QuestionCell.m in Sources */,
 				3D4F9F411D2B663800A1C1A5 /* TaskView.m in Sources */,
 				3D4F9F481D2B663800A1C1A5 /* TableNoticeViewCell.m in Sources */,
 				3D4F9F5F1D2B667F00A1C1A5 /* MarketViewCell.m in Sources */,
@@ -1176,6 +1233,7 @@
 				3D4F9F451D2B663800A1C1A5 /* NoticeViewController.m in Sources */,
 				3D4F9F491D2B663800A1C1A5 /* WordCarViewController.m in Sources */,
 				3DDF6B211D2F51040046E163 /* NSString+Base64.m in Sources */,
+				3DC0B0471D3CC30100194166 /* QuestionViewController.m in Sources */,
 				3DD68B701D2C91CE002BCDD6 /* Foundation+Log.m in Sources */,
 				3D4F9EF91D2B63EB00A1C1A5 /* ViewController.m in Sources */,
 				3D4F9FB81D2B80B800A1C1A5 /* CompanyViewCell.m in Sources */,

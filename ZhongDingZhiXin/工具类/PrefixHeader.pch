@@ -74,6 +74,10 @@
 #import "FDAlertView.h"
 #import "ContentView.h"
 #import <MapKit/MapKit.h>
+#import "QuestionViewController.h"
+#import "QuestionModel.h"
+#import "QuestionCell.h"
+
 //定位框架
 #import <CoreLocation/CoreLocation.h>
 
@@ -147,6 +151,9 @@ typedef enum _UpdateType {
 
 #pragma mark - 12、其他-反馈
 #define FANKUI_URL @"http://www.newqc.cn/webapi/other/tickling/"
+
+#pragma mark - 13、常见问题
+#define WENTI_URL @"http://www.newqc.cn/webapi/other/faq"
 
 #pragma mark - 导航栏统一样式
 #define NavBarType(navName) \

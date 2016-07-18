@@ -76,19 +76,19 @@
             [alter show];
         }
         if (array.count!=0) {
-            AppDelegate *app = [AppDelegate sharedAppDelegate];
+            
             app.request=responseObject[@"response"];
             for (NSDictionary *dictionary in array) {
                 RewardInfo *rewardInfo = [[RewardInfo alloc] initWithDictionary:dictionary];
                 [_rewardInfoArray addObject:rewardInfo];
             }
-            self.rewardTableView.dataSource=self;
-            self.rewardTableView.delegate=self;
+            
             self.rewardTableView.backgroundColor=[UIColor clearColor];
             self.rewardTableView.scrollEnabled =YES; //设置tableview滚动
             self.rewardTableView.tableFooterView=[[UIView alloc]init];//影藏多余的分割线
             
             [self.rewardTableView reloadData];
+            
             //隐藏HUD
             hudHide;
         }
@@ -104,6 +104,7 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
     static NSString *identifier=@"Identifier";
     RewardViewCell *cell=[tableView dequeueReusableCellWithIdentifier:identifier];
     if (!cell) {
@@ -123,6 +124,7 @@
 {
     return 60;
 }
+
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
     AfficheViewController * affich = [[AfficheViewController alloc] init];

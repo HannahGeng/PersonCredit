@@ -245,7 +245,13 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (indexPath.section==1) {
-        if (indexPath.row==1) {
+        
+        if (indexPath.row == 0) {
+            
+            QuestionViewController * ques = [[QuestionViewController alloc] init];
+            [self.navigationController pushViewController:ques animated:YES];
+        
+        }else if (indexPath.row==1) {
             NSString *url = [NSString stringWithFormat:@"itms-apps://ax.itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?type=Purple+Software&id=%d",490062954];//490062954是程序的Apple ID,可以在iTunes Connect中查到。
             [[UIApplication sharedApplication] openURL:[NSURL URLWithString:url]];
         }

@@ -73,15 +73,24 @@
 
     NSString *strTitle=[AESCrypt decrypt:self.noticeInfo.title password:app.loginKeycode];
     
-    NSString *strContent=[AESCrypt decrypt:self.noticeInfo.content password:app.loginKeycode];
     NSString *strMark=[AESCrypt decrypt:self.noticeInfo.mark password:app.loginKeycode];
-    
+
     _titleLabel.text=strTitle;
+    
+    NSString *topic=[AESCrypt decrypt:self.noticeInfo.topic password:app.loginKeycode];
+
+    _titleLabel.text = topic;
+
+    NSString *strContent=[AESCrypt decrypt:self.noticeInfo.content password:app.loginKeycode];
 
     _textView.text=strContent;
     
+    NSString *des=[AESCrypt decrypt:self.noticeInfo.descrip password:app.loginKeycode];
+    _textView.text = des;
+    
     NSString * str = strMark;
     timeCover;
+    
     _timeLabel.text = currentDateStr;
 }
 

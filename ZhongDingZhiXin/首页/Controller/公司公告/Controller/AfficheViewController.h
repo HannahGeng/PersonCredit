@@ -9,6 +9,9 @@
 #import <UIKit/UIKit.h>
 
 #import "NoticeInfo.h"
+
 @interface AfficheViewController : UIViewController
+
 @property(strong,nonatomic)NoticeInfo *noticeInfo;
+
 @end
