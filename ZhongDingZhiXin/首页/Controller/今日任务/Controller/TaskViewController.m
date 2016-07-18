@@ -57,6 +57,9 @@
     [super viewDidLoad];
     
     _mapView=[[MKMapView alloc]initWithFrame:CGRectMake(0, 0, [UIUtils getWindowWidth], 370)];
+    
+    _mapView.showsUserLocation = YES;
+    
     [self.view addSubview:_mapView];
     
     //设置中心坐标
