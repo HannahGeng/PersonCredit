@@ -111,7 +111,7 @@
     cell.selectionStyle = UITableViewCellSelectionStyleGray;
     if (_punishmentInfoArray.count!=0) {
         
-        PunishmentInfo *punishmentInfo = _punishmentInfoArray[indexPath.row];
+        NoticeInfo *punishmentInfo = _punishmentInfoArray[indexPath.row];
         [cell setContentView:punishmentInfo];
     }
     return cell;

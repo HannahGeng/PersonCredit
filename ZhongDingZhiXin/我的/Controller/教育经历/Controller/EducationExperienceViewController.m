@@ -66,8 +66,10 @@
     }
 
     //初始化请求（同时也创建了一个线程）
-    [[HTTPSessionManager sharedManager] POST:GZJL_URL parameters:Dic result:^(id responseObject, NSError *error) {
+    [[HTTPSessionManager sharedManager] POST:JYJL_URL parameters:Dic result:^(id responseObject, NSError *error) {
         
+        NSLog(@"\n教育经验：%@",responseObject);
+
         array = responseObject[@"result"];
 
         if (array.count != 0) {

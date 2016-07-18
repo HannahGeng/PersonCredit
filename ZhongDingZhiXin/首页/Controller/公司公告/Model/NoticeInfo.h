@@ -13,6 +13,10 @@
 @property (nonatomic, strong) NSString *title;//标题
 @property (nonatomic, strong) NSString *mark;//时间
 @property (nonatomic, strong) NSString *content;//内容
+@property (nonatomic, strong) NSString *realname;//标题
+@property (nonatomic, strong) NSString *topic;//时间
+@property (nonatomic, strong) NSString *descrip;//内容
+@property (nonatomic, strong) NSString *point;
 
 - (id)initWithDictionary:(NSDictionary *)dictionary;
 

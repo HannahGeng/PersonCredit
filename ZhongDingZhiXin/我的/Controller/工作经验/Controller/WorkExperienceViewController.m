@@ -68,19 +68,18 @@
     //初始化请求（同时也创建了一个线程）
     [[HTTPSessionManager sharedManager] POST:GZJL_URL parameters:Dic result:^(id responseObject, NSError *error) {
         
+        NSLog(@"工作经验:%@",responseObject);
+        
         NSArray *array = responseObject[@"result"];
         if (array.count!=0) {
             
             app.request=responseObject[@"response"];
             
-            NSLog(@"\n工作经验request：%@",app.request);
-
             for (NSDictionary *dictionary in array) {
                 WorkInfo *workInfo = [[WorkInfo alloc] initWithDictionary:dictionary];
                 [_workInfoArray addObject:workInfo];
             }
            
-            
             self.workTableView.backgroundColor=[UIColor clearColor];
             self.workTableView.scrollEnabled =YES; //设置tableview滚动
             self.workTableView.tableFooterView=[[UIView alloc]init];//影藏多余的分割线
@@ -102,27 +101,24 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    static NSString *identifier=@"Identifier";
-    WorkViewCell *cell=[tableView dequeueReusableCellWithIdentifier:identifier];
-    if (!cell) {
-        cell=[[WorkViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
-    }
-    cell.selectionStyle = UITableViewCellSelectionStyleGray;
+    
+    WorkViewCell *cell=[WorkViewCell cellWithTableView:tableView];
+    
     if (_workInfoArray.count!=0) {
-        WorkInfo *workInfo = _workInfoArray[indexPath.row];
-        [cell setContentView:workInfo];
+        
+        cell.workModel = _workInfoArray[indexPath.row];
     }
-
+    
+    cell.selectionStyle = UITableViewCellSelectionStyleGray;
+    cell.selected = NO;
+    
     return cell;
 }
 
 #pragma mark UITableViewDelegate
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 60;
+    return 80;
 }
--(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-}
-
 
 @end

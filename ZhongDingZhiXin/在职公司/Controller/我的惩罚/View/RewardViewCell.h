@@ -7,11 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-@class RewardInfo;
+@class NoticeInfo;
 
 @interface RewardViewCell : UITableViewCell
 
 //设置显示内容
--(void)setContentView:(RewardInfo*)rewardInfo;
+-(void)setContentView:(NoticeInfo*)rewardInfo;
 
 @end

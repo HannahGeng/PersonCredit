@@ -49,7 +49,6 @@
 		3D4F9F881D2B67C100A1C1A5 /* WorkExperienceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D4F9F6E1D2B67C100A1C1A5 /* WorkExperienceViewController.m */; };
 		3D4F9F891D2B67C100A1C1A5 /* WorkExperienceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D4F9F6F1D2B67C100A1C1A5 /* WorkExperienceViewController.xib */; };
 		3D4F9F8A1D2B67C100A1C1A5 /* WorkInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D4F9F721D2B67C100A1C1A5 /* WorkInfo.m */; };
-		3D4F9F8B1D2B67C100A1C1A5 /* WorkViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D4F9F751D2B67C100A1C1A5 /* WorkViewCell.m */; };
 		3D4F9F8C1D2B67C100A1C1A5 /* EducationExperienceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D4F9F791D2B67C100A1C1A5 /* EducationExperienceViewController.m */; };
 		3D4F9F8D1D2B67C100A1C1A5 /* EducationExperienceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D4F9F7A1D2B67C100A1C1A5 /* EducationExperienceViewController.xib */; };
 		3D4F9F8E1D2B67C100A1C1A5 /* EducationInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D4F9F7D1D2B67C100A1C1A5 /* EducationInfo.m */; };
@@ -74,6 +73,8 @@
 		3D4F9FD41D2B817100A1C1A5 /* SetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D4F9FC91D2B817100A1C1A5 /* SetViewController.m */; };
 		3D4F9FD51D2B817100A1C1A5 /* OtherViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D4F9FCD1D2B817100A1C1A5 /* OtherViewCell.m */; };
 		3D8589771BE847C200757C82 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D8589761BE847C200757C82 /* UIKit.framework */; };
+		3DB175DE1D3C7941005F91CB /* WorkViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DB175DC1D3C7941005F91CB /* WorkViewCell.m */; };
+		3DB175DF1D3C7941005F91CB /* WorkViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3DB175DD1D3C7941005F91CB /* WorkViewCell.xib */; };
 		3DC3C6531D2B859100D40844 /* HTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DC3C6521D2B859100D40844 /* HTTPSessionManager.m */; };
 		3DC3C6551D2B909600D40844 /* libAFNetworking.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DC3C6541D2B909600D40844 /* libAFNetworking.a */; };
 		3DC3C6571D2B909800D40844 /* libMBProgressHUD.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DC3C6561D2B909800D40844 /* libMBProgressHUD.a */; };
@@ -175,8 +176,6 @@
 		3D4F9F6F1D2B67C100A1C1A5 /* WorkExperienceViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WorkExperienceViewController.xib; sourceTree = "<group>"; };
 		3D4F9F711D2B67C100A1C1A5 /* WorkInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WorkInfo.h; sourceTree = "<group>"; };
 		3D4F9F721D2B67C100A1C1A5 /* WorkInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WorkInfo.m; sourceTree = "<group>"; };
-		3D4F9F741D2B67C100A1C1A5 /* WorkViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WorkViewCell.h; sourceTree = "<group>"; };
-		3D4F9F751D2B67C100A1C1A5 /* WorkViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WorkViewCell.m; sourceTree = "<group>"; };
 		3D4F9F781D2B67C100A1C1A5 /* EducationExperienceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EducationExperienceViewController.h; sourceTree = "<group>"; };
 		3D4F9F791D2B67C100A1C1A5 /* EducationExperienceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EducationExperienceViewController.m; sourceTree = "<group>"; };
 		3D4F9F7A1D2B67C100A1C1A5 /* EducationExperienceViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EducationExperienceViewController.xib; sourceTree = "<group>"; };
@@ -219,6 +218,9 @@
 		3D4F9FCC1D2B817100A1C1A5 /* OtherViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OtherViewCell.h; sourceTree = "<group>"; };
 		3D4F9FCD1D2B817100A1C1A5 /* OtherViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OtherViewCell.m; sourceTree = "<group>"; };
 		3D8589761BE847C200757C82 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		3DB175DB1D3C7941005F91CB /* WorkViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WorkViewCell.h; sourceTree = "<group>"; };
+		3DB175DC1D3C7941005F91CB /* WorkViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WorkViewCell.m; sourceTree = "<group>"; };
+		3DB175DD1D3C7941005F91CB /* WorkViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WorkViewCell.xib; sourceTree = "<group>"; };
 		3DC3C6511D2B859100D40844 /* HTTPSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTTPSessionManager.h; sourceTree = "<group>"; };
 		3DC3C6521D2B859100D40844 /* HTTPSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTTPSessionManager.m; sourceTree = "<group>"; };
 		3DC3C6541D2B909600D40844 /* libAFNetworking.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libAFNetworking.a; path = "../../../../../Library/Developer/Xcode/DerivedData/ZhongDingZhiXin-fteexjvzezhxigckshnhyjmgzwpm/Build/Products/Debug-iphonesimulator/libAFNetworking.a"; sourceTree = "<group>"; };
@@ -596,8 +598,9 @@
 		3D4F9F731D2B67C100A1C1A5 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				3D4F9F741D2B67C100A1C1A5 /* WorkViewCell.h */,
-				3D4F9F751D2B67C100A1C1A5 /* WorkViewCell.m */,
+				3DB175DB1D3C7941005F91CB /* WorkViewCell.h */,
+				3DB175DC1D3C7941005F91CB /* WorkViewCell.m */,
+				3DB175DD1D3C7941005F91CB /* WorkViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1070,6 +1073,7 @@
 				3D4F9F891D2B67C100A1C1A5 /* WorkExperienceViewController.xib in Resources */,
 				3DE353871D388449002A68E6 /* TaskViewController.xib in Resources */,
 				3D4F9F461D2B663800A1C1A5 /* NoticeViewController.xib in Resources */,
+				3DB175DF1D3C7941005F91CB /* WorkViewCell.xib in Resources */,
 				3D4F9F4A1D2B663800A1C1A5 /* WordCarViewController.xib in Resources */,
 				3D4F9FB11D2B80B800A1C1A5 /* PunishmentViewController.xib in Resources */,
 				3D4F9FB51D2B80B800A1C1A5 /* RewardViewController.xib in Resources */,
@@ -1173,7 +1177,6 @@
 				3D4F9F491D2B663800A1C1A5 /* WordCarViewController.m in Sources */,
 				3DDF6B211D2F51040046E163 /* NSString+Base64.m in Sources */,
 				3DD68B701D2C91CE002BCDD6 /* Foundation+Log.m in Sources */,
-				3D4F9F8B1D2B67C100A1C1A5 /* WorkViewCell.m in Sources */,
 				3D4F9EF91D2B63EB00A1C1A5 /* ViewController.m in Sources */,
 				3D4F9FB81D2B80B800A1C1A5 /* CompanyViewCell.m in Sources */,
 				3D4F9F861D2B67C100A1C1A5 /* MessageViewController.m in Sources */,
@@ -1208,6 +1211,7 @@
 				3D4F9FB61D2B80B800A1C1A5 /* RewardInfo.m in Sources */,
 				3D4F9F3E1D2B663800A1C1A5 /* CustomAnnotation.m in Sources */,
 				3D4F9EF81D2B63EB00A1C1A5 /* UIUtils.m in Sources */,
+				3DB175DE1D3C7941005F91CB /* WorkViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

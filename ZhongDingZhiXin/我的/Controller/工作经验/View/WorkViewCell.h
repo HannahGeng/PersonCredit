@@ -1,9 +1,9 @@
 //
 //  WorkViewCell.h
-//  ZhongDingZhiXin
+//  个人职业信用
 //
-//  Created by zdzx-008 on 15/11/12.
-//  Copyright (c) 2015年 张豪. All rights reserved.
+//  Created by zdzx-008 on 16/7/18.
+//  Copyright © 2016年 北京职信鼎程. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
@@ -11,8 +11,8 @@
 
 @interface WorkViewCell : UITableViewCell
 
-//设置显示内容
--(void)setContentView:(WorkInfo*)workInfo;
+@property (nonatomic,strong)WorkInfo * workModel;
 
++ (instancetype)cellWithTableView:(UITableView *)tableView;
 
 @end

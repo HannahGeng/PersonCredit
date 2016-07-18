@@ -69,6 +69,7 @@
     //初始化请求（同时也创建了一个线程）
     [[HTTPSessionManager sharedManager] POST:CHXX_URL parameters:Dic result:^(id responseObject, NSError *error) {
         
+        NSLog(@"我的惩罚:%@",responseObject);
         NSArray *array = (NSArray *)responseObject[@"result"];
         if (array.count==0) {
             UIAlertView* alter=[[UIAlertView alloc]initWithTitle:@"很抱歉" message:@"亲，没有你要的信息" delegate:nil cancelButtonTitle:@"取消" otherButtonTitles:@"返回", nil];
@@ -111,7 +112,7 @@
     cell.selectionStyle = UITableViewCellSelectionStyleGray;
     if (_rewardInfoArray.count!=0) {
         
-        RewardInfo *rewardInfo = _rewardInfoArray[indexPath.row];
+        NoticeInfo*rewardInfo = _rewardInfoArray[indexPath.row];
         [cell setContentView:rewardInfo];
     }
     return cell;
@@ -123,6 +124,10 @@
     return 60;
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    AfficheViewController * affich = [[AfficheViewController alloc] init];
+    
+    [self.navigationController pushViewController:affich animated:YES];
 }
 
 

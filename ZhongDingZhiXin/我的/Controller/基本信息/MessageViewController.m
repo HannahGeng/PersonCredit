@@ -16,10 +16,18 @@
     UILabel *_fontLabel3;
     UILabel *_fontLabel4;
     UILabel *_fontLabel5;
-    UILabel *_fontLabel6;
+
     NSMutableArray *_messageArray;
     UITableViewCell *_cell;
+    NSString * _avatar;
+    NSString * _from;
+    NSString * _age;
+    NSString * _realname;
+    NSString * _education;
+    NSString * _sex;
+    NSString * _state;
 }
+
 @property (weak, nonatomic) IBOutlet UITableView *messageTableView;
 @end
 
@@ -34,7 +42,6 @@
     _fontLabel3.font=[UIFont systemFontOfSize:15*[string floatValue]];
     _fontLabel4.font=[UIFont systemFontOfSize:15*[string floatValue]];
     _fontLabel5.font=[UIFont systemFontOfSize:15*[string floatValue]];
-    _fontLabel6.font=[UIFont systemFontOfSize:15*[string floatValue]];
     _cell.detailTextLabel.font=[UIFont systemFontOfSize:15*[string floatValue]];
     self.tabBarController.tabBar.hidden=YES;
     
@@ -50,8 +57,9 @@
     [self addContentView];
     
     //加载数据
-    [self loadData];
+    [self performSelectorInBackground:@selector(loadData) withObject:nil];
 }
+
 //设置导航栏
 -(void)setNavigationBar
 {
@@ -79,7 +87,7 @@
     [self.messageTableView addSubview:_imageView];
     
     _fontLabel1=[[UILabel alloc]initWithFrame:CGRectMake(15, 90, 50, 30)];
-    _fontLabel1.text=@"昵称";
+    _fontLabel1.text=@"姓名";
     _fontLabel1.font=[UIFont systemFontOfSize:15];
     [self.messageTableView addSubview:_fontLabel1];
     
@@ -89,24 +97,21 @@
     [self.messageTableView addSubview:_fontLabel2];
     
     _fontLabel3=[[UILabel alloc]initWithFrame:CGRectMake(15, 190, 130, 30)];
-    _fontLabel3.text=@"第三方账号绑定";
+    _fontLabel3.text=@"密码";
     _fontLabel3.font=[UIFont systemFontOfSize:15];
     [self.messageTableView addSubview:_fontLabel3];
     
-    _fontLabel4=[[UILabel alloc]initWithFrame:CGRectMake(15, 240, 50, 30)];
-    _fontLabel4.text=@"密码";
+    _fontLabel4=[[UILabel alloc]initWithFrame:CGRectMake(15, 250, 50, 30)];
+    _fontLabel4.text=@"性别";
     _fontLabel4.font=[UIFont systemFontOfSize:15];
     [self.messageTableView addSubview:_fontLabel4];
     
     _fontLabel5=[[UILabel alloc]initWithFrame:CGRectMake(15, 300, 50, 30)];
-    _fontLabel5.text=@"性别";
+    _fontLabel5.text=@"地区";
     _fontLabel5.font=[UIFont systemFontOfSize:15];
     [self.messageTableView addSubview:_fontLabel5];
     
-    _fontLabel6=[[UILabel alloc]initWithFrame:CGRectMake(15, 350, 50, 30)];
-    _fontLabel6.text=@"地区";
-    _fontLabel6.font=[UIFont systemFontOfSize:15];
-    [self.messageTableView addSubview:_fontLabel6];
+    
 }
 -(void)backButton
 {
@@ -125,6 +130,16 @@
     //初始化请求（同时也创建了一个线程）
     [[HTTPSessionManager sharedManager] POST:JUCHU_URL parameters:Dic result:^(id responseObject, NSError *error) {
         
+        NSLog(@"基本信息:%@",responseObject);
+        NSLog(@"\n密码:%@",app.loginKeycode);
+        
+        _avatar = [AESCrypt decrypt:responseObject[@"result"][@"avatar"] password:app.loginKeycode];
+        _from = [AESCrypt decrypt:responseObject[@"result"][@"from"] password:app.loginKeycode];
+        _age = [AESCrypt decrypt:responseObject[@"result"][@"age"] password:app.loginKeycode];
+        _realname = [AESCrypt decrypt:responseObject[@"reault"][@"realname"] password:app.loginKeycode];
+        _sex = [AESCrypt decrypt:responseObject[@"result"][@"sex"] password:app.loginKeycode];
+        _state = [AESCrypt decrypt:responseObject[@"result"][@"state"] password:app.loginKeycode];
+        
         NSArray *array = (NSArray *)responseObject[@"result"];
         if (array.count != 0) {
             
@@ -134,7 +149,7 @@
         [self.messageTableView reloadData];
         
     }];
-    
+        
 }
 
 #pragma mark UITableViewDataSource
@@ -146,40 +161,49 @@
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     if (section==0) {
-        return 5;
+        return 4;
     }else{
         return 2;
     }
 }
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+
     static NSString *cellIdentifier=@"cellIdentifier";
+    
     _cell=[tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+    
     if (!_cell) {
+        
         _cell=[[UITableViewCell alloc]initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:cellIdentifier];
+        
         if (indexPath.section==0) {
             if (indexPath.row==0) {
                 _cell.detailTextLabel.font=[UIFont systemFontOfSize:15];
                 _cell.detailTextLabel.text=@"设置头像";
-            }else if (indexPath.row==1||indexPath.row==4){
+            }else if (indexPath.row==1){
                 _cell.detailTextLabel.font=[UIFont systemFontOfSize:15];
-                _cell.detailTextLabel.text=@"修改";
+                _cell.detailTextLabel.text=_realname;
+                
+                NSLog(@"cell-realname:%@",_realname);
+                
             }else if (indexPath.row==2){
                 _cell.detailTextLabel.font=[UIFont systemFontOfSize:15];
-                _cell.detailTextLabel.text=@"186****9516";
+                _cell.detailTextLabel.text=@"修改";
                 
             }else{
                 _cell.detailTextLabel.font=[UIFont systemFontOfSize:15];
-                _cell.detailTextLabel.text=@"立即绑定";
+                _cell.detailTextLabel.text=@"修改";
             }
         }
         if (indexPath.section==1) {
             if (indexPath.row==0) {
                 _cell.detailTextLabel.font=[UIFont systemFontOfSize:15];
-                _cell.detailTextLabel.text=@"设置";
+                _cell.detailTextLabel.text=_sex;
+
             }else{
                 _cell.detailTextLabel.font=[UIFont systemFontOfSize:15];
-                _cell.detailTextLabel.text=@"深圳";
+                _cell.detailTextLabel.text=_from;
             }
         }
     }

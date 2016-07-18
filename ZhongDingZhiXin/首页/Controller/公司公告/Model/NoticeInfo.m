@@ -17,6 +17,11 @@
         self.title = dictionary[@"title"];
         self.mark = dictionary[@"mark"];
         self.content = dictionary[@"content"];
+        self.realname = dictionary[@"realname"];
+        self.topic = dictionary[@"topic"];
+        self.descrip = dictionary[@"description"];
+        self.point=dictionary[@"point"];
+
     }
     return self;
 }

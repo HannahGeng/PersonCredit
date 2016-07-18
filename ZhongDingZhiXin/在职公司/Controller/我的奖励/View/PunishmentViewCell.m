@@ -56,10 +56,10 @@
     [self addSubview:_timeLable];
 }
 
--(void)setContentView:(PunishmentInfo*)punishmentInfo{
+-(void)setContentView:(NoticeInfo*)punishmentInfo{
     AppShare;
     NSString *strTitle  = [AESCrypt decrypt:punishmentInfo.topic password:app.loginKeycode];
-//    NSString *strMark=[AESCrypt decrypt:punishmentInfo.topic password:app.loginKeycode];
+//    NSString *strMark=[AESCrypt decrypt:punishmentInfo.mark password:app.loginKeycode];
     [_titleLable setText:strTitle];
 //    [_timeLable setText:strMark];
 }
