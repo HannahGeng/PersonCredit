@@ -231,4 +231,14 @@
     return 10;
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (indexPath.row == 3) {
+        
+        PasswordViewController * pass = [[PasswordViewController alloc] init];
+        
+        [self.navigationController pushViewController:pass animated:YES];
+    }
+}
+
 @end

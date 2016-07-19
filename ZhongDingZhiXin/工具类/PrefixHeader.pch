@@ -78,6 +78,7 @@
 #import "QuestionModel.h"
 #import "QuestionCell.h"
 #import <MJExtension.h>
+#import "PasswordViewController.h"
 
 //定位框架
 #import <CoreLocation/CoreLocation.h>
@@ -151,10 +152,13 @@ typedef enum _UpdateType {
 #define ZUOZHENG_URL @"http://www.newqc.cn/webapi/company/empcard"
 
 #pragma mark - 12、其他-反馈
-#define FANKUI_URL @"http://www.newqc.cn/webapi/other/tickling/"
+#define FANKUI_URL @"http://www.newqc.cn/webapi/other/tickling"
 
 #pragma mark - 13、常见问题
 #define WENTI_URL @"http://www.newqc.cn/webapi/other/faq"
+
+#pragma mark - 14、修改密码
+#define changePass @"http://www.newqc.cn/webapi/mine/userInfo_update"
 
 #pragma mark - 导航栏统一样式
 #define NavBarType(navName) \

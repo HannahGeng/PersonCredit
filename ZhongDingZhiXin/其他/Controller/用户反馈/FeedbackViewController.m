@@ -56,12 +56,21 @@
     [self.view endEditing:YES];
 }
 - (IBAction)presentButton:(UIButton *)sender {
+    
+    AppShare;
+    
+    NSDictionary * pdic = [[NSDictionary alloc]initWithObjectsAndKeys:app.uid,@"uid",app.request,@"request",[AESCrypt decrypt:self.writeTextView.text password:app.loginKeycode],@"tickling",nil];
+    
+    [[HTTPSessionManager sharedManager] POST:FANKUI_URL parameters:pdic  result:^(id responseObject, NSError *error) {
+        
+        NSLog(@"%@",responseObject);
+    }];
 }
 
 #pragma mark UITextViewDelegation
 - (BOOL)textViewShouldBeginEditing:(UITextView *)textView{
     
-    self.writeTextView.text=@"";
+    
     return YES;
 }
 

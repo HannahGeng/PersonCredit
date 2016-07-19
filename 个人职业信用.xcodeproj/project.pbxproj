@@ -72,6 +72,8 @@
 		3D4F9FD31D2B817100A1C1A5 /* FeedbackViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D4F9FC61D2B817100A1C1A5 /* FeedbackViewController.xib */; };
 		3D4F9FD41D2B817100A1C1A5 /* SetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D4F9FC91D2B817100A1C1A5 /* SetViewController.m */; };
 		3D4F9FD51D2B817100A1C1A5 /* OtherViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D4F9FCD1D2B817100A1C1A5 /* OtherViewCell.m */; };
+		3D6EC3641D3E1A7300F59D31 /* PasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D6EC3621D3E1A7300F59D31 /* PasswordViewController.m */; };
+		3D6EC3651D3E1A7300F59D31 /* PasswordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D6EC3631D3E1A7300F59D31 /* PasswordViewController.xib */; };
 		3D8589771BE847C200757C82 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D8589761BE847C200757C82 /* UIKit.framework */; };
 		3DB175DE1D3C7941005F91CB /* WorkViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DB175DC1D3C7941005F91CB /* WorkViewCell.m */; };
 		3DB175DF1D3C7941005F91CB /* WorkViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3DB175DD1D3C7941005F91CB /* WorkViewCell.xib */; };
@@ -222,6 +224,9 @@
 		3D4F9FC91D2B817100A1C1A5 /* SetViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SetViewController.m; sourceTree = "<group>"; };
 		3D4F9FCC1D2B817100A1C1A5 /* OtherViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OtherViewCell.h; sourceTree = "<group>"; };
 		3D4F9FCD1D2B817100A1C1A5 /* OtherViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OtherViewCell.m; sourceTree = "<group>"; };
+		3D6EC3611D3E1A7300F59D31 /* PasswordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PasswordViewController.h; sourceTree = "<group>"; };
+		3D6EC3621D3E1A7300F59D31 /* PasswordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PasswordViewController.m; sourceTree = "<group>"; };
+		3D6EC3631D3E1A7300F59D31 /* PasswordViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PasswordViewController.xib; sourceTree = "<group>"; };
 		3D8589761BE847C200757C82 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		3DB175DB1D3C7941005F91CB /* WorkViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WorkViewCell.h; sourceTree = "<group>"; };
 		3DB175DC1D3C7941005F91CB /* WorkViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WorkViewCell.m; sourceTree = "<group>"; };
@@ -561,6 +566,9 @@
 				3D4F9F661D2B67C100A1C1A5 /* MessageViewController.h */,
 				3D4F9F671D2B67C100A1C1A5 /* MessageViewController.m */,
 				3D4F9F681D2B67C100A1C1A5 /* MessageViewController.xib */,
+				3D6EC3611D3E1A7300F59D31 /* PasswordViewController.h */,
+				3D6EC3621D3E1A7300F59D31 /* PasswordViewController.m */,
+				3D6EC3631D3E1A7300F59D31 /* PasswordViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1122,6 +1130,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3D4F9F441D2B663800A1C1A5 /* AfficheViewController.xib in Resources */,
+				3D6EC3651D3E1A7300F59D31 /* PasswordViewController.xib in Resources */,
 				3D1FEEDF1D2E3CEC00C54C41 /* ContentView.xib in Resources */,
 				3DC0B0501D3CC32300194166 /* QuestionCell.xib in Resources */,
 				3DC0B0481D3CC30100194166 /* QuestionViewController.xib in Resources */,
@@ -1240,6 +1249,7 @@
 				3D4F9F861D2B67C100A1C1A5 /* MessageViewController.m in Sources */,
 				3DFC2F9A1BB3A46B004A83B0 /* AppDelegate.mm in Sources */,
 				3D4F9F4F1D2B663800A1C1A5 /* ListViewCell.m in Sources */,
+				3D6EC3641D3E1A7300F59D31 /* PasswordViewController.m in Sources */,
 				3D4F9F4D1D2B663800A1C1A5 /* ButtonViewCell.m in Sources */,
 				3D4F9F4C1D2B663800A1C1A5 /* WordCarViewCell.m in Sources */,
 				3D4F9F851D2B67C100A1C1A5 /* MyViewController.m in Sources */,
