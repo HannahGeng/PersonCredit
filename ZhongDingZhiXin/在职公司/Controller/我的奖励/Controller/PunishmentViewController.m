@@ -78,6 +78,8 @@
                 [_punishmentInfoArray addObject:punishmentInfo];
             }
             
+            app.punishArray = array;
+            
             _tableView=[[UITableView alloc]initWithFrame:CGRectMake(0, 10, [UIUtils getWindowWidth], [UIUtils getWindowHeight]-100) style:UITableViewStylePlain];
             _tableView.backgroundColor=[UIColor clearColor];
             _tableView.dataSource=self;
@@ -111,7 +113,7 @@
     cell.selectionStyle = UITableViewCellSelectionStyleGray;
     if (_punishmentInfoArray.count!=0) {
         
-        NoticeInfo *punishmentInfo = _punishmentInfoArray[indexPath.row];
+        PunishmentInfo *punishmentInfo = _punishmentInfoArray[indexPath.row];
         [cell setContentView:punishmentInfo];
     }
     return cell;
@@ -123,6 +125,10 @@
     return 60;
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    AppShare;
+    
+    app.index = indexPath.row;
     
     AfficheViewController * affich = [[AfficheViewController alloc] init];
     

@@ -8,7 +8,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AfficheViewController">
             <connections>
-                <outlet property="textView" destination="CNR-l2-t3O" id="rIw-Zq-jyR"/>
+                <outlet property="textView" destination="JOd-ge-uuT" id="1aQ-1q-Nbd"/>
                 <outlet property="timeLabel" destination="c3Q-Wy-jI8" id="3pj-Hd-XmM"/>
                 <outlet property="titleLabel" destination="3VC-bY-h3H" id="I47-Ul-Kel"/>
                 <outlet property="view" destination="ADq-KB-kFZ" id="xrH-j3-JMh"/>
@@ -26,27 +26,21 @@
                     </constraints>
                 </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="yinying2" translatesAutoresizingMaskIntoConstraints="NO" id="b39-yl-2hM">
-                    <rect key="frame" x="8" y="494" width="300" height="3"/>
+                    <rect key="frame" x="8" y="535" width="300" height="3"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="3" id="OS1-pN-eQK"/>
                     </constraints>
                 </imageView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mB7-8t-gIh">
-                    <rect key="frame" x="10" y="17" width="300" height="477"/>
+                    <rect key="frame" x="10" y="17" width="300" height="518"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="747" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3VC-bY-h3H">
                             <rect key="frame" x="150" y="15" width="0.0" height="20"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="20" id="fjM-DD-vfK"/>
                             </constraints>
-                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CNR-l2-t3O">
-                            <rect key="frame" x="10" y="81" width="280" height="0.0"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wQs-Jk-UaL">
@@ -65,19 +59,25 @@
                             <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                             <nil key="highlightedColor"/>
                         </label>
+                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" keyboardDismissMode="interactive" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JOd-ge-uuT">
+                            <rect key="frame" x="10" y="81" width="280" height="427"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                        </textView>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
-                        <constraint firstItem="CNR-l2-t3O" firstAttribute="centerX" secondItem="mB7-8t-gIh" secondAttribute="centerX" id="16M-kS-PUz"/>
                         <constraint firstItem="c3Q-Wy-jI8" firstAttribute="top" secondItem="3VC-bY-h3H" secondAttribute="bottom" constant="10" id="2Xn-nf-hoQ"/>
-                        <constraint firstAttribute="trailing" secondItem="CNR-l2-t3O" secondAttribute="trailing" constant="10" id="7kS-tt-Twh"/>
+                        <constraint firstItem="JOd-ge-uuT" firstAttribute="top" secondItem="wQs-Jk-UaL" secondAttribute="bottom" constant="10" id="31P-kJ-uA0"/>
                         <constraint firstItem="wQs-Jk-UaL" firstAttribute="leading" secondItem="mB7-8t-gIh" secondAttribute="leading" constant="5" id="Dp2-kl-QKX"/>
                         <constraint firstItem="wQs-Jk-UaL" firstAttribute="top" secondItem="c3Q-Wy-jI8" secondAttribute="bottom" constant="5" id="IRr-PV-vGQ"/>
+                        <constraint firstAttribute="trailing" secondItem="JOd-ge-uuT" secondAttribute="trailing" constant="10" id="Ntb-yZ-MV0"/>
                         <constraint firstAttribute="trailing" secondItem="wQs-Jk-UaL" secondAttribute="trailing" constant="5" id="QDY-Fv-Pj2"/>
                         <constraint firstItem="c3Q-Wy-jI8" firstAttribute="centerX" secondItem="mB7-8t-gIh" secondAttribute="centerX" id="Ygv-CB-G0T"/>
                         <constraint firstItem="3VC-bY-h3H" firstAttribute="top" secondItem="mB7-8t-gIh" secondAttribute="top" constant="15" id="cdw-QA-7d3"/>
-                        <constraint firstItem="CNR-l2-t3O" firstAttribute="top" secondItem="wQs-Jk-UaL" secondAttribute="bottom" constant="10" id="kDp-C1-t4r"/>
-                        <constraint firstItem="CNR-l2-t3O" firstAttribute="leading" secondItem="mB7-8t-gIh" secondAttribute="leading" constant="10" id="sZk-WK-PzS"/>
+                        <constraint firstAttribute="bottom" secondItem="JOd-ge-uuT" secondAttribute="bottom" constant="10" id="fU2-HW-Lmv"/>
+                        <constraint firstItem="JOd-ge-uuT" firstAttribute="leading" secondItem="mB7-8t-gIh" secondAttribute="leading" constant="10" id="oZ7-Mp-P6m"/>
                         <constraint firstItem="3VC-bY-h3H" firstAttribute="centerX" secondItem="mB7-8t-gIh" secondAttribute="centerX" id="yiR-SI-DRL"/>
                     </constraints>
                 </view>
@@ -87,7 +87,7 @@
                 <constraint firstItem="b39-yl-2hM" firstAttribute="leading" secondItem="ADq-KB-kFZ" secondAttribute="leadingMargin" id="3Zt-mw-xGB"/>
                 <constraint firstItem="mB7-8t-gIh" firstAttribute="top" secondItem="vkr-JA-4ag" secondAttribute="bottom" id="59O-U5-Xr0"/>
                 <constraint firstAttribute="trailing" secondItem="mB7-8t-gIh" secondAttribute="trailing" constant="10" id="D93-SU-Mav"/>
-                <constraint firstAttribute="bottom" secondItem="b39-yl-2hM" secondAttribute="bottom" constant="71" id="EMh-m7-O8f"/>
+                <constraint firstAttribute="bottom" secondItem="b39-yl-2hM" secondAttribute="bottom" constant="30" id="EMh-m7-O8f"/>
                 <constraint firstItem="vkr-JA-4ag" firstAttribute="top" secondItem="ADq-KB-kFZ" secondAttribute="top" constant="15" id="Gl5-mJ-uPT"/>
                 <constraint firstItem="vkr-JA-4ag" firstAttribute="width" secondItem="mB7-8t-gIh" secondAttribute="width" id="Mhe-dS-OHU"/>
                 <constraint firstItem="mB7-8t-gIh" firstAttribute="leading" secondItem="ADq-KB-kFZ" secondAttribute="leading" constant="10" id="WSI-XJ-eaR"/>

@@ -7,12 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-@class NoticeInfo;
+@class PunishmentInfo;
 
 @interface PunishmentViewCell : UITableViewCell
 
 //设置显示内容
--(void)setContentView:(NoticeInfo*)noticeInfo;
-
+-(void)setContentView:(PunishmentInfo*)punishmentInfo;
 
 @end

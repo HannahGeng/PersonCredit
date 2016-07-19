@@ -9,7 +9,9 @@
 #import "QuestionViewController.h"
 
 @interface QuestionViewController ()<UITableViewDelegate,UITableViewDataSource>
-
+{
+    MBProgressHUD * mbHud;
+}
 @property (weak, nonatomic) IBOutlet UITableView *questionTableView;
 @property (nonatomic,strong)NSMutableArray * questions;
 
@@ -23,7 +25,7 @@
     NavBarType(@"常见问题");
     leftButton;
     [self loadQuestion];
-    
+    mbHUDinit;
 }
 
 - (void)backButton
@@ -37,19 +39,25 @@
 
     [[HTTPSessionManager sharedManager] POST:WENTI_URL parameters:Dic result:^(id responseObject, NSError *error) {
         
-        NSArray * questionArr = (NSArray *)responseObject[@"result"];
+        NSArray * questionArr = responseObject[@"result"];
         
-        if (questionArr != 0) {
+        NSLog(@"问题数组:%@",questionArr);
+        app.request = responseObject[@"response"];
+        
+        NSMutableArray * questionM = [NSMutableArray array];
+        for (NSDictionary * dic in questionArr) {
+            QuestionModel * model = [[QuestionModel alloc] initWithDic:dic];
             
-            app.request = responseObject[@"response"];
-            
-            for (NSDictionary *dict in questionArr) {
-                QuestionModel  * question = [QuestionModel questionWithDic:dict];
-                [self.questions addObject:question];
-            }
+            [questionM addObject:model];
         }
         
+        self.questions = questionM;
+        
+        app.questionArray = questionArr;
+        
         [self.questionTableView reloadData];
+        
+        hudHide;
             
     }];
 }
@@ -71,6 +79,16 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     return 60;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    AfficheViewController * aff = [[AfficheViewController alloc] init];
+    
+    [self.navigationController pushViewController:aff animated:YES];
+    
+    AppShare;
+    app.index = indexPath.row;
 }
 
 @end

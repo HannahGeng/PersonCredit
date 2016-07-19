@@ -9,9 +9,12 @@
 #import <UIKit/UIKit.h>
 
 #import "NoticeInfo.h"
+#import "QuestionModel.h"
 
 @interface AfficheViewController : UIViewController
 
 @property(strong,nonatomic)NoticeInfo *noticeInfo;
+
+@property(strong,nonatomic)QuestionModel * questionmodel;
 
 @end

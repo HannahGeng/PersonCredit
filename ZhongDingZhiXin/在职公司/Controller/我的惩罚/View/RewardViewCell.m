@@ -59,14 +59,14 @@
 }
 
 -(void)setContentView:(RewardInfo*)rewardInfo{
+    
     AppShare;
-    NSString *strTitle  = [AESCrypt decrypt:rewardInfo.point password:app.loginKeycode];
-    NSString *strMark=[AESCrypt decrypt:rewardInfo.topic password:app.loginKeycode];
+    NSString *strTitle  = [AESCrypt decrypt:rewardInfo.topic password:app.loginKeycode];
     [_titleLable setText:strTitle];
     
-    NSString * str = strMark;
-    timeCover;
-    [_timeLable setText:currentDateStr];
+//    NSString * str = strMark;
+//    timeCover;
+//    [_timeLable setText:currentDateStr];
 }
 
 @end

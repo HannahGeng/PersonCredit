@@ -14,14 +14,14 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="59"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Clf-3n-Mbz">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Clf-3n-Mbz">
                         <rect key="frame" x="10" y="10" width="42" height="39"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yk3-AE-3FY">
-                        <rect key="frame" x="268" y="10" width="42" height="39"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yk3-AE-3FY">
+                        <rect key="frame" x="62" y="10" width="248" height="39"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
@@ -30,6 +30,7 @@
                 <constraints>
                     <constraint firstItem="Clf-3n-Mbz" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="30J-eB-Fke"/>
                     <constraint firstAttribute="trailing" secondItem="Yk3-AE-3FY" secondAttribute="trailing" constant="10" id="J58-fe-qP1"/>
+                    <constraint firstItem="Yk3-AE-3FY" firstAttribute="leading" secondItem="Clf-3n-Mbz" secondAttribute="trailing" constant="10" id="ZRs-IQ-SHP"/>
                     <constraint firstItem="Yk3-AE-3FY" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="fU2-eu-NdO"/>
                     <constraint firstItem="Clf-3n-Mbz" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="hc1-u9-xrK"/>
                     <constraint firstItem="Yk3-AE-3FY" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="kJc-jW-k94"/>

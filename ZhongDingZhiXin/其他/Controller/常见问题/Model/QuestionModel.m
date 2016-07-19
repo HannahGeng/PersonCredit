@@ -10,14 +10,15 @@
 
 @implementation QuestionModel
 
-+ (instancetype)questionWithDic:(NSDictionary *)dic
+- (instancetype)initWithDic:(NSDictionary *)dic
 {
-    QuestionModel * model = [[self alloc] init];
+    if (self = [super init]) {
+        self.title = dic[@"title"];
+        self.content = dic[@"content"];
+        self.pubtime = dic[@"pubtime"];
+    }
     
-    [model setValuesForKeysWithDictionary:dic];
-    
-    return model;
-    
+    return self;
 }
 
 @end

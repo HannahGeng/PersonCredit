@@ -17,6 +17,7 @@
 @property (nonatomic, strong) NSString *topic;//时间
 @property (nonatomic, strong) NSString *descrip;//内容
 @property (nonatomic, strong) NSString *point;
+@property (nonatomic, strong) NSString * pubtime;
 
 - (id)initWithDictionary:(NSDictionary *)dictionary;
 

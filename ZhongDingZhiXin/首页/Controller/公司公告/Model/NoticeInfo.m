@@ -21,7 +21,7 @@
         self.topic = dictionary[@"topic"];
         self.descrip = dictionary[@"description"];
         self.point=dictionary[@"point"];
-
+        self.pubtime = dictionary[@"pubtime"];
     }
     return self;
 }

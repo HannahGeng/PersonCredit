@@ -14,16 +14,19 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *pubtimeLabel;
 
+
+
 @end
 
 @implementation QuestionCell
 
 + (instancetype)cellWithTableView:(UITableView *)tableView
 {
-    QuestionCell * cell = [tableView dequeueReusableCellWithIdentifier:@"question"];
+    static NSString * ID = @"question";
+    QuestionCell * cell = [tableView dequeueReusableCellWithIdentifier:ID];
     
     if (cell == nil) {
-        cell = [[[NSBundle mainBundle] loadNibNamed:NSStringFromClass(self) owner:nil options:nil] lastObject];
+        cell = [[[NSBundle mainBundle] loadNibNamed:NSStringFromClass(self) owner:self options:nil] lastObject];
     }
     
     return cell;
@@ -37,8 +40,9 @@
     self.titleLabel.text = [AESCrypt decrypt:questmodel.title password:app.loginKeycode];
     
     NSString * str = [AESCrypt decrypt:questmodel.pubtime password:app.loginKeycode];
+    
     timeCover;
-    self.titleLabel.text = currentDateStr;
+    self.pubtimeLabel.text = currentDateStr;
     
 }
 

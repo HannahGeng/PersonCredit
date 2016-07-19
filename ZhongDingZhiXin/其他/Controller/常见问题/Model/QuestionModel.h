@@ -19,6 +19,6 @@
 /** pubtime */
 @property (nonatomic,strong) NSString * pubtime;
 
-+ (instancetype)questionWithDic:(NSDictionary *)dic;
+- (instancetype)initWithDic:(NSDictionary *)dic;
 
 @end

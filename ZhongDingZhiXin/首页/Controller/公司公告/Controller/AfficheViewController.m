@@ -15,7 +15,7 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *timeLabel;
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
-@property (weak, nonatomic) IBOutlet UILabel *textView;
+@property (weak, nonatomic) IBOutlet UITextView *textView;
 
 @end
 
@@ -71,27 +71,79 @@
         [[NSUserDefaults standardUserDefaults]synchronize];
     }
 
-    NSString *strTitle=[AESCrypt decrypt:self.noticeInfo.title password:app.loginKeycode];
+    HomeViewController * home = [[HomeViewController alloc] init];
+    QuestionViewController * ques = [[QuestionViewController alloc] init];
+    PunishmentViewController * punish = [[PunishmentViewController alloc] init];
+    RewardViewController * reward = [[RewardViewController alloc] init];
+    NoticeViewController * notice = [[NoticeViewController alloc] init];
     
-    NSString *strMark=[AESCrypt decrypt:self.noticeInfo.mark password:app.loginKeycode];
+    NSArray * vcArray = [self.navigationController viewControllers];
+    NSInteger vcCount = vcArray.count;
+    UIViewController * lastVc = vcArray[vcCount - 2];
+    
+    if ([lastVc isKindOfClass:[home class]] || [lastVc isKindOfClass:[notice class]]){
+        
+        //标题
+        NSString *strTitle=[AESCrypt decrypt:self.noticeInfo.title password:app.loginKeycode];
+        _titleLabel.text=strTitle;
+        
+        //内容
+        NSString *strContent=[AESCrypt decrypt:self.noticeInfo.content password:app.loginKeycode];
+        _textView.text=strContent;
+        
+        //时间
+        NSString * str = [NSString new];
+        timeCover;
+        _timeLabel.text = currentDateStr;
+        
+    }else if ([lastVc isKindOfClass:[ques class]]){
+        
+        //标题
+        NSString *strTitle=[AESCrypt decrypt:app.questionArray[app.index][@"title"] password:app.loginKeycode];
+        _titleLabel.text=strTitle;
+                
+        //内容
+        NSString *strContent=[AESCrypt decrypt:app.questionArray[app.index][@"content"] password:app.loginKeycode];
+        _textView.text=strContent;
+        
+        //时间
+        NSString * str = [AESCrypt decrypt:app.questionArray[app.index][@"pubtime"] password:app.loginKeycode];
+        
+        timeCover;
+        self.timeLabel.text = currentDateStr;
+        
+    }else if ([lastVc isKindOfClass:[punish class]]){
+     
+        //标题
+        NSString *strTitle=[AESCrypt decrypt:app.punishArray[app.index][@"topic"] password:app.loginKeycode];
+        _titleLabel.text=strTitle;
+        
+        //内容
+        NSString *strContent=[AESCrypt decrypt:app.punishArray[app.index][@"description"] password:app.loginKeycode];
+        _textView.text=strContent;
+        
+        //时间
+        NSString * str = [AESCrypt decrypt:app.punishArray[app.index][@"realname"] password:app.loginKeycode];
+        
+        self.timeLabel.text = str;
 
-    _titleLabel.text=strTitle;
-    
-    NSString *topic=[AESCrypt decrypt:self.noticeInfo.topic password:app.loginKeycode];
+    }else if([lastVc isKindOfClass:[reward class]]){
+        
+        //标题
+        NSString *strTitle=[AESCrypt decrypt:app.rewardArray[app.index][@"topic"] password:app.loginKeycode];
+        _titleLabel.text=strTitle;
+        
+        //内容
+        NSString *strContent=[AESCrypt decrypt:app.rewardArray[app.index][@"description"] password:app.loginKeycode];
+        _textView.text=strContent;
+        
+        //时间
+        NSString * str = [AESCrypt decrypt:app.rewardArray[app.index][@"realname"] password:app.loginKeycode];
+        
+        self.timeLabel.text = str;
 
-    _titleLabel.text = topic;
-
-    NSString *strContent=[AESCrypt decrypt:self.noticeInfo.content password:app.loginKeycode];
-
-    _textView.text=strContent;
+    }
     
-    NSString *des=[AESCrypt decrypt:self.noticeInfo.descrip password:app.loginKeycode];
-    _textView.text = des;
-    
-    NSString * str = strMark;
-    timeCover;
-    
-    _timeLabel.text = currentDateStr;
 }
 
 @end

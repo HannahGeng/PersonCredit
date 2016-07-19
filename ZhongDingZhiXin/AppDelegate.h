@@ -25,5 +25,17 @@
 /** 工作证样式 */
 @property (nonatomic,strong) NSString * workStyle;
 
+/** 问题数组 */
+@property (nonatomic,strong) NSMutableArray * questionArray;
+
+/** 我的奖励 */
+@property (nonatomic,strong) NSArray * punishArray;
+
+/** 我的惩罚 */
+@property (nonatomic,strong) NSArray * rewardArray;
+
+/** 常见问题行号 */
+@property (nonatomic,assign) NSInteger index;
+
 @end
 
