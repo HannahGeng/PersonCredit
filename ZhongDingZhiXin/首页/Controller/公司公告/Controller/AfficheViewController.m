@@ -89,7 +89,7 @@
         
         //内容
         NSString *strContent=[AESCrypt decrypt:self.noticeInfo.content password:app.loginKeycode];
-        _textView.text=strContent;
+        _textView.text=[self filterHtmlTag:strContent];
         
         //时间
         NSString * str = [NSString new];
@@ -104,7 +104,7 @@
                 
         //内容
         NSString *strContent=[AESCrypt decrypt:app.questionArray[app.index][@"content"] password:app.loginKeycode];
-        _textView.text=strContent;
+        _textView.text=[self filterHtmlTag:strContent];
         
         //时间
         NSString * str = [AESCrypt decrypt:app.questionArray[app.index][@"pubtime"] password:app.loginKeycode];
@@ -120,7 +120,7 @@
         
         //内容
         NSString *strContent=[AESCrypt decrypt:app.punishArray[app.index][@"description"] password:app.loginKeycode];
-        _textView.text=strContent;
+        _textView.text=[self filterHtmlTag:strContent];
         
         //时间
         NSString * str = [AESCrypt decrypt:app.punishArray[app.index][@"realname"] password:app.loginKeycode];
@@ -135,7 +135,7 @@
         
         //内容
         NSString *strContent=[AESCrypt decrypt:app.rewardArray[app.index][@"description"] password:app.loginKeycode];
-        _textView.text=strContent;
+        _textView.text = [self filterHtmlTag: strContent];
         
         //时间
         NSString * str = [AESCrypt decrypt:app.rewardArray[app.index][@"realname"] password:app.loginKeycode];
@@ -146,4 +146,18 @@
     
 }
 
+- (NSString *)filterHtmlTag:(NSString *)originHtmlStr{
+    NSString *result = nil;
+    NSRange arrowTagStartRange = [originHtmlStr rangeOfString:@"<"];
+    if (arrowTagStartRange.location != NSNotFound) { //如果找到
+        NSRange arrowTagEndRange = [originHtmlStr rangeOfString:@">"];
+       
+        result = [originHtmlStr stringByReplacingCharactersInRange:NSMakeRange(arrowTagStartRange.location, arrowTagEndRange.location - arrowTagStartRange.location + 1) withString:@""];
+
+        return [self filterHtmlTag:result];    //递归，过滤下一个标签
+    }else{
+        result = [originHtmlStr stringByReplacingOccurrencesOfString:@"&nbsp;" withString:@""];  // 过滤&nbsp等标签
+    }
+    return result;
+}
 @end
