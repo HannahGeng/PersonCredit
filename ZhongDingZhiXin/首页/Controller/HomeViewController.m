@@ -57,6 +57,8 @@
     //初始化请求（同时也创建了一个线程）
     [[HTTPSessionManager sharedManager] POST:GGTZ_URL parameters:Dic result:^(id responseObject, NSError *error) {
         
+        NSLog(@"首页信息:%@",responseObject);
+        
         NSArray *array = responseObject[@"result"];
         
         if (array.count!=0) {
@@ -68,11 +70,30 @@
             }
             [self.tableView reloadData];
 
+            [self loadMessage];
         }
 
     }];
     
 }
+
+- (void)loadMessage
+{
+    AppShare;
+    
+    [[HTTPSessionManager sharedManager] POST:ZUOZHENG_URL parameters:Dic result:^(id responseObject, NSError *error) {
+        
+        NSLog(@"我的信息:%@",responseObject);
+
+        NSString * name = [AESCrypt decrypt:responseObject[@"result"][@"realname"] password:app.loginKeycode];
+        
+        app.name = name;
+        
+        app.request = responseObject[@"response"];
+    }];
+
+}
+
 //设置导航栏
 -(void)setNavigationBar
 {
@@ -92,11 +113,15 @@
     
     AppShare;
     if (indexPath.row==0) {
+        
         TitleViewCell *cell=[TitleViewCell cellWithTableView:self.tableView];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        cell.nameLable.text = app.name;
+
         return cell;
     }
     if (indexPath.row==1) {
+        
         NoticeViewCell *cell=[NoticeViewCell cellWithTableView:self.tableView];
         //无色
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
@@ -121,6 +146,7 @@
         return cell;
     }
     if (indexPath.row==3) {
+        
         ListViewCell *cell=[ListViewCell cellWithTableView:self.tableView];
         
         if (_noticeInfoArray.count>1) {
@@ -136,6 +162,7 @@
         return cell;
     }
     if (indexPath.row==4) {
+        
         ListViewCell *cell=[ListViewCell cellWithTableView:self.tableView];
         if (_noticeInfoArray.count>2) {
             NoticeInfo *noticeInfo = _noticeInfoArray[2];
@@ -151,6 +178,7 @@
         return cell;
     }
     if (indexPath.row==5) {
+        
         ButtonViewCell *cell=[ButtonViewCell cellWithTableView:self.tableView];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         [cell.taskButton addTarget:self action:@selector(taskButtonClick) forControlEvents:UIControlEventTouchUpInside];

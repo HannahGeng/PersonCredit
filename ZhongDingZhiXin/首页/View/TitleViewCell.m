@@ -10,13 +10,15 @@
 
 @interface TitleViewCell()
 
-@property (weak, nonatomic) IBOutlet UILabel *nameLabel;
-
 @end
 
 @implementation TitleViewCell
 
 +(instancetype)cellWithTableView:(UITableView *)tableView{
+    
+    AppShare;
+    
+    NSLog(@"姓名:%@",app.name);
     
     static NSString *cellID=@"TitleViewCell";
     
@@ -26,8 +28,7 @@
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         //添加cell的背景图片   
         cell.backgroundColor=[UIColor colorWithPatternImage:[UIImage imageNamed:@"beijing"]];
-        
-        cell.nameLabel.text = @"王宝强";
+                
     }
     return cell;
 }

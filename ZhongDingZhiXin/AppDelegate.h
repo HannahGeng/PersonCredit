@@ -37,5 +37,8 @@
 /** 常见问题行号 */
 @property (nonatomic,assign) NSInteger index;
 
+/** 姓名 */
+@property (nonatomic,strong) NSString * name;
+
 @end
 
