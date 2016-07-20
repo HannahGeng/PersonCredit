@@ -25,37 +25,43 @@
 
 @implementation LoginViewController
 
-- (void)loadView
-{
-    //加载数据
-    AppShare;
-    //初始化请求（同时也创建了一个线程）
-    [[HTTPSessionManager sharedManager] GET:CANSHU_URL parameters:nil result:^(id responseObject, NSError *error) {
-        
-        NSLog(@"参数请求:%@",responseObject);
-        
-        dic=responseObject[@"result"];
-        
-        app.noLoginkeycode = [AESCrypt decrypt:dic[@"keycode"]];
-        
-    }];
-
-}
-
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    dispatch_queue_t queue = dispatch_queue_create(nil, DISPATCH_QUEUE_SERIAL);
+    
+    dispatch_async(queue, ^{
         
-    //设置导航栏不透明
-    self.navigationController.navigationBar.translucent = NO;
-    //设置导航栏
-    [self setNavigationBar];
+        //加载数据
+        AppShare;
+        //初始化请求（同时也创建了一个线程）
+        [[HTTPSessionManager sharedManager] GET:CANSHU_URL parameters:nil result:^(id responseObject, NSError *error) {
+            
+            NSLog(@"参数请求:%@",responseObject);
+            
+            dic=responseObject[@"result"];
+            
+            app.noLoginkeycode = [AESCrypt decrypt:dic[@"keycode"]];
+            
+        }];
+
+    });
     
-    UIView *view = [[NSBundle mainBundle] loadNibNamed:@"LoginViewController" owner:self options:nil][0];
-    self.view=view;
-    
-    //设置背景颜色
-    [_userName setText:@"waiwai400@sina.com"];
-    [_userPass setText:@"lx1437"];
+    dispatch_sync(queue, ^{
+        
+        //设置导航栏不透明
+        self.navigationController.navigationBar.translucent = NO;
+        //设置导航栏
+        [self setNavigationBar];
+        
+        UIView *view = [[NSBundle mainBundle] loadNibNamed:@"LoginViewController" owner:self options:nil][0];
+        self.view=view;
+        
+        //设置背景颜色
+        [_userName setText:@"waiwai400@sina.com"];
+        [_userPass setText:@"lx1437"];
+ 
+    });
     
 }
 //设置导航栏
@@ -64,23 +70,6 @@
     //设置导航栏的颜色
     NavBarType(@"登陆");
 }
-
-//加载数据
-//- (void)loadData
-//{
-//    AppShare;
-//    //初始化请求（同时也创建了一个线程）
-//    [[HTTPSessionManager sharedManager] GET:CANSHU_URL parameters:nil result:^(id responseObject, NSError *error) {
-//        
-//        NSLog(@"参数请求:%@",responseObject);
-//        
-//        dic=responseObject[@"result"];
-//        
-//        app.noLoginkeycode = [AESCrypt decrypt:dic[@"keycode"]];
-//    
-//    }];
-//    
-//}
 
 #pragma mark - 登录按钮
 - (IBAction)loginButton:(id)sender {

@@ -27,8 +27,8 @@
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="小鸡快跑" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K6R-CF-eIn">
-                        <rect key="frame" x="125" y="102" width="75" height="20"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K6R-CF-eIn">
+                        <rect key="frame" x="123" y="102" width="75" height="20"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="75" id="aje-Vj-hL8"/>
                             <constraint firstAttribute="height" constant="20" id="y5N-fb-Udw"/>
@@ -72,13 +72,14 @@
                     <constraint firstItem="zwQ-af-626" firstAttribute="leading" secondItem="uDs-e4-jzG" secondAttribute="trailing" constant="86" id="OIW-Hd-lAS"/>
                     <constraint firstAttribute="trailingMargin" secondItem="zwQ-af-626" secondAttribute="trailing" constant="-2" id="VF7-Sh-8Sf"/>
                     <constraint firstItem="uDs-e4-jzG" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="71" id="Vzg-lc-foN"/>
-                    <constraint firstItem="K6R-CF-eIn" firstAttribute="trailing" secondItem="Mdc-aj-mmx" secondAttribute="trailing" id="axV-9O-1Gn"/>
+                    <constraint firstItem="K6R-CF-eIn" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="n6I-VC-UuV"/>
                     <constraint firstItem="zwQ-af-626" firstAttribute="firstBaseline" secondItem="EFb-aj-Ooe" secondAttribute="firstBaseline" id="qjT-ah-Y2u"/>
                     <constraint firstItem="Mdc-aj-mmx" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="udX-ex-nT0"/>
                 </constraints>
             </tableViewCellContentView>
             <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
             <connections>
+                <outlet property="nameLabel" destination="K6R-CF-eIn" id="Bht-7h-Tmg"/>
                 <outlet property="nameLable" destination="K6R-CF-eIn" id="9iJ-fj-faI"/>
             </connections>
             <point key="canvasLocation" x="261" y="250"/>
@@ -86,6 +87,6 @@
     </objects>
     <resources>
         <image name="dingwei" width="11" height="14"/>
-        <image name="touxiang" width="94" height="94"/>
+        <image name="touxiang" width="91" height="91"/>
     </resources>
 </document>
