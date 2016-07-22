@@ -12,6 +12,6 @@
 @interface PunishmentViewCell : UITableViewCell
 
 //设置显示内容
--(void)setContentView:(PunishmentInfo*)punishmentInfo;
+-(void)setContentView:(PunishmentInfo *)punishmentInfo;
 
 @end

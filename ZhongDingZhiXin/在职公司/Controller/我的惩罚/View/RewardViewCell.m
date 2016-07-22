@@ -64,9 +64,10 @@
     NSString *strTitle  = [AESCrypt decrypt:rewardInfo.topic password:app.loginKeycode];
     [_titleLable setText:strTitle];
     
-//    NSString * str = strMark;
-//    timeCover;
-//    [_timeLable setText:currentDateStr];
+    if (strTitle.length == 0) {
+        
+        NSLog(@"暂无内容");
+    }
 }
 
 @end

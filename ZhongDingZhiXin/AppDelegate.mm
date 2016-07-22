@@ -16,6 +16,8 @@
     NSInteger hight;
     UIImageView *_imageView;
     BOOL isOut;
+    NSDictionary *dic;
+
 }
 
 @end
@@ -47,6 +49,7 @@
         self.window.rootViewController=navigation;
     }
     
+            
     return YES;
 }
 

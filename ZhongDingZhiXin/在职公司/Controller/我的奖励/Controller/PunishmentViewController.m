@@ -89,6 +89,7 @@
             [self.view addSubview:_tableView];
             
             [_tableView reloadData];
+            
             //隐藏HUD
             hudHide;
         }
@@ -105,6 +106,7 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
     static NSString *identifier=@"Identifier";
     PunishmentViewCell *cell=[tableView dequeueReusableCellWithIdentifier:identifier];
     if (!cell) {
@@ -124,6 +126,7 @@
 {
     return 60;
 }
+
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
     AppShare;

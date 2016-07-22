@@ -15,11 +15,7 @@
 @implementation TitleViewCell
 
 +(instancetype)cellWithTableView:(UITableView *)tableView{
-    
-    AppShare;
-    
-    NSLog(@"姓名:%@",app.name);
-    
+        
     static NSString *cellID=@"TitleViewCell";
     
     TitleViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
