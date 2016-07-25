@@ -51,6 +51,44 @@
     
 }
 
+- (void)viewDidAppear:(BOOL)animated {
+    
+    CLLocationCoordinate2D coor;
+
+//     添加一个PointAnnotation
+    BMKPointAnnotation* annotation = [[BMKPointAnnotation alloc]init];
+    coor.latitude = _userLocation.location.coordinate.latitude;
+    coor.longitude = _userLocation.location.coordinate.longitude;
+    annotation.coordinate = coor;
+    annotation.title = @"我的位置";
+    [_mapView addAnnotation:annotation];
+    
+    CLLocationCoordinate2D center = coor;
+    BMKCoordinateSpan span = BMKCoordinateSpanMake(0.038325, 0.028045);
+    _mapView.limitMapRegion = BMKCoordinateRegionMake(center, span);////限制地图显示范围
+    _mapView.rotateEnabled = NO;//禁用旋转手势
+    
+    //添加圆圈
+    NSLog(@"\n坐标:%f,%f",coor.latitude,coor.longitude);
+    
+    BMKCircle* circle = [BMKCircle circleWithCenterCoordinate:coor radius:1000];
+    
+    [_mapView addOverlay:circle];
+
+}
+
+//我的位置标注
+- (BMKAnnotationView *)mapView:(BMKMapView *)mapView viewForAnnotation:(id <BMKAnnotation>)annotation
+{
+    if ([annotation isKindOfClass:[BMKPointAnnotation class]]) {
+        BMKPinAnnotationView *newAnnotationView = [[BMKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:@"myAnnotation"];
+        newAnnotationView.pinColor = BMKPinAnnotationColorPurple;
+        newAnnotationView.animatesDrop = YES;// 设置该标注点动画显示
+        return newAnnotationView;
+    }
+    return nil;
+}
+
 -(void)viewWillDisappear:(BOOL)animated
 {
     [_mapView viewWillDisappear];
@@ -59,8 +97,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-        
-    _mapView=[[BMKMapView alloc]initWithFrame:CGRectMake(0, 0, [UIUtils getWindowWidth], 380)];
+    
+    _mapView=[[BMKMapView alloc]initWithFrame:CGRectMake(0, 0, [UIUtils getWindowWidth], 370)];
+    
+    [_mapView updateLocationData:_userLocation];
     
     [_backView addSubview:_mapView];
     
@@ -70,6 +110,26 @@
     //设置导航栏
     [self setNavigationBar];
     
+    //初始化BMKLocationService
+    _locService = [[BMKLocationService alloc]init];
+    _locService.delegate = self;
+    //启动LocationService
+    [_locService startUserLocationService];
+    
+}
+
+// 圆形
+- (BMKOverlayView *)mapView:(BMKMapView *)mapView viewForOverlay:(id <BMKOverlay>)overlay{
+    
+    if ([overlay isKindOfClass:[BMKCircle class]]){
+        BMKCircleView* circleView = [[BMKCircleView alloc] initWithOverlay:overlay];
+        circleView.fillColor = [[UIColor cyanColor] colorWithAlphaComponent:0.5];
+        circleView.strokeColor = [[UIColor blueColor] colorWithAlphaComponent:0.5];
+        circleView.lineWidth = 5.0;
+        
+        return circleView;
+    }
+    return nil;
 }
 
 //设置导航栏
@@ -88,6 +148,20 @@
     [self.navigationController popViewControllerAnimated:YES];
 }
 
+//处理方向变更信息
+- (void)didUpdateUserHeading:(BMKUserLocation *)userLocation
+{
+    NSLog(@"\nheading is %@",userLocation.heading);
+}
+
+//处理位置坐标更新
+- (void)didUpdateBMKUserLocation:(BMKUserLocation *)userLocation
+{
+    NSLog(@"\ndidUpdateUserLocation lat %f,long %f",userLocation.location.coordinate.latitude,userLocation.location.coordinate.longitude);
+    _userLocation = userLocation;
+}
+
+
 //添加内容视图
 -(void)addContentView
 {
@@ -95,7 +169,7 @@
     [_mapView addSubview:_nearButton];
     [_mapView addSubview:_confirmButton];
     _mapView.showsUserLocation = YES;
-
+    
     //时间戳
     NSDate *  senddate=[NSDate date];
     
