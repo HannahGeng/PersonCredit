@@ -39,7 +39,6 @@
     AppShare;
     NSString * oldpass = [AESCrypt encrypt:self.oldPasswordText.text password:app.loginKeycode];
     NSString * newPass = [AESCrypt encrypt:self.newpasswordText.text password:app.loginKeycode];
-    NSString * twoPass = [AESCrypt encrypt:self.twopasswordText.text password:app.loginKeycode];
     
     NSDictionary * pdic = [NSDictionary dictionaryWithObjectsAndKeys:app.request,@"request",app.uid,@"uid",newPass,@"newpass",oldpass,@"oldpass", nil];
     

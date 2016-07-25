@@ -13,6 +13,7 @@
     NSMutableArray *_noticeInfoArray;
     MBProgressHUD *mbHud;//提示
 }
+
 @property (weak, nonatomic) IBOutlet UITableView *noticeTableView;
 
 @end
@@ -24,6 +25,7 @@
     
     self.tabBarController.tabBar.hidden=YES;
 }
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -35,6 +37,7 @@
     //加载数据
     [self loadData];
 }
+
 //设置导航栏
 -(void)setNavigationBar
 {
@@ -43,10 +46,12 @@
     //为导航栏添加左侧按钮
     leftButton;
 }
+
 -(void)backButton
 {
     [self.navigationController popViewControllerAnimated:YES];
 }
+
 //加载数据
 - (void)loadData
 {
@@ -114,6 +119,7 @@
 {
     return 60;
 }
+
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
     AfficheViewController *affPage=[[AfficheViewController alloc] init];

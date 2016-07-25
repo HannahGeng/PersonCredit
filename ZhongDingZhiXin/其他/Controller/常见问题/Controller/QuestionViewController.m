@@ -39,7 +39,7 @@
 
     [[HTTPSessionManager sharedManager] POST:WENTI_URL parameters:Dic result:^(id responseObject, NSError *error) {
         
-        NSArray * questionArr = responseObject[@"result"];
+        NSMutableArray * questionArr = responseObject[@"result"];
         
         NSLog(@"问题数组:%@",questionArr);
         app.request = responseObject[@"response"];
@@ -54,7 +54,6 @@
         self.questions = questionM;
         
         app.questionArray = questionArr;
-        
         [self.questionTableView reloadData];
         
         hudHide;

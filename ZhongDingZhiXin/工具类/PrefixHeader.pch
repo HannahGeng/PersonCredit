@@ -79,6 +79,14 @@
 #import "QuestionCell.h"
 #import <MJExtension.h>
 #import "PasswordViewController.h"
+#import <BaiduMapAPI_Base/BMKBaseComponent.h>//引入base相关所有的头文件
+#import <BaiduMapAPI_Map/BMKMapComponent.h>//引入地图功能所有的头文件
+#import <BaiduMapAPI_Search/BMKSearchComponent.h>//引入检索功能所有的头文件
+#import <BaiduMapAPI_Location/BMKLocationComponent.h>//引入定位功能所有的头文件
+#import <BaiduMapAPI_Cloud/BMKCloudSearchComponent.h>//引入云检索功能所有的头文件
+#import <BaiduMapAPI_Map/BMKMapView.h>//只引入所需的单个头文件
+#import <BaiduMapAPI_Utils/BMKUtilsComponent.h>//引入计算工具所有的头文件
+#import <BaiduMapAPI_Radar/BMKRadarComponent.h>//引入周边雷达功能所有的头文件
 
 //定位框架
 #import <CoreLocation/CoreLocation.h>
@@ -176,9 +184,10 @@ self.navigationController.navigationBar.translucent = NO;
 #define MBhud(alertname) \
 mbHud = [MBProgressHUD showHUDAddedTo:self.view animated:YES]; \
 [mbHud setMode:MBProgressHUDModeText]; \
-mbHud.labelText = alertname; \
-[mbHud setYOffset:0]; \
-[mbHud hide:YES afterDelay:1.0];
+mbHud.label.text = alertname; \
+[mbHud setOffset:CGPointMake(0, 0)]; \
+[mbHud hideAnimated:YES afterDelay:1.0];
+
 //接上
 #define alertname  [NSString stringWithFormat:@"%@",##alertname];
 
@@ -186,15 +195,15 @@ mbHud.labelText = alertname; \
 #define noWebhud \
 mbHud = [MBProgressHUD showHUDAddedTo:self.view animated:YES]; \
 [mbHud setMode:MBProgressHUDModeText]; \
-mbHud.labelText = @"网络连接失败"; \
-[mbHud setYOffset:0]; \
-[mbHud hide:YES afterDelay:2.0];
+mbHud.label.text = @"网络连接失败"; \
+[mbHud setOffset:CGPointMake(0, 0)]; \
+[mbHud hideAnimated:YES afterDelay:2.0];
 
 #pragma mark - mbhud
 #define mbHUDinit mbHud = [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
 
 #pragma mark - mbhud hide
-#define hudHide [mbHud hide:YES];
+#define hudHide [mbHud hideAnimated:YES afterDelay:2.0];
 
 #pragma mark - 导航栏左侧返回按钮
 #define leftButton \
