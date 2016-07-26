@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		22958E282956D3CA1C97637F /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A1C2B9738B0F727D91CD021 /* libPods.a */; };
+		3D150F3B1D4734BB00E30A14 /* NearCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D150F391D4734BB00E30A14 /* NearCell.m */; };
+		3D150F3C1D4734BB00E30A14 /* NearCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D150F3A1D4734BB00E30A14 /* NearCell.xib */; };
+		3D150F3F1D4734CB00E30A14 /* NearModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D150F3E1D4734CB00E30A14 /* NearModel.m */; };
+		3D150F421D473D2B00E30A14 /* NearListView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D150F411D473D2B00E30A14 /* NearListView.m */; };
+		3D150F441D473D3900E30A14 /* NearListView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D150F431D473D3900E30A14 /* NearListView.xib */; };
 		3D1CDF1C1BE85C6B0097C924 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D1CDF1B1BE85C6B0097C924 /* Foundation.framework */; };
 		3D1FEEDE1D2E3CEC00C54C41 /* ContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D1FEEDC1D2E3CEC00C54C41 /* ContentView.m */; };
 		3D1FEEDF1D2E3CEC00C54C41 /* ContentView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D1FEEDD1D2E3CEC00C54C41 /* ContentView.xib */; };
@@ -123,6 +128,14 @@
 
 /* Begin PBXFileReference section */
 		0A1C2B9738B0F727D91CD021 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		3D150F381D4734BB00E30A14 /* NearCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NearCell.h; sourceTree = "<group>"; };
+		3D150F391D4734BB00E30A14 /* NearCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NearCell.m; sourceTree = "<group>"; };
+		3D150F3A1D4734BB00E30A14 /* NearCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NearCell.xib; sourceTree = "<group>"; };
+		3D150F3D1D4734CB00E30A14 /* NearModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NearModel.h; sourceTree = "<group>"; };
+		3D150F3E1D4734CB00E30A14 /* NearModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NearModel.m; sourceTree = "<group>"; };
+		3D150F401D473D2B00E30A14 /* NearListView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NearListView.h; sourceTree = "<group>"; };
+		3D150F411D473D2B00E30A14 /* NearListView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NearListView.m; sourceTree = "<group>"; };
+		3D150F431D473D3900E30A14 /* NearListView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NearListView.xib; sourceTree = "<group>"; };
 		3D1CDF1B1BE85C6B0097C924 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		3D1FEEDB1D2E3CEC00C54C41 /* ContentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContentView.h; sourceTree = "<group>"; };
 		3D1FEEDC1D2E3CEC00C54C41 /* ContentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContentView.m; sourceTree = "<group>"; };
@@ -405,6 +418,14 @@
 				3D4F9F0D1D2B663800A1C1A5 /* TaskViewController.h */,
 				3D4F9F0E1D2B663800A1C1A5 /* TaskViewController.m */,
 				3DE353861D388449002A68E6 /* TaskViewController.xib */,
+				3D150F401D473D2B00E30A14 /* NearListView.h */,
+				3D150F411D473D2B00E30A14 /* NearListView.m */,
+				3D150F431D473D3900E30A14 /* NearListView.xib */,
+				3D150F3D1D4734CB00E30A14 /* NearModel.h */,
+				3D150F3E1D4734CB00E30A14 /* NearModel.m */,
+				3D150F381D4734BB00E30A14 /* NearCell.h */,
+				3D150F391D4734BB00E30A14 /* NearCell.m */,
+				3D150F3A1D4734BB00E30A14 /* NearCell.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1177,6 +1198,7 @@
 				3D4F9F891D2B67C100A1C1A5 /* WorkExperienceViewController.xib in Resources */,
 				3DE353871D388449002A68E6 /* TaskViewController.xib in Resources */,
 				3D4F9F461D2B663800A1C1A5 /* NoticeViewController.xib in Resources */,
+				3D150F3C1D4734BB00E30A14 /* NearCell.xib in Resources */,
 				3DB175DF1D3C7941005F91CB /* WorkViewCell.xib in Resources */,
 				3D4F9F4A1D2B663800A1C1A5 /* WordCarViewController.xib in Resources */,
 				3D4F9FB11D2B80B800A1C1A5 /* PunishmentViewController.xib in Resources */,
@@ -1190,6 +1212,7 @@
 				3D4F9F8D1D2B67C100A1C1A5 /* EducationExperienceViewController.xib in Resources */,
 				3D4F9F541D2B663800A1C1A5 /* TitleViewCell.xib in Resources */,
 				3D4F9FD11D2B817100A1C1A5 /* PageViewController.xib in Resources */,
+				3D150F441D473D3900E30A14 /* NearListView.xib in Resources */,
 				3D4F9F5E1D2B667F00A1C1A5 /* MarketViewController.xib in Resources */,
 				3DFC2FA21BB3A46B004A83B0 /* Images.xcassets in Resources */,
 				3D4F9F4E1D2B663800A1C1A5 /* ButtonViewCell.xib in Resources */,
@@ -1273,6 +1296,7 @@
 				3D4F9F901D2B67C100A1C1A5 /* MyViewCell.m in Sources */,
 				3D4F9F881D2B67C100A1C1A5 /* WorkExperienceViewController.m in Sources */,
 				3D4F9FB31D2B80B800A1C1A5 /* PunishmentViewCell.m in Sources */,
+				3D150F421D473D2B00E30A14 /* NearListView.m in Sources */,
 				3D4F9F421D2B663800A1C1A5 /* TaskViewCell.m in Sources */,
 				3DE3538A1D388E2E002A68E6 /* XMGAnno.m in Sources */,
 				3D4F9F431D2B663800A1C1A5 /* AfficheViewController.m in Sources */,
@@ -1317,8 +1341,10 @@
 				3D4F9FD51D2B817100A1C1A5 /* OtherViewCell.m in Sources */,
 				3D4F9F5D1D2B667F00A1C1A5 /* MarketViewController.m in Sources */,
 				3D4F9FB61D2B80B800A1C1A5 /* RewardInfo.m in Sources */,
+				3D150F3F1D4734CB00E30A14 /* NearModel.m in Sources */,
 				3D4F9F3E1D2B663800A1C1A5 /* CustomAnnotation.m in Sources */,
 				3D4F9EF81D2B63EB00A1C1A5 /* UIUtils.m in Sources */,
+				3D150F3B1D4734BB00E30A14 /* NearCell.m in Sources */,
 				3DB175DE1D3C7941005F91CB /* WorkViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="near" id="KGk-i7-Jjw" customClass="NearCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="59"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="6ru-my-Rn0">
+                        <rect key="frame" x="10" y="20" width="18" height="20"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="37" id="08w-Wu-cuE"/>
+                            <constraint firstAttribute="width" constant="18" id="CeB-TY-NBP"/>
+                            <constraint firstAttribute="width" constant="37" id="Dj0-Ia-RlH"/>
+                            <constraint firstAttribute="height" constant="20" id="eGc-ne-VwT"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="08w-Wu-cuE"/>
+                                <exclude reference="Dj0-Ia-RlH"/>
+                            </mask>
+                        </variation>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fMr-11-5AN">
+                        <rect key="frame" x="38" y="10" width="247" height="0.0"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="jrrwdingw" translatesAutoresizingMaskIntoConstraints="NO" id="Un0-JX-JLl">
+                        <rect key="frame" x="295" y="20" width="15" height="20"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="20" id="wEx-Sw-Hbk"/>
+                            <constraint firstAttribute="width" constant="15" id="x0H-Sb-UJv"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vLe-1d-rOz">
+                        <rect key="frame" x="38" y="15" width="247" height="0.0"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="Un0-JX-JLl" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="081-dL-6KL"/>
+                    <constraint firstItem="vLe-1d-rOz" firstAttribute="top" secondItem="fMr-11-5AN" secondAttribute="bottom" constant="5" id="CSc-QW-byR"/>
+                    <constraint firstItem="6ru-my-Rn0" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="2" id="Jch-l3-iJf"/>
+                    <constraint firstItem="6ru-my-Rn0" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="QIa-Xg-9Z4"/>
+                    <constraint firstItem="vLe-1d-rOz" firstAttribute="trailing" secondItem="fMr-11-5AN" secondAttribute="trailing" id="QeO-L7-B7h"/>
+                    <constraint firstItem="6ru-my-Rn0" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="Qlf-9a-eVy"/>
+                    <constraint firstItem="Un0-JX-JLl" firstAttribute="leading" secondItem="fMr-11-5AN" secondAttribute="trailing" constant="10" id="TYH-b1-Jyr"/>
+                    <constraint firstAttribute="trailing" secondItem="vLe-1d-rOz" secondAttribute="trailing" constant="10" id="U6c-sg-3cq"/>
+                    <constraint firstItem="fMr-11-5AN" firstAttribute="leading" secondItem="6ru-my-Rn0" secondAttribute="trailing" constant="10" id="VLz-sZ-zHb"/>
+                    <constraint firstItem="6ru-my-Rn0" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="WEC-7K-SyC"/>
+                    <constraint firstItem="vLe-1d-rOz" firstAttribute="top" secondItem="fMr-11-5AN" secondAttribute="bottom" constant="8" id="aLF-5p-tL2"/>
+                    <constraint firstItem="vLe-1d-rOz" firstAttribute="top" secondItem="fMr-11-5AN" secondAttribute="bottom" constant="8" id="cTa-2X-Lau"/>
+                    <constraint firstAttribute="trailing" secondItem="Un0-JX-JLl" secondAttribute="trailing" constant="10" id="mRX-ST-Ksb"/>
+                    <constraint firstItem="fMr-11-5AN" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="pY1-ct-p88"/>
+                    <constraint firstAttribute="trailing" secondItem="fMr-11-5AN" secondAttribute="trailing" constant="10" id="vxX-IT-WXR"/>
+                    <constraint firstItem="vLe-1d-rOz" firstAttribute="leading" secondItem="fMr-11-5AN" secondAttribute="leading" id="wWc-cd-Mfv"/>
+                </constraints>
+                <variation key="default">
+                    <mask key="constraints">
+                        <exclude reference="Jch-l3-iJf"/>
+                        <exclude reference="Qlf-9a-eVy"/>
+                        <exclude reference="vxX-IT-WXR"/>
+                        <exclude reference="U6c-sg-3cq"/>
+                        <exclude reference="aLF-5p-tL2"/>
+                        <exclude reference="cTa-2X-Lau"/>
+                    </mask>
+                </variation>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="addName" destination="fMr-11-5AN" id="XkF-hZ-NVm"/>
+                <outlet property="geoName" destination="vLe-1d-rOz" id="jYV-k6-wuG"/>
+                <outlet property="numView" destination="6ru-my-Rn0" id="3pE-S5-bTf"/>
+            </connections>
+            <point key="canvasLocation" x="428" y="340"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="jrrwdingw" width="14" height="19"/>
+    </resources>
+</document>

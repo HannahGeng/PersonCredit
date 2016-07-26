@@ -297,14 +297,25 @@
 
     mbHUDinit;
     
-    NSLog(@"%@",_nearArray);
+    if (_nearArray.count != 0) {
+        
+        FDAlertView *alert = [[FDAlertView alloc] init];
+        NearListView *contentView = [[NSBundle mainBundle] loadNibNamed:@"NearListView" owner:nil options:nil].lastObject;
+        contentView.frame = CGRectMake(0, 0, 270, 350);
+        alert.contentView = contentView;
+        [alert show];
+
+    }
     
     hudHide;
+
 }
 
 - (IBAction)confirmLoc {
     
     MBhud(_addressText.text);
 }
+
+#pragma mark - UITableViewDelegate
 
 @end
