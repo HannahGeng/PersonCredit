@@ -24,6 +24,8 @@
     //定位管理器
     CLLocationManager *manager;
     BMKUserLocation * _userLocation;
+    
+    NSArray * _nearArray;
 }
 
 //poi结果信息集合
@@ -124,26 +126,6 @@
     //启动LocationService
     [_locService startUserLocationService];
     
-    //初始化检索对象
-    _poiSearch =[[BMKPoiSearch alloc]init];
-    _poiSearch.delegate = self;
-    //发起检索
-    BMKNearbySearchOption *option = [[BMKNearbySearchOption alloc]init];
-    option.pageIndex = curPage;
-    option.pageCapacity = 10;
-    option.location = CLLocationCoordinate2DMake(22.552380, 114.082474);
-    option.keyword = @"酒店";
-    BOOL flag = [_poiSearch poiSearchNearBy:option];
-    
-    if(flag)
-    {
-        NSLog(@"周边检索发送成功");
-    }
-    else
-    {
-        NSLog(@"周边检索发送失败");
-    }
-
     //创建定位管理器
     manager = [[CLLocationManager alloc] init];
 
@@ -152,6 +134,7 @@
     
     //开启定位
     [manager startUpdatingLocation];
+    
     
 }
 
@@ -170,7 +153,7 @@
 
         }
         
-        NSLog(@"搜索名称:%@",nearArray);
+        _nearArray = nearArray;
         
     }
     else if (error == BMK_SEARCH_AMBIGUOUS_KEYWORD){
@@ -288,7 +271,35 @@
 
 - (IBAction)nearLoc {
     
-    NSLog(@"附近坐标");
+    CLLocationCoordinate2D coor;
+    coor.latitude = _userLocation.location.coordinate.latitude;
+    coor.longitude = _userLocation.location.coordinate.longitude;
+
+    //初始化检索对象
+    _poiSearch =[[BMKPoiSearch alloc]init];
+    _poiSearch.delegate = self;
+    //发起检索
+    BMKNearbySearchOption *option = [[BMKNearbySearchOption alloc]init];
+    option.pageIndex = curPage;
+    option.pageCapacity = 6;
+    option.location = coor;
+    option.keyword = @"酒店";
+    BOOL flag = [_poiSearch poiSearchNearBy:option];
+    
+    if(flag)
+    {
+        NSLog(@"周边检索发送成功");
+    }
+    else
+    {
+        NSLog(@"周边检索发送失败");
+    }
+
+    mbHUDinit;
+    
+    NSLog(@"%@",_nearArray);
+    
+    hudHide;
 }
 
 - (IBAction)confirmLoc {
