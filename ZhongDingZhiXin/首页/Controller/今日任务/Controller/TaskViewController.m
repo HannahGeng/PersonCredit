@@ -9,7 +9,7 @@
 #import "TaskViewController.h"//系统自带地图框架
 #import "XMGAnno.h"
 
-@interface TaskViewController ()<BMKMapViewDelegate,BMKPoiSearchDelegate,BMKLocationServiceDelegate,BMKGeoCodeSearchDelegate,CLLocationManagerDelegate>
+@interface TaskViewController ()<BMKMapViewDelegate,BMKPoiSearchDelegate,BMKLocationServiceDelegate,BMKGeoCodeSearchDelegate,CLLocationManagerDelegate,UITableViewDelegate,UITableViewDataSource>
 {
     int curPage;
     TaskView *_taskView;
@@ -40,6 +40,8 @@
 @property (weak, nonatomic) IBOutlet UIButton *confirmButton;
 @property (strong, nonatomic) BMKMapView *mapView;
 @property (weak, nonatomic) IBOutlet UIView *backView;
+@property (weak, nonatomic) IBOutlet UITableView *nearTableView;
+@property (weak, nonatomic) IBOutlet UIView *listView;
 
 @end
 
@@ -135,7 +137,7 @@
     //开启定位
     [manager startUpdatingLocation];
     
-    
+    self.listView.hidden = YES;
 }
 
 //实现PoiSearchDeleage处理回调结果
@@ -167,8 +169,10 @@
         
         app.nearArray = nearA;
         
+        [self.nearTableView reloadData];
+        
         NSLog(@"附近的坐标模型数组:%@",app.nearArray);
-                
+        
     }
     else if (error == BMK_SEARCH_AMBIGUOUS_KEYWORD){
         //当在设置城市未找到结果，但在其他城市找到结果时，回调建议检索城市列表
@@ -315,11 +319,7 @@
     
     if (app.nearArray.count != 0) {
         
-        FDAlertView *alert = [[FDAlertView alloc] init];
-        NearListView *contentView = [[[NSBundle mainBundle] loadNibNamed:@"NearListView" owner:nil options:nil] lastObject];
-        contentView.frame = CGRectMake(0, 0, 270, 350);
-        alert.contentView = contentView;
-        [alert show];
+        self.listView.hidden = NO;
 
     }
     
@@ -333,5 +333,31 @@
 }
 
 #pragma mark - UITableViewDelegate
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    AppShare;
+    return app.nearArray.count;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    AppShare;
+    
+    NearCell * cell = [NearCell cellWithTableView:tableView];
+    cell.nearmodel = app.nearArray[indexPath.row];
+    
+    return cell;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 80;
+}
+
+- (IBAction)closeClick {
+    
+
+    self.listView.hidden = YES;
+}
 
 @end
