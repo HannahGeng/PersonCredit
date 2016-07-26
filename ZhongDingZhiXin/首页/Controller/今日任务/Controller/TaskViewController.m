@@ -40,8 +40,8 @@
 @property (strong, nonatomic) BMKMapView *mapView;
 @property (weak, nonatomic) IBOutlet UIView *backView;
 @property (weak, nonatomic) IBOutlet UITableView *nearTableView;
-@property (weak, nonatomic) IBOutlet UIView *listView;
 @property (nonatomic,strong) NSMutableArray * nearArray;
+@property (weak, nonatomic) IBOutlet UIView *backListView;
 
 @end
 
@@ -137,7 +137,7 @@
     //开启定位
     [manager startUpdatingLocation];
     
-    self.listView.hidden = YES;
+    self.backListView.hidden = YES;
 }
 
 //实现PoiSearchDeleage处理回调结果
@@ -220,30 +220,7 @@
     //停止定位
     [manager stopUpdatingLocation];
     
-//    CLLocationCoordinate2D coor;
-//    coor.latitude = _userLocation.location.coordinate.latitude;
-//    coor.longitude = _userLocation.location.coordinate.longitude;
     
-    //初始化检索对象
-    _poiSearch =[[BMKPoiSearch alloc]init];
-    _poiSearch.delegate = self;
-    //发起检索
-    BMKNearbySearchOption *option = [[BMKNearbySearchOption alloc]init];
-    option.pageIndex = curPage;
-    option.pageCapacity = 6;
-    option.location = coordinate;
-    option.keyword = @"酒店";
-    BOOL flag = [_poiSearch poiSearchNearBy:option];
-    
-    if(flag)
-    {
-        NSLog(@"周边检索发送成功");
-    }
-    else
-    {
-        NSLog(@"周边检索发送失败");
-    }
-
 }
 
 // 圆形
@@ -315,11 +292,35 @@
 
 - (IBAction)nearLoc {
     
+    CLLocationCoordinate2D coor;
+    coor.latitude = _userLocation.location.coordinate.latitude;
+    coor.longitude = _userLocation.location.coordinate.longitude;
+    
+    //初始化检索对象
+    _poiSearch =[[BMKPoiSearch alloc]init];
+    _poiSearch.delegate = self;
+    //发起检索
+    BMKNearbySearchOption *option = [[BMKNearbySearchOption alloc]init];
+    option.pageIndex = curPage;
+    option.pageCapacity = 6;
+    option.location = coor;
+    option.keyword = @"酒店";
+    BOOL flag = [_poiSearch poiSearchNearBy:option];
+    
+    if(flag)
+    {
+        NSLog(@"周边检索发送成功");
+    }
+    else
+    {
+        NSLog(@"周边检索发送失败");
+    }
+
     if (self.nearArray.count != 0) {
         
         hudHide;
 
-        self.listView.hidden = NO;
+        self.backListView.hidden = NO;
 
     }
     
@@ -354,8 +355,8 @@
 
 - (IBAction)closeClick {
     
-
-    self.listView.hidden = YES;
+    
+    self.backListView.hidden = YES;
 }
 
 @end
