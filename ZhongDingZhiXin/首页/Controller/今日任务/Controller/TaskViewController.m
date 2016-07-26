@@ -25,7 +25,6 @@
     CLLocationManager *manager;
     BMKUserLocation * _userLocation;
     
-    NSArray * _nearArray;
 }
 
 //poi结果信息集合
@@ -42,6 +41,7 @@
 @property (weak, nonatomic) IBOutlet UIView *backView;
 @property (weak, nonatomic) IBOutlet UITableView *nearTableView;
 @property (weak, nonatomic) IBOutlet UIView *listView;
+@property (nonatomic,strong) NSMutableArray * nearArray;
 
 @end
 
@@ -169,6 +169,8 @@
         
         app.nearArray = nearA;
         
+        self.nearArray = nearA;
+        
         [self.nearTableView reloadData];
         
         NSLog(@"附近的坐标模型数组:%@",app.nearArray);
@@ -217,6 +219,31 @@
     
     //停止定位
     [manager stopUpdatingLocation];
+    
+//    CLLocationCoordinate2D coor;
+//    coor.latitude = _userLocation.location.coordinate.latitude;
+//    coor.longitude = _userLocation.location.coordinate.longitude;
+    
+    //初始化检索对象
+    _poiSearch =[[BMKPoiSearch alloc]init];
+    _poiSearch.delegate = self;
+    //发起检索
+    BMKNearbySearchOption *option = [[BMKNearbySearchOption alloc]init];
+    option.pageIndex = curPage;
+    option.pageCapacity = 6;
+    option.location = coordinate;
+    option.keyword = @"酒店";
+    BOOL flag = [_poiSearch poiSearchNearBy:option];
+    
+    if(flag)
+    {
+        NSLog(@"周边检索发送成功");
+    }
+    else
+    {
+        NSLog(@"周边检索发送失败");
+    }
+
 }
 
 // 圆形
@@ -224,7 +251,6 @@
     
     if ([overlay isKindOfClass:[BMKCircle class]]){
         BMKCircleView* circleView = [[BMKCircleView alloc] initWithOverlay:overlay];
-        circleView.fillColor = [[UIColor cyanColor] colorWithAlphaComponent:0.5];
         circleView.strokeColor = [[UIColor blueColor] colorWithAlphaComponent:0.5];
         circleView.lineWidth = 5.0;
         
@@ -289,42 +315,14 @@
 
 - (IBAction)nearLoc {
     
-    AppShare;
-    
-    CLLocationCoordinate2D coor;
-    coor.latitude = _userLocation.location.coordinate.latitude;
-    coor.longitude = _userLocation.location.coordinate.longitude;
-
-    //初始化检索对象
-    _poiSearch =[[BMKPoiSearch alloc]init];
-    _poiSearch.delegate = self;
-    //发起检索
-    BMKNearbySearchOption *option = [[BMKNearbySearchOption alloc]init];
-    option.pageIndex = curPage;
-    option.pageCapacity = 6;
-    option.location = coor;
-    option.keyword = @"酒店";
-    BOOL flag = [_poiSearch poiSearchNearBy:option];
-    
-    if(flag)
-    {
-        NSLog(@"周边检索发送成功");
-    }
-    else
-    {
-        NSLog(@"周边检索发送失败");
-    }
-
-    mbHUDinit;
-    
-    if (app.nearArray.count != 0) {
+    if (self.nearArray.count != 0) {
         
+        hudHide;
+
         self.listView.hidden = NO;
 
     }
     
-    hudHide;
-
 }
 
 - (IBAction)confirmLoc {

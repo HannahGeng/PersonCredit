@@ -25,7 +25,7 @@
     self.addName.text = nearmodel.name;
     self.geoName.text = nearmodel.address;
     
-    for (int i = 0; i < 6; i++) {
+    for (int i = 1; i < 7; i++) {
         
         self.numView.image = [UIImage imageNamed:[NSString stringWithFormat:@"jrrwdizhi%d",i]];
     }
