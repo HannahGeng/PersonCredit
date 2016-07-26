@@ -141,20 +141,34 @@
 //实现PoiSearchDeleage处理回调结果
 - (void)onGetPoiResult:(BMKPoiSearch*)searcher result:(BMKPoiResult*)poiResultList errorCode:(BMKSearchErrorCode)error
 {
+    AppShare;
     if (error == BMK_SEARCH_NO_ERROR) {
         //在此处理正常结果
         NSArray * resultArr = poiResultList.poiInfoList;
-        NSMutableArray * nearArray = [NSMutableArray array];
+        NSMutableArray * dicNearArray = [NSMutableArray array];
 
         for (int i = 0; i < resultArr.count; i++) {
             
             BMKPoiInfo * infoArr = poiResultList.poiInfoList[i];
-            [nearArray addObject:infoArr.name];
+            
+            NSDictionary * neardic = [NSDictionary dictionaryWithObjectsAndKeys:infoArr.name,@"name",infoArr.address,@"address", nil];
+            
+            [dicNearArray addObject:neardic];
 
         }
         
-        _nearArray = nearArray;
+        NSMutableArray * nearA = [NSMutableArray array];
+
+        for (NSDictionary * dic in dicNearArray) {
+            NearModel * near = [NearModel nearWithDic:dic];
+            
+            [nearA addObject:near];
+        }
         
+        app.nearArray = nearA;
+        
+        NSLog(@"附近的坐标模型数组:%@",app.nearArray);
+                
     }
     else if (error == BMK_SEARCH_AMBIGUOUS_KEYWORD){
         //当在设置城市未找到结果，但在其他城市找到结果时，回调建议检索城市列表
@@ -271,6 +285,8 @@
 
 - (IBAction)nearLoc {
     
+    AppShare;
+    
     CLLocationCoordinate2D coor;
     coor.latitude = _userLocation.location.coordinate.latitude;
     coor.longitude = _userLocation.location.coordinate.longitude;
@@ -297,10 +313,10 @@
 
     mbHUDinit;
     
-    if (_nearArray.count != 0) {
+    if (app.nearArray.count != 0) {
         
         FDAlertView *alert = [[FDAlertView alloc] init];
-        NearListView *contentView = [[NSBundle mainBundle] loadNibNamed:@"NearListView" owner:nil options:nil].lastObject;
+        NearListView *contentView = [[[NSBundle mainBundle] loadNibNamed:@"NearListView" owner:nil options:nil] lastObject];
         contentView.frame = CGRectMake(0, 0, 270, 350);
         alert.contentView = contentView;
         [alert show];

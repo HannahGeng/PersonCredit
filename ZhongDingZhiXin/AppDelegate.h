@@ -49,5 +49,8 @@
 /** 姓名 */
 @property (nonatomic,strong) NSString * name;
 
+/** nearArray */
+@property (nonatomic,strong) NSMutableArray * nearArray;
+
 @end
 

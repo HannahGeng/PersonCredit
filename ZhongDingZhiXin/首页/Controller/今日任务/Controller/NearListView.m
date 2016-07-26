@@ -24,19 +24,18 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 10;
+    AppShare;
+    return app.nearArray.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
+    AppShare;
     
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell"];
-    }
-    
+    NearCell * cell = [NearCell cellWithTableView:tableView];
     cell.textLabel.text = [NSString stringWithFormat:@"text----%ld",indexPath.row];
     cell.backgroundColor = [UIColor greenColor];
+    cell.nearmodel = app.nearArray[indexPath.row];
     
     return cell;
 }
