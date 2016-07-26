@@ -160,12 +160,17 @@
 {
     if (error == BMK_SEARCH_NO_ERROR) {
         //在此处理正常结果
-        NSLog(@"搜索结果:%d",poiResultList.totalPoiNum);
         NSArray * resultArr = poiResultList.poiInfoList;
+        NSMutableArray * nearArray = [NSMutableArray array];
+
+        for (int i = 0; i < resultArr.count; i++) {
+            
+            BMKPoiInfo * infoArr = poiResultList.poiInfoList[i];
+            [nearArray addObject:infoArr.name];
+
+        }
         
-        NSString * resultName = resultArr[0];
-    
-        NSLog(@"搜索名称:%@",resultName);
+        NSLog(@"搜索名称:%@",nearArray);
         
     }
     else if (error == BMK_SEARCH_AMBIGUOUS_KEYWORD){
