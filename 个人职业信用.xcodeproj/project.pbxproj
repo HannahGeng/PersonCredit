@@ -91,6 +91,7 @@
 		3D7C9BB71D485C050099FAB8 /* RegistModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D7C9BB61D485C050099FAB8 /* RegistModel.m */; };
 		3D7C9BBB1D4864A10099FAB8 /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D7C9BB91D4864A10099FAB8 /* AboutViewController.m */; };
 		3D7C9BBC1D4864A10099FAB8 /* AboutViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D7C9BBA1D4864A10099FAB8 /* AboutViewController.xib */; };
+		3D7C9BBF1D4897760099FAB8 /* XMGAnno.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D7C9BBE1D4897760099FAB8 /* XMGAnno.m */; };
 		3D8589771BE847C200757C82 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D8589761BE847C200757C82 /* UIKit.framework */; };
 		3DB175DE1D3C7941005F91CB /* WorkViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DB175DC1D3C7941005F91CB /* WorkViewCell.m */; };
 		3DB175DF1D3C7941005F91CB /* WorkViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3DB175DD1D3C7941005F91CB /* WorkViewCell.xib */; };
@@ -109,7 +110,6 @@
 		3DDF6B211D2F51040046E163 /* NSString+Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DDF6B1A1D2F51040046E163 /* NSString+Base64.m */; };
 		3DDF6B221D2F51040046E163 /* FDAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DDF6B1D1D2F51040046E163 /* FDAlertView.m */; };
 		3DE353871D388449002A68E6 /* TaskViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3DE353861D388449002A68E6 /* TaskViewController.xib */; };
-		3DE3538A1D388E2E002A68E6 /* XMGAnno.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DE353891D388E2E002A68E6 /* XMGAnno.m */; };
 		3DFC2F971BB3A46B004A83B0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DFC2F961BB3A46B004A83B0 /* main.m */; };
 		3DFC2F9A1BB3A46B004A83B0 /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 3DFC2F991BB3A46B004A83B0 /* AppDelegate.mm */; };
 		3DFC2FA01BB3A46B004A83B0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3DFC2F9E1BB3A46B004A83B0 /* Main.storyboard */; };
@@ -265,6 +265,8 @@
 		3D7C9BB81D4864A10099FAB8 /* AboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutViewController.h; sourceTree = "<group>"; };
 		3D7C9BB91D4864A10099FAB8 /* AboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutViewController.m; sourceTree = "<group>"; };
 		3D7C9BBA1D4864A10099FAB8 /* AboutViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AboutViewController.xib; sourceTree = "<group>"; };
+		3D7C9BBD1D4897760099FAB8 /* XMGAnno.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMGAnno.h; sourceTree = "<group>"; };
+		3D7C9BBE1D4897760099FAB8 /* XMGAnno.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMGAnno.m; sourceTree = "<group>"; };
 		3D8589761BE847C200757C82 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		3DB175DB1D3C7941005F91CB /* WorkViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WorkViewCell.h; sourceTree = "<group>"; };
 		3DB175DC1D3C7941005F91CB /* WorkViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WorkViewCell.m; sourceTree = "<group>"; };
@@ -293,8 +295,6 @@
 		3DDF6B1C1D2F51040046E163 /* FDAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FDAlertView.h; sourceTree = "<group>"; };
 		3DDF6B1D1D2F51040046E163 /* FDAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FDAlertView.m; sourceTree = "<group>"; };
 		3DE353861D388449002A68E6 /* TaskViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TaskViewController.xib; sourceTree = "<group>"; };
-		3DE353881D388E2E002A68E6 /* XMGAnno.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMGAnno.h; sourceTree = "<group>"; };
-		3DE353891D388E2E002A68E6 /* XMGAnno.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMGAnno.m; sourceTree = "<group>"; };
 		3DFC2F911BB3A46B004A83B0 /* 个人职业信用.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "个人职业信用.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3DFC2F951BB3A46B004A83B0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3DFC2F961BB3A46B004A83B0 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -423,6 +423,8 @@
 				3D4F9F0D1D2B663800A1C1A5 /* TaskViewController.h */,
 				3D4F9F0E1D2B663800A1C1A5 /* TaskViewController.m */,
 				3DE353861D388449002A68E6 /* TaskViewController.xib */,
+				3D7C9BBD1D4897760099FAB8 /* XMGAnno.h */,
+				3D7C9BBE1D4897760099FAB8 /* XMGAnno.m */,
 				3D150F3D1D4734CB00E30A14 /* NearModel.h */,
 				3D150F3E1D4734CB00E30A14 /* NearModel.m */,
 				3D150F381D4734BB00E30A14 /* NearCell.h */,
@@ -442,8 +444,6 @@
 		3D4F9F111D2B663800A1C1A5 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				3DE353881D388E2E002A68E6 /* XMGAnno.h */,
-				3DE353891D388E2E002A68E6 /* XMGAnno.m */,
 				3D4F9F121D2B663800A1C1A5 /* TaskView.h */,
 				3D4F9F131D2B663800A1C1A5 /* TaskView.m */,
 				3D4F9F141D2B663800A1C1A5 /* TaskViewCell.h */,
@@ -1339,7 +1339,6 @@
 				3D4F9F881D2B67C100A1C1A5 /* WorkExperienceViewController.m in Sources */,
 				3D4F9FB31D2B80B800A1C1A5 /* PunishmentViewCell.m in Sources */,
 				3D4F9F421D2B663800A1C1A5 /* TaskViewCell.m in Sources */,
-				3DE3538A1D388E2E002A68E6 /* XMGAnno.m in Sources */,
 				3D4F9F431D2B663800A1C1A5 /* AfficheViewController.m in Sources */,
 				3D4F9F531D2B663800A1C1A5 /* TitleViewCell.m in Sources */,
 				3D4F9F8C1D2B67C100A1C1A5 /* EducationExperienceViewController.m in Sources */,
@@ -1373,6 +1372,7 @@
 				3D4F9F511D2B663800A1C1A5 /* NoticeViewCell.m in Sources */,
 				3DDF6B221D2F51040046E163 /* FDAlertView.m in Sources */,
 				3DC3C6531D2B859100D40844 /* HTTPSessionManager.m in Sources */,
+				3D7C9BBF1D4897760099FAB8 /* XMGAnno.m in Sources */,
 				3DFC2F971BB3A46B004A83B0 /* main.m in Sources */,
 				3D4F9FB01D2B80B800A1C1A5 /* PunishmentViewController.m in Sources */,
 				3D4F9FAF1D2B80B800A1C1A5 /* CompanyViewController.m in Sources */,

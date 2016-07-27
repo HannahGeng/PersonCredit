@@ -47,6 +47,14 @@
 
 @implementation TaskViewController
 
+- (CLGeocoder *)geoC
+{
+    if (!_geoC) {
+        _geoC = [[CLGeocoder alloc] init];
+    }
+    return _geoC;
+}
+
 //隐藏TabBar
 -(void)viewWillAppear:(BOOL)animated{
 
@@ -65,13 +73,8 @@
     
     CLLocationCoordinate2D coor;
 
-//     添加一个PointAnnotation
-    BMKPointAnnotation* annotation = [[BMKPointAnnotation alloc]init];
     coor.latitude = _userLocation.location.coordinate.latitude;
     coor.longitude = _userLocation.location.coordinate.longitude;
-    annotation.coordinate = coor;
-    annotation.title = @"我的位置";
-    [_mapView addAnnotation:annotation];
     
     CLLocationCoordinate2D center = coor;
     BMKCoordinateSpan span = BMKCoordinateSpanMake(0.038325, 0.028045);
@@ -85,18 +88,13 @@
     
     [_mapView addOverlay:circle];
 
-}
-
-//我的位置标注
-- (BMKAnnotationView *)mapView:(BMKMapView *)mapView viewForAnnotation:(id <BMKAnnotation>)annotation
-{
-    if ([annotation isKindOfClass:[BMKPointAnnotation class]]) {
-        BMKPinAnnotationView *newAnnotationView = [[BMKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:@"myAnnotation"];
-        newAnnotationView.pinColor = BMKPinAnnotationColorPurple;
-        newAnnotationView.animatesDrop = YES;// 设置该标注点动画显示
-        return newAnnotationView;
-    }
-    return nil;
+    _mapView.showsUserLocation = YES;
+    
+    BMKPointAnnotation* annotation = [[BMKPointAnnotation alloc]init];
+    annotation.coordinate = coor;
+    annotation.title = @"我的位置";
+    [_mapView addAnnotation:annotation];
+    
 }
 
 -(void)viewWillDisappear:(BOOL)animated
@@ -138,6 +136,7 @@
     [manager startUpdatingLocation];
     
     self.backListView.hidden = YES;
+
 }
 
 //实现PoiSearchDeleage处理回调结果
@@ -174,9 +173,7 @@
         self.nearArray = nearA;
         
         [self.nearTableView reloadData];
-        
-        NSLog(@"附近的坐标模型数组:%@",app.nearArray);
-        
+                
     }
     else if (error == BMK_SEARCH_AMBIGUOUS_KEYWORD){
         //当在设置城市未找到结果，但在其他城市找到结果时，回调建议检索城市列表
@@ -191,6 +188,7 @@
 -(void)locationManager:(CLLocationManager *)manager1 didUpdateLocations:(NSArray *)locations
 {
     AppShare;
+
     //位置信息
     CLLocation *location = [locations firstObject];
     
@@ -201,7 +199,6 @@
     app.coordinate = coordinate;
     
     //反地理编码(逆地理编码) : 把位置信息转换成地址信息
-    //地理编码 : 把地址信息转换成位置信息
     CLGeocoder *geocoder = [[CLGeocoder alloc] init];
     //反地理编码
     [geocoder reverseGeocodeLocation:location completionHandler:^(NSArray *placemarks, NSError *error) {
@@ -216,13 +213,11 @@
         
         NSLog(@"%@", placemark.name);
         
-//        NSLog(@"%@ %@ %@, %@ %@", placemark.country, placemark.locality, placemark.thoroughfare, placemark.administrativeArea, placemark.subAdministrativeArea);
-        
         _addressText.text = [NSString stringWithFormat:@"%@ %@ %@,%@",placemark.country,placemark.administrativeArea,placemark.locality,placemark.name];
         
         app.address = _addressText.text;
     }];
-    
+
     //停止定位
     [manager stopUpdatingLocation];
     
@@ -300,7 +295,6 @@
     
     [_mapView addSubview:_nearButton];
     [_mapView addSubview:_confirmButton];
-    _mapView.showsUserLocation = YES;
     
     //时间戳
     NSDate *  senddate=[NSDate date];
@@ -392,9 +386,45 @@
     app.address = _addressText.text;
 }
 
-- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
+//- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
+//{
+//    self.backListView.hidden = YES;
+//    
+//}
+
+#pragma mark - 添加大头针
+- (void)touchesEnded:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
 {
-    self.backListView.hidden = YES;
+    CGPoint point = [[touches anyObject] locationInView:self.mapView];
+    
+    CLLocationCoordinate2D pt = [self.mapView convertPoint:point toCoordinateFromView:self.mapView];
+    
+    NSLog(@"当前触点位置:%f,%f",pt.longitude,pt.latitude);
+    // 3. 添加大头针
+    [self addAnnoWithPT:pt];
+}
+
+- (void)touchesMoved:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
+{
+    // 移除大头针(模型)
+    NSArray *annos = self.mapView.annotations;
+    [self.mapView removeAnnotations:annos];
+}
+
+- (void)addAnnoWithPT:(CLLocationCoordinate2D)pt
+{
+    XMGAnno *anno = [[XMGAnno alloc] init];
+    anno.coordinate = pt;
+    
+    [self.mapView addAnnotation:anno];
+    CLLocation *loc = [[CLLocation alloc] initWithLatitude:anno.coordinate.latitude longitude:anno.coordinate.longitude];
+    [self.geoC reverseGeocodeLocation:loc completionHandler:^(NSArray<CLPlacemark *> * _Nullable placemarks, NSError * _Nullable error) {
+        CLPlacemark *pl = [placemarks firstObject];
+        anno.title = pl.locality;
+        anno.subtitle = pl.thoroughfare;
+        
+    }];
+    
 }
 
 #pragma mark - UITableViewDelegate

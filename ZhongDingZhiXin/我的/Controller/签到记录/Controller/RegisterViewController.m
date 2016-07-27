@@ -51,7 +51,6 @@
     NSDictionary * dic = [NSDictionary dictionaryWithObjectsAndKeys:app.uid,@"uid",app.request,@"request", nil];
     [[HTTPSessionManager sharedManager]POST:SIGNLIST_URL parameters:dic result:^(id responseObject, NSError *error) {
         
-        NSLog(@"签到列表:%@",responseObject);
         if ([responseObject[@"status"] integerValue] > 0) {
             
             hudHide;
