@@ -87,6 +87,8 @@
 		3D55D1FE1D45EC5A00FE7100 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D55D1FD1D45EC5A00FE7100 /* CoreTelephony.framework */; };
 		3D6EC3641D3E1A7300F59D31 /* PasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D6EC3621D3E1A7300F59D31 /* PasswordViewController.m */; };
 		3D6EC3651D3E1A7300F59D31 /* PasswordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D6EC3631D3E1A7300F59D31 /* PasswordViewController.xib */; };
+		3D7C9BAE1D4845890099FAB8 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D7C9BAC1D4845890099FAB8 /* RegisterViewController.m */; };
+		3D7C9BAF1D4845890099FAB8 /* RegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D7C9BAD1D4845890099FAB8 /* RegisterViewController.xib */; };
 		3D8589771BE847C200757C82 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D8589761BE847C200757C82 /* UIKit.framework */; };
 		3DB175DE1D3C7941005F91CB /* WorkViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DB175DC1D3C7941005F91CB /* WorkViewCell.m */; };
 		3DB175DF1D3C7941005F91CB /* WorkViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3DB175DD1D3C7941005F91CB /* WorkViewCell.xib */; };
@@ -255,6 +257,9 @@
 		3D6EC3611D3E1A7300F59D31 /* PasswordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PasswordViewController.h; sourceTree = "<group>"; };
 		3D6EC3621D3E1A7300F59D31 /* PasswordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PasswordViewController.m; sourceTree = "<group>"; };
 		3D6EC3631D3E1A7300F59D31 /* PasswordViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PasswordViewController.xib; sourceTree = "<group>"; };
+		3D7C9BAB1D4845890099FAB8 /* RegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterViewController.h; sourceTree = "<group>"; };
+		3D7C9BAC1D4845890099FAB8 /* RegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterViewController.m; sourceTree = "<group>"; };
+		3D7C9BAD1D4845890099FAB8 /* RegisterViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RegisterViewController.xib; sourceTree = "<group>"; };
 		3D8589761BE847C200757C82 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		3DB175DB1D3C7941005F91CB /* WorkViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WorkViewCell.h; sourceTree = "<group>"; };
 		3DB175DC1D3C7941005F91CB /* WorkViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WorkViewCell.m; sourceTree = "<group>"; };
@@ -589,6 +594,7 @@
 				3D4F9F641D2B67C100A1C1A5 /* 基本信息 */,
 				3D4F9F6B1D2B67C100A1C1A5 /* 工作经验 */,
 				3D4F9F761D2B67C100A1C1A5 /* 教育经历 */,
+				3D7C9BA71D48455C0099FAB8 /* 签到记录 */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -915,6 +921,40 @@
 			name = framework;
 			sourceTree = "<group>";
 		};
+		3D7C9BA71D48455C0099FAB8 /* 签到记录 */ = {
+			isa = PBXGroup;
+			children = (
+				3D7C9BA81D48455C0099FAB8 /* Controller */,
+				3D7C9BA91D48455C0099FAB8 /* Model */,
+				3D7C9BAA1D48455C0099FAB8 /* View */,
+			);
+			path = "签到记录";
+			sourceTree = "<group>";
+		};
+		3D7C9BA81D48455C0099FAB8 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				3D7C9BAB1D4845890099FAB8 /* RegisterViewController.h */,
+				3D7C9BAC1D4845890099FAB8 /* RegisterViewController.m */,
+				3D7C9BAD1D4845890099FAB8 /* RegisterViewController.xib */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		3D7C9BA91D48455C0099FAB8 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		3D7C9BAA1D48455C0099FAB8 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		3DC0B0401D3CC2DF00194166 /* 常见问题 */ = {
 			isa = PBXGroup;
 			children = (
@@ -1205,6 +1245,7 @@
 				3D4F9F541D2B663800A1C1A5 /* TitleViewCell.xib in Resources */,
 				3D4F9FD11D2B817100A1C1A5 /* PageViewController.xib in Resources */,
 				3D4F9F5E1D2B667F00A1C1A5 /* MarketViewController.xib in Resources */,
+				3D7C9BAF1D4845890099FAB8 /* RegisterViewController.xib in Resources */,
 				3DFC2FA21BB3A46B004A83B0 /* Images.xcassets in Resources */,
 				3D4F9F4E1D2B663800A1C1A5 /* ButtonViewCell.xib in Resources */,
 				3D4F9F871D2B67C100A1C1A5 /* MessageViewController.xib in Resources */,
@@ -1278,6 +1319,7 @@
 				3D4F9FB21D2B80B800A1C1A5 /* PunishmentInfo.m in Sources */,
 				3D4F9FD01D2B817100A1C1A5 /* PageViewController.m in Sources */,
 				3DC0B04B1D3CC31300194166 /* QuestionModel.m in Sources */,
+				3D7C9BAE1D4845890099FAB8 /* RegisterViewController.m in Sources */,
 				3DC0B04F1D3CC32300194166 /* QuestionCell.m in Sources */,
 				3D4F9F411D2B663800A1C1A5 /* TaskView.m in Sources */,
 				3D4F9F481D2B663800A1C1A5 /* TableNoticeViewCell.m in Sources */,

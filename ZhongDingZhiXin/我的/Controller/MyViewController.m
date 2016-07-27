@@ -49,7 +49,8 @@
     
     _tableDataArray=@[@{@"image":@"xinxi",@"title":@"基本信息"},
                       @{@"image":@"gzjy",@"title":@"工作经验"},
-                      @{@"image":@"jyjl",@"title":@"教育经历"}];
+                      @{@"image":@"jyjl",@"title":@"教育经历"},
+                      @{@"image":@"qdjl",@"title":@"签到记录"}];
 }
 
 //加载tableView
@@ -70,7 +71,7 @@
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 3;
+    return 4;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -110,6 +111,11 @@
     if (indexPath.row==2) {
         EducationExperienceViewController *educationExperienceVC=[[EducationExperienceViewController alloc]init];
         [self.navigationController pushViewController:educationExperienceVC animated:YES];
+    }
+    if (indexPath.row == 3)
+    {
+        RegisterViewController * regis = [[RegisterViewController alloc] init];
+        [self.navigationController pushViewController:regis animated:YES];
     }
 }
 

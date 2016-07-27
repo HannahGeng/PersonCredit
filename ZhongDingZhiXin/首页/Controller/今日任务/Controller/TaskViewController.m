@@ -159,6 +159,8 @@
 
         }
         
+        app.dicNearArray = dicNearArray;
+        
         NSMutableArray * nearA = [NSMutableArray array];
 
         for (NSDictionary * dic in dicNearArray) {
@@ -220,7 +222,26 @@
     //停止定位
     [manager stopUpdatingLocation];
     
+    //初始化检索对象
+    _poiSearch =[[BMKPoiSearch alloc]init];
+    _poiSearch.delegate = self;
+    //发起检索
+    BMKNearbySearchOption *option = [[BMKNearbySearchOption alloc]init];
+    option.pageIndex = curPage;
+    option.pageCapacity = 6;
+    option.location = coordinate;
+    option.keyword = @"酒店";
+    BOOL flag = [_poiSearch poiSearchNearBy:option];
     
+    if(flag)
+    {
+        NSLog(@"周边检索发送成功");
+    }
+    else
+    {
+        NSLog(@"周边检索发送失败");
+    }
+
 }
 
 // 圆形
@@ -249,7 +270,15 @@
 
 -(void)backButton
 {
-    [self.navigationController popViewControllerAnimated:YES];
+    if (self.backListView.hidden == NO) {
+        
+        self.backListView.hidden = YES;
+        
+    }else{
+        
+        [self.navigationController popViewControllerAnimated:YES];
+
+    }
 }
 
 //处理位置坐标更新
@@ -292,30 +321,34 @@
 
 - (IBAction)nearLoc {
     
-    CLLocationCoordinate2D coor;
-    coor.latitude = _userLocation.location.coordinate.latitude;
-    coor.longitude = _userLocation.location.coordinate.longitude;
-    
-    //初始化检索对象
-    _poiSearch =[[BMKPoiSearch alloc]init];
-    _poiSearch.delegate = self;
-    //发起检索
-    BMKNearbySearchOption *option = [[BMKNearbySearchOption alloc]init];
-    option.pageIndex = curPage;
-    option.pageCapacity = 6;
-    option.location = coor;
-    option.keyword = @"酒店";
-    BOOL flag = [_poiSearch poiSearchNearBy:option];
-    
-    if(flag)
-    {
-        NSLog(@"周边检索发送成功");
-    }
-    else
-    {
-        NSLog(@"周边检索发送失败");
-    }
+    /**
+     *  CLLocationCoordinate2D coor;
+     coor.latitude = _userLocation.location.coordinate.latitude;
+     coor.longitude = _userLocation.location.coordinate.longitude;
+     
+     //初始化检索对象
+     _poiSearch =[[BMKPoiSearch alloc]init];
+     _poiSearch.delegate = self;
+     //发起检索
+     BMKNearbySearchOption *option = [[BMKNearbySearchOption alloc]init];
+     option.pageIndex = curPage;
+     option.pageCapacity = 6;
+     option.location = coor;
+     option.keyword = @"酒店";
+     BOOL flag = [_poiSearch poiSearchNearBy:option];
+     
+     if(flag)
+     {
+     NSLog(@"周边检索发送成功");
+     }
+     else
+     {
+     NSLog(@"周边检索发送失败");
+     }
 
+     */
+    
+    
     if (self.nearArray.count != 0) {
         
         hudHide;
@@ -329,6 +362,11 @@
 - (IBAction)confirmLoc {
     
     MBhud(_addressText.text);
+}
+
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
+{
+    self.backListView.hidden = YES;
 }
 
 #pragma mark - UITableViewDelegate
@@ -353,10 +391,15 @@
     return 80;
 }
 
-- (IBAction)closeClick {
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    AppShare;
     
+    NSString * addressL = app.dicNearArray[indexPath.row][@"address"];
     
     self.backListView.hidden = YES;
+    
+    self.addressText.text = addressL;
 }
 
 @end

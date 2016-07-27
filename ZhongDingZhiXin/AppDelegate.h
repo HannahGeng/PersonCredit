@@ -52,5 +52,8 @@
 /** nearArray */
 @property (nonatomic,strong) NSMutableArray * nearArray;
 
+/** dicNearArray */
+@property (nonatomic,strong) NSMutableArray * dicNearArray;
+
 @end
 

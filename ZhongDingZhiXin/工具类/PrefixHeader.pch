@@ -89,6 +89,8 @@
 #import <BaiduMapAPI_Radar/BMKRadarComponent.h>//引入周边雷达功能所有的头文件
 #import "NearModel.h"
 #import "NearCell.h"
+#import "RegisterViewController.h"
+#import "RegisterViewController.h"
 
 //定位框架
 #import <CoreLocation/CoreLocation.h>
@@ -156,7 +158,7 @@ typedef enum _UpdateType {
 #define JLXX_URL @"http://www.newqc.cn/webapi/company/reward"
 
 #pragma mark - 10、首页-签到/打卡
-#define JIANDAO_URL @"http://www.newqc.cn/webapi/company/task/"
+#define JIANDAO_URL @"http://www.newqc.cn/webapi/company/task"
 
 #pragma mark - 11、首页-工作证
 #define ZUOZHENG_URL @"http://www.newqc.cn/webapi/company/empcard"

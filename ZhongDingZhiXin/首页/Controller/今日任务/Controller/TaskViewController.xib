@@ -101,10 +101,10 @@
                     <rect key="frame" x="0.0" y="0.0" width="320" height="340"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a4N-iS-lrW">
-                            <rect key="frame" x="214" y="300" width="96" height="20"/>
+                            <rect key="frame" x="214" y="290" width="96" height="30"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="20" id="Ch2-sv-3gO"/>
+                                <constraint firstAttribute="height" constant="30" id="Ch2-sv-3gO"/>
                                 <constraint firstAttribute="width" constant="96" id="PpH-V2-9fu"/>
                             </constraints>
                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
@@ -118,11 +118,11 @@
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vwc-vq-Y8u">
-                            <rect key="frame" x="10" y="300" width="100" height="20"/>
+                            <rect key="frame" x="10" y="290" width="100" height="30"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="100" id="b38-E1-hkY"/>
-                                <constraint firstAttribute="height" constant="20" id="xfx-TX-HOQ"/>
+                                <constraint firstAttribute="height" constant="30" id="xfx-TX-HOQ"/>
                             </constraints>
                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                             <inset key="titleEdgeInsets" minX="0.0" minY="5" maxX="10" maxY="5"/>
@@ -142,67 +142,35 @@
                         <constraint firstAttribute="bottom" secondItem="a4N-iS-lrW" secondAttribute="bottom" constant="20" id="xKS-wv-4He"/>
                     </constraints>
                 </view>
-                <view alpha="0.80000000000000004" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lO3-8L-9TN" userLabel="backTableView">
+                <view alpha="0.94999999999999996" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lO3-8L-9TN" userLabel="backTableView">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fua-Wb-1YY">
-                            <rect key="frame" x="20" y="38" width="280" height="500"/>
+                            <rect key="frame" x="20" y="98" width="280" height="440"/>
                             <subviews>
-                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mtf-S2-gpN" customClass="NearListView">
-                                    <rect key="frame" x="0.0" y="0.0" width="280" height="60"/>
-                                    <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="附近的位置" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JCJ-yc-pBu">
-                                            <rect key="frame" x="98" y="20" width="85" height="21"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                    </subviews>
-                                    <color key="backgroundColor" red="0.29322870750000002" green="0.4986257838" blue="0.90588235289999997" alpha="1" colorSpace="calibratedRGB"/>
-                                    <constraints>
-                                        <constraint firstItem="JCJ-yc-pBu" firstAttribute="centerY" secondItem="Mtf-S2-gpN" secondAttribute="centerY" id="XE6-Q3-1pz"/>
-                                        <constraint firstItem="JCJ-yc-pBu" firstAttribute="centerX" secondItem="Mtf-S2-gpN" secondAttribute="centerX" id="fj1-Jf-5r7"/>
-                                    </constraints>
-                                </view>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b44-QR-5fk">
-                                    <rect key="frame" x="240" y="16" width="30" height="30"/>
-                                    <state key="normal" title="关闭">
-                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                    </state>
-                                    <connections>
-                                        <action selector="closeClick" destination="-1" eventType="touchUpInside" id="eow-nd-4j4"/>
-                                    </connections>
-                                </button>
                                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Nne-oy-Lma">
-                                    <rect key="frame" x="0.0" y="60" width="280" height="440"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="280" height="440"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="440" id="pyl-fp-r9j"/>
                                     </constraints>
+                                    <color key="sectionIndexBackgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <connections>
                                         <outlet property="dataSource" destination="-1" id="KPM-nt-U7Q"/>
                                         <outlet property="delegate" destination="-1" id="ESd-5c-ghX"/>
                                     </connections>
                                 </tableView>
                             </subviews>
-                            <color key="backgroundColor" red="0.59595995069999996" green="1" blue="0.37769305860000002" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <constraints>
-                                <constraint firstItem="Nne-oy-Lma" firstAttribute="top" secondItem="Mtf-S2-gpN" secondAttribute="bottom" id="4GF-kY-QKw"/>
                                 <constraint firstAttribute="bottom" secondItem="Nne-oy-Lma" secondAttribute="bottom" id="5YM-hB-oos"/>
-                                <constraint firstItem="b44-QR-5fk" firstAttribute="centerY" secondItem="JCJ-yc-pBu" secondAttribute="centerY" id="5eo-eA-2hN"/>
                                 <constraint firstItem="Nne-oy-Lma" firstAttribute="leading" secondItem="Fua-Wb-1YY" secondAttribute="leading" id="5nf-hb-A9X"/>
-                                <constraint firstAttribute="trailing" secondItem="Mtf-S2-gpN" secondAttribute="trailing" id="Zwn-HU-iDD"/>
-                                <constraint firstItem="Nne-oy-Lma" firstAttribute="top" secondItem="Mtf-S2-gpN" secondAttribute="bottom" id="fbW-Ta-fxE"/>
-                                <constraint firstAttribute="height" constant="500" id="gdV-hf-Rpi"/>
+                                <constraint firstAttribute="height" constant="440" id="gdV-hf-Rpi"/>
                                 <constraint firstAttribute="trailing" secondItem="Nne-oy-Lma" secondAttribute="trailing" id="hay-Bv-QSM"/>
-                                <constraint firstItem="Mtf-S2-gpN" firstAttribute="top" secondItem="Fua-Wb-1YY" secondAttribute="top" id="nRr-46-EDm"/>
-                                <constraint firstItem="Mtf-S2-gpN" firstAttribute="leading" secondItem="Fua-Wb-1YY" secondAttribute="leading" id="oDK-1h-P2C"/>
-                                <constraint firstAttribute="trailing" secondItem="b44-QR-5fk" secondAttribute="trailing" constant="10" id="yoL-qc-K7X"/>
                             </constraints>
                         </view>
                     </subviews>
-                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstAttribute="bottom" secondItem="Fua-Wb-1YY" secondAttribute="bottom" constant="30" id="4fn-VT-KA9"/>
                         <constraint firstItem="Fua-Wb-1YY" firstAttribute="leading" secondItem="lO3-8L-9TN" secondAttribute="leading" constant="20" id="SQf-mX-VDH"/>
