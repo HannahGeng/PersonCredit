@@ -1,9 +1,9 @@
 //
 //  AboutViewController.h
-//  ZhongDingZhiXin
+//  个人职业信用
 //
-//  Created by zdzx-008 on 15/10/14.
-//  Copyright (c) 2015年 张豪. All rights reserved.
+//  Created by zdzx-008 on 16/7/27.
+//  Copyright © 2016年 北京职信鼎程. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>

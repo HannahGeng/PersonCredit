@@ -55,6 +55,7 @@
                 <outlet property="localText" destination="rR9-jP-C7Z" id="ofY-xi-mJS"/>
                 <outlet property="timeLabel" destination="KmE-VA-rRr" id="e1b-0o-qhV"/>
             </connections>
+            <point key="canvasLocation" x="329" y="289"/>
         </tableViewCell>
     </objects>
 </document>

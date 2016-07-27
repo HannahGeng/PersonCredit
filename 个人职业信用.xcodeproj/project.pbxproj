@@ -75,9 +75,6 @@
 		3D4F9FB71D2B80B800A1C1A5 /* RewardViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D4F9FAA1D2B80B800A1C1A5 /* RewardViewCell.m */; };
 		3D4F9FB81D2B80B800A1C1A5 /* CompanyViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D4F9FAE1D2B80B800A1C1A5 /* CompanyViewCell.m */; };
 		3D4F9FCE1D2B817100A1C1A5 /* OtherViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D4F9FBC1D2B817100A1C1A5 /* OtherViewController.m */; };
-		3D4F9FCF1D2B817100A1C1A5 /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D4F9FBF1D2B817100A1C1A5 /* AboutViewController.m */; };
-		3D4F9FD01D2B817100A1C1A5 /* PageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D4F9FC11D2B817100A1C1A5 /* PageViewController.m */; };
-		3D4F9FD11D2B817100A1C1A5 /* PageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D4F9FC21D2B817100A1C1A5 /* PageViewController.xib */; };
 		3D4F9FD21D2B817100A1C1A5 /* FeedbackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D4F9FC51D2B817100A1C1A5 /* FeedbackViewController.m */; };
 		3D4F9FD31D2B817100A1C1A5 /* FeedbackViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D4F9FC61D2B817100A1C1A5 /* FeedbackViewController.xib */; };
 		3D4F9FD41D2B817100A1C1A5 /* SetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D4F9FC91D2B817100A1C1A5 /* SetViewController.m */; };
@@ -92,6 +89,8 @@
 		3D7C9BB31D485BFA0099FAB8 /* RegistCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D7C9BB11D485BFA0099FAB8 /* RegistCell.m */; };
 		3D7C9BB41D485BFA0099FAB8 /* RegistCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D7C9BB21D485BFA0099FAB8 /* RegistCell.xib */; };
 		3D7C9BB71D485C050099FAB8 /* RegistModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D7C9BB61D485C050099FAB8 /* RegistModel.m */; };
+		3D7C9BBB1D4864A10099FAB8 /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D7C9BB91D4864A10099FAB8 /* AboutViewController.m */; };
+		3D7C9BBC1D4864A10099FAB8 /* AboutViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D7C9BBA1D4864A10099FAB8 /* AboutViewController.xib */; };
 		3D8589771BE847C200757C82 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D8589761BE847C200757C82 /* UIKit.framework */; };
 		3DB175DE1D3C7941005F91CB /* WorkViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DB175DC1D3C7941005F91CB /* WorkViewCell.m */; };
 		3DB175DF1D3C7941005F91CB /* WorkViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3DB175DD1D3C7941005F91CB /* WorkViewCell.xib */; };
@@ -242,11 +241,6 @@
 		3D4F9FAE1D2B80B800A1C1A5 /* CompanyViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CompanyViewCell.m; sourceTree = "<group>"; };
 		3D4F9FBB1D2B817100A1C1A5 /* OtherViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OtherViewController.h; sourceTree = "<group>"; };
 		3D4F9FBC1D2B817100A1C1A5 /* OtherViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OtherViewController.m; sourceTree = "<group>"; };
-		3D4F9FBE1D2B817100A1C1A5 /* AboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutViewController.h; sourceTree = "<group>"; };
-		3D4F9FBF1D2B817100A1C1A5 /* AboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutViewController.m; sourceTree = "<group>"; };
-		3D4F9FC01D2B817100A1C1A5 /* PageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PageViewController.h; sourceTree = "<group>"; };
-		3D4F9FC11D2B817100A1C1A5 /* PageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PageViewController.m; sourceTree = "<group>"; };
-		3D4F9FC21D2B817100A1C1A5 /* PageViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PageViewController.xib; sourceTree = "<group>"; };
 		3D4F9FC41D2B817100A1C1A5 /* FeedbackViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeedbackViewController.h; sourceTree = "<group>"; };
 		3D4F9FC51D2B817100A1C1A5 /* FeedbackViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeedbackViewController.m; sourceTree = "<group>"; };
 		3D4F9FC61D2B817100A1C1A5 /* FeedbackViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FeedbackViewController.xib; sourceTree = "<group>"; };
@@ -268,6 +262,9 @@
 		3D7C9BB21D485BFA0099FAB8 /* RegistCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RegistCell.xib; sourceTree = "<group>"; };
 		3D7C9BB51D485C050099FAB8 /* RegistModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegistModel.h; sourceTree = "<group>"; };
 		3D7C9BB61D485C050099FAB8 /* RegistModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegistModel.m; sourceTree = "<group>"; };
+		3D7C9BB81D4864A10099FAB8 /* AboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutViewController.h; sourceTree = "<group>"; };
+		3D7C9BB91D4864A10099FAB8 /* AboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutViewController.m; sourceTree = "<group>"; };
+		3D7C9BBA1D4864A10099FAB8 /* AboutViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AboutViewController.xib; sourceTree = "<group>"; };
 		3D8589761BE847C200757C82 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		3DB175DB1D3C7941005F91CB /* WorkViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WorkViewCell.h; sourceTree = "<group>"; };
 		3DB175DC1D3C7941005F91CB /* WorkViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WorkViewCell.m; sourceTree = "<group>"; };
@@ -876,11 +873,9 @@
 		3D4F9FBD1D2B817100A1C1A5 /* 关于中鼎 */ = {
 			isa = PBXGroup;
 			children = (
-				3D4F9FBE1D2B817100A1C1A5 /* AboutViewController.h */,
-				3D4F9FBF1D2B817100A1C1A5 /* AboutViewController.m */,
-				3D4F9FC01D2B817100A1C1A5 /* PageViewController.h */,
-				3D4F9FC11D2B817100A1C1A5 /* PageViewController.m */,
-				3D4F9FC21D2B817100A1C1A5 /* PageViewController.xib */,
+				3D7C9BB81D4864A10099FAB8 /* AboutViewController.h */,
+				3D7C9BB91D4864A10099FAB8 /* AboutViewController.m */,
+				3D7C9BBA1D4864A10099FAB8 /* AboutViewController.xib */,
 			);
 			path = "关于中鼎";
 			sourceTree = "<group>";
@@ -1239,6 +1234,7 @@
 				3D6EC3651D3E1A7300F59D31 /* PasswordViewController.xib in Resources */,
 				3D1FEEDF1D2E3CEC00C54C41 /* ContentView.xib in Resources */,
 				3DC0B0501D3CC32300194166 /* QuestionCell.xib in Resources */,
+				3D7C9BBC1D4864A10099FAB8 /* AboutViewController.xib in Resources */,
 				3DC0B0481D3CC30100194166 /* QuestionViewController.xib in Resources */,
 				3D7C9BB41D485BFA0099FAB8 /* RegistCell.xib in Resources */,
 				3D4F9F891D2B67C100A1C1A5 /* WorkExperienceViewController.xib in Resources */,
@@ -1257,7 +1253,6 @@
 				3D4F9F3D1D2B663800A1C1A5 /* HomeViewController.xib in Resources */,
 				3D4F9F8D1D2B67C100A1C1A5 /* EducationExperienceViewController.xib in Resources */,
 				3D4F9F541D2B663800A1C1A5 /* TitleViewCell.xib in Resources */,
-				3D4F9FD11D2B817100A1C1A5 /* PageViewController.xib in Resources */,
 				3D4F9F5E1D2B667F00A1C1A5 /* MarketViewController.xib in Resources */,
 				3D7C9BAF1D4845890099FAB8 /* RegisterViewController.xib in Resources */,
 				3DFC2FA21BB3A46B004A83B0 /* Images.xcassets in Resources */,
@@ -1331,7 +1326,6 @@
 			files = (
 				3D4F9F3F1D2B663800A1C1A5 /* TaskViewController.m in Sources */,
 				3D4F9FB21D2B80B800A1C1A5 /* PunishmentInfo.m in Sources */,
-				3D4F9FD01D2B817100A1C1A5 /* PageViewController.m in Sources */,
 				3DC0B04B1D3CC31300194166 /* QuestionModel.m in Sources */,
 				3D7C9BAE1D4845890099FAB8 /* RegisterViewController.m in Sources */,
 				3DC0B04F1D3CC32300194166 /* QuestionCell.m in Sources */,
@@ -1340,6 +1334,7 @@
 				3D4F9F5F1D2B667F00A1C1A5 /* MarketViewCell.m in Sources */,
 				3D4F9FD21D2B817100A1C1A5 /* FeedbackViewController.m in Sources */,
 				3D4F9F3C1D2B663800A1C1A5 /* HomeViewController.m in Sources */,
+				3D7C9BBB1D4864A10099FAB8 /* AboutViewController.m in Sources */,
 				3D4F9F901D2B67C100A1C1A5 /* MyViewCell.m in Sources */,
 				3D4F9F881D2B67C100A1C1A5 /* WorkExperienceViewController.m in Sources */,
 				3D4F9FB31D2B80B800A1C1A5 /* PunishmentViewCell.m in Sources */,
@@ -1384,7 +1379,6 @@
 				3D4F9F031D2B645900A1C1A5 /* KSTabBarController.m in Sources */,
 				3DDF6B1E1D2F51040046E163 /* AESCrypt.m in Sources */,
 				3D4F9FD41D2B817100A1C1A5 /* SetViewController.m in Sources */,
-				3D4F9FCF1D2B817100A1C1A5 /* AboutViewController.m in Sources */,
 				3D4F9FD51D2B817100A1C1A5 /* OtherViewCell.m in Sources */,
 				3D4F9F5D1D2B667F00A1C1A5 /* MarketViewController.m in Sources */,
 				3D4F9FB61D2B80B800A1C1A5 /* RewardInfo.m in Sources */,
