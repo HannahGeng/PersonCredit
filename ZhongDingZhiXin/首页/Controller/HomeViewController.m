@@ -83,6 +83,8 @@
     [[HTTPSessionManager sharedManager] POST:ZUOZHENG_URL parameters:Dic result:^(id responseObject, NSError *error) {
         
         NSLog(@"我的信息:%@",responseObject);
+        
+        app.mobilephone = responseObject[@"result"][@"mobilephone"];
 
         NSString * name = [AESCrypt decrypt:responseObject[@"result"][@"realname"] password:app.loginKeycode];
         

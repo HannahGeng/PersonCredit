@@ -190,13 +190,15 @@
 //定位成功
 -(void)locationManager:(CLLocationManager *)manager1 didUpdateLocations:(NSArray *)locations
 {
-    
+    AppShare;
     //位置信息
     CLLocation *location = [locations firstObject];
     
     //定位到的坐标
     CLLocationCoordinate2D coordinate = location.coordinate;
     NSLog(@"(%lf, %lf)", coordinate.latitude, coordinate.longitude);
+    
+    app.coordinate = coordinate;
     
     //反地理编码(逆地理编码) : 把位置信息转换成地址信息
     //地理编码 : 把地址信息转换成位置信息
@@ -217,6 +219,8 @@
 //        NSLog(@"%@ %@ %@, %@ %@", placemark.country, placemark.locality, placemark.thoroughfare, placemark.administrativeArea, placemark.subAdministrativeArea);
         
         _addressText.text = [NSString stringWithFormat:@"%@ %@ %@,%@",placemark.country,placemark.administrativeArea,placemark.locality,placemark.name];
+        
+        app.address = _addressText.text;
     }];
     
     //停止定位
@@ -292,6 +296,8 @@
 -(void)addContentView
 {
 
+    AppShare;
+    
     [_mapView addSubview:_nearButton];
     [_mapView addSubview:_confirmButton];
     _mapView.showsUserLocation = YES;
@@ -310,12 +316,30 @@
     
     self.timeLabel.text = timeStr;
     self.detailTimeLabel.text = detailStr;
+    
+    app.timeStr = [NSString stringWithFormat:@"%@ %@",timeStr,detailStr];
 
 }
 
+//签到
 - (IBAction)signButton:(UIButton *)sender {
     
-    MBhud(@"签到成功");
+    AppShare;
+    
+    NSDictionary * pdic = [NSDictionary dictionaryWithObjectsAndKeys:app.uid,@"uid",app.request,@"request",[AESCrypt encrypt:app.name password:app.loginKeycode],@"client",[AESCrypt encrypt:@"暂无" password:app.loginKeycode],@"contact",app.mobilephone,@"contacttel",[AESCrypt encrypt:app.timeStr password:app.loginKeycode],@"locatime",[AESCrypt encrypt:app.address password:app.loginKeycode],@"location",[AESCrypt encrypt:[NSString stringWithFormat:@"%f:%f",app.coordinate.latitude,app.coordinate.longitude] password:app.loginKeycode],@"coordinate", nil];
+    
+    NSLog(@"参数字典:%@",pdic);
+    
+    NSLog(@"地址:%@",app.address);
+
+    
+    [[HTTPSessionManager sharedManager] POST:JIANDAO_URL parameters:pdic result:^(id responseObject, NSError *error) {
+        
+        NSLog(@"签到记录:%@",responseObject);
+        app.request = responseObject[@"response"];
+    }];
+    
+        MBhud(@"签到成功");
     
 }
 
@@ -361,7 +385,11 @@
 
 - (IBAction)confirmLoc {
     
+    AppShare;
+    
     MBhud(_addressText.text);
+    
+    app.address = _addressText.text;
 }
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event

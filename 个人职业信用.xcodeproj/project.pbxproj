@@ -89,6 +89,9 @@
 		3D6EC3651D3E1A7300F59D31 /* PasswordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D6EC3631D3E1A7300F59D31 /* PasswordViewController.xib */; };
 		3D7C9BAE1D4845890099FAB8 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D7C9BAC1D4845890099FAB8 /* RegisterViewController.m */; };
 		3D7C9BAF1D4845890099FAB8 /* RegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D7C9BAD1D4845890099FAB8 /* RegisterViewController.xib */; };
+		3D7C9BB31D485BFA0099FAB8 /* RegistCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D7C9BB11D485BFA0099FAB8 /* RegistCell.m */; };
+		3D7C9BB41D485BFA0099FAB8 /* RegistCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D7C9BB21D485BFA0099FAB8 /* RegistCell.xib */; };
+		3D7C9BB71D485C050099FAB8 /* RegistModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D7C9BB61D485C050099FAB8 /* RegistModel.m */; };
 		3D8589771BE847C200757C82 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D8589761BE847C200757C82 /* UIKit.framework */; };
 		3DB175DE1D3C7941005F91CB /* WorkViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DB175DC1D3C7941005F91CB /* WorkViewCell.m */; };
 		3DB175DF1D3C7941005F91CB /* WorkViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3DB175DD1D3C7941005F91CB /* WorkViewCell.xib */; };
@@ -260,6 +263,11 @@
 		3D7C9BAB1D4845890099FAB8 /* RegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterViewController.h; sourceTree = "<group>"; };
 		3D7C9BAC1D4845890099FAB8 /* RegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterViewController.m; sourceTree = "<group>"; };
 		3D7C9BAD1D4845890099FAB8 /* RegisterViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RegisterViewController.xib; sourceTree = "<group>"; };
+		3D7C9BB01D485BFA0099FAB8 /* RegistCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegistCell.h; sourceTree = "<group>"; };
+		3D7C9BB11D485BFA0099FAB8 /* RegistCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegistCell.m; sourceTree = "<group>"; };
+		3D7C9BB21D485BFA0099FAB8 /* RegistCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RegistCell.xib; sourceTree = "<group>"; };
+		3D7C9BB51D485C050099FAB8 /* RegistModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegistModel.h; sourceTree = "<group>"; };
+		3D7C9BB61D485C050099FAB8 /* RegistModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegistModel.m; sourceTree = "<group>"; };
 		3D8589761BE847C200757C82 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		3DB175DB1D3C7941005F91CB /* WorkViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WorkViewCell.h; sourceTree = "<group>"; };
 		3DB175DC1D3C7941005F91CB /* WorkViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WorkViewCell.m; sourceTree = "<group>"; };
@@ -944,6 +952,8 @@
 		3D7C9BA91D48455C0099FAB8 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				3D7C9BB51D485C050099FAB8 /* RegistModel.h */,
+				3D7C9BB61D485C050099FAB8 /* RegistModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -951,6 +961,9 @@
 		3D7C9BAA1D48455C0099FAB8 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				3D7C9BB01D485BFA0099FAB8 /* RegistCell.h */,
+				3D7C9BB11D485BFA0099FAB8 /* RegistCell.m */,
+				3D7C9BB21D485BFA0099FAB8 /* RegistCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1227,6 +1240,7 @@
 				3D1FEEDF1D2E3CEC00C54C41 /* ContentView.xib in Resources */,
 				3DC0B0501D3CC32300194166 /* QuestionCell.xib in Resources */,
 				3DC0B0481D3CC30100194166 /* QuestionViewController.xib in Resources */,
+				3D7C9BB41D485BFA0099FAB8 /* RegistCell.xib in Resources */,
 				3D4F9F891D2B67C100A1C1A5 /* WorkExperienceViewController.xib in Resources */,
 				3DE353871D388449002A68E6 /* TaskViewController.xib in Resources */,
 				3D4F9F461D2B663800A1C1A5 /* NoticeViewController.xib in Resources */,
@@ -1336,6 +1350,7 @@
 				3D4F9F8C1D2B67C100A1C1A5 /* EducationExperienceViewController.m in Sources */,
 				3D1FEEDE1D2E3CEC00C54C41 /* ContentView.m in Sources */,
 				3D4F9F451D2B663800A1C1A5 /* NoticeViewController.m in Sources */,
+				3D7C9BB31D485BFA0099FAB8 /* RegistCell.m in Sources */,
 				3D4F9F491D2B663800A1C1A5 /* WordCarViewController.m in Sources */,
 				3DDF6B211D2F51040046E163 /* NSString+Base64.m in Sources */,
 				3DC0B0471D3CC30100194166 /* QuestionViewController.m in Sources */,
@@ -1377,6 +1392,7 @@
 				3D4F9F3E1D2B663800A1C1A5 /* CustomAnnotation.m in Sources */,
 				3D4F9EF81D2B63EB00A1C1A5 /* UIUtils.m in Sources */,
 				3D150F3B1D4734BB00E30A14 /* NearCell.m in Sources */,
+				3D7C9BB71D485C050099FAB8 /* RegistModel.m in Sources */,
 				3DB175DE1D3C7941005F91CB /* WorkViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

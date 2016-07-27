@@ -90,7 +90,8 @@
 #import "NearModel.h"
 #import "NearCell.h"
 #import "RegisterViewController.h"
-#import "RegisterViewController.h"
+#import "RegistModel.h"
+#import "RegistCell.h"
 
 //定位框架
 #import <CoreLocation/CoreLocation.h>
@@ -171,6 +172,10 @@ typedef enum _UpdateType {
 
 #pragma mark - 14、修改密码
 #define changePass @"http://www.newqc.cn/webapi/mine/userInfo_update"
+
+#pragma mark - 15\获取签到列表
+#define SIGNLIST_URL @"http://www.newqc.cn/webapi/company/signlist/"
+
 
 #pragma mark - 导航栏统一样式
 #define NavBarType(navName) \

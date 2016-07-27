@@ -8,7 +8,13 @@
 
 #import "RegisterViewController.h"
 
-@interface RegisterViewController ()
+@interface RegisterViewController ()<UITableViewDelegate,UITableViewDataSource>
+{
+    MBProgressHUD * mbHud;
+}
+
+@property (nonatomic,strong) NSArray * registArray;
+@property (weak, nonatomic) IBOutlet UITableView *resgistTableView;
 
 @end
 
@@ -23,6 +29,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
+    mbHUDinit;
+    
     NavBarType(@"签到记录");
     leftButton;
     
@@ -37,20 +45,54 @@
 
 - (void)loadData
 {
-//    "client"  用户姓名
-//    "contact"  联系人
-//    "contacttel" 联系电话
-//    "coordinate" 坐标
-//    "locatime" 时间
-//    "location" 地址
     AppShare;
+    NSMutableArray * registArr = [NSMutableArray array];
     
-    NSDictionary * pdic = [NSDictionary dictionaryWithObjectsAndKeys:app.uid,@"uid",app.request,@"request",app.name,@"client", nil];
-    [[HTTPSessionManager sharedManager] POST:JIANDAO_URL parameters:pdic result:^(id responseObject, NSError *error) {
-       
-        NSLog(@"签到记录:%@",responseObject);
+    NSDictionary * dic = [NSDictionary dictionaryWithObjectsAndKeys:app.uid,@"uid",app.request,@"request", nil];
+    [[HTTPSessionManager sharedManager]POST:SIGNLIST_URL parameters:dic result:^(id responseObject, NSError *error) {
         
+        NSLog(@"签到列表:%@",responseObject);
+        if ([responseObject[@"status"] integerValue] > 0) {
+            
+            hudHide;
+            
+            self.registArray = responseObject[@"result"];
+        }
+        
+        for (NSDictionary * dic in self.registArray) {
+            
+            RegistModel * model = [RegistModel resgitWithDic:dic];
+            
+            [registArr addObject:model];
+        }
+        
+        self.registArray = registArr;
+        
+        [self.resgistTableView reloadData];
+        
+        app.request = responseObject[@"response"];
     }];
+
+}
+
+#pragma mark - UITableViewDelegate
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return self.registArray.count;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    RegistCell * cell = [RegistCell cellWithTableView:tableView];
+    
+    cell.registmodel = self.registArray[indexPath.row];
+    
+    return cell;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 70;
 }
 
 @end

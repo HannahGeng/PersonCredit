@@ -99,7 +99,7 @@
     return 3;
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    
+        
     if (indexPath.row==0) {
         MessageViewController *messageVC=[[MessageViewController alloc]init];
         [self.navigationController pushViewController:messageVC animated:YES];
@@ -114,8 +114,10 @@
     }
     if (indexPath.row == 3)
     {
+        
         RegisterViewController * regis = [[RegisterViewController alloc] init];
         [self.navigationController pushViewController:regis animated:YES];
+               
     }
 }
 

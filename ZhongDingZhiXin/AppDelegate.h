@@ -55,5 +55,17 @@
 /** dicNearArray */
 @property (nonatomic,strong) NSMutableArray * dicNearArray;
 
+/** mobilephone */
+@property (nonatomic,strong) NSString * mobilephone;
+
+/** coor */
+@property (nonatomic,assign) CLLocationCoordinate2D coordinate;
+
+/** time */
+@property (nonatomic,strong) NSString * timeStr;
+
+/** address */
+@property (nonatomic,strong) NSString * address;
+
 @end
 

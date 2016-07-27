@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="regist" id="KGk-i7-Jjw" customClass="RegistCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="70"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="69"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rR9-jP-C7Z">
+                        <rect key="frame" x="10" y="10" width="300" height="18"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KmE-VA-rRr">
+                        <rect key="frame" x="10" y="43" width="300" height="16"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="KmE-VA-rRr" firstAttribute="top" secondItem="rR9-jP-C7Z" secondAttribute="bottom" constant="10" id="4ws-UC-NOO"/>
+                    <constraint firstItem="KmE-VA-rRr" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="Cfc-6v-vXJ"/>
+                    <constraint firstAttribute="trailing" secondItem="KmE-VA-rRr" secondAttribute="trailing" constant="10" id="Nk9-Fs-fT5"/>
+                    <constraint firstAttribute="trailing" secondItem="rR9-jP-C7Z" secondAttribute="trailing" constant="10" id="T2E-lb-xq5"/>
+                    <constraint firstAttribute="bottom" secondItem="KmE-VA-rRr" secondAttribute="bottom" constant="10" id="bDh-xr-NTk"/>
+                    <constraint firstItem="KmE-VA-rRr" firstAttribute="top" secondItem="rR9-jP-C7Z" secondAttribute="bottom" constant="10" id="cB2-97-kMd"/>
+                    <constraint firstItem="rR9-jP-C7Z" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="iVz-wz-kMq"/>
+                    <constraint firstItem="rR9-jP-C7Z" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="luZ-z3-ddA"/>
+                    <constraint firstItem="KmE-VA-rRr" firstAttribute="top" secondItem="rR9-jP-C7Z" secondAttribute="bottom" constant="5" id="p0s-6u-eWM"/>
+                    <constraint firstAttribute="bottom" secondItem="KmE-VA-rRr" secondAttribute="bottom" constant="10" id="pUJ-Gz-cSu"/>
+                    <constraint firstItem="rR9-jP-C7Z" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="2" id="zgv-PJ-6AX"/>
+                </constraints>
+                <variation key="default">
+                    <mask key="constraints">
+                        <exclude reference="iVz-wz-kMq"/>
+                        <exclude reference="4ws-UC-NOO"/>
+                        <exclude reference="cB2-97-kMd"/>
+                        <exclude reference="p0s-6u-eWM"/>
+                        <exclude reference="pUJ-Gz-cSu"/>
+                    </mask>
+                </variation>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="localText" destination="rR9-jP-C7Z" id="ofY-xi-mJS"/>
+                <outlet property="timeLabel" destination="KmE-VA-rRr" id="e1b-0o-qhV"/>
+            </connections>
+        </tableViewCell>
+    </objects>
+</document>
