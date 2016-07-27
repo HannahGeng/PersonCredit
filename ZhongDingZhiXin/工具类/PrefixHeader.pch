@@ -70,7 +70,6 @@
 #import "AboutViewController.h"
 #import "FeedbackViewController.h"
 #import "SetViewController.h"
-#import "PageViewController.h"
 #import "FDAlertView.h"
 #import "ContentView.h"
 #import <MapKit/MapKit.h>

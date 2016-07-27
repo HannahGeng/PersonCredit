@@ -15,82 +15,133 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="kkE-VE-NcG">
-                    <rect key="frame" x="135" y="41" width="104" height="95"/>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="kkE-VE-NcG">
+                    <rect key="frame" x="136" y="10" width="104" height="94"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="94" id="Dxx-h1-aAc"/>
+                        <constraint firstAttribute="width" constant="104" id="jAY-CJ-gAZ"/>
+                    </constraints>
                 </imageView>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="gywm" translatesAutoresizingMaskIntoConstraints="NO" id="Tqr-nx-y2n">
-                    <rect key="frame" x="125" y="156" width="125" height="19"/>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gywm" translatesAutoresizingMaskIntoConstraints="NO" id="Tqr-nx-y2n">
+                    <rect key="frame" x="125" y="114" width="125" height="19"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="125" id="OOA-1z-Jdn"/>
+                        <constraint firstAttribute="height" constant="19" id="wk1-ba-F1D"/>
+                    </constraints>
                 </imageView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gHY-ap-MNC">
-                    <rect key="frame" x="27" y="212" width="320" height="236"/>
-                    <string key="text">       北京职信鼎程信息技术有限公司是国内专业致力于职业信用的人力资源管理综合性服务机构，加强职业信用建设，弘扬诚信文化，通过发展职业信用平台，改变企业用人方式，构建和谐的劳动关系。
-       职信鼎程致力于提供高效、现代、保密、诚信的服务平台，让每一个职业人或企业在社会的交往活动中形成的信用信息能够真实有效的记录，形成统一的数学模式下的信用信息数据库，将庞杂的、散乱的、琐碎的个人或企业的社会诚信行为转换为直观的、量化的信用数据。</string>
-                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="版本号" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NL8-0y-PJv">
-                    <rect key="frame" x="159" y="183" width="56" height="21"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="版本号" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NL8-0y-PJv">
+                    <rect key="frame" x="165" y="143" width="45" height="18"/>
                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                     <color key="highlightedColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                 </label>
-                <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="R7k-nR-Ot7">
-                    <rect key="frame" x="0.0" y="457" width="375" height="215"/>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="R7k-nR-Ot7">
+                    <rect key="frame" x="0.0" y="366" width="375" height="301"/>
                     <subviews>
-                        <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LNP-LM-b63">
-                            <rect key="frame" x="27" y="0.0" width="8" height="19"/>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LNP-LM-b63">
+                            <rect key="frame" x="20" y="15" width="5" height="20"/>
                             <color key="backgroundColor" red="1" green="0.72837661990000002" blue="0.21339105890000001" alpha="1" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="20" id="7th-aO-A0Z"/>
+                                <constraint firstAttribute="width" constant="5" id="SqJ-Eq-XcK"/>
+                            </constraints>
                         </view>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="联系我们" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HSG-OU-QeN">
-                            <rect key="frame" x="48" y="-2" width="73" height="21"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="联系我们" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HSG-OU-QeN">
+                            <rect key="frame" x="35" y="15" width="68" height="21"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p7g-ZB-vjy">
-                            <rect key="frame" x="54" y="32" width="246" height="30"/>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p7g-ZB-vjy">
+                            <rect key="frame" x="35" y="46" width="216" height="32"/>
                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
                             <state key="normal" title="网址：http://www.newqc.com">
                                 <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
                         </button>
-                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hjr-2N-n09">
-                            <rect key="frame" x="54" y="76" width="178" height="30"/>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hjr-2N-n09">
+                            <rect key="frame" x="35" y="88" width="171" height="32"/>
                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
                             <state key="normal" title="电话：4000-006-0806">
                                 <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
                         </button>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="copyright@ 2010 北京职信鼎程信息技术有限公司" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lfy-Nb-vRv">
-                            <rect key="frame" x="27" y="178" width="320" height="15"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dq9-FP-eeT">
-                            <rect key="frame" x="54" y="124" width="164" height="20"/>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dq9-FP-eeT">
+                            <rect key="frame" x="35" y="130" width="149" height="32"/>
                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
                             <state key="normal" title="邮箱：zx@newqc.cn">
                                 <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
                         </button>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="copyright@ 2010 北京职信鼎程信息技术有限公司" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lfy-Nb-vRv">
+                            <rect key="frame" x="43" y="270" width="289" height="16"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            <nil key="highlightedColor"/>
+                        </label>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="dq9-FP-eeT" firstAttribute="leading" secondItem="HSG-OU-QeN" secondAttribute="leading" id="4TJ-Ah-r7L"/>
+                        <constraint firstItem="LNP-LM-b63" firstAttribute="top" secondItem="R7k-nR-Ot7" secondAttribute="top" constant="15" id="DXE-IM-wwp"/>
+                        <constraint firstAttribute="bottom" secondItem="lfy-Nb-vRv" secondAttribute="bottom" constant="15" id="F3C-xY-cgN"/>
+                        <constraint firstItem="HSG-OU-QeN" firstAttribute="centerY" secondItem="LNP-LM-b63" secondAttribute="centerY" id="Icl-8d-Jev"/>
+                        <constraint firstItem="dq9-FP-eeT" firstAttribute="top" secondItem="hjr-2N-n09" secondAttribute="bottom" constant="10" id="QWL-fI-DNr"/>
+                        <constraint firstItem="hjr-2N-n09" firstAttribute="leading" secondItem="HSG-OU-QeN" secondAttribute="leading" id="ceR-aa-VYq"/>
+                        <constraint firstItem="HSG-OU-QeN" firstAttribute="leading" secondItem="LNP-LM-b63" secondAttribute="trailing" constant="10" id="haW-BR-HcR"/>
+                        <constraint firstItem="lfy-Nb-vRv" firstAttribute="centerX" secondItem="R7k-nR-Ot7" secondAttribute="centerX" id="ul3-77-7MC"/>
+                        <constraint firstItem="p7g-ZB-vjy" firstAttribute="leading" secondItem="HSG-OU-QeN" secondAttribute="leading" id="vd0-Kr-ynG"/>
+                        <constraint firstItem="p7g-ZB-vjy" firstAttribute="top" secondItem="HSG-OU-QeN" secondAttribute="bottom" constant="10" id="y7K-Vg-Mgw"/>
+                        <constraint firstItem="hjr-2N-n09" firstAttribute="top" secondItem="p7g-ZB-vjy" secondAttribute="bottom" constant="10" id="z7n-4A-EvO"/>
+                    </constraints>
                 </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gHY-ap-MNC">
+                    <rect key="frame" x="20" y="166" width="335" height="200"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="335" id="4i0-7Y-HQj"/>
+                        <constraint firstAttribute="width" constant="318" id="5Wo-zo-XqS"/>
+                        <constraint firstAttribute="height" constant="200" id="Goh-JB-X6n"/>
+                        <constraint firstAttribute="height" constant="203" id="TxS-II-9eT"/>
+                    </constraints>
+                    <string key="text">    北京职信鼎程信息技术有限公司是国内专业致力于职业信用的人力资源管理综合性服务机构，加强职业信用建设，弘扬诚信文化，通过发展职业信用平台，改变企业用人方式，构建和谐的劳动关系。
+
+    职信鼎程致力于提供高效、现代、保密、诚信的服务平台，让每一个职业人或企业在社会的交往活动中形成的信用信息能够真实有效的记录，形成统一的数学模式下的信用信息数据库，将庞杂的、散乱的、琐碎的个人或企业的社会诚信行为转换为直观的、量化的信用数据。</string>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="5Wo-zo-XqS"/>
+                            <exclude reference="TxS-II-9eT"/>
+                        </mask>
+                    </variation>
+                </label>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
+                <constraint firstItem="R7k-nR-Ot7" firstAttribute="top" secondItem="gHY-ap-MNC" secondAttribute="bottom" constant="20" id="344-VY-qIF"/>
+                <constraint firstItem="LNP-LM-b63" firstAttribute="leading" secondItem="gHY-ap-MNC" secondAttribute="leading" id="4XM-2W-O3W"/>
+                <constraint firstItem="Tqr-nx-y2n" firstAttribute="top" secondItem="kkE-VE-NcG" secondAttribute="bottom" constant="10" id="7HM-xS-fmi"/>
+                <constraint firstItem="NL8-0y-PJv" firstAttribute="top" secondItem="Tqr-nx-y2n" secondAttribute="bottom" constant="10" id="8iD-Ei-z3a"/>
                 <constraint firstItem="gHY-ap-MNC" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="FM8-Pi-Pc1"/>
                 <constraint firstItem="R7k-nR-Ot7" firstAttribute="top" secondItem="gHY-ap-MNC" secondAttribute="bottom" id="FPv-cP-f14"/>
                 <constraint firstItem="NL8-0y-PJv" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="Irl-bJ-G49"/>
                 <constraint firstAttribute="bottom" secondItem="R7k-nR-Ot7" secondAttribute="bottom" id="Qek-aU-X0y"/>
+                <constraint firstItem="kkE-VE-NcG" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="10" id="RKr-CR-6od"/>
                 <constraint firstItem="kkE-VE-NcG" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="RzO-t8-jXE"/>
+                <constraint firstItem="gHY-ap-MNC" firstAttribute="top" secondItem="NL8-0y-PJv" secondAttribute="bottom" id="SAR-cI-3sK"/>
                 <constraint firstItem="R7k-nR-Ot7" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="ewp-UU-9EI"/>
                 <constraint firstAttribute="trailing" secondItem="R7k-nR-Ot7" secondAttribute="trailing" id="k4w-6p-MQp"/>
+                <constraint firstItem="gHY-ap-MNC" firstAttribute="top" secondItem="NL8-0y-PJv" secondAttribute="bottom" constant="5" id="qg4-GA-zu7"/>
                 <constraint firstItem="Tqr-nx-y2n" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="taS-xf-ejd"/>
             </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="SAR-cI-3sK"/>
+                    <exclude reference="344-VY-qIF"/>
+                </mask>
+            </variation>
         </view>
     </objects>
     <resources>

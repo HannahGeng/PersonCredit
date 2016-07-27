@@ -14,6 +14,12 @@
 
 @implementation AboutViewController
 
+//隐藏TabBar
+-(void)viewWillAppear:(BOOL)animated{
+    
+    self.tabBarController.tabBar.hidden=YES;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
 
