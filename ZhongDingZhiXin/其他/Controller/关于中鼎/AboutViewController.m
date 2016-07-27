@@ -33,4 +33,18 @@
     [self.navigationController popViewControllerAnimated:YES];
 }
 
+- (IBAction)webClick {
+
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://www.newqc.cn"]];
+}
+
+- (IBAction)phoneClick {
+
+    UIWebView*callWebview =[[UIWebView alloc] init];
+    NSURL *telURL =[NSURL URLWithString:@"tel://40000060806"];
+    [callWebview loadRequest:[NSURLRequest requestWithURL:telURL]];
+    //记得添加到view上
+    [self.view addSubview:callWebview];
+}
+
 @end

@@ -142,7 +142,7 @@
                         <constraint firstAttribute="bottom" secondItem="a4N-iS-lrW" secondAttribute="bottom" constant="20" id="xKS-wv-4He"/>
                     </constraints>
                 </view>
-                <view alpha="0.94999999999999996" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lO3-8L-9TN" userLabel="backTableView">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lO3-8L-9TN" userLabel="backTableView">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fua-Wb-1YY">
