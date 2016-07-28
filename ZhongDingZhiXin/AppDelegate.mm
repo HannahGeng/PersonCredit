@@ -18,15 +18,17 @@
     BOOL isOut;
     NSDictionary *dic;
     CLLocationManager * manager;
-
 }
 
 @end
 
 @implementation AppDelegate
+
 + (instancetype)sharedAppDelegate {
+    
     AppDelegate *app = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     return app;
+    
 }
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {

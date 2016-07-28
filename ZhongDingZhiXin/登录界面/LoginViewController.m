@@ -28,6 +28,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    mbHUDinit;
+    
     //设置导航栏不透明
     self.navigationController.navigationBar.translucent = NO;
     
@@ -42,8 +44,6 @@
     [_userPass setText:@"lx1437"];
     
     [self loadData];
-    
-    mbHUDinit;
 }
 
 - (void)loadData
@@ -52,10 +52,9 @@
     AppShare;
     //初始化请求（同时也创建了一个线程）
     [[HTTPSessionManager sharedManager] GET:CANSHU_URL parameters:nil result:^(id responseObject, NSError *error) {
-        
-//        NSLog(@"参数请求:%@",responseObject);
-        
+                
         if ([responseObject[@"status"] integerValue] == 1) {
+            
             hudHide;
 
             dic=responseObject[@"result"];
@@ -94,11 +93,6 @@
     }
 }
 
-- (IBAction)forgetButton:(id)sender {
-    
-    NSLog(@"忘记密码");
-}
-
 //键盘退下事件的处理
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
@@ -128,14 +122,61 @@
             app.uid = dict[@"uid"];
             app.loginKeycode = [AESCrypt decrypt:dict[@"keycode"]];
             
-            [self UntilSeccessDone];
-
+            [self loadFirst];
+            
         }else{
             
             UIAlertView* alter=[[UIAlertView alloc]initWithTitle:@"很抱歉" message:@"亲，你输入的账号或者密码有误" delegate:nil cancelButtonTitle:@"我看一下" otherButtonTitles:@"重新输入", nil];
             [alter show];
         }
     
+    }];
+    
+}
+
+- (void)loadFirst
+{
+    
+    AppShare;
+    
+    //初始化请求（同时也创建了一个线程）
+    [[HTTPSessionManager sharedManager] POST:GGTZ_URL parameters:Dic result:^(id responseObject, NSError *error) {
+        
+        NSLog(@"\n首页信息:%@",responseObject);
+        
+        NSArray *array = responseObject[@"result"];
+        
+        app.firstArray = array;
+        
+        if (array.count!=0) {
+            
+            app.request = responseObject[@"response"];
+            
+        }
+        
+        [self loadMessage];
+        
+    }];
+}
+
+- (void)loadMessage
+{
+    AppShare;
+    
+    [[HTTPSessionManager sharedManager] POST:ZUOZHENG_URL parameters:Dic result:^(id responseObject, NSError *error) {
+        
+        NSLog(@"我的信息:%@",responseObject);
+        
+        app.mobilephone = responseObject[@"result"][@"mobilephone"];
+        
+        NSString * name = [AESCrypt decrypt:responseObject[@"result"][@"realname"] password:app.loginKeycode];
+        
+        app.name = name;
+                
+        app.request = responseObject[@"response"];
+        
+        [self UntilSeccessDone];
+        
     }];
     
 }

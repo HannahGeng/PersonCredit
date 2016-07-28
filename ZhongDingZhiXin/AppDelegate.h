@@ -70,5 +70,8 @@
 /** 其他address */
 @property (nonatomic,strong) NSString * address;
 
+/** 首页数组 */
+@property (nonatomic,strong) NSArray * firstArray;
+
 @end
 

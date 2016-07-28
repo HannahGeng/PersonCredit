@@ -8,14 +8,11 @@
 
 #import "HomeViewController.h"
 
-@interface HomeViewController ()<UITableViewDataSource,UITableViewDelegate,BMKPoiSearchDelegate>
+@interface HomeViewController ()<UITableViewDataSource,UITableViewDelegate>
 {
     TaskViewController *_taskVC;
     WordCarViewController *_wordCarVC;
     MBProgressHUD * mbHud;
-    CLLocationManager * manager;
-    BMKPoiSearch * _poiSearch;
-    int curPage;
 }
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -36,6 +33,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    AppShare;
+    
     //设置背景颜色
     [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"backgroundImage"]]];
     
@@ -46,62 +45,20 @@
     self.tableView.scrollEnabled = NO; //设置tableview滚动
     self.tableView.tableFooterView=[[UIView alloc]init];//影藏多余的分割线
     
-    [self loadMessage];
-}
-
-//加载数据
-- (void)loadData
-{
     //初始化_noticeInfoArray
     if (!_noticeInfoArray) {
         _noticeInfoArray = [[NSMutableArray alloc] init];
     }
-
-    AppShare;
     
-    //初始化请求（同时也创建了一个线程）
-    [[HTTPSessionManager sharedManager] POST:GGTZ_URL parameters:Dic result:^(id responseObject, NSError *error) {
+    for (NSDictionary *dictionary in app.firstArray) {
         
-//        NSLog(@"\n首页信息:%@",responseObject);
+        NoticeInfo *noticeInfo = [[NoticeInfo alloc] initWithDictionary:dictionary];
         
-        NSArray *array = responseObject[@"result"];
-        
-        if (array.count!=0) {
-            
-            app.request = responseObject[@"response"];
-            for (NSDictionary *dictionary in array) {
-                NoticeInfo *noticeInfo = [[NoticeInfo alloc] initWithDictionary:dictionary];
-                [_noticeInfoArray addObject:noticeInfo];
-            }
-            [self.tableView reloadData];
-
-        }
-        
-    }];
+        [_noticeInfoArray addObject:noticeInfo];
+    }
     
-}
-
-- (void)loadMessage
-{
-    AppShare;
+    [self.tableView reloadData];
     
-    [[HTTPSessionManager sharedManager] POST:ZUOZHENG_URL parameters:Dic result:^(id responseObject, NSError *error) {
-        
-//        NSLog(@"我的信息:%@",responseObject);
-        
-        app.mobilephone = responseObject[@"result"][@"mobilephone"];
-
-        NSString * name = [AESCrypt decrypt:responseObject[@"result"][@"realname"] password:app.loginKeycode];
-        
-        app.name = name;
-        
-//        NSLog(@"姓名:%@",name);
-        
-        app.request = responseObject[@"response"];
-        
-        [self loadData];
-    }];
-
 }
 
 //设置导航栏
