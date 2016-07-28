@@ -213,7 +213,7 @@ mbHud.label.text = @"网络连接失败"; \
 #define mbHUDinit mbHud = [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
 
 #pragma mark - mbhud hide
-#define hudHide [mbHud hideAnimated:YES afterDelay:2.0];
+#define hudHide [mbHud hideAnimated:YES afterDelay:0];
 
 #pragma mark - 导航栏左侧返回按钮
 #define leftButton \

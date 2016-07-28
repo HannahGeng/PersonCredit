@@ -8,12 +8,14 @@
 
 #import "HomeViewController.h"
 
-@interface HomeViewController ()<UITableViewDataSource,UITableViewDelegate>
+@interface HomeViewController ()<UITableViewDataSource,UITableViewDelegate,BMKPoiSearchDelegate>
 {
     TaskViewController *_taskVC;
     WordCarViewController *_wordCarVC;
     MBProgressHUD * mbHud;
     CLLocationManager * manager;
+    BMKPoiSearch * _poiSearch;
+    int curPage;
 }
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -60,7 +62,7 @@
     //初始化请求（同时也创建了一个线程）
     [[HTTPSessionManager sharedManager] POST:GGTZ_URL parameters:Dic result:^(id responseObject, NSError *error) {
         
-        NSLog(@"\n首页信息:%@",responseObject);
+//        NSLog(@"\n首页信息:%@",responseObject);
         
         NSArray *array = responseObject[@"result"];
         
@@ -85,7 +87,7 @@
     
     [[HTTPSessionManager sharedManager] POST:ZUOZHENG_URL parameters:Dic result:^(id responseObject, NSError *error) {
         
-        NSLog(@"我的信息:%@",responseObject);
+//        NSLog(@"我的信息:%@",responseObject);
         
         app.mobilephone = responseObject[@"result"][@"mobilephone"];
 
@@ -93,7 +95,7 @@
         
         app.name = name;
         
-        NSLog(@"姓名:%@",name);
+//        NSLog(@"姓名:%@",name);
         
         app.request = responseObject[@"response"];
         
@@ -198,8 +200,11 @@
 
 -(void)taskButtonClick
 {
+    
     _taskVC =[[TaskViewController alloc] initWithNibName:@"TaskViewController" bundle:nil];
+    
     [self.navigationController pushViewController:_taskVC animated:YES];
+        
 }
 
 -(void)wordCardButtonClick

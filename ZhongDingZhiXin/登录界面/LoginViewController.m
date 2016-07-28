@@ -53,7 +53,7 @@
     //初始化请求（同时也创建了一个线程）
     [[HTTPSessionManager sharedManager] GET:CANSHU_URL parameters:nil result:^(id responseObject, NSError *error) {
         
-        NSLog(@"参数请求:%@",responseObject);
+//        NSLog(@"参数请求:%@",responseObject);
         
         if ([responseObject[@"status"] integerValue] == 1) {
             hudHide;
@@ -120,7 +120,7 @@
         
         if ([responseObject[@"status"] intValue]== 1) {
             
-            NSLog(@"\n登录成功:%@",responseObject);
+//            NSLog(@"\n登录成功:%@",responseObject);
             NSDictionary *dict = responseObject[@"result"];
             
             app.request = responseObject[@"response"];

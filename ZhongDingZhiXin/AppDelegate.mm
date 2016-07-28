@@ -18,6 +18,7 @@
     BOOL isOut;
     NSDictionary *dic;
     CLLocationManager * manager;
+
 }
 
 @end
@@ -103,6 +104,7 @@
     //停止定位
     [manager stopUpdatingLocation];
     
+
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {

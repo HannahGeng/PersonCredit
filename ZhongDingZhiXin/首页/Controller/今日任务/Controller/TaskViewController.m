@@ -23,8 +23,6 @@
     
     //定位管理器
     CLLocationManager *manager;
-    BMKUserLocation * _userLocation;
-    
 }
 
 //poi结果信息集合
@@ -70,30 +68,31 @@
 }
 
 - (void)viewDidAppear:(BOOL)animated {
-    
-    CLLocationCoordinate2D coor;
 
-    coor.latitude = _userLocation.location.coordinate.latitude;
-    coor.longitude = _userLocation.location.coordinate.longitude;
+    AppShare;
     
-    CLLocationCoordinate2D center = coor;
+    //创建定位管理器
+    manager = [[CLLocationManager alloc] init];
+    
+    //设置代理, 通过代理方法接收坐标
+    manager.delegate = self;
+    
+    //开启定位
+    [manager startUpdatingLocation];
+    
+    CLLocationCoordinate2D center = app.coordinate;
     BMKCoordinateSpan span = BMKCoordinateSpanMake(0.038325, 0.028045);
     _mapView.limitMapRegion = BMKCoordinateRegionMake(center, span);////限制地图显示范围
     _mapView.rotateEnabled = NO;//禁用旋转手势
-    
+
+    NSLog(@"我的坐标:(%lf, %lf)", app.coordinate.latitude, app.coordinate.longitude);
+
     //添加圆圈
-    NSLog(@"\n坐标:(%f,%f)",coor.latitude,coor.longitude);
-    
-    BMKCircle* circle = [BMKCircle circleWithCenterCoordinate:coor radius:1000];
+    BMKCircle* circle = [BMKCircle circleWithCenterCoordinate:app.coordinate radius:1000];
     
     [_mapView addOverlay:circle];
 
     _mapView.showsUserLocation = YES;
-    
-    BMKPointAnnotation* annotation = [[BMKPointAnnotation alloc]init];
-    annotation.coordinate = coor;
-    annotation.title = @"我的位置";
-    [_mapView addAnnotation:annotation];
     
 }
 
@@ -119,8 +118,6 @@
     
     [_mapView addSubview:topView];
     
-    [_mapView updateLocationData:_userLocation];
-    
     [_backView addSubview:_mapView];
     
     //添加内容视图
@@ -137,62 +134,8 @@
     
     _addressText.text = app.address;
 
-    //创建定位管理器
-    manager = [[CLLocationManager alloc] init];
-    
-    //设置代理, 通过代理方法接收坐标
-    manager.delegate = self;
-    
-    //开启定位
-    [manager startUpdatingLocation];
-    
     self.backListView.hidden = YES;
-
-}
-
-//实现PoiSearchDeleage处理回调结果
-- (void)onGetPoiResult:(BMKPoiSearch*)searcher result:(BMKPoiResult*)poiResultList errorCode:(BMKSearchErrorCode)error
-{
-    AppShare;
-    if (error == BMK_SEARCH_NO_ERROR) {
-        //在此处理正常结果
-        NSArray * resultArr = poiResultList.poiInfoList;
-        NSMutableArray * dicNearArray = [NSMutableArray array];
-
-        for (int i = 0; i < resultArr.count; i++) {
-            
-            BMKPoiInfo * infoArr = poiResultList.poiInfoList[i];
-            
-            NSDictionary * neardic = [NSDictionary dictionaryWithObjectsAndKeys:infoArr.name,@"name",infoArr.address,@"address", nil];
-            
-            [dicNearArray addObject:neardic];
-
-        }
-        
-        app.dicNearArray = dicNearArray;
-        
-        NSMutableArray * nearA = [NSMutableArray array];
-
-        for (NSDictionary * dic in dicNearArray) {
-            NearModel * near = [NearModel nearWithDic:dic];
-            
-            [nearA addObject:near];
-        }
-        
-        app.nearArray = nearA;
-        
-        self.nearArray = nearA;
-        
-        [self.nearTableView reloadData];
-                
-    }
-    else if (error == BMK_SEARCH_AMBIGUOUS_KEYWORD){
-        //当在设置城市未找到结果，但在其他城市找到结果时，回调建议检索城市列表
-        // result.cityList;
-        NSLog(@"起始点有歧义");
-    } else {
-        NSLog(@"抱歉，未找到结果");
-    }
+ 
 }
 
 //定位成功
@@ -205,52 +148,9 @@
     
     //定位到的坐标
     CLLocationCoordinate2D coordinate = location.coordinate;
-    NSLog(@"(%lf, %lf)", coordinate.latitude, coordinate.longitude);
     
     app.coordinate = coordinate;
     
-    //反地理编码(逆地理编码) : 把位置信息转换成地址信息
-    CLGeocoder *geocoder = [[CLGeocoder alloc] init];
-    //反地理编码
-    [geocoder reverseGeocodeLocation:location completionHandler:^(NSArray *placemarks, NSError *error) {
-        
-        if (error) {
-            NSLog(@"反地理编码失败!");
-            return ;
-        }
-        
-        //地址信息
-        CLPlacemark *placemark = [placemarks firstObject];
-        
-        NSLog(@"%@", placemark.name);
-        
-        _addressText.text = [NSString stringWithFormat:@"%@ %@ %@,%@",placemark.country,placemark.administrativeArea,placemark.locality,placemark.name];
-        
-    }];
-
-    //停止定位
-    [manager stopUpdatingLocation];
-    
-    //初始化检索对象
-    _poiSearch =[[BMKPoiSearch alloc]init];
-    _poiSearch.delegate = self;
-    //发起检索
-    BMKNearbySearchOption *option = [[BMKNearbySearchOption alloc]init];
-    option.pageIndex = curPage;
-    option.pageCapacity = 6;
-    option.location = coordinate;
-    option.keyword = @"酒店";
-    BOOL flag = [_poiSearch poiSearchNearBy:option];
-    
-    if(flag)
-    {
-        NSLog(@"周边检索发送成功");
-    }
-    else
-    {
-        NSLog(@"周边检索发送失败");
-    }
-
 }
 
 // 圆形
@@ -290,17 +190,9 @@
     }
 }
 
-//处理位置坐标更新
-- (void)didUpdateBMKUserLocation:(BMKUserLocation *)userLocation
-{
-//    NSLog(@"\ndidUpdateUserLocation lat %f,long %f",userLocation.location.coordinate.latitude,userLocation.location.coordinate.longitude);
-    _userLocation = userLocation;
-}
-
 //添加内容视图
 -(void)addContentView
 {
-
     AppShare;
     
     [_mapView addSubview:_nearButton];
@@ -349,44 +241,90 @@
 
 - (IBAction)nearLoc {
     
-    /**
-     *  CLLocationCoordinate2D coor;
-     coor.latitude = _userLocation.location.coordinate.latitude;
-     coor.longitude = _userLocation.location.coordinate.longitude;
-     
-     //初始化检索对象
-     _poiSearch =[[BMKPoiSearch alloc]init];
-     _poiSearch.delegate = self;
-     //发起检索
-     BMKNearbySearchOption *option = [[BMKNearbySearchOption alloc]init];
-     option.pageIndex = curPage;
-     option.pageCapacity = 6;
-     option.location = coor;
-     option.keyword = @"酒店";
-     BOOL flag = [_poiSearch poiSearchNearBy:option];
-     
-     if(flag)
-     {
-     NSLog(@"周边检索发送成功");
-     }
-     else
-     {
-     NSLog(@"周边检索发送失败");
-     }
-
-     */
+    mbHUDinit;
     
-    NSLog(@"附近坐标");
+    AppShare;
+    //初始化检索对象
+    _poiSearch =[[BMKPoiSearch alloc]init];
+    _poiSearch.delegate = self;
     
-    if (self.nearArray.count != 0) {
-        
-        hudHide;
-
-        self.backListView.hidden = NO;
-
-
+    //发起检索
+    BMKNearbySearchOption *option = [[BMKNearbySearchOption alloc]init];
+    option.pageIndex = curPage;
+    option.pageCapacity = 6;
+    option.location = app.coordinate;
+    option.keyword = @"酒店";
+    BOOL flag = [_poiSearch poiSearchNearBy:option];
+    
+    if(flag)
+    {
+        NSLog(@"周边检索发送成功");
+    }else
+    {
+        NSLog(@"周边检索发送失败");
     }
-    
+
+}
+
+//实现PoiSearchDeleage处理回调结果
+- (void)onGetPoiResult:(BMKPoiSearch*)searcher result:(BMKPoiResult*)poiResultList errorCode:(BMKSearchErrorCode)error
+{
+    AppShare;
+    if (error == BMK_SEARCH_NO_ERROR) {
+        //在此处理正常结果
+        NSArray * resultArr = poiResultList.poiInfoList;
+        NSMutableArray * dicNearArray = [NSMutableArray array];
+        
+        for (int i = 0; i < resultArr.count; i++) {
+            
+            BMKPoiInfo * infoArr = poiResultList.poiInfoList[i];
+            
+            NSDictionary * neardic = [NSDictionary dictionaryWithObjectsAndKeys:infoArr.name,@"name",infoArr.address,@"address", nil];
+            
+            [dicNearArray addObject:neardic];
+            
+        }
+        
+        app.dicNearArray = dicNearArray;
+        
+        NSMutableArray * nearA = [NSMutableArray array];
+        
+        for (NSDictionary * dic in app.dicNearArray) {
+            
+            NearModel * near = [NearModel nearWithDic:dic];
+            
+            [nearA addObject:near];
+        }
+        
+        app.nearArray = nearA;
+        
+        self.nearArray = nearA;
+        
+        [self.nearTableView reloadData];
+        
+        if (self.nearArray.count != 0) {
+            
+            hudHide;
+            
+            self.backListView.hidden = NO;
+            
+        }else{
+            
+            hudHide;
+            MBhud(@"检索发送失败，请重试");
+        }
+        
+    }
+    else if (error == BMK_SEARCH_AMBIGUOUS_KEYWORD){
+        
+        //当在设置城市未找到结果，但在其他城市找到结果时，回调建议检索城市列表
+        // result.cityList;
+        NSLog(@"起始点有歧义");
+        
+    } else {
+        
+        NSLog(@"抱歉，未找到结果");
+    }
 }
 
 - (IBAction)confirmLoc {
@@ -396,12 +334,6 @@
     MBhud(_addressText.text);
     
     app.address = _addressText.text;
-}
-
-- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
-{
-    self.backListView.hidden = YES;
-    
 }
 
 #pragma mark - 添加大头针
@@ -422,9 +354,10 @@
     CLLocationDistance distance = BMKMetersBetweenMapPoints(point1,point2);
     
     NSLog(@"与圆点距离:%.0f",distance);
-
+    
     // 3. 添加大头针
     [self addAnnoWithPT:pt];
+   
 }
 
 - (void)touchesMoved:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
