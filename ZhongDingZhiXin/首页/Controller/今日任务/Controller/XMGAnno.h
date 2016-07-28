@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <MapKit/MapKit.h>
 
-@interface XMGAnno : NSObject<MKAnnotation>
+@interface XMGAnno : NSObject<BMKAnnotation>
 
 
 @property (nonatomic, assign) CLLocationCoordinate2D coordinate;

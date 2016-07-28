@@ -27,6 +27,7 @@
     
     [self setHidesBottomBarWhenPushed:NO];
     self.tabBarController.tabBar.hidden=NO;
+    
 }
 
 - (void)viewDidLoad {
@@ -37,12 +38,12 @@
     
     //设置导航栏
     [self setNavigationBar];
-
-    [self loadData];
     
     self.tableView.backgroundColor=[UIColor clearColor];
     self.tableView.scrollEnabled = NO; //设置tableview滚动
     self.tableView.tableFooterView=[[UIView alloc]init];//影藏多余的分割线
+    
+    [self loadMessage];
 }
 
 //加载数据
@@ -58,6 +59,8 @@
     //初始化请求（同时也创建了一个线程）
     [[HTTPSessionManager sharedManager] POST:GGTZ_URL parameters:Dic result:^(id responseObject, NSError *error) {
         
+        NSLog(@"\n首页信息:%@",responseObject);
+        
         NSArray *array = responseObject[@"result"];
         
         if (array.count!=0) {
@@ -69,9 +72,8 @@
             }
             [self.tableView reloadData];
 
-            [self loadMessage];
         }
-
+        
     }];
     
 }
@@ -93,6 +95,8 @@
         NSLog(@"姓名:%@",name);
         
         app.request = responseObject[@"response"];
+        
+        [self loadData];
     }];
 
 }

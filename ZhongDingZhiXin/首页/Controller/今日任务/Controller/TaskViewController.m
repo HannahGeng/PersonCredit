@@ -82,7 +82,7 @@
     _mapView.rotateEnabled = NO;//禁用旋转手势
     
     //添加圆圈
-    NSLog(@"\n坐标:%f,%f",coor.latitude,coor.longitude);
+    NSLog(@"\n坐标:(%f,%f)",coor.latitude,coor.longitude);
     
     BMKCircle* circle = [BMKCircle circleWithCenterCoordinate:coor radius:1000];
     
@@ -109,6 +109,13 @@
     [super viewDidLoad];
     
     _mapView=[[BMKMapView alloc]initWithFrame:CGRectMake(0, 0, [UIUtils getWindowWidth], 370)];
+    
+    UIView * topView = [[UIView alloc] init];
+    topView.frame = _mapView.frame;
+    topView.backgroundColor = [UIColor whiteColor];
+    topView.alpha = 0.05;
+    
+    [_mapView addSubview:topView];
     
     [_mapView updateLocationData:_userLocation];
     
@@ -366,12 +373,15 @@
 
      */
     
-    
     if (self.nearArray.count != 0) {
         
         hudHide;
 
-        self.backListView.hidden = NO;
+        [UIView animateWithDuration:2.0 animations:^{
+            
+            self.backListView.hidden = NO;
+
+        }];
 
     }
     
@@ -386,20 +396,31 @@
     app.address = _addressText.text;
 }
 
-//- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
-//{
-//    self.backListView.hidden = YES;
-//    
-//}
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
+{
+    self.backListView.hidden = YES;
+    
+}
 
 #pragma mark - 添加大头针
 - (void)touchesEnded:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
 {
+    AppShare;
+    
     CGPoint point = [[touches anyObject] locationInView:self.mapView];
     
     CLLocationCoordinate2D pt = [self.mapView convertPoint:point toCoordinateFromView:self.mapView];
     
-    NSLog(@"当前触点位置:%f,%f",pt.longitude,pt.latitude);
+    NSLog(@"\n标注位置:(%f,%f)",pt.latitude,pt.longitude);
+
+    NSLog(@"\n圆圈中心点坐标:(%f,%f)",app.coordinate.latitude,app.coordinate.longitude);
+    
+    BMKMapPoint point1 = BMKMapPointForCoordinate(pt);
+    BMKMapPoint point2 = BMKMapPointForCoordinate(app.coordinate);
+    CLLocationDistance distance = BMKMetersBetweenMapPoints(point1,point2);
+    
+    NSLog(@"与圆点距离:%.0f",distance);
+
     // 3. 添加大头针
     [self addAnnoWithPT:pt];
 }

@@ -25,23 +25,6 @@
 
 @implementation LoginViewController
 
-- (void)loadView
-{
-    //加载数据
-    AppShare;
-    //初始化请求（同时也创建了一个线程）
-    [[HTTPSessionManager sharedManager] GET:CANSHU_URL parameters:nil result:^(id responseObject, NSError *error) {
-        
-        NSLog(@"参数请求:%@",responseObject);
-        
-        dic=responseObject[@"result"];
-        
-        app.noLoginkeycode = [AESCrypt decrypt:dic[@"keycode"]];
-        
-    }];
-   
-}
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -58,6 +41,31 @@
     [_userName setText:@"waiwai400@sina.com"];
     [_userPass setText:@"lx1437"];
     
+    [self loadData];
+    
+    mbHUDinit;
+}
+
+- (void)loadData
+{
+    //加载数据
+    AppShare;
+    //初始化请求（同时也创建了一个线程）
+    [[HTTPSessionManager sharedManager] GET:CANSHU_URL parameters:nil result:^(id responseObject, NSError *error) {
+        
+        NSLog(@"参数请求:%@",responseObject);
+        
+        if ([responseObject[@"status"] integerValue] == 1) {
+            hudHide;
+
+            dic=responseObject[@"result"];
+            
+            app.noLoginkeycode = [AESCrypt decrypt:dic[@"keycode"]];
+            
+        }
+        
+    }];
+
 }
 
 //设置导航栏
@@ -82,6 +90,7 @@
     }else{
         
         [self loginSuccess];
+        
     }
 }
 
@@ -110,6 +119,8 @@
     [[HTTPSessionManager sharedManager] POST:DENGLU_URL parameters:pDict result:^(id responseObject, NSError *error) {
         
         if ([responseObject[@"status"] intValue]== 1) {
+            
+            NSLog(@"\n登录成功:%@",responseObject);
             NSDictionary *dict = responseObject[@"result"];
             
             app.request = responseObject[@"response"];
@@ -117,8 +128,8 @@
             app.uid = dict[@"uid"];
             app.loginKeycode = [AESCrypt decrypt:dict[@"keycode"]];
             
-             [self UntilSeccessDone];
-            
+            [self UntilSeccessDone];
+
         }else{
             
             UIAlertView* alter=[[UIAlertView alloc]initWithTitle:@"很抱歉" message:@"亲，你输入的账号或者密码有误" delegate:nil cancelButtonTitle:@"我看一下" otherButtonTitles:@"重新输入", nil];
