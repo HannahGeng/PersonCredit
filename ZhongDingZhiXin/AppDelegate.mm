@@ -8,7 +8,7 @@
 
 #import "AppDelegate.h"
 
-@interface AppDelegate ()<UIScrollViewDelegate>
+@interface AppDelegate ()<UIScrollViewDelegate,CLLocationManagerDelegate>
 {
     UIScrollView *scrollview;
     UIPageControl *pageControl;
@@ -17,7 +17,7 @@
     UIImageView *_imageView;
     BOOL isOut;
     NSDictionary *dic;
-
+    CLLocationManager * manager;
 }
 
 @end
@@ -38,7 +38,16 @@
     if (!ret) {
         NSLog(@"manager start failed!");
     }
-
+    
+    //创建定位管理器
+    manager = [[CLLocationManager alloc] init];
+    
+    //设置代理, 通过代理方法接收坐标
+    manager.delegate = self;
+    
+    //开启定位
+    [manager startUpdatingLocation];
+    
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.backgroundColor = [UIColor whiteColor];
   
@@ -58,8 +67,42 @@
         self.window.rootViewController=navigation;
     }
     
-            
     return YES;
+}
+
+//定位成功
+-(void)locationManager:(CLLocationManager *)manager1 didUpdateLocations:(NSArray *)locations
+{
+    AppShare;
+    
+    //位置信息
+    CLLocation *location = [locations firstObject];
+    
+    //定位到的坐标
+    CLLocationCoordinate2D coordinate = location.coordinate;
+    app.coordinate = coordinate;
+    
+    //反地理编码(逆地理编码) : 把位置信息转换成地址信息
+    CLGeocoder *geocoder = [[CLGeocoder alloc] init];
+    //反地理编码
+    [geocoder reverseGeocodeLocation:location completionHandler:^(NSArray *placemarks, NSError *error) {
+        
+        if (error) {
+            NSLog(@"反地理编码失败!");
+            return ;
+        }
+        
+        //地址信息
+        CLPlacemark *placemark = [placemarks firstObject];
+        
+        app.firAddress = [NSString stringWithFormat:@"%@ %@ %@",placemark.country,placemark.administrativeArea,placemark.locality];
+        app.address = [NSString stringWithFormat:@"%@ %@ %@,%@",placemark.country,placemark.administrativeArea,placemark.locality,placemark.name];
+
+    }];
+    
+    //停止定位
+    [manager stopUpdatingLocation];
+    
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {

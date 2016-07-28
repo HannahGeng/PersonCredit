@@ -108,6 +108,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    AppShare;
+    
     _mapView=[[BMKMapView alloc]initWithFrame:CGRectMake(0, 0, [UIUtils getWindowWidth], 370)];
     
     UIView * topView = [[UIView alloc] init];
@@ -133,9 +135,11 @@
     //启动LocationService
     [_locService startUserLocationService];
     
+    _addressText.text = app.address;
+
     //创建定位管理器
     manager = [[CLLocationManager alloc] init];
-
+    
     //设置代理, 通过代理方法接收坐标
     manager.delegate = self;
     
@@ -222,7 +226,6 @@
         
         _addressText.text = [NSString stringWithFormat:@"%@ %@ %@,%@",placemark.country,placemark.administrativeArea,placemark.locality,placemark.name];
         
-        app.address = _addressText.text;
     }];
 
     //停止定位
@@ -373,15 +376,14 @@
 
      */
     
+    NSLog(@"附近坐标");
+    
     if (self.nearArray.count != 0) {
         
         hudHide;
 
-        [UIView animateWithDuration:2.0 animations:^{
-            
-            self.backListView.hidden = NO;
+        self.backListView.hidden = NO;
 
-        }];
 
     }
     

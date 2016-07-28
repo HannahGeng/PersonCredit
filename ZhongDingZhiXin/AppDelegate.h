@@ -64,7 +64,10 @@
 /** time */
 @property (nonatomic,strong) NSString * timeStr;
 
-/** address */
+/** 首页address */
+@property (nonatomic,strong) NSString * firAddress;
+
+/** 其他address */
 @property (nonatomic,strong) NSString * address;
 
 @end

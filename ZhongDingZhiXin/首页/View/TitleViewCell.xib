@@ -85,6 +85,7 @@
             </tableViewCellContentView>
             <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
             <connections>
+                <outlet property="addressLabel" destination="zwQ-af-626" id="uUi-ky-l2v"/>
                 <outlet property="nameLable" destination="K6R-CF-eIn" id="9iJ-fj-faI"/>
             </connections>
             <point key="canvasLocation" x="261" y="250"/>

@@ -13,6 +13,7 @@
     TaskViewController *_taskVC;
     WordCarViewController *_wordCarVC;
     MBProgressHUD * mbHud;
+    CLLocationManager * manager;
 }
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -123,7 +124,7 @@
         TitleViewCell *cell=[TitleViewCell cellWithTableView:self.tableView];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         cell.nameLable.text = app.name;
-
+        cell.addressLabel.text = app.firAddress;
         return cell;
     }
     if (indexPath.row==1) {
