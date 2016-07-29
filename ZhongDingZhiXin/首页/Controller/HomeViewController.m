@@ -223,8 +223,23 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     if (indexPath.row==1) {
-        NoticeViewController *companyVC=[[NoticeViewController alloc]init];
-        [self.navigationController pushViewController:companyVC animated:YES];
+        AFNetworkReachabilityManager * mgr = [AFNetworkReachabilityManager sharedManager];
+        [mgr startMonitoring];
+        
+        [mgr setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {
+            
+            if (status != 0) {
+                
+                NoticeViewController *companyVC=[[NoticeViewController alloc]init];
+                [self.navigationController pushViewController:companyVC animated:YES];
+                
+            }else
+            {
+                noWebhud;
+            }
+            
+        }];
+
     }
     if (indexPath.row==2) {
         AfficheViewController *afficheVC=[[AfficheViewController alloc]init];

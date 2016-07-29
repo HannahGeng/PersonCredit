@@ -244,26 +244,42 @@
     mbHUDinit;
     
     AppShare;
-    //初始化检索对象
-    _poiSearch =[[BMKPoiSearch alloc]init];
-    _poiSearch.delegate = self;
+    AFNetworkReachabilityManager * mgr = [AFNetworkReachabilityManager sharedManager];
+    [mgr startMonitoring];
     
-    //发起检索
-    BMKNearbySearchOption *option = [[BMKNearbySearchOption alloc]init];
-    option.pageIndex = curPage;
-    option.pageCapacity = 6;
-    option.location = app.coordinate;
-    option.keyword = @"酒店";
-    BOOL flag = [_poiSearch poiSearchNearBy:option];
-    
-    if(flag)
-    {
-        NSLog(@"周边检索发送成功");
-    }else
-    {
-        NSLog(@"周边检索发送失败");
-    }
+    [mgr setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {
+        
+        if (status != 0) {
+            
+            //初始化检索对象
+            _poiSearch =[[BMKPoiSearch alloc]init];
+            _poiSearch.delegate = self;
+            
+            //发起检索
+            BMKNearbySearchOption *option = [[BMKNearbySearchOption alloc]init];
+            option.pageIndex = curPage;
+            option.pageCapacity = 6;
+            option.location = app.coordinate;
+            option.keyword = @"酒店";
+            BOOL flag = [_poiSearch poiSearchNearBy:option];
+            
+            if(flag)
+            {
+                NSLog(@"周边检索发送成功");
+            }else
+            {
+                NSLog(@"周边检索发送失败");
+            }
 
+            
+        }else
+        {
+            hudHide;
+            noWebhud;
+        }
+        
+    }];
+    
 }
 
 //实现PoiSearchDeleage处理回调结果

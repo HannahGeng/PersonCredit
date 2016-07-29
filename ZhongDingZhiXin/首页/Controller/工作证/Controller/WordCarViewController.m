@@ -52,10 +52,11 @@
     }else if ([app.workStyle isEqualToString:@"1"]){
         
         [self loadData];
-        
+
     }else{
         
         [self loadData2];
+        
     }
     
     //标准
@@ -135,22 +136,38 @@
         _wordCarInfoArray = [[NSMutableArray alloc] init];
     }
     
-    //初始化请求（同时也创建了一个线程）
-    [[HTTPSessionManager sharedManager] POST:ZUOZHENG_URL parameters:Dic result:^(id responseObject, NSError *error) {
+    AFNetworkReachabilityManager * mgr = [AFNetworkReachabilityManager sharedManager];
+    [mgr startMonitoring];
+    
+    [mgr setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {
         
-        NSLog(@"工作证:%@",responseObject);
-        
-        _resultDic=responseObject[@"result"];
-        app.request=responseObject[@"response"];
-        
-        //隐藏HUD
-        hudHide;
-        
-        arr=[NSArray arrayWithObjects:@"gongzuoz2",@"gongzuoz2", nil];
+        if (status != 0) {
             
-        workType;
+            //初始化请求（同时也创建了一个线程）
+            [[HTTPSessionManager sharedManager] POST:ZUOZHENG_URL parameters:Dic result:^(id responseObject, NSError *error) {
+                
+                NSLog(@"工作证:%@",responseObject);
+                
+                _resultDic=responseObject[@"result"];
+                app.request=responseObject[@"response"];
+                
+                //隐藏HUD
+                hudHide;
+                
+                arr=[NSArray arrayWithObjects:@"gongzuoz2",@"gongzuoz2", nil];
+                
+                workType;
+            }];
+
+            
+        }else
+        {
+            hudHide;
+            noWebhud;
+        }
+        
     }];
-   
+
 }
 
 - (void)loadData//清新模式
@@ -164,20 +181,36 @@
         _wordCarInfoArray = [[NSMutableArray alloc] init];
     }
     
-    //初始化请求（同时也创建了一个线程）
-    [[HTTPSessionManager sharedManager] POST:ZUOZHENG_URL parameters:Dic result:^(id responseObject, NSError *error) {
+    AFNetworkReachabilityManager * mgr = [AFNetworkReachabilityManager sharedManager];
+    [mgr startMonitoring];
+    
+    [mgr setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {
         
-        _resultDic=responseObject[@"result"];
-        app.request=responseObject[@"response"];
-        
-        //隐藏HUD
-        hudHide;
-        
-        arr=[NSArray arrayWithObjects:@"gongzuoz",@"gongzuoz", nil];
-        
-        workType;
-    }];
+        if (status != 0) {
+            
+            //初始化请求（同时也创建了一个线程）
+            [[HTTPSessionManager sharedManager] POST:ZUOZHENG_URL parameters:Dic result:^(id responseObject, NSError *error) {
+                
+                _resultDic=responseObject[@"result"];
+                app.request=responseObject[@"response"];
+                
+                //隐藏HUD
+                hudHide;
+                
+                arr=[NSArray arrayWithObjects:@"gongzuoz",@"gongzuoz", nil];
+                
+                workType;
+            }];
 
+            
+        }else
+        {
+            hudHide;
+            noWebhud;
+        }
+        
+    }];
+    
 }
 
 #pragma mark - InterpolatedUIImage
