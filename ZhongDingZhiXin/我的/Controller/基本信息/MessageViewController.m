@@ -26,6 +26,8 @@
     NSString * _education;
     NSString * _sex;
     NSString * _state;
+    
+    MBProgressHUD * mbHud;
 }
 
 @property (weak, nonatomic) IBOutlet UITableView *messageTableView;
@@ -128,28 +130,43 @@
     }
     
     //初始化请求（同时也创建了一个线程）
-    [[HTTPSessionManager sharedManager] POST:JUCHU_URL parameters:Dic result:^(id responseObject, NSError *error) {
+    AFNetworkReachabilityManager * mgr = [AFNetworkReachabilityManager sharedManager];
+    [mgr startMonitoring];
+    
+    [mgr setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {
         
-        NSLog(@"基本信息:%@",responseObject);
-        NSLog(@"\n密码:%@",app.loginKeycode);
-        
-        _avatar = [AESCrypt decrypt:responseObject[@"result"][@"avatar"] password:app.loginKeycode];
-        _from = [AESCrypt decrypt:responseObject[@"result"][@"from"] password:app.loginKeycode];
-        _age = [AESCrypt decrypt:responseObject[@"result"][@"age"] password:app.loginKeycode];
-        _realname = [AESCrypt decrypt:responseObject[@"reault"][@"realname"] password:app.loginKeycode];
-        _sex = [AESCrypt decrypt:responseObject[@"result"][@"sex"] password:app.loginKeycode];
-        _state = [AESCrypt decrypt:responseObject[@"result"][@"state"] password:app.loginKeycode];
-        
-        NSArray *array = (NSArray *)responseObject[@"result"];
-        if (array.count != 0) {
+        if (status != 0) {
             
-            app.request=responseObject[@"response"];
-        
+            [[HTTPSessionManager sharedManager] POST:JUCHU_URL parameters:Dic result:^(id responseObject, NSError *error) {
+                
+                NSLog(@"基本信息:%@",responseObject);
+                NSLog(@"\n密码:%@",app.loginKeycode);
+                
+                _avatar = [AESCrypt decrypt:responseObject[@"result"][@"avatar"] password:app.loginKeycode];
+                _from = [AESCrypt decrypt:responseObject[@"result"][@"from"] password:app.loginKeycode];
+                _age = [AESCrypt decrypt:responseObject[@"result"][@"age"] password:app.loginKeycode];
+                _realname = [AESCrypt decrypt:responseObject[@"reault"][@"realname"] password:app.loginKeycode];
+                _sex = [AESCrypt decrypt:responseObject[@"result"][@"sex"] password:app.loginKeycode];
+                _state = [AESCrypt decrypt:responseObject[@"result"][@"state"] password:app.loginKeycode];
+                
+                NSArray *array = (NSArray *)responseObject[@"result"];
+                if (array.count != 0) {
+                    
+                    app.request=responseObject[@"response"];
+                    
+                }
+                [self.messageTableView reloadData];
+                
+            }];
+
+            
+        }else
+        {
+            noWebhud;
         }
-        [self.messageTableView reloadData];
         
     }];
-        
+    
 }
 
 #pragma mark UITableViewDataSource
