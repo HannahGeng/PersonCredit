@@ -157,19 +157,47 @@
 
 -(void)taskButtonClick
 {
+    AFNetworkReachabilityManager * mgr = [AFNetworkReachabilityManager sharedManager];
+    [mgr startMonitoring];
     
-    _taskVC =[[TaskViewController alloc] initWithNibName:@"TaskViewController" bundle:nil];
-    
-    [self.navigationController pushViewController:_taskVC animated:YES];
+    [mgr setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {
         
+        if (status != 0) {
+            
+            _taskVC =[[TaskViewController alloc] initWithNibName:@"TaskViewController" bundle:nil];
+            
+            [self.navigationController pushViewController:_taskVC animated:YES];
+            
+        }else
+        {
+            noWebhud;
+        }
+        
+    }];
+    
 }
 
 -(void)wordCardButtonClick
 {
-    _wordCarVC =[[WordCarViewController alloc] initWithNibName:@"WordCarViewController" bundle:nil];
-    //隐藏tabBar
-    [self setHidesBottomBarWhenPushed:YES];
-    [self.navigationController pushViewController:_wordCarVC animated:YES];
+    AFNetworkReachabilityManager * mgr = [AFNetworkReachabilityManager sharedManager];
+    [mgr startMonitoring];
+    
+    [mgr setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {
+        
+        if (status != 0) {
+            
+            _wordCarVC =[[WordCarViewController alloc] initWithNibName:@"WordCarViewController" bundle:nil];
+            //隐藏tabBar
+            [self setHidesBottomBarWhenPushed:YES];
+            [self.navigationController pushViewController:_wordCarVC animated:YES];
+            
+        }else
+        {
+            noWebhud;
+        }
+        
+    }];
+    
 }
 
 #pragma mark UITableViewDelegate

@@ -28,8 +28,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    mbHUDinit;
-    
     //设置导航栏不透明
     self.navigationController.navigationBar.translucent = NO;
     
@@ -43,20 +41,38 @@
     [_userName setText:@"waiwai400@sina.com"];
     [_userPass setText:@"lx1437"];
     
-    [self loadData];
+    AFNetworkReachabilityManager * mgr = [AFNetworkReachabilityManager sharedManager];
+    [mgr startMonitoring];
+    
+    [mgr setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {
+        
+        if (status != 0) {
+            
+            mbHUDinit;
+
+            [self loadData];
+            
+        }else
+        {
+            noWebhud;
+        }
+        
+    }];
+
 }
 
 - (void)loadData
 {
     //加载数据
     AppShare;
+    
     //初始化请求（同时也创建了一个线程）
     [[HTTPSessionManager sharedManager] GET:CANSHU_URL parameters:nil result:^(id responseObject, NSError *error) {
-                
+        
         if ([responseObject[@"status"] integerValue] == 1) {
             
             hudHide;
-
+            
             dic=responseObject[@"result"];
             
             app.noLoginkeycode = [AESCrypt decrypt:dic[@"keycode"]];
@@ -97,7 +113,7 @@
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
     [self.view endEditing:YES];
-}
+} 
 
 //登录成功时候调用该方法
 -(void)loginSuccess
@@ -110,28 +126,42 @@
 
     NSDictionary *pDict = [NSDictionary dictionaryWithObjectsAndKeys:dic[@"keycode"],@"keycode",encryptionStr1,@"username",encryptionStr2,@"userpass",nil];
 
-    [[HTTPSessionManager sharedManager] POST:DENGLU_URL parameters:pDict result:^(id responseObject, NSError *error) {
+    AFNetworkReachabilityManager * mgr = [AFNetworkReachabilityManager sharedManager];
+    [mgr startMonitoring];
+    
+    [mgr setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {
         
-        if ([responseObject[@"status"] intValue]== 1) {
+        if (status != 0) {
             
-//            NSLog(@"\n登录成功:%@",responseObject);
-            NSDictionary *dict = responseObject[@"result"];
-            
-            app.request = responseObject[@"response"];
-            
-            app.uid = dict[@"uid"];
-            app.loginKeycode = [AESCrypt decrypt:dict[@"keycode"]];
-            
-            [self loadFirst];
-            
-        }else{
-            
-            UIAlertView* alter=[[UIAlertView alloc]initWithTitle:@"很抱歉" message:@"亲，你输入的账号或者密码有误" delegate:nil cancelButtonTitle:@"我看一下" otherButtonTitles:@"重新输入", nil];
-            [alter show];
+            [[HTTPSessionManager sharedManager] POST:DENGLU_URL parameters:pDict result:^(id responseObject, NSError *error) {
+                
+                if ([responseObject[@"status"] intValue]== 1) {
+                    
+                    NSDictionary *dict = responseObject[@"result"];
+                    
+                    app.request = responseObject[@"response"];
+                    
+                    app.uid = dict[@"uid"];
+                    app.loginKeycode = [AESCrypt decrypt:dict[@"keycode"]];
+                    
+                    [self loadFirst];
+                    
+                }else{
+                    
+                    UIAlertView* alter=[[UIAlertView alloc]initWithTitle:@"很抱歉" message:@"亲，你输入的账号或者密码有误" delegate:nil cancelButtonTitle:@"我看一下" otherButtonTitles:@"重新输入", nil];
+                    [alter show];
+                }
+                
+            }];
+
+        }else
+        {
+            hudHide;
+            noWebhud;
         }
-    
+        
     }];
-    
+
 }
 
 - (void)loadFirst
@@ -142,7 +172,7 @@
     //初始化请求（同时也创建了一个线程）
     [[HTTPSessionManager sharedManager] POST:GGTZ_URL parameters:Dic result:^(id responseObject, NSError *error) {
         
-        NSLog(@"\n首页信息:%@",responseObject);
+//        NSLog(@"\n首页信息:%@",responseObject);
         
         NSArray *array = responseObject[@"result"];
         
@@ -165,7 +195,7 @@
     
     [[HTTPSessionManager sharedManager] POST:ZUOZHENG_URL parameters:Dic result:^(id responseObject, NSError *error) {
         
-        NSLog(@"我的信息:%@",responseObject);
+//        NSLog(@"我的信息:%@",responseObject);
         
         app.mobilephone = responseObject[@"result"][@"mobilephone"];
         

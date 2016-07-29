@@ -18,6 +18,7 @@
     BOOL isOut;
     NSDictionary *dic;
     CLLocationManager * manager;
+    MBProgressHUD * mbHud;
 }
 
 @end
@@ -50,7 +51,7 @@
     
     //开启定位
     [manager startUpdatingLocation];
-    
+
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.backgroundColor = [UIColor whiteColor];
   
