@@ -126,8 +126,6 @@
 //加载数据
 - (void)loadMessageData
 {
-    mbHUDinit;
-    
     AppShare;
     
     //初始化请求（同时也创建了一个线程）
@@ -138,6 +136,8 @@
         
         if (status != 0) {
             
+            mbHUDinit;
+
             [[HTTPSessionManager sharedManager] POST:JUCHU_URL parameters:Dic result:^(id responseObject, NSError *error) {
         
                 app.avatar = [AESCrypt decrypt:responseObject[@"result"][@"avatar"] password:app.loginKeycode];

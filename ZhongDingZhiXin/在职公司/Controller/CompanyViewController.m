@@ -12,6 +12,7 @@
 {
     NSArray *_tableDataArray;
     UITableView *_tableView;
+    MBProgressHUD * mbHud;
 }
 @end
 
@@ -100,16 +101,64 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
     if (indexPath.row==0) {
-       NoticeViewController *noticeVC=[[NoticeViewController alloc]init];
-        [self.navigationController pushViewController:noticeVC animated:YES];
+        
+        AFNetworkReachabilityManager * mgr = [AFNetworkReachabilityManager sharedManager];
+        [mgr startMonitoring];
+        
+        [mgr setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {
+            
+            if (status != 0) {
+                
+                NoticeViewController *noticeVC=[[NoticeViewController alloc]init];
+                [self.navigationController pushViewController:noticeVC animated:YES];
+                
+            }else
+            {
+                noWebhud;
+            }
+            
+        }];
+       
     }
     if (indexPath.row==1) {
-        RewardViewController  *rewardVC=[[RewardViewController alloc]init];
-        [self.navigationController pushViewController:rewardVC animated:YES];
+        
+        AFNetworkReachabilityManager * mgr = [AFNetworkReachabilityManager sharedManager];
+        [mgr startMonitoring];
+        
+        [mgr setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {
+            
+            if (status != 0) {
+                
+                RewardViewController  *rewardVC=[[RewardViewController alloc]init];
+                [self.navigationController pushViewController:rewardVC animated:YES];
+                
+            }else
+            {
+                noWebhud;
+            }
+            
+        }];
+
     }
     if (indexPath.row==2) {
-        PunishmentViewController *punishmentVC=[[PunishmentViewController alloc]init];
-        [self.navigationController pushViewController:punishmentVC animated:YES];
+        
+        AFNetworkReachabilityManager * mgr = [AFNetworkReachabilityManager sharedManager];
+        [mgr startMonitoring];
+        
+        [mgr setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {
+            
+            if (status != 0) {
+                
+                PunishmentViewController *punishmentVC=[[PunishmentViewController alloc]init];
+                [self.navigationController pushViewController:punishmentVC animated:YES];
+                
+            }else
+            {
+                noWebhud;
+            }
+            
+        }];
+
     }
 }
 - (void)didReceiveMemoryWarning {
