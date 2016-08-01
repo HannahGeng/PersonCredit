@@ -71,7 +71,7 @@
         NSLog(@"工作经验:%@",responseObject);
         
         NSArray *array = responseObject[@"result"];
-        if (array.count!=0) {
+        if ([responseObject[@"status"] integerValue] == 1) {
             
             app.request=responseObject[@"response"];
             

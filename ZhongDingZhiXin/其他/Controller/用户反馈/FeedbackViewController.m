@@ -36,19 +36,11 @@
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     //设置背景颜色
     [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"backgroundImage"]]];
     //设置导航栏
     [self setNavigationBar];
- 
-//    _placeholderLabel.text = @"请描述您遇到的问题或想提供的建议，我们将尽快回复，如果没有联系方式，请留下联系方式！";
-//    _placeholderLabel.numberOfLines = 0;
-//    _placeholderLabel.textColor=[UIColor lightGrayColor];
-//    _placeholderLabel.font=[UIFont systemFontOfSize:15];
-//    _placeholderLabel.enabled = NO;//lable必须设置为不可用
-//    _placeholderLabel.backgroundColor = [UIColor clearColor];
-    
-//    [self.writeTextView addSubview:_placeholderLabel];
 
 }
 

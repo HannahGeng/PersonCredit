@@ -82,6 +82,10 @@
                 [_educationInfoArray addObject:educationInfo];
                 
             }
+        }else{
+            
+            hudHide;
+            MBhud(responseObject[@"result"]);
         }
         
         self.educationTableView.scrollEnabled =YES; //设置tableview滚动
