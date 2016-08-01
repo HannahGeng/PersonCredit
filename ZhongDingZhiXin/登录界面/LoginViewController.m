@@ -114,7 +114,6 @@
     //停止定位
     [manager stopUpdatingLocation];
     
-    
 }
 
 - (void)loadData
@@ -227,9 +226,7 @@
     
     //初始化请求（同时也创建了一个线程）
     [[HTTPSessionManager sharedManager] POST:GGTZ_URL parameters:Dic result:^(id responseObject, NSError *error) {
-        
-//        NSLog(@"\n首页信息:%@",responseObject);
-        
+            
         NSArray *array = responseObject[@"result"];
         
         app.firstArray = array;
@@ -251,15 +248,17 @@
     
     [[HTTPSessionManager sharedManager] POST:ZUOZHENG_URL parameters:Dic result:^(id responseObject, NSError *error) {
         
-//        NSLog(@"我的信息:%@",responseObject);
-        
-        app.mobilephone = responseObject[@"result"][@"mobilephone"];
+        app.mobilephone = [AESCrypt decrypt:responseObject[@"result"][@"mobilephone"] password:app.loginKeycode];
         
         NSString * name = [AESCrypt decrypt:responseObject[@"result"][@"realname"] password:app.loginKeycode];
         
         app.name = name;
                 
         app.request = responseObject[@"response"];
+        
+        app.http = [AESCrypt decrypt:responseObject[@"result"][@"http"] password:app.loginKeycode];
+        
+        app.avatar = [AESCrypt decrypt:responseObject[@"result"][@"avatar"] password:app.loginKeycode];
         
         [self UntilSeccessDone];
         

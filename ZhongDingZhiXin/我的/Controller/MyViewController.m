@@ -12,6 +12,7 @@
 {
     NSArray *_tableDataArray;
     UITableView *_tableView;
+    MBProgressHUD * mbHud;
 }
 @end
 
@@ -101,8 +102,9 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
         
     if (indexPath.row==0) {
-        MessageViewController *messageVC=[[MessageViewController alloc]init];
-        [self.navigationController pushViewController:messageVC animated:YES];
+        
+        [self loadMessageData];
+        
     }
     if (indexPath.row==1) {
         WorkExperienceViewController  *workExperienceVC=[[WorkExperienceViewController alloc]init];
@@ -119,6 +121,56 @@
         [self.navigationController pushViewController:regis animated:YES];
                
     }
+}
+
+//加载数据
+- (void)loadMessageData
+{
+    mbHUDinit;
+    
+    AppShare;
+    
+    //初始化请求（同时也创建了一个线程）
+    AFNetworkReachabilityManager * mgr = [AFNetworkReachabilityManager sharedManager];
+    [mgr startMonitoring];
+    
+    [mgr setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {
+        
+        if (status != 0) {
+            
+            [[HTTPSessionManager sharedManager] POST:JUCHU_URL parameters:Dic result:^(id responseObject, NSError *error) {
+        
+                app.avatar = [AESCrypt decrypt:responseObject[@"result"][@"avatar"] password:app.loginKeycode];
+                app.from = [AESCrypt decrypt:responseObject[@"result"][@"from"] password:app.loginKeycode];
+                app.age = [AESCrypt decrypt:responseObject[@"result"][@"age"] password:app.loginKeycode];
+                app.realname = [AESCrypt decrypt:responseObject[@"reault"][@"realname"] password:app.loginKeycode];
+                app.sex = [AESCrypt decrypt:responseObject[@"result"][@"sex"] password:app.loginKeycode];
+                
+                NSMutableArray *array = responseObject[@"result"];
+                
+                NSLog(@"个人资料%@",array);
+                
+                if (array.count != 0) {
+                    
+                    app.request=responseObject[@"response"];
+                    
+                    app.messages = array;
+                }
+                
+                hudHide;
+                MessageViewController *messageVC=[[MessageViewController alloc]init];
+
+                [self.navigationController pushViewController:messageVC animated:YES];
+
+            }];
+            
+        }else
+        {
+            noWebhud;
+        }
+        
+    }];
+    
 }
 
 @end

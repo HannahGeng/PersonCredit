@@ -17,15 +17,11 @@
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="touxiang" translatesAutoresizingMaskIntoConstraints="NO" id="Mdc-aj-mmx">
                         <rect key="frame" x="120" y="5" width="80" height="80"/>
+                        <rect key="contentStretch" x="1" y="0.0" width="1" height="1"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="80" id="26L-ch-4Db"/>
                             <constraint firstAttribute="height" constant="80" id="KpM-Gn-YYs"/>
                         </constraints>
-                        <userDefinedRuntimeAttributes>
-                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                <integer key="value" value="40"/>
-                            </userDefinedRuntimeAttribute>
-                        </userDefinedRuntimeAttributes>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K6R-CF-eIn">
                         <rect key="frame" x="-10" y="90" width="340" height="0.0"/>
@@ -87,6 +83,7 @@
             <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
             <connections>
                 <outlet property="addressLabel" destination="zwQ-af-626" id="uUi-ky-l2v"/>
+                <outlet property="iconView" destination="Mdc-aj-mmx" id="f34-kz-ZaR"/>
                 <outlet property="nameLable" destination="K6R-CF-eIn" id="9iJ-fj-faI"/>
             </connections>
             <point key="canvasLocation" x="261" y="250"/>

@@ -84,6 +84,11 @@
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         cell.nameLable.text = app.name;
         cell.addressLabel.text = app.firAddress;
+        cell.iconView.layer.masksToBounds = YES;
+        cell.iconView.layer.cornerRadius=40;
+        NSData *data=[[NSUserDefaults standardUserDefaults]objectForKey:@"image"];
+        cell.iconView.image=[UIImage imageWithData:data];
+        
         return cell;
     }
     if (indexPath.row==1) {
@@ -222,6 +227,7 @@
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    
     if (indexPath.row==1) {
         AFNetworkReachabilityManager * mgr = [AFNetworkReachabilityManager sharedManager];
         [mgr startMonitoring];

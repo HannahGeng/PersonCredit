@@ -249,8 +249,14 @@ for (int i=0; i<arr.count; i++) { \
     if (i==0) { \
         UIImageView *AImageView=[[UIImageView alloc]initWithFrame:CGRectMake(([UIUtils getWindowWidth]-150)/2, ([UIUtils getWindowHeight]-350)/2, 150, 150)]; \
         AImageView.backgroundColor=[UIColor blueColor]; \
+        AImageView.layer.masksToBounds = YES; \
         AImageView.layer.cornerRadius=75; \
-        AImageView.image=[UIImage imageNamed:@"touxiang"]; \
+        NSData *data=[[NSUserDefaults standardUserDefaults]objectForKey:@"image"];\
+        if(!data){\
+            AImageView.image=[UIImage imageNamed:@"touxiang"]; \
+        }else{\
+            AImageView.image=[UIImage imageWithData:data];\
+        }\
         [imageView addSubview:AImageView]; \
         UILabel *nameLabel=[[UILabel alloc]initWithFrame:CGRectMake(([UIUtils getWindowWidth]-200)/2, CGRectGetMaxY(AImageView.frame)+10, 60, 20)]; \
         nameLabel.text=@"姓名："; \

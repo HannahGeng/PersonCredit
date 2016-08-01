@@ -25,7 +25,7 @@
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         //添加cell的背景图片   
         cell.backgroundColor=[UIColor colorWithPatternImage:[UIImage imageNamed:@"beijing"]];
-                
+
     }
 
     return cell;

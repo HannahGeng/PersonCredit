@@ -72,5 +72,26 @@
 /** 首页数组 */
 @property (nonatomic,strong) NSArray * firstArray;
 
+//个人资料的地区
+@property (nonatomic,strong)NSString * from;
+
+/** avatar */
+@property (nonatomic,strong) NSString * avatar;
+
+/** age */
+@property (nonatomic,strong) NSString * age;
+
+/** realname */
+@property (nonatomic,strong) NSString * realname;
+
+/** sex */
+@property (nonatomic,strong) NSString * sex;
+
+/** myMessage */
+@property (nonatomic,strong) NSMutableArray * messages;
+
+/** http */
+@property (nonatomic,strong) NSString * http;
+
 @end
 

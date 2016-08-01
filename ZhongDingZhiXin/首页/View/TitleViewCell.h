@@ -14,6 +14,8 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *addressLabel;
 
+@property (weak, nonatomic) IBOutlet UIImageView *iconView;
+
 +(instancetype)cellWithTableView:(UITableView *)tableView;
 
 @end

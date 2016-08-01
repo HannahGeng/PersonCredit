@@ -8,7 +8,7 @@
 
 #import "MessageViewController.h"
 
-@interface MessageViewController ()<UITableViewDataSource,UITableViewDelegate>
+@interface MessageViewController ()<UITableViewDataSource,UIActionSheetDelegate,UIImagePickerControllerDelegate,UITableViewDelegate,UINavigationControllerDelegate>
 {
     UIImageView *_imageView;
     UILabel *_fontLabel1;
@@ -51,15 +51,25 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    AppShare;
+    
     //设置背景颜色
     [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"backgroundImage"]]];
+    
     //设置导航栏
     [self setNavigationBar];
+    
     //添加视图
     [self addContentView];
     
-    //加载数据
-    [self performSelectorInBackground:@selector(loadData) withObject:nil];
+    //初始化_noticeInfoArray
+    if (!_messageArray) {
+        _messageArray = [[NSMutableArray alloc] init];
+    }
+    _messageArray = app.messages;
+    
+    [self.messageTableView reloadData];
+
 }
 
 //设置导航栏
@@ -70,6 +80,7 @@
     //为导航栏添加左侧按钮
     leftButton;
 }
+
 //添加内容视图
 -(void)addContentView
 {
@@ -85,8 +96,20 @@
     
     _imageView=[[UIImageView alloc]initWithFrame:CGRectMake(15, 20, 50, 50)];
     _imageView.backgroundColor=[UIColor lightGrayColor];
-    _imageView.layer.cornerRadius=5;
+    _imageView.layer.masksToBounds = YES;
+    _imageView.layer.cornerRadius=25;
+    
+    NSData *data=[[NSUserDefaults standardUserDefaults]objectForKey:@"image"];
+    if (!data) {
+        _imageView.image=[UIImage imageNamed:@"touxiang.png"];
+    }else{
+        _imageView.image=[UIImage imageWithData:data];
+    }
+
     [self.messageTableView addSubview:_imageView];
+    //发送通知
+    [[NSNotificationCenter defaultCenter]
+     postNotificationName:@"image" object:nil];
     
     _fontLabel1=[[UILabel alloc]initWithFrame:CGRectMake(15, 90, 50, 30)];
     _fontLabel1.text=@"姓名";
@@ -113,60 +136,11 @@
     _fontLabel5.font=[UIFont systemFontOfSize:15];
     [self.messageTableView addSubview:_fontLabel5];
     
-    
 }
+
 -(void)backButton
 {
     [self.navigationController popViewControllerAnimated:YES];
-}
-
-//加载数据
-- (void)loadData
-{
-    AppShare;
-    //初始化_noticeInfoArray
-    if (!_messageArray) {
-        _messageArray = [[NSMutableArray alloc] init];
-    }
-    
-    //初始化请求（同时也创建了一个线程）
-    AFNetworkReachabilityManager * mgr = [AFNetworkReachabilityManager sharedManager];
-    [mgr startMonitoring];
-    
-    [mgr setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {
-        
-        if (status != 0) {
-            
-            [[HTTPSessionManager sharedManager] POST:JUCHU_URL parameters:Dic result:^(id responseObject, NSError *error) {
-                
-                NSLog(@"基本信息:%@",responseObject);
-                NSLog(@"\n密码:%@",app.loginKeycode);
-                
-                _avatar = [AESCrypt decrypt:responseObject[@"result"][@"avatar"] password:app.loginKeycode];
-                _from = [AESCrypt decrypt:responseObject[@"result"][@"from"] password:app.loginKeycode];
-                _age = [AESCrypt decrypt:responseObject[@"result"][@"age"] password:app.loginKeycode];
-                _realname = [AESCrypt decrypt:responseObject[@"reault"][@"realname"] password:app.loginKeycode];
-                _sex = [AESCrypt decrypt:responseObject[@"result"][@"sex"] password:app.loginKeycode];
-                _state = [AESCrypt decrypt:responseObject[@"result"][@"state"] password:app.loginKeycode];
-                
-                NSArray *array = (NSArray *)responseObject[@"result"];
-                if (array.count != 0) {
-                    
-                    app.request=responseObject[@"response"];
-                    
-                }
-                [self.messageTableView reloadData];
-                
-            }];
-
-            
-        }else
-        {
-            noWebhud;
-        }
-        
-    }];
-    
 }
 
 #pragma mark UITableViewDataSource
@@ -183,9 +157,10 @@
         return 2;
     }
 }
+
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-
+    AppShare;
     static NSString *cellIdentifier=@"cellIdentifier";
     
     _cell=[tableView dequeueReusableCellWithIdentifier:cellIdentifier];
@@ -195,18 +170,18 @@
         _cell=[[UITableViewCell alloc]initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:cellIdentifier];
         
         if (indexPath.section==0) {
+            
             if (indexPath.row==0) {
                 _cell.detailTextLabel.font=[UIFont systemFontOfSize:15];
                 _cell.detailTextLabel.text=@"设置头像";
+                
             }else if (indexPath.row==1){
                 _cell.detailTextLabel.font=[UIFont systemFontOfSize:15];
-                _cell.detailTextLabel.text=_realname;
-                
-                NSLog(@"cell-realname:%@",_realname);
+                _cell.detailTextLabel.text=app.name;
                 
             }else if (indexPath.row==2){
                 _cell.detailTextLabel.font=[UIFont systemFontOfSize:15];
-                _cell.detailTextLabel.text=@"修改";
+                _cell.detailTextLabel.text = app.mobilephone;
                 
             }else{
                 _cell.detailTextLabel.font=[UIFont systemFontOfSize:15];
@@ -216,11 +191,11 @@
         if (indexPath.section==1) {
             if (indexPath.row==0) {
                 _cell.detailTextLabel.font=[UIFont systemFontOfSize:15];
-                _cell.detailTextLabel.text=_sex;
+                _cell.detailTextLabel.text=app.sex;
 
             }else{
                 _cell.detailTextLabel.font=[UIFont systemFontOfSize:15];
-                _cell.detailTextLabel.text=_from;
+                _cell.detailTextLabel.text=app.from;
             }
         }
     }
@@ -230,7 +205,81 @@
     return _cell;
 }
 
-#pragma mark UITableViewDelegate
+#pragma mark UIActionSheetDelegate
+-(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
+    
+    // 相册 0 拍照 1
+    switch (buttonIndex) {
+        case 0:
+            //从相册中读取
+            [self readImageFromAlbum];
+            break;
+        case 1:
+            //拍照
+            [self readImageFromCamera];
+            break;
+        default:
+            break;
+    }
+}
+
+//图片完成之后处理
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingImage:(UIImage *)image editingInfo:(nullable NSDictionary<NSString *,id> *)editingInfo {
+    
+    //image 就是修改后的照片
+    //以下是保存文件到沙盒路径下
+    //把图片转成NSData类型的数据来保存文件
+    NSData *data;
+    //判断图片是不是png格式的文件
+    if (UIImagePNGRepresentation(image)) {
+        //返回为png图像。
+        data = UIImagePNGRepresentation(image);
+    }else {
+        //返回为JPEG图像。
+        data = UIImageJPEGRepresentation(image, 1.0);
+    }
+    
+    _imageView.image=[UIImage imageWithData:data];
+    [[NSUserDefaults standardUserDefaults] setObject:data forKey:@"image"];
+    //结束操作
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+//从相册中读取
+- (void)readImageFromAlbum {
+    
+    //创建对象
+    UIImagePickerController *imagePicker = [[UIImagePickerController alloc] init];
+    //（选择类型）表示仅仅从相册中选取照片
+    imagePicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+    imagePicker.delegate = self;
+    //设置在相册选完照片后，是否跳到编辑模式进行图片剪裁。(允许用户编辑)
+    imagePicker.allowsEditing = YES;
+    //显示相册
+    [self presentViewController:imagePicker animated:YES completion:nil];
+}
+
+- (void)readImageFromCamera {
+    
+    if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
+        UIImagePickerController *imagePicker = [[UIImagePickerController alloc] init];
+        imagePicker.sourceType = UIImagePickerControllerSourceTypeCamera;
+        imagePicker.delegate = self;
+        imagePicker.allowsEditing = YES;
+        //允许用户编辑
+        [self presentViewController:imagePicker animated:YES completion:nil];
+        
+    } else {
+        
+        //弹出窗口响应点击事件
+        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"警告" message:@"未检测到摄像头" preferredStyle:UIAlertControllerStyleAlert];
+        [alert addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction *action) {
+        }]];
+        [self presentViewController:alert animated:YES completion:^{
+        }];
+    }
+}
+
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (indexPath.section==0) {
@@ -243,6 +292,7 @@
         return 50;
     }
 }
+
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
     return 10;
@@ -250,12 +300,23 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (indexPath.row == 3) {
-        
-        PasswordViewController * pass = [[PasswordViewController alloc] init];
-        
-        [self.navigationController pushViewController:pass animated:YES];
+    if (indexPath.section == 0) {
+        if (indexPath.row == 0) {
+            
+            //创建对象
+            UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:@"提示" delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:nil otherButtonTitles:@"从相册选择",@"拍照", nil];
+            
+            //在视图上展示
+            [actionSheet showInView:self.view];
+        }
+        if (indexPath.row == 3) {
+            
+            PasswordViewController * pass = [[PasswordViewController alloc] init];
+            
+            [self.navigationController pushViewController:pass animated:YES];
+        }
     }
+    
 }
 
 @end
