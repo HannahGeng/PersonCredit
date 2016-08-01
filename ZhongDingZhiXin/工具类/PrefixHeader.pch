@@ -93,6 +93,7 @@
 #import "RegisterViewController.h"
 #import "RegistModel.h"
 #import "RegistCell.h"
+#import "Masonry.h"
 
 //定位框架
 #import <CoreLocation/CoreLocation.h>

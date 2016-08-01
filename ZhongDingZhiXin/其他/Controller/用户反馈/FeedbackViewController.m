@@ -7,8 +7,17 @@
 //
 
 #import "FeedbackViewController.h"
+//define this constant if you want to use Masonry without the 'mas_' prefix
+#define MAS_SHORTHAND
+//define this constant if you want to enable auto-boxing for default syntax
+#define MAS_SHORTHAND_GLOBALS
 
 @interface FeedbackViewController ()<UITextViewDelegate>
+{
+    MBProgressHUD * mbHud;
+    UILabel *_placeholderLabel;
+
+}
 
 @property (weak, nonatomic) IBOutlet UIButton *presentButton;
 @property (weak, nonatomic) IBOutlet UITextView *writeTextView;
@@ -31,7 +40,16 @@
     [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"backgroundImage"]]];
     //设置导航栏
     [self setNavigationBar];
+ 
+//    _placeholderLabel.text = @"请描述您遇到的问题或想提供的建议，我们将尽快回复，如果没有联系方式，请留下联系方式！";
+//    _placeholderLabel.numberOfLines = 0;
+//    _placeholderLabel.textColor=[UIColor lightGrayColor];
+//    _placeholderLabel.font=[UIFont systemFontOfSize:15];
+//    _placeholderLabel.enabled = NO;//lable必须设置为不可用
+//    _placeholderLabel.backgroundColor = [UIColor clearColor];
     
+//    [self.writeTextView addSubview:_placeholderLabel];
+
 }
 
 //设置导航栏
@@ -55,21 +73,54 @@
 {
     [self.view endEditing:YES];
 }
+
 - (IBAction)presentButton:(UIButton *)sender {
     
     AppShare;
     
-    NSDictionary * pdic = [[NSDictionary alloc]initWithObjectsAndKeys:app.uid,@"uid",app.request,@"request",[AESCrypt decrypt:self.writeTextView.text password:app.loginKeycode],@"tickling",nil];
-    
-    [[HTTPSessionManager sharedManager] POST:FANKUI_URL parameters:pdic  result:^(id responseObject, NSError *error) {
+    if (self.writeTextView.text.length == 0 || [self.writeTextView.text containsString:@" "]) {
         
-        NSLog(@"%@",responseObject);
-    }];
+        MBhud(@"内容为空或格式错误");
+        
+    }else{
+        AFNetworkReachabilityManager * mgr = [AFNetworkReachabilityManager sharedManager];
+        [mgr startMonitoring];
+        
+        [mgr setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {
+            
+            if (status != 0) {
+                
+                NSDictionary * pdic = [[NSDictionary alloc]initWithObjectsAndKeys:app.uid,@"uid",app.request,@"request",[AESCrypt encrypt:self.writeTextView.text password:app.loginKeycode],@"tickling",nil];
+                
+                [[HTTPSessionManager sharedManager] POST:FANKUI_URL parameters:pdic  result:^(id responseObject, NSError *error) {
+                    
+                    if ([responseObject[@"status"] integerValue] == 1) {
+                        
+                        app.request = responseObject[@"response"];
+                        
+                        MBhud(responseObject[@"result"]);
+                        
+                    }else{
+                        
+                        MBhud(@"请求错误")
+                    }
+                    
+                    NSLog(@"%@",responseObject);
+                }];
+                
+            }else
+            {
+                noWebhud;
+            }
+            
+        }];
+        
+    }
+    
 }
 
 #pragma mark UITextViewDelegation
 - (BOOL)textViewShouldBeginEditing:(UITextView *)textView{
-    
     
     return YES;
 }
