@@ -178,6 +178,11 @@ typedef enum _UpdateType {
 #pragma mark - 15\获取签到列表
 #define SIGNLIST_URL @"http://www.newqc.cn/webapi/company/signlist/"
 
+#pragma mark - 16、强制升级
+#define UPDATE_URL @"http://www.newqc.cn/webapi/appupdate"
+
+#pragma mark - 17、检测升级
+#define CHECK_URL @"http://www.newqc.cn/webapi/checkversion"
 
 #pragma mark - 导航栏统一样式
 #define NavBarType(navName) \

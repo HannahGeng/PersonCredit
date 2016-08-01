@@ -24,7 +24,9 @@
     UIButton *_btn3;
     
     NSString *_string;
-    
+    NSString * curVersion;
+    NSString * systype;
+    MBProgressHUD * mbHud;
 }
 @end
 
@@ -248,13 +250,63 @@
         
         if (indexPath.row == 0) {
             
-            QuestionViewController * ques = [[QuestionViewController alloc] init];
-            [self.navigationController pushViewController:ques animated:YES];
+            AFNetworkReachabilityManager * mgr = [AFNetworkReachabilityManager sharedManager];
+            [mgr startMonitoring];
+            
+            [mgr setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {
+                
+                if (status != 0) {
+                    
+                    QuestionViewController * ques = [[QuestionViewController alloc] init];
+                    [self.navigationController pushViewController:ques animated:YES];
+                    
+                }else
+                {
+                    noWebhud;
+                }
+                
+            }];
         
         }else if (indexPath.row==1) {
             NSString *url = [NSString stringWithFormat:@"itms-apps://ax.itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?type=Purple+Software&id=%d",490062954];//490062954是程序的Apple ID,可以在iTunes Connect中查到。
             [[UIApplication sharedApplication] openURL:[NSURL URLWithString:url]];
         }
+    }
+    
+    if (indexPath.section == 2) {
+        
+        AppShare;
+        
+        //获取用户最新的版本号:info.plist
+        curVersion = [NSBundle mainBundle].infoDictionary[@"CFBundleShortVersionString"];
+        systype = @"1";
+        
+        NSDictionary * pdic = [NSDictionary dictionaryWithObjectsAndKeys:app.uid,@"uid",app.request,@"request",systype,@"systype",curVersion,@"version", nil];
+        
+        AFNetworkReachabilityManager * mgr = [AFNetworkReachabilityManager sharedManager];
+        [mgr startMonitoring];
+        
+        [mgr setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {
+            
+            if (status != 0) {
+                
+                [[HTTPSessionManager sharedManager]POST:CHECK_URL parameters:pdic result:^(id responseObject, NSError *error) {
+                    
+                    NSLog(@"版本信息:%@",responseObject);
+                    
+                    app.request = responseObject[@"response"];
+                    
+                    [self update];
+                }];
+
+                
+            }else
+            {
+                noWebhud;
+            }
+            
+        }];
+
     }
     if (indexPath.section==3) {
         
@@ -262,6 +314,17 @@
         [alter show];
 
     }
+}
+
+- (void)update
+{
+    
+    NSDictionary * pdic = [NSDictionary dictionaryWithObjectsAndKeys:curVersion,@"version",systype,@"systype", nil];
+    
+    [[HTTPSessionManager sharedManager] POST:UPDATE_URL parameters:pdic result:^(id responseObject, NSError *error) {
+       
+        NSLog(@"强制更新:%@",responseObject);
+    }];
 }
 
 //监听点击事件 代理方法
