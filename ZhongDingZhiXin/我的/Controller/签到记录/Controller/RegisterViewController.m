@@ -29,50 +29,27 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    mbHUDinit;
+    AppShare;
     
     NavBarType(@"签到记录");
     leftButton;
     
-    [self loadData];
+    self.registArray = app.registArray;
+    
+    if (self.registArray == NULL) {
+        
+        
+    }else{
+        
+        [self.resgistTableView reloadData];
+
+    }
+    
 }
 
 - (void)backButton
 {
     [self.navigationController popViewControllerAnimated:YES];
-
-}
-
-- (void)loadData
-{
-    AppShare;
-    NSMutableArray * registArr = [NSMutableArray array];
-    
-    NSDictionary * dic = [NSDictionary dictionaryWithObjectsAndKeys:app.uid,@"uid",app.request,@"request", nil];
-    [[HTTPSessionManager sharedManager]POST:SIGNLIST_URL parameters:dic result:^(id responseObject, NSError *error) {
-        
-        NSLog(@"签到记录:%@",responseObject);
-        
-        if ([responseObject[@"status"] integerValue] > 0) {
-            
-            hudHide;
-            
-            self.registArray = responseObject[@"result"];
-        }
-        
-        for (NSDictionary * dic in self.registArray) {
-            
-            RegistModel * model = [RegistModel resgitWithDic:dic];
-            
-            [registArr addObject:model];
-        }
-        
-        self.registArray = registArr;
-        
-        [self.resgistTableView reloadData];
-        
-        app.request = responseObject[@"response"];
-    }];
 
 }
 
@@ -85,7 +62,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     RegistCell * cell = [RegistCell cellWithTableView:tableView];
-    
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     cell.registmodel = self.registArray[indexPath.row];
     
     return cell;

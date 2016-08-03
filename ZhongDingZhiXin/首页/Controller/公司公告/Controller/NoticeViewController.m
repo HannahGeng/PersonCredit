@@ -101,11 +101,11 @@
     
     static NSString *identifier = @"Identifier";
     TableNoticeViewCell *cell=[tableView dequeueReusableCellWithIdentifier:identifier];
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     
     if (!cell) {
         cell=[[TableNoticeViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
     }
-    cell.selectionStyle = UITableViewCellSelectionStyleGray;
 
     if (_noticeInfoArray.count!=0) {
         NoticeInfo *noticeInfo = _noticeInfoArray[indexPath.row];

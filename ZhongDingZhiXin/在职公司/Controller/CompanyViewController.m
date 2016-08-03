@@ -79,10 +79,10 @@
     
     static NSString *identifier=@"Identifier";
     CompanyViewCell *cell=[tableView dequeueReusableCellWithIdentifier:identifier];
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     if (!cell) {
         cell=[[CompanyViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
     }
-    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator; //显示最右边的箭头
     [cell setContentView:_tableDataArray[indexPath.row]];
     
@@ -160,10 +160,6 @@
         }];
 
     }
-}
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 @end

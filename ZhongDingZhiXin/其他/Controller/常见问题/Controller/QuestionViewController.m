@@ -69,7 +69,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     QuestionCell * quest = [QuestionCell cellWithTableView:tableView];
-    
+    quest.selectionStyle = UITableViewCellSelectionStyleNone;
     quest.questmodel = self.questions[indexPath.row];
     
     return quest;

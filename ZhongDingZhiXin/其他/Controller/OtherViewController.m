@@ -18,6 +18,7 @@
     UIView *_contentView;
     UILabel *_buttonLabel;
 }
+
 @end
 
 @implementation OtherViewController
@@ -27,6 +28,7 @@
     
     self.tabBarController.tabBar.hidden=NO;
 }
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -67,6 +69,7 @@
     
     [_tableView reloadData];
 }
+
 #pragma mark UITableViewDataSource
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
@@ -86,8 +89,8 @@
     
     return cell;
 }
-#pragma mark UITableViewDelegate
 
+#pragma mark UITableViewDelegate
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     return 80;
     

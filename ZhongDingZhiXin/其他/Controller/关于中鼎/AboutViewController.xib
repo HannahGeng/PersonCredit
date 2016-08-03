@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -15,28 +15,28 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="kkE-VE-NcG">
-                    <rect key="frame" x="136" y="10" width="104" height="94"/>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gywm1" translatesAutoresizingMaskIntoConstraints="NO" id="kkE-VE-NcG">
+                    <rect key="frame" x="150" y="10" width="75" height="75"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="94" id="Dxx-h1-aAc"/>
-                        <constraint firstAttribute="width" constant="104" id="jAY-CJ-gAZ"/>
+                        <constraint firstAttribute="height" constant="75" id="Dxx-h1-aAc"/>
+                        <constraint firstAttribute="width" constant="75" id="jAY-CJ-gAZ"/>
                     </constraints>
                 </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gywm" translatesAutoresizingMaskIntoConstraints="NO" id="Tqr-nx-y2n">
-                    <rect key="frame" x="125" y="114" width="125" height="19"/>
+                    <rect key="frame" x="125" y="95" width="125" height="19"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="125" id="OOA-1z-Jdn"/>
                         <constraint firstAttribute="height" constant="19" id="wk1-ba-F1D"/>
                     </constraints>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="版本号" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NL8-0y-PJv">
-                    <rect key="frame" x="165" y="143" width="45" height="18"/>
+                    <rect key="frame" x="165" y="124" width="45" height="18"/>
                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                     <color key="highlightedColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                 </label>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="R7k-nR-Ot7">
-                    <rect key="frame" x="0.0" y="366" width="375" height="301"/>
+                    <rect key="frame" x="0.0" y="347" width="375" height="320"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LNP-LM-b63">
                             <rect key="frame" x="20" y="15" width="5" height="20"/>
@@ -80,7 +80,7 @@
                             </state>
                         </button>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="copyright@ 2010 北京职信鼎程信息技术有限公司" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lfy-Nb-vRv">
-                            <rect key="frame" x="43" y="270" width="289" height="16"/>
+                            <rect key="frame" x="43" y="289" width="289" height="16"/>
                             <fontDescription key="fontDescription" type="system" pointSize="13"/>
                             <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                             <nil key="highlightedColor"/>
@@ -102,7 +102,7 @@
                     </constraints>
                 </view>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gHY-ap-MNC">
-                    <rect key="frame" x="20" y="166" width="335" height="200"/>
+                    <rect key="frame" x="20" y="147" width="335" height="200"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="335" id="4i0-7Y-HQj"/>
                         <constraint firstAttribute="width" constant="318" id="5Wo-zo-XqS"/>
@@ -152,6 +152,6 @@
     </objects>
     <resources>
         <image name="gywm" width="249" height="38"/>
-        <image name="logo" width="208" height="191"/>
+        <image name="gywm1" width="141" height="142"/>
     </resources>
 </document>

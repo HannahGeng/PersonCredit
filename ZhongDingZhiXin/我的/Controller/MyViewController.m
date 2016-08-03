@@ -107,20 +107,75 @@
         
     }
     if (indexPath.row==1) {
-        WorkExperienceViewController  *workExperienceVC=[[WorkExperienceViewController alloc]init];
-        [self.navigationController pushViewController:workExperienceVC animated:YES];
+        
+        [self loadWork];
     }
     if (indexPath.row==2) {
-        EducationExperienceViewController *educationExperienceVC=[[EducationExperienceViewController alloc]init];
-        [self.navigationController pushViewController:educationExperienceVC animated:YES];
+        
+        [self loadEducate];
     }
     if (indexPath.row == 3)
     {
         
-        RegisterViewController * regis = [[RegisterViewController alloc] init];
-        [self.navigationController pushViewController:regis animated:YES];
-               
+        [self loadRegist];
+        
     }
+}
+
+//加载数据
+- (void)loadWork
+{
+    AppShare;
+    
+    AFNetworkReachabilityManager * mgr = [AFNetworkReachabilityManager sharedManager];
+    [mgr startMonitoring];
+    
+    [mgr setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {
+        
+        if (status != 0) {
+            
+            mbHUDinit;
+
+            //初始化请求（同时也创建了一个线程）
+            [[HTTPSessionManager sharedManager] POST:GZJL_URL parameters:Dic result:^(id responseObject, NSError *error) {
+                
+                NSLog(@"工作经验:%@",responseObject);
+                
+                NSArray *array = responseObject[@"result"];
+                
+                NSMutableArray * worka = [NSMutableArray new];
+                
+                if ([responseObject[@"status"] integerValue] == 1) {
+                    
+                    app.request=responseObject[@"response"];
+                    
+                    for (NSDictionary *dictionary in array) {
+                        WorkInfo *workInfo = [[WorkInfo alloc] initWithDictionary:dictionary];
+                        [worka addObject:workInfo];
+                    }
+                    
+                    app.workArray = worka;
+                    
+                    //隐藏HUD
+                    hudHide;
+                    WorkExperienceViewController  *workExperienceVC=[[WorkExperienceViewController alloc]init];
+                    [self.navigationController pushViewController:workExperienceVC animated:YES];
+
+                }else{
+                    
+                    app.workArray = NULL;
+                }
+                
+            }];
+
+            
+        }else
+        {
+            noWebhud;
+        }
+        
+    }];
+    
 }
 
 //加载数据
@@ -158,8 +213,8 @@
                 }
                 
                 hudHide;
+                
                 MessageViewController *messageVC=[[MessageViewController alloc]init];
-
                 [self.navigationController pushViewController:messageVC animated:YES];
 
             }];
@@ -168,6 +223,105 @@
         {
             noWebhud;
         }
+        
+    }];
+    
+}
+
+//加载数据
+- (void)loadEducate
+{
+    //显示提示
+    mbHUDinit;
+    
+    AppShare;
+    
+    AFNetworkReachabilityManager * mgr = [AFNetworkReachabilityManager sharedManager];
+    [mgr startMonitoring];
+    
+    [mgr setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {
+        
+        if (status != 0) {
+            
+            //初始化请求（同时也创建了一个线程）
+            [[HTTPSessionManager sharedManager] POST:JYJL_URL parameters:Dic result:^(id responseObject, NSError *error) {
+                                
+                NSMutableArray * educate = [NSMutableArray new];
+                app.request=responseObject[@"response"];
+
+                if([responseObject[@"status"] integerValue] == 1){
+                    
+                    for (NSDictionary *dictionary in responseObject[@"result"]) {
+                        
+                        EducationInfo *educationInfo = [[EducationInfo alloc] initWithDictionary:dictionary];
+                        [educate addObject:educationInfo];
+                        
+                    }
+                    
+                    app.educateArray = educate;
+                    
+                }else{
+                    
+                    app.educateArray = NULL;
+                }
+                
+                hudHide;
+                
+                EducationExperienceViewController *educationExperienceVC=[[EducationExperienceViewController alloc]init];
+                [self.navigationController pushViewController:educationExperienceVC animated:YES];
+
+            }];
+            
+        }else
+        {
+            noWebhud;
+        }
+        
+    }];
+
+    
+}
+
+- (void)loadRegist
+{
+    AppShare;
+    
+    mbHUDinit;
+    
+    NSMutableArray * registArr = [NSMutableArray array];
+    
+    NSDictionary * dic = [NSDictionary dictionaryWithObjectsAndKeys:app.uid,@"uid",app.request,@"request", nil];
+    [[HTTPSessionManager sharedManager]POST:SIGNLIST_URL parameters:dic result:^(id responseObject, NSError *error) {
+        
+        app.request = responseObject[@"response"];
+        
+        NSArray * resultArr = [[NSArray alloc] init];
+        
+        if ([responseObject[@"status"] integerValue] > 0) {
+            
+            hudHide;
+            
+            resultArr = responseObject[@"result"];
+        
+            for (NSDictionary * dic in resultArr) {
+                
+                RegistModel * model = [RegistModel resgitWithDic:dic];
+                
+                [registArr addObject:model];
+            }
+        
+            app.registArray = registArr;
+            
+        }else{
+            
+            app.registArray = NULL;
+        }
+        
+        hudHide;
+        
+        RegisterViewController * regis = [[RegisterViewController alloc] init];
+        [self.navigationController pushViewController:regis animated:YES];
+
         
     }];
     

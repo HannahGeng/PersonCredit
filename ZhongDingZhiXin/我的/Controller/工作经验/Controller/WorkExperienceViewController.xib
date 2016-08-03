@@ -7,6 +7,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="WorkExperienceViewController">
             <connections>
+                <outlet property="noneView" destination="bhG-vr-uih" id="hb6-6n-OTb"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
                 <outlet property="workTableView" destination="jFn-pR-D3r" id="wj1-xa-XbW"/>
             </connections>
@@ -16,7 +17,7 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="jFn-pR-D3r">
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="jFn-pR-D3r">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <connections>
@@ -24,15 +25,48 @@
                         <outlet property="delegate" destination="-1" id="7B7-W3-QFW"/>
                     </connections>
                 </tableView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bhG-vr-uih">
+                    <rect key="frame" x="126" y="100" width="69" height="115"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="暂无信息" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BNN-WF-eLg">
+                            <rect key="frame" x="0.0" y="94" width="69" height="18"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="zwxx" translatesAutoresizingMaskIntoConstraints="NO" id="FGX-I4-Zmk">
+                            <rect key="frame" x="0.0" y="0.0" width="69" height="80"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="80" id="9oq-eL-E2r"/>
+                            </constraints>
+                        </imageView>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="FGX-I4-Zmk" firstAttribute="trailing" secondItem="BNN-WF-eLg" secondAttribute="trailing" id="8Bb-KD-biI"/>
+                        <constraint firstItem="BNN-WF-eLg" firstAttribute="top" secondItem="FGX-I4-Zmk" secondAttribute="bottom" constant="14" id="C7a-X1-HgG"/>
+                        <constraint firstItem="FGX-I4-Zmk" firstAttribute="leading" secondItem="BNN-WF-eLg" secondAttribute="leading" id="NAh-Zq-6Bf"/>
+                        <constraint firstAttribute="width" constant="69" id="SSw-1M-UBz"/>
+                        <constraint firstItem="FGX-I4-Zmk" firstAttribute="centerX" secondItem="bhG-vr-uih" secondAttribute="centerX" id="Szo-FX-VxO"/>
+                        <constraint firstAttribute="height" constant="115" id="lUe-y5-a7G"/>
+                        <constraint firstItem="FGX-I4-Zmk" firstAttribute="leading" secondItem="bhG-vr-uih" secondAttribute="leading" id="tlc-LE-GWh"/>
+                        <constraint firstItem="FGX-I4-Zmk" firstAttribute="top" secondItem="bhG-vr-uih" secondAttribute="top" id="zXV-vA-hW2"/>
+                    </constraints>
+                </view>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstAttribute="bottom" secondItem="jFn-pR-D3r" secondAttribute="bottom" id="Dlc-HZ-r8P"/>
                 <constraint firstItem="jFn-pR-D3r" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="M1L-2f-I5a"/>
+                <constraint firstItem="bhG-vr-uih" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="100" id="XRh-ik-6h4"/>
+                <constraint firstItem="bhG-vr-uih" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="c1B-TW-FsF"/>
                 <constraint firstAttribute="trailing" secondItem="jFn-pR-D3r" secondAttribute="trailing" id="oQ8-qE-HgJ"/>
                 <constraint firstItem="jFn-pR-D3r" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="yMH-jj-djE"/>
             </constraints>
             <point key="canvasLocation" x="373" y="325"/>
         </view>
     </objects>
+    <resources>
+        <image name="zwxx" width="137" height="159"/>
+    </resources>
 </document>

@@ -86,15 +86,21 @@
         cell.addressLabel.text = app.firAddress;
         cell.iconView.layer.masksToBounds = YES;
         cell.iconView.layer.cornerRadius=40;
+        
         NSData *data=[[NSUserDefaults standardUserDefaults]objectForKey:@"image"];
-        cell.iconView.image=[UIImage imageWithData:data];
+        
+        if (!data) {
+            cell.iconView.image = [UIImage imageNamed:@"touxiang"];
+        }else{
+            
+            cell.iconView.image=[UIImage imageWithData:data];
+        }
         
         return cell;
     }
     if (indexPath.row==1) {
         
         NoticeViewCell *cell=[NoticeViewCell cellWithTableView:self.tableView];
-        //无色
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator; //显示最右边的箭头
         return cell;

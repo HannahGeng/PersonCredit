@@ -108,10 +108,10 @@
     
     static NSString *identifier=@"Identifier";
     RewardViewCell *cell=[tableView dequeueReusableCellWithIdentifier:identifier];
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     if (!cell) {
         cell=[[RewardViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
     }
-    cell.selectionStyle = UITableViewCellSelectionStyleGray;
     if (_rewardInfoArray.count!=0) {
         
         RewardInfo*rewardInfo = _rewardInfoArray[indexPath.row];

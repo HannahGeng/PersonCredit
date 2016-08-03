@@ -15,6 +15,7 @@
     MBProgressHUD * mbHud;//提示
 }
 @property (weak, nonatomic) IBOutlet UITableView *educationTableView;
+@property (weak, nonatomic) IBOutlet UIView *noneView;
 
 @end
 
@@ -28,14 +29,35 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    AppShare;
+    
+    self.noneView.hidden = YES;
+    
     //设置背景颜色
     [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"backgroundImage"]]];
     //设置导航栏
     [self setNavigationBar];
+ 
+    //初始化_noticeInfoArray
+    if (!_educationInfoArray) {
+        _educationInfoArray = [[NSMutableArray alloc] init];
+    }
+    _educationInfoArray = app.educateArray;
     
-    //加载数据
-    [self loadData];
-    
+    if (_educationInfoArray == NULL) {
+        
+        self.educationTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+        self.noneView.hidden = NO;
+        
+    }else{
+        
+        self.educationTableView.scrollEnabled =YES; //设置tableview滚动
+        self.educationTableView.tableFooterView=[[UIView alloc]init];//影藏多余的分割线
+        
+        [self.educationTableView reloadData];
+
+    }
+
 }
 //设置导航栏
 -(void)setNavigationBar
@@ -52,66 +74,22 @@
 {
     [self.navigationController popViewControllerAnimated:YES];
 }
-//加载数据
-- (void)loadData
-{
-    //显示提示
-    mbHUDinit;
-    
-    AppShare;
 
-    //初始化_noticeInfoArray
-    if (!_educationInfoArray) {
-        _educationInfoArray = [[NSMutableArray alloc] init];
-    }
-
-    //初始化请求（同时也创建了一个线程）
-    [[HTTPSessionManager sharedManager] POST:JYJL_URL parameters:Dic result:^(id responseObject, NSError *error) {
-        
-        NSLog(@"\n教育经验：%@",responseObject);
-
-        array = responseObject[@"result"];
-
-        if ([responseObject[@"status"] integerValue] == 1) {
-            
-            app.request=responseObject[@"response"];
-            
-            for (NSDictionary *dictionary in array) {
-                
-                EducationInfo *educationInfo = [[EducationInfo alloc] initWithDictionary:dictionary];
-                [_educationInfoArray addObject:educationInfo];
-                
-            }
-        }else{
-            
-            hudHide;
-            MBhud(responseObject[@"result"]);
-        }
-        
-        self.educationTableView.scrollEnabled =YES; //设置tableview滚动
-        self.educationTableView.tableFooterView=[[UIView alloc]init];//影藏多余的分割线
-        
-        [self.educationTableView reloadData];
-    
-        hudHide;
-
-    }];
-    
-}
 #pragma mark UITableViewDataSource
-
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     return _educationInfoArray.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
     static NSString *identifier=@"Identifier";
     EducationViewCell *cell=[tableView dequeueReusableCellWithIdentifier:identifier];
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    
     if (!cell) {
         cell=[[EducationViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
     }
-    cell.selectionStyle = UITableViewCellSelectionStyleGray;
     if (_educationInfoArray.count!=0) {
         EducationInfo *educationInfo = _educationInfoArray[indexPath.row];
         [cell setContentView:educationInfo];
@@ -123,8 +101,6 @@
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     return 60;
-}
--(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
 }
 
 @end

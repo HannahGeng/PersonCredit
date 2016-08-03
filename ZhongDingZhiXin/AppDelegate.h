@@ -93,5 +93,14 @@
 /** http */
 @property (nonatomic,strong) NSString * http;
 
+/** workArray */
+@property (nonatomic,strong) NSMutableArray * workArray;
+
+/** educateArr */
+@property (nonatomic,strong) NSMutableArray * educateArray;
+
+/** registArray */
+@property (nonatomic,strong) NSMutableArray * registArray;
+
 @end
 

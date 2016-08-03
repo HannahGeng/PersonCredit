@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -8,6 +8,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="EducationExperienceViewController">
             <connections>
                 <outlet property="educationTableView" destination="X2A-2g-eL8" id="8iw-3K-VAu"/>
+                <outlet property="noneView" destination="AcM-yY-1fJ" id="GfP-B9-kll"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -16,7 +17,7 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="X2A-2g-eL8">
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="X2A-2g-eL8">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <connections>
@@ -24,15 +25,48 @@
                         <outlet property="delegate" destination="-1" id="9sE-r6-u49"/>
                     </connections>
                 </tableView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AcM-yY-1fJ">
+                    <rect key="frame" x="126" y="100" width="69" height="115"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="暂无信息" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wIB-LZ-oDf">
+                            <rect key="frame" x="0.0" y="94" width="69" height="18"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="zwxx" translatesAutoresizingMaskIntoConstraints="NO" id="rs5-zJ-3K7">
+                            <rect key="frame" x="0.0" y="0.0" width="69" height="80"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="80" id="Gs3-mT-vQM"/>
+                            </constraints>
+                        </imageView>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="69" id="5jn-ed-WtD"/>
+                        <constraint firstItem="rs5-zJ-3K7" firstAttribute="leading" secondItem="AcM-yY-1fJ" secondAttribute="leading" id="J4C-1P-WQ0"/>
+                        <constraint firstAttribute="height" constant="115" id="PqQ-3f-PmQ"/>
+                        <constraint firstItem="rs5-zJ-3K7" firstAttribute="centerX" secondItem="AcM-yY-1fJ" secondAttribute="centerX" id="ScV-xZ-D8D"/>
+                        <constraint firstItem="rs5-zJ-3K7" firstAttribute="leading" secondItem="wIB-LZ-oDf" secondAttribute="leading" id="UQj-LG-4kp"/>
+                        <constraint firstItem="wIB-LZ-oDf" firstAttribute="top" secondItem="rs5-zJ-3K7" secondAttribute="bottom" constant="14" id="asJ-DR-tuA"/>
+                        <constraint firstItem="rs5-zJ-3K7" firstAttribute="top" secondItem="AcM-yY-1fJ" secondAttribute="top" id="ngt-39-KS7"/>
+                        <constraint firstItem="rs5-zJ-3K7" firstAttribute="trailing" secondItem="wIB-LZ-oDf" secondAttribute="trailing" id="xuQ-aT-bgI"/>
+                    </constraints>
+                </view>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstAttribute="bottom" secondItem="X2A-2g-eL8" secondAttribute="bottom" id="Bp7-23-DH3"/>
+                <constraint firstItem="AcM-yY-1fJ" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="IjI-IP-qlb"/>
                 <constraint firstItem="X2A-2g-eL8" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="Og0-Ke-TLi"/>
                 <constraint firstItem="X2A-2g-eL8" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="TLG-Ja-ND1"/>
                 <constraint firstAttribute="trailing" secondItem="X2A-2g-eL8" secondAttribute="trailing" id="fvC-oL-gny"/>
+                <constraint firstItem="AcM-yY-1fJ" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="100" id="xa9-Ay-nT7"/>
             </constraints>
             <point key="canvasLocation" x="423" y="352"/>
         </view>
     </objects>
+    <resources>
+        <image name="zwxx" width="137" height="159"/>
+    </resources>
 </document>

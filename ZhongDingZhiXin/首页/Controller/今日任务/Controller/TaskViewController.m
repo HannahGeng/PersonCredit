@@ -412,7 +412,7 @@
     
     NearCell * cell = [NearCell cellWithTableView:tableView];
     cell.nearmodel = app.nearArray[indexPath.row];
-    
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
 }
 

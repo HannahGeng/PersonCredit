@@ -30,7 +30,10 @@
     MBProgressHUD * mbHud;
 }
 
+@property (weak, nonatomic) IBOutlet UIView *noneView;
+
 @property (weak, nonatomic) IBOutlet UITableView *messageTableView;
+
 @end
 
 @implementation MessageViewController
@@ -48,6 +51,7 @@
     self.tabBarController.tabBar.hidden=YES;
     
 }
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -66,6 +70,7 @@
     if (!_messageArray) {
         _messageArray = [[NSMutableArray alloc] init];
     }
+    
     _messageArray = app.messages;
     
     [self.messageTableView reloadData];
@@ -162,13 +167,14 @@
 {
     AppShare;
     static NSString *cellIdentifier=@"cellIdentifier";
-    
+        
     _cell=[tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     
     if (!_cell) {
         
         _cell=[[UITableViewCell alloc]initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:cellIdentifier];
-        
+        _cell.selectionStyle = UITableViewCellSelectionStyleNone;
+
         if (indexPath.section==0) {
             
             if (indexPath.row==0) {
@@ -226,9 +232,6 @@
 //图片完成之后处理
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingImage:(UIImage *)image editingInfo:(nullable NSDictionary<NSString *,id> *)editingInfo {
     
-    //image 就是修改后的照片
-    //以下是保存文件到沙盒路径下
-    //把图片转成NSData类型的数据来保存文件
     NSData *data;
     //判断图片是不是png格式的文件
     if (UIImagePNGRepresentation(image)) {
@@ -241,6 +244,7 @@
     
     _imageView.image=[UIImage imageWithData:data];
     [[NSUserDefaults standardUserDefaults] setObject:data forKey:@"image"];
+    
     //结束操作
     [self dismissViewControllerAnimated:YES completion:nil];
 }
