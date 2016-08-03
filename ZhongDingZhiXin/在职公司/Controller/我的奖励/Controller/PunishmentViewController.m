@@ -108,11 +108,14 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     static NSString *identifier=@"Identifier";
+    
     PunishmentViewCell *cell=[tableView dequeueReusableCellWithIdentifier:identifier];
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+
     if (!cell) {
         cell=[[PunishmentViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
     }
-    cell.selectionStyle = UITableViewCellSelectionStyleGray;
+    
     if (_punishmentInfoArray.count!=0) {
         
         PunishmentInfo *punishmentInfo = _punishmentInfoArray[indexPath.row];
