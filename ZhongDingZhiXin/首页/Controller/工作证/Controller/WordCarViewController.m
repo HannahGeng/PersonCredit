@@ -151,8 +151,6 @@
                 _resultDic=responseObject[@"result"];
                 app.request=responseObject[@"response"];
                 
-//                NSLog(@"工作地址:%@,邮箱:%@,工作电话:%@",[AESCrypt decrypt:responseObject[@"result"][@"jobaddress"] password:app.loginKeycode],[AESCrypt decrypt:responseObject[@"result"][@"email"] password:app.loginKeycode],[AESCrypt decrypt:responseObject[@"result"][@"jobphone"] password:app.loginKeycode]);
-                
                 app.email = [AESCrypt decrypt:responseObject[@"result"][@"email"] password:app.loginKeycode];
                 app.workAddress = [AESCrypt decrypt:responseObject[@"result"][@"jobaddress"] password:app.loginKeycode];
                 app.workPhone = [AESCrypt decrypt:responseObject[@"result"][@"jobphone"] password:app.loginKeycode];
@@ -201,7 +199,7 @@
                 app.request=responseObject[@"response"];
                 
                 //隐藏HUD
-                hudHide;
+                hudHide; 
                 
                 arr=[NSArray arrayWithObjects:@"gongzuoz",@"gongzuoz", nil];
                 
@@ -247,4 +245,5 @@
     CGImageRelease(bitmapImage);
     return [UIImage imageWithCGImage:scaledImage];
 }
+
 @end

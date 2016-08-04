@@ -105,6 +105,7 @@
 }
 
 - (void)viewDidLoad {
+    
     [super viewDidLoad];
     
     AppShare;
@@ -135,11 +136,11 @@
     _addressText.text = app.address;
 
     self.backListView.hidden = YES;
- 
+    
 }
 
 //定位成功
--(void)locationManager:(CLLocationManager *)manager1 didUpdateLocations:(NSArray *)locations
+-(void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations
 {
     AppShare;
 
@@ -353,7 +354,17 @@
 }
 
 #pragma mark - 添加大头针
-- (void)touchesEnded:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
+//- (void)touchesEnded:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
+//{
+//    // 移除大头针(模型)
+//    NSArray *annos = self.mapView.annotations;
+//    [self.mapView removeAnnotations:annos];
+//    
+//    NSLog(@"移除");
+//
+//}
+
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
 {
     AppShare;
     
@@ -362,25 +373,34 @@
     CLLocationCoordinate2D pt = [self.mapView convertPoint:point toCoordinateFromView:self.mapView];
     
     NSLog(@"\n标注位置:(%f,%f)",pt.latitude,pt.longitude);
-
-    NSLog(@"\n圆圈中心点坐标:(%f,%f)",app.coordinate.latitude,app.coordinate.longitude);
     
     BMKMapPoint point1 = BMKMapPointForCoordinate(pt);
     BMKMapPoint point2 = BMKMapPointForCoordinate(app.coordinate);
     CLLocationDistance distance = BMKMetersBetweenMapPoints(point1,point2);
     
-    NSLog(@"与圆点距离:%.0f",distance);
-    
-    // 3. 添加大头针
-    [self addAnnoWithPT:pt];
-   
-}
+    if (distance > 1000) {
+        
+        MBhud(@"超出范围");
+        
+    }else{
+        
+        NSArray *annos = self.mapView.annotations;
+        
+        if (annos.count > 0) {
+            
+            NSLog(@"移除");
+            [self.mapView removeAnnotations:annos];
 
-- (void)touchesMoved:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
-{
-    // 移除大头针(模型)
-    NSArray *annos = self.mapView.annotations;
-    [self.mapView removeAnnotations:annos];
+            [self addAnnoWithPT:pt];
+            
+        }else{
+            
+            NSLog(@"添加");
+            // 3. 添加大头针
+            [self addAnnoWithPT:pt];
+        }
+    }
+
 }
 
 - (void)addAnnoWithPT:(CLLocationCoordinate2D)pt
@@ -389,12 +409,15 @@
     anno.coordinate = pt;
     
     [self.mapView addAnnotation:anno];
+    
+    //反地理编码
     CLLocation *loc = [[CLLocation alloc] initWithLatitude:anno.coordinate.latitude longitude:anno.coordinate.longitude];
     [self.geoC reverseGeocodeLocation:loc completionHandler:^(NSArray<CLPlacemark *> * _Nullable placemarks, NSError * _Nullable error) {
         CLPlacemark *pl = [placemarks firstObject];
-        anno.title = pl.locality;
-        anno.subtitle = pl.thoroughfare;
+       
+        NSString * placeName = [NSString stringWithFormat:@"%@%@%@%@",pl.administrativeArea,pl.locality,pl.subLocality,pl.thoroughfare];
         
+        MBhud(placeName);
     }];
     
 }
