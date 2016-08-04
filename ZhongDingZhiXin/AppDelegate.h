@@ -102,5 +102,14 @@
 /** registArray */
 @property (nonatomic,strong) NSMutableArray * registArray;
 
+/** 工作地 */
+@property (nonatomic,strong) NSString * workAddress;
+
+/** 邮箱 */
+@property (nonatomic,strong) NSString * email;
+
+/** 工作电话 */
+@property (nonatomic,strong) NSString * workPhone;
+
 @end
 

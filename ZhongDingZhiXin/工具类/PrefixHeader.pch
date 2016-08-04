@@ -319,13 +319,25 @@ for (int i=0; i<arr.count; i++) { \
     if (i==1) { \
         UIImageView *photoImageView=[[UIImageView alloc]initWithFrame:CGRectMake(([UIUtils getWindowWidth]-200)/2, ([UIUtils getWindowHeight]-300)/2, 200, 200)]; \
         [imageView addSubview:photoImageView]; \
-        UIImage *qrcode = [self createNonInterpolatedUIImageFormCIImage:[self createQRForString:@"http://blog.yourtion.com"] withSize:250.0f]; \
-        UIImage *customQrcode = [self imageBlackToTransparent:qrcode withRed:60.0f andGreen:74.0f andBlue:89.0f]; \
-        photoImageView.image = customQrcode; \
         photoImageView.layer.shadowOffset = CGSizeMake(0, 2); \
         photoImageView.layer.shadowRadius = 2; \
         photoImageView.layer.shadowColor = [UIColor blackColor].CGColor; \
         photoImageView.layer.shadowOpacity = 0.5; \
+        CIFilter *filter = [CIFilter filterWithName:@"CIQRCodeGenerator"];\
+        [filter setDefaults];\
+        NSString * vcard = @"";\
+        vcard = [vcard stringByAppendingFormat:@"BEGIN:VCARD\nVERSION:3.0\nFN:姓名：%@\n",app.name];\
+        NSString *label = app.mobilephone;\
+        vcard = [vcard stringByAppendingFormat:@"TEL;CELL;VOICE:%@\n",label];\
+        vcard = [vcard stringByAppendingFormat:@"TEL;WORK;VOICE:%@\n",app.workPhone];\
+        vcard = [vcard stringByAppendingFormat:@"URL:%@\n",app.http];\
+        vcard = [vcard stringByAppendingFormat:@"ADR;WORK;POSTAL:%@\n",app.workAddress];\
+        vcard = [vcard stringByAppendingFormat:@"EMAIL;PREF;INTERNET:%@\n",app.email];\
+        vcard = [vcard stringByAppendingString:@"END:VCARD"];\
+        NSData* data = [vcard dataUsingEncoding:NSUTF8StringEncoding];\
+        [filter setValue:data forKeyPath:@"inputMessage"];\
+        CIImage *outputImage = [filter outputImage];\
+        photoImageView.image = [self createNonInterpolatedUIImageFormCIImage:outputImage withSize:200];\
     } \
 } \
 [self.scrollView setShowsVerticalScrollIndicator:NO]; \
