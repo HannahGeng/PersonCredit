@@ -162,6 +162,7 @@
                 arr=[NSArray arrayWithObjects:@"gongzuoz2",@"gongzuoz2", nil];
                 
                 workType;
+            
             }];
 
             
@@ -207,7 +208,6 @@
                 workType;
             }];
 
-            
         }else
         {
             hudHide;

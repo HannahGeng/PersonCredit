@@ -280,9 +280,12 @@ for (int i=0; i<arr.count; i++) { \
         [imageView addSubview:NLabel]; \
         UILabel *XMLabel=[[UILabel alloc]initWithFrame:CGRectMake(CGRectGetMaxX(nameLabel.frame)+10, CGRectGetMaxY(AImageView.frame)+10, 100, 35)]; \
         NSString *strMark=[AESCrypt decrypt:_resultDic[@"realname"] password:app.loginKeycode]; \
+        if(strMark.length == 0){\
+        XMLabel.text=@"暂无"; \
+        }else{\
         XMLabel.text=strMark; \
+        }\
         XMLabel.textColor=[UIColor blueColor]; \
-        XMLabel.textAlignment=NSTextAlignmentCenter; \
         [imageView addSubview:XMLabel]; \
         UILabel *line1=[[UILabel alloc]initWithFrame:CGRectMake(([UIUtils getWindowWidth]-200)/2, CGRectGetMaxY(NLabel.frame)+2, 200, 1)]; \
         line1.backgroundColor=[UIColor blueColor]; \
@@ -297,7 +300,11 @@ for (int i=0; i<arr.count; i++) { \
         [imageView addSubview:PLabel]; \
         UILabel *ZWLabel=[[UILabel alloc]initWithFrame:CGRectMake(CGRectGetMaxX(postLabel.frame)+10, CGRectGetMaxY(line1.frame)+10, 200, 35)]; \
         NSString *post=[AESCrypt decrypt:_resultDic[@"position"] password:app.loginKeycode]; \
-        ZWLabel.text=post; \
+        if(post.length == 0){\
+            ZWLabel.text=@"暂无"; \
+        }else{\
+            ZWLabel.text=post; \
+        }\
         ZWLabel.textColor=[UIColor blueColor]; \
         ZWLabel.textAlignment=NSTextAlignmentLeft; \
         [imageView addSubview:ZWLabel]; \
@@ -313,8 +320,12 @@ for (int i=0; i<arr.count; i++) { \
         NoLabel.textColor=[UIColor blueColor]; \
         [imageView addSubview:NoLabel]; \
         UILabel *BHLabel=[[UILabel alloc]initWithFrame:CGRectMake(CGRectGetMaxX(noLabel.frame)+10, CGRectGetMinY(noLabel.frame), 200, 35)]; \
-        NSString *jobNum=[AESCrypt decrypt:_resultDic[@"jobphone"] password:app.loginKeycode]; \
-        BHLabel.text=jobNum; \
+        NSString *jobNum=[AESCrypt decrypt:_resultDic[@"number"] password:app.loginKeycode]; \
+        if(jobNum.length == 0){\
+        BHLabel.text=@"暂无"; \
+        }else{\
+        BHLabel.text=post; \
+        } \
         BHLabel.textAlignment = NSTextAlignmentLeft; \
         BHLabel.textColor=[UIColor blueColor]; \
         [imageView addSubview:BHLabel]; \

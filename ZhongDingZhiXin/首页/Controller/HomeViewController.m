@@ -41,9 +41,9 @@
     //设置导航栏
     [self setNavigationBar];
     
-    self.tableView.backgroundColor=[UIColor clearColor];
+    self.tableView.backgroundColor = [UIColor clearColor];
     self.tableView.scrollEnabled = NO; //设置tableview滚动
-    self.tableView.tableFooterView=[[UIView alloc]init];//影藏多余的分割线
+    self.tableView.tableFooterView = [[UIView alloc]init];//影藏多余的分割线
     
     //初始化_noticeInfoArray
     if (!_noticeInfoArray) {
@@ -52,7 +52,7 @@
     
     for (NSDictionary *dictionary in app.firstArray) {
         
-        NoticeInfo *noticeInfo = [[NoticeInfo alloc] initWithDictionary:dictionary];
+        NoticeInfo * noticeInfo = [[NoticeInfo alloc] initWithDictionary:dictionary];
         
         [_noticeInfoArray addObject:noticeInfo];
     }

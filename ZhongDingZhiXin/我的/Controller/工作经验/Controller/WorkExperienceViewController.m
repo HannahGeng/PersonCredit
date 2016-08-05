@@ -46,7 +46,7 @@
         _workInfoArray = [[NSMutableArray alloc] init];
     }
     _workInfoArray = app.workArray;
-    
+        
     if (_workInfoArray == NULL) {
         
         self.noneView.hidden = NO;
