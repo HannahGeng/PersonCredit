@@ -110,7 +110,20 @@
     
     AppShare;
     
-    _mapView=[[BMKMapView alloc]initWithFrame:CGRectMake(0, 0, [UIUtils getWindowWidth], 370)];
+    if ([UIUtils getWindowWidth] == 375) {//6
+       
+        _mapView=[[BMKMapView alloc]initWithFrame:CGRectMake(0, 0, [UIUtils getWindowWidth], 370)];
+        
+    }else if ([UIUtils getWindowWidth] == 414){//plus
+        
+        _mapView=[[BMKMapView alloc]initWithFrame:CGRectMake(0, 0, [UIUtils getWindowWidth], 440)];
+        
+    }else{//5s
+        
+        _mapView=[[BMKMapView alloc]initWithFrame:CGRectMake(0, 0, [UIUtils getWindowWidth], 320)];
+        
+    }
+    
     
     UIView * topView = [[UIView alloc] init];
     topView.frame = _mapView.frame;
@@ -130,6 +143,7 @@
     //初始化BMKLocationService
     _locService = [[BMKLocationService alloc]init];
     _locService.delegate = self;
+    
     //启动LocationService
     [_locService startUserLocationService];
     
@@ -139,7 +153,7 @@
     
 }
 
-//定位成功
+#pragma mark - CLLocationManagerDelegate定位代理
 -(void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations
 {
     AppShare;
@@ -200,10 +214,10 @@
     [_mapView addSubview:_confirmButton];
     
     //时间戳
-    NSDate *  senddate=[NSDate date];
+    NSDate * senddate=[NSDate date];
     
-    NSDateFormatter  *dateformatter = [[NSDateFormatter alloc] init];
-    NSDateFormatter  *dateformatter2 = [[NSDateFormatter alloc] init];
+    NSDateFormatter * dateformatter = [[NSDateFormatter alloc] init];
+    NSDateFormatter * dateformatter2 = [[NSDateFormatter alloc] init];
     
     [dateformatter setDateFormat:@"YYYY/MM/dd"];
     [dateformatter2 setDateFormat:@"hh:mm"];
@@ -218,7 +232,7 @@
 
 }
 
-//签到
+#pragma mark - 签到按钮
 - (IBAction)signButton:(UIButton *)sender {
     
     AppShare;
@@ -240,6 +254,7 @@
     
 }
 
+#pragma mark - 附近的坐标点击事件
 - (IBAction)nearLoc {
     
     mbHUDinit;
@@ -283,7 +298,7 @@
     
 }
 
-//实现PoiSearchDeleage处理回调结果
+#pragma mark - PoiSearchDeleage
 - (void)onGetPoiResult:(BMKPoiSearch*)searcher result:(BMKPoiResult*)poiResultList errorCode:(BMKSearchErrorCode)error
 {
     AppShare;
@@ -354,16 +369,6 @@
 }
 
 #pragma mark - 添加大头针
-//- (void)touchesEnded:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
-//{
-//    // 移除大头针(模型)
-//    NSArray *annos = self.mapView.annotations;
-//    [self.mapView removeAnnotations:annos];
-//    
-//    NSLog(@"移除");
-//
-//}
-
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
 {
     AppShare;

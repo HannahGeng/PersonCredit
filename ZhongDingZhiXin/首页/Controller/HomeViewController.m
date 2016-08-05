@@ -83,7 +83,7 @@
         TitleViewCell *cell=[TitleViewCell cellWithTableView:self.tableView];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         cell.nameLable.text = app.name;
-        cell.addressLabel.text = app.firAddress;
+        cell.addressLabel.text = [NSString stringWithFormat:@"最近登录信息：%@",app.firAddress];
         cell.iconView.layer.masksToBounds = YES;
         cell.iconView.layer.cornerRadius=40;
         

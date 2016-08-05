@@ -15,6 +15,7 @@
     NSDictionary *_resultDic;
     NSString *_str;
     NSArray *arr;
+    UIImageView *AImageView;
 }
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (nonatomic,strong) NSString * workstyle;

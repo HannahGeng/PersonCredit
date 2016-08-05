@@ -147,24 +147,10 @@
         cell=[[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
         if (indexPath.section==0) {
             //设置cell不可选择
-            cell.selectionStyle = UITableViewCellSelectionStyleNone;
-            UIImage *image1=[UIImage imageNamed:@"ziti-5"];
-            _btn1 = [UIButton buttonWithType:UIButtonTypeCustom];
-            _btn1.frame = CGRectMake([UIUtils getWindowWidth]-100, 10, 30, 30);
-            [_btn1 setTitle:@"小" forState:UIControlStateNormal];
-            
-            _string=APP_Font;
-            _btn1.titleLabel.font=[UIFont systemFontOfSize:13*[_string floatValue]];
-            
-            [_btn1 setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-            [_btn1 setBackgroundImage:image1 forState:UIControlStateSelected];
-            [_btn1 addTarget:self action:@selector(onClick0) forControlEvents:UIControlEventTouchUpInside];
-            [cell addSubview:_btn1];
-
             UIImage *image2=[UIImage imageNamed:@"ziti-5"];
             _btn2 = [UIButton buttonWithType:UIButtonTypeCustom];
             _btn2.frame = CGRectMake([UIUtils getWindowWidth]-70, 10, 30, 30);
-            [_btn2 setTitle:@"中" forState:UIControlStateNormal];
+            [_btn2 setTitle:@"小" forState:UIControlStateNormal];
         
             _string=APP_Font;
             _btn2.titleLabel.font=[UIFont systemFontOfSize:15*[_string floatValue]];
@@ -204,47 +190,36 @@
     return cell;
 }
 
--(void)onClick0
-{
-    NSLog(@"小");
-    [[NSUserDefaults standardUserDefaults]setObject:@"1" forKey:@"change_font"];
-    [[NSUserDefaults standardUserDefaults]synchronize];
-    
-    _btn1.selected=YES;
-    _btn2.selected=NO;
-    _btn3.selected=NO;
-    
-}
 -(void)onClick1
 {
-    NSLog(@"中");
     
     [[NSUserDefaults standardUserDefaults]setObject:@"1.11" forKey:@"change_font"];
     [[NSUserDefaults standardUserDefaults]synchronize];
     
-    _btn1.selected=NO;
     _btn2.selected=YES;
     _btn3.selected=NO;
 }
+
 -(void)onClick2
 {
-    NSLog(@"大");
     
     [[NSUserDefaults standardUserDefaults]setObject:@"1.23" forKey:@"change_font"];
     
-    _btn1.selected=NO;
     _btn2.selected=NO;
     _btn3.selected=YES;
 }
+
 #pragma mark UITableViewDelegate
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     return 50;
 }
+
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
     return 10;
 }
+
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (indexPath.section==1) {
