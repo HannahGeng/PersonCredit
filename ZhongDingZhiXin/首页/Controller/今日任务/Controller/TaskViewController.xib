@@ -101,7 +101,7 @@
                     <rect key="frame" x="0.0" y="0.0" width="320" height="340"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a4N-iS-lrW">
-                            <rect key="frame" x="214" y="300" width="96" height="30"/>
+                            <rect key="frame" x="214" y="290" width="96" height="30"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="30" id="Ch2-sv-3gO"/>
@@ -118,7 +118,7 @@
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vwc-vq-Y8u">
-                            <rect key="frame" x="10" y="300" width="100" height="30"/>
+                            <rect key="frame" x="10" y="290" width="100" height="30"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="100" id="b38-E1-hkY"/>
@@ -127,7 +127,7 @@
                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                             <inset key="titleEdgeInsets" minX="0.0" minY="5" maxX="10" maxY="5"/>
                             <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="15" maxY="0.0"/>
-                            <state key="normal" title="附近坐标" image="jrrwxq">
+                            <state key="normal" title="选取起点" image="jrrwxq">
                                 <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
                             <connections>
@@ -136,10 +136,10 @@
                         </button>
                     </subviews>
                     <constraints>
-                        <constraint firstAttribute="bottom" secondItem="Vwc-vq-Y8u" secondAttribute="bottom" constant="10" id="B4L-bi-SRg"/>
+                        <constraint firstAttribute="bottom" secondItem="Vwc-vq-Y8u" secondAttribute="bottom" constant="20" id="B4L-bi-SRg"/>
                         <constraint firstItem="Vwc-vq-Y8u" firstAttribute="leading" secondItem="q56-kl-bzs" secondAttribute="leading" constant="10" id="JVM-xj-kgA"/>
                         <constraint firstAttribute="trailing" secondItem="a4N-iS-lrW" secondAttribute="trailing" constant="10" id="rge-Td-dlg"/>
-                        <constraint firstAttribute="bottom" secondItem="a4N-iS-lrW" secondAttribute="bottom" constant="10" id="xKS-wv-4He"/>
+                        <constraint firstAttribute="bottom" secondItem="a4N-iS-lrW" secondAttribute="bottom" constant="20" id="xKS-wv-4He"/>
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lO3-8L-9TN" userLabel="backTableView">

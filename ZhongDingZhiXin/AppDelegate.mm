@@ -17,6 +17,8 @@
     UIImageView *_imageView;
     BOOL isOut;
     NSDictionary *dic;
+    BMKMapManager* _mapManager;
+
 }
 
 @end
@@ -31,6 +33,16 @@
 }
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+
+    
+    // 要使用百度地图，请先启动BaiduMapManager
+    _mapManager = [[BMKMapManager alloc]init];
+    
+    // 如果要关注网络及授权验证事件，请设定     generalDelegate参数
+    BOOL ret = [_mapManager start:@"hHtSFomlKjDA3QxbIj0sCQYdLvrgMTu9"  generalDelegate:nil];
+    if (!ret) {
+        NSLog(@"manager start failed!");
+    }
 
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.backgroundColor = [UIColor whiteColor];

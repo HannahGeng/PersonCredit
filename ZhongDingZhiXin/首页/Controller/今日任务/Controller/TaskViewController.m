@@ -79,13 +79,6 @@
     
     //开启定位
     [manager startUpdatingLocation];
-    
-    CLLocationCoordinate2D center = app.coordinate;
-    BMKCoordinateSpan span = BMKCoordinateSpanMake(0.038325, 0.028045);
-    _mapView.limitMapRegion = BMKCoordinateRegionMake(center, span);////限制地图显示范围
-    _mapView.rotateEnabled = NO;//禁用旋转手势
-
-    NSLog(@"我的坐标:(%lf, %lf)", app.coordinate.latitude, app.coordinate.longitude);
 
     //添加圆圈
     BMKCircle* circle = [BMKCircle circleWithCenterCoordinate:app.coordinate radius:1000];
@@ -108,8 +101,6 @@
     
     [super viewDidLoad];
     
-    AppShare;
-    
     if ([UIUtils getWindowWidth] == 375) {//6
        
         _mapView=[[BMKMapView alloc]initWithFrame:CGRectMake(0, 0, [UIUtils getWindowWidth], 370)];
@@ -123,7 +114,6 @@
         _mapView=[[BMKMapView alloc]initWithFrame:CGRectMake(0, 0, [UIUtils getWindowWidth], 320)];
         
     }
-    
     
     UIView * topView = [[UIView alloc] init];
     topView.frame = _mapView.frame;
@@ -146,11 +136,18 @@
     
     //启动LocationService
     [_locService startUserLocationService];
-    
-    _addressText.text = app.address;
 
     self.backListView.hidden = YES;
     
+    //创建定位管理器
+    manager = [[CLLocationManager alloc] init];
+    
+    //设置代理, 通过代理方法接收坐标
+    manager.delegate = self;
+    
+    //开启定位
+    [manager startUpdatingLocation];
+
 }
 
 #pragma mark - CLLocationManagerDelegate定位代理
@@ -166,6 +163,36 @@
     
     app.coordinate = coordinate;
     
+    //反地理编码(逆地理编码) : 把位置信息转换成地址信息
+    CLGeocoder *geocoder = [[CLGeocoder alloc] init];
+    //反地理编码
+    [geocoder reverseGeocodeLocation:location completionHandler:^(NSArray *placemarks, NSError *error) {
+        
+        if (error) {
+            NSLog(@"反地理编码失败!");
+            return ;
+        }
+        
+        //地址信息
+        CLPlacemark *placemark = [placemarks firstObject];
+        
+        app.firAddress = [NSString stringWithFormat:@"%@ %@ %@",placemark.country,placemark.administrativeArea,placemark.locality];
+        app.address = [NSString stringWithFormat:@"%@ %@ %@,%@",placemark.country,placemark.administrativeArea,placemark.locality,placemark.name];
+        
+        _addressText.text = app.address;
+
+    }];
+    
+    CLLocationCoordinate2D center = app.coordinate;
+    BMKCoordinateSpan span = BMKCoordinateSpanMake(0.038325, 0.028045);
+    _mapView.limitMapRegion = BMKCoordinateRegionMake(center, span);////限制地图显示范围
+    _mapView.rotateEnabled = YES;//禁用旋转手势
+    
+    NSLog(@"我的坐标:(%lf, %lf)", app.coordinate.latitude, app.coordinate.longitude);
+    
+    //停止定位
+    [manager stopUpdatingLocation];
+
 }
 
 // 圆形
@@ -357,15 +384,14 @@
         
         NSLog(@"抱歉，未找到结果");
     }
+    
 }
 
 - (IBAction)confirmLoc {
     
     AppShare;
-    
-    MBhud(_addressText.text);
-    
-    app.address = _addressText.text;
+        
+    _addressText.text = app.address;
 }
 
 #pragma mark - 添加大头针
@@ -410,6 +436,7 @@
 
 - (void)addAnnoWithPT:(CLLocationCoordinate2D)pt
 {
+    AppShare;
     XMGAnno *anno = [[XMGAnno alloc] init];
     anno.coordinate = pt;
     
@@ -423,6 +450,8 @@
         NSString * placeName = [NSString stringWithFormat:@"%@%@%@%@",pl.administrativeArea,pl.locality,pl.subLocality,pl.thoroughfare];
         
         MBhud(placeName);
+        
+        app.address = placeName;
     }];
     
 }
