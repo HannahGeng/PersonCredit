@@ -16,21 +16,16 @@
     NSString *_cityName;   // 检索城市名
     NSString *_keyWord;    // 检索关键字
     MBProgressHUD * mbHud;
-    
     BMKGeoCodeSearch * _searcher;
     BMKLocationService * _locService;
     BMKPoiSearch * _poiSearch;
-    
     //定位管理器
     CLLocationManager *manager;
 }
 
-//poi结果信息集合
 @property (retain,nonatomic) NSMutableArray *poiResultArray;
 @property (weak, nonatomic) IBOutlet UILabel *addressText;
-//年月日
 @property (weak, nonatomic) IBOutlet UILabel *timeLabel;
-//时分
 @property (weak, nonatomic) IBOutlet UILabel *detailTimeLabel;
 @property (nonatomic, strong) CLGeocoder *geoC;
 @property (weak, nonatomic) IBOutlet UIButton *nearButton;
@@ -68,8 +63,6 @@
 }
 
 - (void)viewDidAppear:(BOOL)animated {
-
-    AppShare;
     
     //创建定位管理器
     manager = [[CLLocationManager alloc] init];
@@ -79,13 +72,6 @@
     
     //开启定位
     [manager startUpdatingLocation];
-
-    //添加圆圈
-    BMKCircle* circle = [BMKCircle circleWithCenterCoordinate:app.coordinate radius:1000];
-    
-    [_mapView addOverlay:circle];
-
-    _mapView.showsUserLocation = YES;
     
 }
 
@@ -188,10 +174,15 @@
     _mapView.limitMapRegion = BMKCoordinateRegionMake(center, span);////限制地图显示范围
     _mapView.rotateEnabled = YES;//禁用旋转手势
     
-    NSLog(@"我的坐标:(%lf, %lf)", app.coordinate.latitude, app.coordinate.longitude);
-    
     //停止定位
     [manager stopUpdatingLocation];
+    
+    //添加圆圈
+    BMKCircle* circle = [BMKCircle circleWithCenterCoordinate:app.coordinate radius:1000];
+    
+    [_mapView addOverlay:circle];
+    
+    _mapView.showsUserLocation = YES;
 
 }
 
@@ -419,14 +410,12 @@
         
         if (annos.count > 0) {
             
-            NSLog(@"移除");
             [self.mapView removeAnnotations:annos];
 
             [self addAnnoWithPT:pt];
             
         }else{
             
-            NSLog(@"添加");
             // 3. 添加大头针
             [self addAnnoWithPT:pt];
         }
@@ -445,6 +434,7 @@
     //反地理编码
     CLLocation *loc = [[CLLocation alloc] initWithLatitude:anno.coordinate.latitude longitude:anno.coordinate.longitude];
     [self.geoC reverseGeocodeLocation:loc completionHandler:^(NSArray<CLPlacemark *> * _Nullable placemarks, NSError * _Nullable error) {
+        
         CLPlacemark *pl = [placemarks firstObject];
        
         NSString * placeName = [NSString stringWithFormat:@"%@%@%@%@",pl.administrativeArea,pl.locality,pl.subLocality,pl.thoroughfare];

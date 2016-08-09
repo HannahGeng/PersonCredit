@@ -253,6 +253,8 @@
         
         AppShare;
         
+        mbHUDinit;
+        
         //获取用户最新的版本号:info.plist
         curVersion = [NSBundle mainBundle].infoDictionary[@"CFBundleShortVersionString"];
         systype = @"1";
@@ -294,13 +296,40 @@
 
 - (void)update
 {
-    
     NSDictionary * pdic = [NSDictionary dictionaryWithObjectsAndKeys:curVersion,@"version",systype,@"systype", nil];
     
-    [[HTTPSessionManager sharedManager] POST:UPDATE_URL parameters:pdic result:^(id responseObject, NSError *error) {
-       
-        NSLog(@"强制更新:%@",responseObject);
+    AFNetworkReachabilityManager * mgr = [AFNetworkReachabilityManager sharedManager];
+    [mgr startMonitoring];
+    
+    [mgr setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {
+        
+        if (status != 0) {
+            
+            [[HTTPSessionManager sharedManager] POST:UPDATE_URL parameters:pdic result:^(id responseObject, NSError *error) {
+                
+                hudHide;
+
+                NSLog(@"强制更新:%@",responseObject);
+
+                if ([responseObject[@"status"] integerValue] == 1) {
+                
+                    if ([responseObject[@"result"][@"flag"] integerValue] == 1) {
+                        
+                        MBhud(@"已是最新版本");
+                    }else
+                    {
+                        MBhud(@"你有新的版本");
+                    }
+                }
+            }];
+            
+        }else
+        {
+            noWebhud;
+        }
+        
     }];
+    
 }
 
 //监听点击事件 代理方法

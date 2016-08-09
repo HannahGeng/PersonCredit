@@ -36,6 +36,7 @@
     [self loadData];//假数据
     
 }
+
 //设置导航栏
 -(void)setNavigationBar
 {
@@ -46,6 +47,7 @@
      @{NSFontAttributeName:[UIFont systemFontOfSize:20],
        NSForegroundColorAttributeName:[UIColor whiteColor]}];
 }
+
 -(void)loadData{
     
     _tableDataArray=@[@{@"image":@"zzgg",@"title":@"在职公司公告"},
@@ -69,7 +71,6 @@
 }
 
 #pragma mark UITableViewDataSource
-
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     return 3;
@@ -88,16 +89,18 @@
     
     return cell;
 }
-#pragma mark UITableViewDelegate
 
+#pragma mark UITableViewDelegate
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     
     return 80;
 }
+
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
     return 3;
 }
+
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
     if (indexPath.row==0) {
