@@ -92,7 +92,7 @@
         _textView.text=[self filterHtmlTag:strContent];
         
         //时间
-        NSString * str = [NSString new];
+        NSString * str = [AESCrypt decrypt:self.noticeInfo.mark password:app.loginKeycode];
         timeCover;
         _timeLabel.text = currentDateStr;
         

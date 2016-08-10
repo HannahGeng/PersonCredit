@@ -41,12 +41,14 @@
     [self loadData];//假数据
     
 }
+
 //设置导航栏
 -(void)setNavigationBar
 {
     //设置导航栏的颜色
     NavBarType(@"其他")
 }
+
 -(void)loadData{
     
     _tableDataArray=@[@{@"image":@"guanyuzhongding",@"title":@"关于中鼎"},
@@ -94,10 +96,12 @@
     return 80;
     
 }
+
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
     return 3;
 }
+
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
     if (indexPath.row==0) {

@@ -28,6 +28,7 @@
     NSString * systype;
     MBProgressHUD * mbHud;
 }
+
 @end
 
 @implementation SetViewController
@@ -50,6 +51,7 @@
     self.tabBarController.tabBar.hidden=YES;
     
 }
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     //设置背景颜色
@@ -59,6 +61,7 @@
     //添加内容视图
     [self addContentView];
 }
+
 //设置导航栏
 -(void)setNavigationBar
 {
@@ -68,6 +71,7 @@
     //为导航栏添加左侧按钮
     leftButton;
 }
+
 -(void)backButton
 {
     [self.navigationController popViewControllerAnimated:YES];
@@ -115,6 +119,7 @@
     [self.view addSubview:_titleLable5];
     
 }
+
 -(void)cancelButton
 {
     [self.navigationController popViewControllerAnimated:YES];
@@ -125,6 +130,7 @@
 {
     return 4;
 }
+
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     if (section==0) {
@@ -137,6 +143,7 @@
         return 1;
     }
 }
+
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *cellIdentifier=@"cellIdentifier";
