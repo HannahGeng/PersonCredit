@@ -10,6 +10,9 @@
 
 @interface AboutViewController ()
 
+@property (weak, nonatomic) IBOutlet UITextView *aboutText;
+@property (weak, nonatomic) IBOutlet UIScrollView *aboutScrollView;
+
 @end
 
 @implementation AboutViewController
@@ -26,6 +29,12 @@
     NavBarType(@"关于我们")
     leftButton;
     
+    //设置scrollView
+    self.aboutScrollView.showsHorizontalScrollIndicator = NO;
+    self.aboutScrollView.showsVerticalScrollIndicator = NO;
+    self.aboutScrollView.contentSize = CGSizeMake(0, 1000);
+    self.aboutScrollView.contentOffset = CGPointMake(0, 0);
+
 }
 
 - (void)backButton
