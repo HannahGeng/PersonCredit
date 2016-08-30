@@ -68,7 +68,8 @@
     [[HTTPSessionManager sharedManager] POST:GGTZ_URL parameters:Dic result:^(id responseObject, NSError *error) {
         
         NSArray *array = (NSArray *)responseObject[@"result"];
-        if (array.count!=0) {
+        
+        if ([responseObject[@"status"] integerValue] == 1) {
             
             app.request=responseObject[@"response"];
             
@@ -85,6 +86,9 @@
             //隐藏HUD
             hudHide;
             
+        }else{
+            
+            hudHide;
         }
         
     }];
@@ -111,6 +115,7 @@
         NoticeInfo *noticeInfo = _noticeInfoArray[indexPath.row];
         [cell setContentView:noticeInfo];
      }
+    
     return cell;
 }
 

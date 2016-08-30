@@ -1,67 +1,39 @@
 //
 //  MarketViewCell.m
-//  ZhongDingZhiXin
+//  个人职业信用
 //
-//  Created by zdzx-008 on 15/9/25.
-//  Copyright (c) 2015年 张豪. All rights reserved.
+//  Created by zdzx-008 on 16/8/30.
+//  Copyright © 2016年 北京职信鼎程. All rights reserved.
 //
 
 #import "MarketViewCell.h"
 
-@interface MarketViewCell ()
-{
-    UIImageView *_topImage;
-    UIImageView *_pointImage;
-    UILabel *_titleLabel;
-}
-@end
-
 @implementation MarketViewCell
 
--(void)viewWillAppear:(BOOL)animated{
++ (instancetype)cellWithTableView:(UITableView *)tableView
+{
+    MarketViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"work"];
     
-    NSString *string=APP_Font;
-    _titleLabel.font=[UIFont systemFontOfSize:17*[string floatValue]];
-}
--(instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier{
-    
-    self=[super initWithStyle:style reuseIdentifier:reuseIdentifier];
-    if (self) {
+    if (cell == nil) {
         
-        self.selectionStyle = UITableViewCellSelectionStyleNone;
-        //添加内容视图
-        [self addContentView];
-    }
-    return self;
-    
-}
-//添加内容视图
--(void)addContentView{
-    
-    NSString *str=APP_Font;
-    if (!str){
-        [[NSUserDefaults standardUserDefaults]setObject:@"1" forKey:@"change_font"];
-        [[NSUserDefaults standardUserDefaults]synchronize];
+        cell = [[[NSBundle mainBundle] loadNibNamed:NSStringFromClass(self) owner:nil options:nil] lastObject];
     }
     
-    _topImage=[[UIImageView alloc] initWithFrame:CGRectMake(0, 0, [UIUtils getWindowWidth], 10)];
-    _topImage.image=[UIImage imageNamed:@"backgroundImage"];
-    [self addSubview:_topImage];
-    
-//    _pointImage =[[UIImageView alloc] initWithFrame:CGRectMake(15, CGRectGetMaxY(_topImage.frame)+7, 30, 30)];
-//    [self addSubview:_pointImage];
-    
-//    _titleLabel=[[UILabel alloc] initWithFrame:CGRectMake(CGRectGetMaxX(_pointImage.frame)+10, CGRectGetMaxY(_topImage.frame)+7, [UIUtils getWindowWidth]-CGRectGetMaxX(_pointImage.frame)-50-10, 30)];
-//    _titleLabel.font=[UIFont systemFontOfSize:17];
-//    [self addSubview:_titleLabel];
-    
+    return cell;
 }
 
--(void)setContentView:(NSDictionary *)dictionary{
+- (void)setMarket:(MarketModel *)market
+{
+    _market = market;
     
-    _pointImage.image=[UIImage imageNamed:dictionary[@"image"]];
-    _titleLabel.text=dictionary[@"title"];
+    AppShare;
+    //公司名
+    self.companyName.text = [AESCrypt decrypt:market.companyName password:app.loginKeycode];
+    
+    //时间
+    NSString * str = [AESCrypt decrypt:market.invitationTime password:app.loginKeycode];
+    timeCover;
+    self.timeLabel.text = currentDateStr;
 }
-
 
 @end

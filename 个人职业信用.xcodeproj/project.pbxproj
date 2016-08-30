@@ -52,7 +52,6 @@
 		3D4F9F541D2B663800A1C1A5 /* TitleViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D4F9F3B1D2B663800A1C1A5 /* TitleViewCell.xib */; };
 		3D4F9F5D1D2B667F00A1C1A5 /* MarketViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D4F9F581D2B667F00A1C1A5 /* MarketViewController.m */; };
 		3D4F9F5E1D2B667F00A1C1A5 /* MarketViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D4F9F591D2B667F00A1C1A5 /* MarketViewController.xib */; };
-		3D4F9F5F1D2B667F00A1C1A5 /* MarketViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D4F9F5C1D2B667F00A1C1A5 /* MarketViewCell.m */; };
 		3D4F9F851D2B67C100A1C1A5 /* MyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D4F9F631D2B67C100A1C1A5 /* MyViewController.m */; };
 		3D4F9F861D2B67C100A1C1A5 /* MessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D4F9F671D2B67C100A1C1A5 /* MessageViewController.m */; };
 		3D4F9F871D2B67C100A1C1A5 /* MessageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D4F9F681D2B67C100A1C1A5 /* MessageViewController.xib */; };
@@ -82,6 +81,9 @@
 		3D55D1FA1D45EB7C00FE7100 /* libMJExtension.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D55D1F91D45EB7C00FE7100 /* libMJExtension.a */; };
 		3D55D1FC1D45EB8600FE7100 /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D55D1FB1D45EB8600FE7100 /* libsqlite3.0.tbd */; };
 		3D55D1FE1D45EC5A00FE7100 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D55D1FD1D45EC5A00FE7100 /* CoreTelephony.framework */; };
+		3D5AEC441D7527E800BFCBC2 /* MarketViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D5AEC421D7527E800BFCBC2 /* MarketViewCell.m */; };
+		3D5AEC451D7527E800BFCBC2 /* MarketViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D5AEC431D7527E800BFCBC2 /* MarketViewCell.xib */; };
+		3D5AEC491D752AAA00BFCBC2 /* MarketModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D5AEC481D752AAA00BFCBC2 /* MarketModel.m */; };
 		3D6361D51D73CBAD006EEC27 /* ForgetPassWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D6361D31D73CBAD006EEC27 /* ForgetPassWebViewController.m */; };
 		3D6361D61D73CBAD006EEC27 /* ForgetPassWebViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D6361D41D73CBAD006EEC27 /* ForgetPassWebViewController.xib */; };
 		3D6EC3641D3E1A7300F59D31 /* PasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D6EC3621D3E1A7300F59D31 /* PasswordViewController.m */; };
@@ -202,8 +204,6 @@
 		3D4F9F571D2B667F00A1C1A5 /* MarketViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MarketViewController.h; sourceTree = "<group>"; };
 		3D4F9F581D2B667F00A1C1A5 /* MarketViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MarketViewController.m; sourceTree = "<group>"; };
 		3D4F9F591D2B667F00A1C1A5 /* MarketViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MarketViewController.xib; sourceTree = "<group>"; };
-		3D4F9F5B1D2B667F00A1C1A5 /* MarketViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MarketViewCell.h; sourceTree = "<group>"; };
-		3D4F9F5C1D2B667F00A1C1A5 /* MarketViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MarketViewCell.m; sourceTree = "<group>"; };
 		3D4F9F621D2B67C100A1C1A5 /* MyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyViewController.h; sourceTree = "<group>"; };
 		3D4F9F631D2B67C100A1C1A5 /* MyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyViewController.m; sourceTree = "<group>"; };
 		3D4F9F661D2B67C100A1C1A5 /* MessageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MessageViewController.h; path = ../MessageViewController.h; sourceTree = "<group>"; };
@@ -253,6 +253,11 @@
 		3D55D1F91D45EB7C00FE7100 /* libMJExtension.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libMJExtension.a; path = "../../Library/Developer/Xcode/DerivedData/ZhongDingZhiXin-gulvxipchdmhenetfjstkpiueiaf/Build/Products/Debug-iphoneos/libMJExtension.a"; sourceTree = "<group>"; };
 		3D55D1FB1D45EB8600FE7100 /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
 		3D55D1FD1D45EC5A00FE7100 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		3D5AEC411D7527E800BFCBC2 /* MarketViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MarketViewCell.h; sourceTree = "<group>"; };
+		3D5AEC421D7527E800BFCBC2 /* MarketViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MarketViewCell.m; sourceTree = "<group>"; };
+		3D5AEC431D7527E800BFCBC2 /* MarketViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MarketViewCell.xib; sourceTree = "<group>"; };
+		3D5AEC471D752AAA00BFCBC2 /* MarketModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MarketModel.h; sourceTree = "<group>"; };
+		3D5AEC481D752AAA00BFCBC2 /* MarketModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MarketModel.m; sourceTree = "<group>"; };
 		3D6361D21D73CBAD006EEC27 /* ForgetPassWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ForgetPassWebViewController.h; sourceTree = "<group>"; };
 		3D6361D31D73CBAD006EEC27 /* ForgetPassWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForgetPassWebViewController.m; sourceTree = "<group>"; };
 		3D6361D41D73CBAD006EEC27 /* ForgetPassWebViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ForgetPassWebViewController.xib; sourceTree = "<group>"; };
@@ -565,6 +570,7 @@
 			isa = PBXGroup;
 			children = (
 				3D4F9F561D2B667F00A1C1A5 /* Controller */,
+				3D5AEC461D752A8C00BFCBC2 /* Model */,
 				3D4F9F5A1D2B667F00A1C1A5 /* View */,
 			);
 			path = "职场";
@@ -583,8 +589,9 @@
 		3D4F9F5A1D2B667F00A1C1A5 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				3D4F9F5B1D2B667F00A1C1A5 /* MarketViewCell.h */,
-				3D4F9F5C1D2B667F00A1C1A5 /* MarketViewCell.m */,
+				3D5AEC411D7527E800BFCBC2 /* MarketViewCell.h */,
+				3D5AEC421D7527E800BFCBC2 /* MarketViewCell.m */,
+				3D5AEC431D7527E800BFCBC2 /* MarketViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -923,6 +930,16 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		3D5AEC461D752A8C00BFCBC2 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				3D5AEC471D752AAA00BFCBC2 /* MarketModel.h */,
+				3D5AEC481D752AAA00BFCBC2 /* MarketModel.m */,
+			);
+			name = Model;
+			path = Controller;
+			sourceTree = "<group>";
+		};
 		3D6313701BE8A5180093A637 /* framework */ = {
 			isa = PBXGroup;
 			children = (
@@ -1252,6 +1269,7 @@
 				3DB175DF1D3C7941005F91CB /* WorkViewCell.xib in Resources */,
 				3D4F9F4A1D2B663800A1C1A5 /* WordCarViewController.xib in Resources */,
 				3D6361D61D73CBAD006EEC27 /* ForgetPassWebViewController.xib in Resources */,
+				3D5AEC451D7527E800BFCBC2 /* MarketViewCell.xib in Resources */,
 				3D4F9FB11D2B80B800A1C1A5 /* PunishmentViewController.xib in Resources */,
 				3D4F9FB51D2B80B800A1C1A5 /* RewardViewController.xib in Resources */,
 				3DFC2FA01BB3A46B004A83B0 /* Main.storyboard in Resources */,
@@ -1340,7 +1358,6 @@
 				3DC0B04F1D3CC32300194166 /* QuestionCell.m in Sources */,
 				3D4F9F411D2B663800A1C1A5 /* TaskView.m in Sources */,
 				3D4F9F481D2B663800A1C1A5 /* TableNoticeViewCell.m in Sources */,
-				3D4F9F5F1D2B667F00A1C1A5 /* MarketViewCell.m in Sources */,
 				3D4F9FD21D2B817100A1C1A5 /* FeedbackViewController.m in Sources */,
 				3D4F9F3C1D2B663800A1C1A5 /* HomeViewController.m in Sources */,
 				3D7C9BBB1D4864A10099FAB8 /* AboutViewController.m in Sources */,
@@ -1385,9 +1402,11 @@
 				3DFC2F971BB3A46B004A83B0 /* main.m in Sources */,
 				3D4F9FB01D2B80B800A1C1A5 /* PunishmentViewController.m in Sources */,
 				3D6361D51D73CBAD006EEC27 /* ForgetPassWebViewController.m in Sources */,
+				3D5AEC441D7527E800BFCBC2 /* MarketViewCell.m in Sources */,
 				3D4F9FAF1D2B80B800A1C1A5 /* CompanyViewController.m in Sources */,
 				3D4F9F031D2B645900A1C1A5 /* KSTabBarController.m in Sources */,
 				3DDF6B1E1D2F51040046E163 /* AESCrypt.m in Sources */,
+				3D5AEC491D752AAA00BFCBC2 /* MarketModel.m in Sources */,
 				3D4F9FD41D2B817100A1C1A5 /* SetViewController.m in Sources */,
 				3D4F9FD51D2B817100A1C1A5 /* OtherViewCell.m in Sources */,
 				3D4F9F5D1D2B667F00A1C1A5 /* MarketViewController.m in Sources */,

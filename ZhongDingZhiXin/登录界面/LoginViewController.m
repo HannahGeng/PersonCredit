@@ -38,9 +38,12 @@
     UIView *view = [[NSBundle mainBundle] loadNibNamed:@"LoginViewController" owner:self options:nil][0];
     self.view=view;
     
-    //设置背景颜色
-    [_userName setText:@"waiwai400@sina.com"];
-    [_userPass setText:@"lx1437"];
+    //读取用户名和密码
+    _userName.text = [[NSUserDefaults standardUserDefaults] stringForKey:@"user"];
+    
+    _userPass.text = [[NSUserDefaults standardUserDefaults] stringForKey:@"pass"];
+    
+    [[NSUserDefaults standardUserDefaults] synchronize];
     
     AFNetworkReachabilityManager * mgr = [AFNetworkReachabilityManager sharedManager];
     [mgr startMonitoring];
@@ -172,6 +175,10 @@
 -(void)loginSuccess
 {
     AppShare;
+    
+    //保存用户名和密码
+    [[NSUserDefaults standardUserDefaults] setObject:_userName.text forKey:@"user"];
+    [[NSUserDefaults standardUserDefaults] setObject:_userPass.text forKey:@"pass"];
 
     //加密
     NSString *encryptionStr1 = [AESCrypt encrypt:_userName.text password:app.noLoginkeycode];

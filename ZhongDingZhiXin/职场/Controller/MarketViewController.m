@@ -9,11 +9,11 @@
 #import "MarketViewController.h"
 
 @interface MarketViewController ()<UITableViewDataSource,UITableViewDelegate>
-{
-    UITableView *_tableView;
-}
+
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
+
 @property (weak, nonatomic) IBOutlet UIImageView *backgroundImageView;
-@property (nonatomic,strong) NSArray * tableDataArray;
+@property (nonatomic,strong) NSMutableArray * tableDataArray;
 
 @end
 
@@ -26,8 +26,6 @@
     [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"backgroundImage"]]];
     //设置导航栏
     [self setNavigationBar];
-    //加载tableView
-    [self addTableView];
     
     //加载数据
     [self loadData];
@@ -41,26 +39,56 @@
     NavBarType(@"职位邀请")
 }
 
-//加载tableView
-- (void)addTableView {
-    
-    _tableView=[[UITableView alloc]initWithFrame:CGRectMake(0, 0, [UIUtils getWindowWidth], [UIUtils getWindowHeight]-100) style:UITableViewStylePlain];
-    _tableView.backgroundColor=[UIColor clearColor];
-    _tableView.dataSource=self;
-    _tableView.delegate=self;
-    _tableView.scrollEnabled = NO;
-    _tableView.separatorStyle=UITableViewCellSeparatorStyleNone;
-    [self.view addSubview:_tableView];
-    [_tableView reloadData];
-}
-
 - (void)loadData
 {
     AppShare;
     
+    if (!_tableDataArray) {
+        _tableDataArray = [[NSMutableArray alloc] init];
+    }
+    
     [[HTTPSessionManager sharedManager] POST:WORK_URL parameters:Dic result:^(id responseObject, NSError *error) {
        
         NSLog(@"职位邀请:%@",responseObject);
+        
+        if ([responseObject[@"status"] integerValue] == 1) {
+            
+            _backgroundImageView.hidden = YES;
+            
+            app.request=responseObject[@"response"];
+            
+            NSArray * array = responseObject[@"result"];
+            
+            for (NSDictionary *dictionary in array) {
+                
+                MarketModel * market = [[MarketModel alloc] initWithDic:dictionary];
+                
+                [_tableDataArray addObject:market];
+            }
+            
+            NSLog(@"数组:%@",_tableDataArray);
+            
+            self.tableView.backgroundColor=[UIColor clearColor];
+            self.tableView.scrollEnabled =YES; //设置tableview滚动
+            self.tableView.tableFooterView=[[UIView alloc]init];//影藏多余的分割线
+            
+            [self.tableView reloadData];
+        }
+        
+        NSLog(@"uid:%@",[AESCrypt decrypt:responseObject[@"result"][0][@"uid"] password:app.loginKeycode]);
+        
+        NSLog(@"invitationContent:%@",[AESCrypt decrypt:responseObject[@"result"][0][@"invitationContent"] password:app.loginKeycode]);
+        
+        NSLog(@"companyName:%@",[AESCrypt decrypt:responseObject[@"result"][0][@"companyName"] password:app.loginKeycode]);
+        
+        NSLog(@"invitationTime:%@",[AESCrypt decrypt:responseObject[@"result"][0][@"invitationTime"] password:app.loginKeycode]);
+        
+        NSString * str = [AESCrypt decrypt:responseObject[@"result"][0][@"invitationTime"] password:app.loginKeycode];
+        
+        timeCover;
+        
+        NSLog(@"时间:%@",currentDateStr);
+
     }];
 }
 
@@ -68,18 +96,14 @@
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 0;
+    return self.tableDataArray.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    static NSString *cellIdentifier=@"cellIdentifier";
-    MarketViewCell *cell=[tableView dequeueReusableCellWithIdentifier:cellIdentifier];
-    if (!cell) {
-        cell=[[MarketViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
-    }
-    cell.selectionStyle = UITableViewCellSelectionStyleGray;
-    [cell setContentView:_tableDataArray[indexPath.row]];
+    MarketViewCell * cell = [MarketViewCell cellWithTableView:tableView];
+    
+    cell.market = self.tableDataArray[indexPath.row];
     
     return cell;
 }

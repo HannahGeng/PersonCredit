@@ -51,7 +51,7 @@
     _tableDataArray=@[@{@"image":@"xinxi",@"title":@"基本信息"},
                       @{@"image":@"gzjy",@"title":@"工作经验"},
                       @{@"image":@"jyjl",@"title":@"教育经历"},
-                      @{@"image":@"qdjl",@"title":@"签到记录"}];
+                      @{@"image":@"qdjl",@"title":@"签到列表"}];
 }
 
 //加载tableView
@@ -89,16 +89,20 @@
     
     return cell;
 }
+
 #pragma mark UITableViewDelegate
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    
     return 80;
     
 }
+
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
     return 3;
 }
+
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
         
     if (indexPath.row==0) {
@@ -168,7 +172,6 @@
                 
             }];
 
-            
         }else
         {
             noWebhud;
