@@ -146,12 +146,20 @@
     {
         UIAlertView* alter=[[UIAlertView alloc]initWithTitle:@"温馨提示" message:@"亲，输入你的账号密码就可以登录咯" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:@"取消", nil];
         [alter show];
+        hudHide;
         
     }else{
         
         [self loginSuccess];
         
     }
+}
+
+- (IBAction)forgetPass {
+        
+    ForgetPassWebViewController * forget = [[ForgetPassWebViewController alloc] init];
+    
+    [self.navigationController pushViewController:forget animated:YES];
 }
 
 //键盘退下事件的处理
@@ -193,6 +201,7 @@
                     
                 }else{
                     
+                    hudHide;
                     UIAlertView* alter=[[UIAlertView alloc]initWithTitle:@"很抱歉" message:@"亲，你输入的账号或者密码有误" delegate:nil cancelButtonTitle:@"我看一下" otherButtonTitles:@"重新输入", nil];
                     [alter show];
                 }
@@ -211,7 +220,6 @@
 
 - (void)loadFirst
 {
-    
     AppShare;
     
     //初始化请求（同时也创建了一个线程）

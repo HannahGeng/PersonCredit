@@ -20,12 +20,6 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="手机/邮箱/用户名" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="feE-5w-vT8">
-                    <rect key="frame" x="65" y="135" width="255" height="50"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                    <textInputTraits key="textInputTraits" keyboardType="namePhonePad"/>
-                </textField>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W2J-iF-PtM">
                     <rect key="frame" x="22" y="259" width="276" height="40"/>
                     <color key="backgroundColor" red="0.1082744504" green="0.52238516869999996" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -65,11 +59,11 @@
                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="密码" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bcR-eU-GYA">
-                    <rect key="frame" x="65" y="186" width="255" height="50"/>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="密码" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="bcR-eU-GYA">
+                    <rect key="frame" x="65" y="186" width="233" height="50"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                    <textInputTraits key="textInputTraits"/>
+                    <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                 </textField>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="yonghuming" translatesAutoresizingMaskIntoConstraints="NO" id="6MO-VB-IeP">
                     <rect key="frame" x="27" y="150" width="20" height="20"/>
@@ -96,15 +90,30 @@
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
                 </imageView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lNr-Tl-N23">
+                    <rect key="frame" x="238" y="319" width="60" height="30"/>
+                    <state key="normal" title="忘记密码"/>
+                    <connections>
+                        <action selector="forgetPass" destination="-1" eventType="touchUpInside" id="Fb8-9U-cTV"/>
+                    </connections>
+                </button>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="邮箱/用户名" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="feE-5w-vT8">
+                    <rect key="frame" x="65" y="135" width="233" height="50"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="yob-mv-2Sh" firstAttribute="top" secondItem="6MO-VB-IeP" secondAttribute="bottom" constant="15" id="0kr-lm-g4X"/>
                 <constraint firstItem="PmM-w4-aim" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="20" id="3fS-8P-cnh"/>
                 <constraint firstItem="Qjd-QG-FG9" firstAttribute="top" secondItem="bcR-eU-GYA" secondAttribute="bottom" constant="1" id="ACP-SR-qOF"/>
+                <constraint firstItem="lNr-Tl-N23" firstAttribute="top" secondItem="W2J-iF-PtM" secondAttribute="bottom" constant="20" id="BB2-Ng-Pv8"/>
                 <constraint firstItem="yob-mv-2Sh" firstAttribute="top" secondItem="feE-5w-vT8" secondAttribute="bottom" id="Bfb-Dm-NAs"/>
                 <constraint firstItem="feE-5w-vT8" firstAttribute="leading" secondItem="6MO-VB-IeP" secondAttribute="trailing" constant="18" id="C5A-uf-6ef"/>
                 <constraint firstItem="feE-5w-vT8" firstAttribute="leading" secondItem="bcR-eU-GYA" secondAttribute="leading" id="D1l-fh-Lhx"/>
+                <constraint firstItem="lNr-Tl-N23" firstAttribute="trailing" secondItem="W2J-iF-PtM" secondAttribute="trailing" id="Et9-fp-NQQ"/>
                 <constraint firstItem="6MO-VB-IeP" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="27" id="F6b-E1-v6P"/>
                 <constraint firstItem="yob-mv-2Sh" firstAttribute="leading" secondItem="Qjd-QG-FG9" secondAttribute="leading" id="MXc-Cc-lwZ"/>
                 <constraint firstItem="bcR-eU-GYA" firstAttribute="top" secondItem="yob-mv-2Sh" secondAttribute="bottom" id="MaB-gk-UBH"/>
@@ -112,8 +121,10 @@
                 <constraint firstItem="W2J-iF-PtM" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="asr-9A-ZLo"/>
                 <constraint firstItem="6MO-VB-IeP" firstAttribute="trailing" secondItem="vEk-2x-nq1" secondAttribute="trailing" id="bgO-r8-ar2"/>
                 <constraint firstItem="feE-5w-vT8" firstAttribute="centerY" secondItem="6MO-VB-IeP" secondAttribute="centerY" id="cC4-Ea-fdY"/>
+                <constraint firstItem="feE-5w-vT8" firstAttribute="trailing" secondItem="yob-mv-2Sh" secondAttribute="trailing" id="cOp-HX-XEj"/>
                 <constraint firstItem="W2J-iF-PtM" firstAttribute="top" secondItem="Qjd-QG-FG9" secondAttribute="bottom" constant="21" id="eKT-j2-BOl"/>
                 <constraint firstItem="Qjd-QG-FG9" firstAttribute="top" secondItem="vEk-2x-nq1" secondAttribute="bottom" constant="17" id="eej-67-tqk"/>
+                <constraint firstItem="bcR-eU-GYA" firstAttribute="trailing" secondItem="Qjd-QG-FG9" secondAttribute="trailing" id="hxo-0S-xSZ"/>
                 <constraint firstItem="W2J-iF-PtM" firstAttribute="leading" secondItem="Qjd-QG-FG9" secondAttribute="leading" id="jQD-fy-84t"/>
                 <constraint firstItem="feE-5w-vT8" firstAttribute="top" secondItem="PmM-w4-aim" secondAttribute="bottom" constant="15" id="joz-8W-ggW"/>
                 <constraint firstItem="yob-mv-2Sh" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="22" id="ltb-gT-2dF"/>
@@ -125,6 +136,12 @@
                 <constraint firstAttribute="trailing" secondItem="bcR-eU-GYA" secondAttribute="trailing" id="wxP-sM-Zi0"/>
             </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="qQa-Ol-0bB"/>
+                    <exclude reference="wxP-sM-Zi0"/>
+                </mask>
+            </variation>
             <point key="canvasLocation" x="339" y="340"/>
         </view>
     </objects>

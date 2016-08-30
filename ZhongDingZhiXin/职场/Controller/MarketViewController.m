@@ -28,14 +28,19 @@
     [self setNavigationBar];
     //加载tableView
     [self addTableView];
+    
+    //加载数据
+    [self loadData];
 
 }
+
 //设置导航栏
 -(void)setNavigationBar
 {
     //设置导航栏的颜色
     NavBarType(@"职位邀请")
 }
+
 //加载tableView
 - (void)addTableView {
     
@@ -49,12 +54,23 @@
     [_tableView reloadData];
 }
 
+- (void)loadData
+{
+    AppShare;
+    
+    [[HTTPSessionManager sharedManager] POST:WORK_URL parameters:Dic result:^(id responseObject, NSError *error) {
+       
+        NSLog(@"职位邀请:%@",responseObject);
+    }];
+}
+
 #pragma mark UITableViewDataSource
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     return 0;
 }
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     static NSString *cellIdentifier=@"cellIdentifier";
@@ -67,12 +83,13 @@
     
     return cell;
 }
-#pragma mark UITableViewDelegate
 
+#pragma mark UITableViewDelegate
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     return 60;
     
 }
+
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
     return 3;

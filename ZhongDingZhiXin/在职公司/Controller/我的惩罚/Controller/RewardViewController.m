@@ -40,19 +40,17 @@
 -(void)setNavigationBar
 {
     //设置导航栏的颜色
-    self.navigationController.navigationBar.barTintColor=LIGHT_WHITE_COLOR;
-    self.title=@"我的惩罚";
-    [self.navigationController.navigationBar setTitleTextAttributes:
-     @{NSFontAttributeName:[UIFont systemFontOfSize:20],
-       NSForegroundColorAttributeName:[UIColor whiteColor]}];
+    NavBarType(@"我的惩罚");
     
     //为导航栏添加左侧按钮
     leftButton;
 }
+
 -(void)backButton
 {
     [self.navigationController popViewControllerAnimated:YES];
 }
+
 //加载数据
 - (void)loadData
 {
@@ -77,6 +75,7 @@
         if (array.count!=0) {
             
             app.request=responseObject[@"response"];
+            
             for (NSDictionary *dictionary in array) {
                 RewardInfo *rewardInfo = [[RewardInfo alloc] initWithDictionary:dictionary];
                 [_rewardInfoArray addObject:rewardInfo];
@@ -94,7 +93,7 @@
             hudHide;
         }
 
-    }];
+    }];  
     
 }
 #pragma mark UITableViewDataSource

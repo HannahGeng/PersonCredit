@@ -79,6 +79,7 @@
 #import <MJExtension.h>
 #import "PasswordViewController.h"
 #import "XMGAnno.h"
+#import "ForgetPassWebViewController.h"
 
 #import <BaiduMapAPI_Base/BMKBaseComponent.h>//引入base相关所有的头文件
 #import <BaiduMapAPI_Map/BMKMapComponent.h>//引入地图功能所有的头文件
@@ -183,6 +184,9 @@ typedef enum _UpdateType {
 
 #pragma mark - 17、检测升级
 #define CHECK_URL @"http://www.newqc.cn/webapi/checkversion"
+
+#pragma mark - 18、职位邀请
+#define WORK_URL @"http://www.newqc.cn/webapi/workplace"
 
 #pragma mark - 导航栏统一样式
 #define NavBarType(navName) \

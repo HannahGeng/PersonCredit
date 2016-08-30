@@ -28,12 +28,15 @@
     
     //设置背景颜色
     [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"backgroundImage"]]];
+    
     //设置导航栏
     [self setNavigationBar];
+    
     //加载tableView
     [self addTableView];
     
-    [self loadData];//假数据
+    //假数据
+    [self loadData];
     
 }
 
@@ -41,11 +44,7 @@
 -(void)setNavigationBar
 {
     //设置导航栏的颜色
-    self.navigationController.navigationBar.barTintColor=LIGHT_WHITE_COLOR;
-    self.title=@"在职公司";
-    [self.navigationController.navigationBar setTitleTextAttributes:
-     @{NSFontAttributeName:[UIFont systemFontOfSize:20],
-       NSForegroundColorAttributeName:[UIColor whiteColor]}];
+    NavBarType(@"在职公司");
 }
 
 -(void)loadData{
@@ -112,7 +111,7 @@
             
             if (status != 0) {
                 
-                NoticeViewController *noticeVC=[[NoticeViewController alloc]init];
+                NoticeViewController * noticeVC=[[NoticeViewController alloc]init];
                 [self.navigationController pushViewController:noticeVC animated:YES];
                 
             }else
@@ -132,7 +131,7 @@
             
             if (status != 0) {
                 
-                RewardViewController  *rewardVC=[[RewardViewController alloc]init];
+                RewardViewController * rewardVC=[[RewardViewController alloc]init];
                 [self.navigationController pushViewController:rewardVC animated:YES];
                 
             }else
@@ -152,7 +151,7 @@
             
             if (status != 0) {
                 
-                PunishmentViewController *punishmentVC=[[PunishmentViewController alloc]init];
+                PunishmentViewController * punishmentVC=[[PunishmentViewController alloc]init];
                 [self.navigationController pushViewController:punishmentVC animated:YES];
                 
             }else

@@ -37,6 +37,7 @@
     //加载数据
     [self loadData];
 }
+
 //设置导航栏
 -(void)setNavigationBar
 {
@@ -46,6 +47,7 @@
     //为导航栏添加左侧按钮
     leftButton;
 }
+
 -(void)backButton
 {
     [self.navigationController popViewControllerAnimated:YES];
@@ -121,6 +123,7 @@
         PunishmentInfo *punishmentInfo = _punishmentInfoArray[indexPath.row];
         [cell setContentView:punishmentInfo];
     }
+    
     return cell;
 }
 

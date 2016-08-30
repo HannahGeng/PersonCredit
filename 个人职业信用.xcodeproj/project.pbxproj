@@ -82,6 +82,8 @@
 		3D55D1FA1D45EB7C00FE7100 /* libMJExtension.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D55D1F91D45EB7C00FE7100 /* libMJExtension.a */; };
 		3D55D1FC1D45EB8600FE7100 /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D55D1FB1D45EB8600FE7100 /* libsqlite3.0.tbd */; };
 		3D55D1FE1D45EC5A00FE7100 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D55D1FD1D45EC5A00FE7100 /* CoreTelephony.framework */; };
+		3D6361D51D73CBAD006EEC27 /* ForgetPassWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D6361D31D73CBAD006EEC27 /* ForgetPassWebViewController.m */; };
+		3D6361D61D73CBAD006EEC27 /* ForgetPassWebViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D6361D41D73CBAD006EEC27 /* ForgetPassWebViewController.xib */; };
 		3D6EC3641D3E1A7300F59D31 /* PasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D6EC3621D3E1A7300F59D31 /* PasswordViewController.m */; };
 		3D6EC3651D3E1A7300F59D31 /* PasswordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D6EC3631D3E1A7300F59D31 /* PasswordViewController.xib */; };
 		3D7C9BAE1D4845890099FAB8 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D7C9BAC1D4845890099FAB8 /* RegisterViewController.m */; };
@@ -251,6 +253,9 @@
 		3D55D1F91D45EB7C00FE7100 /* libMJExtension.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libMJExtension.a; path = "../../Library/Developer/Xcode/DerivedData/ZhongDingZhiXin-gulvxipchdmhenetfjstkpiueiaf/Build/Products/Debug-iphoneos/libMJExtension.a"; sourceTree = "<group>"; };
 		3D55D1FB1D45EB8600FE7100 /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
 		3D55D1FD1D45EC5A00FE7100 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		3D6361D21D73CBAD006EEC27 /* ForgetPassWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ForgetPassWebViewController.h; sourceTree = "<group>"; };
+		3D6361D31D73CBAD006EEC27 /* ForgetPassWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForgetPassWebViewController.m; sourceTree = "<group>"; };
+		3D6361D41D73CBAD006EEC27 /* ForgetPassWebViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ForgetPassWebViewController.xib; sourceTree = "<group>"; };
 		3D6EC3611D3E1A7300F59D31 /* PasswordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PasswordViewController.h; sourceTree = "<group>"; };
 		3D6EC3621D3E1A7300F59D31 /* PasswordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PasswordViewController.m; sourceTree = "<group>"; };
 		3D6EC3631D3E1A7300F59D31 /* PasswordViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PasswordViewController.xib; sourceTree = "<group>"; };
@@ -370,6 +375,9 @@
 				3D4F9EFB1D2B641D00A1C1A5 /* LoginViewController.h */,
 				3D4F9EFC1D2B641D00A1C1A5 /* LoginViewController.m */,
 				3D4F9EFD1D2B641D00A1C1A5 /* LoginViewController.xib */,
+				3D6361D21D73CBAD006EEC27 /* ForgetPassWebViewController.h */,
+				3D6361D31D73CBAD006EEC27 /* ForgetPassWebViewController.m */,
+				3D6361D41D73CBAD006EEC27 /* ForgetPassWebViewController.xib */,
 			);
 			path = "登录界面";
 			sourceTree = "<group>";
@@ -1243,6 +1251,7 @@
 				3D150F3C1D4734BB00E30A14 /* NearCell.xib in Resources */,
 				3DB175DF1D3C7941005F91CB /* WorkViewCell.xib in Resources */,
 				3D4F9F4A1D2B663800A1C1A5 /* WordCarViewController.xib in Resources */,
+				3D6361D61D73CBAD006EEC27 /* ForgetPassWebViewController.xib in Resources */,
 				3D4F9FB11D2B80B800A1C1A5 /* PunishmentViewController.xib in Resources */,
 				3D4F9FB51D2B80B800A1C1A5 /* RewardViewController.xib in Resources */,
 				3DFC2FA01BB3A46B004A83B0 /* Main.storyboard in Resources */,
@@ -1375,6 +1384,7 @@
 				3D7C9BBF1D4897760099FAB8 /* XMGAnno.m in Sources */,
 				3DFC2F971BB3A46B004A83B0 /* main.m in Sources */,
 				3D4F9FB01D2B80B800A1C1A5 /* PunishmentViewController.m in Sources */,
+				3D6361D51D73CBAD006EEC27 /* ForgetPassWebViewController.m in Sources */,
 				3D4F9FAF1D2B80B800A1C1A5 /* CompanyViewController.m in Sources */,
 				3D4F9F031D2B645900A1C1A5 /* KSTabBarController.m in Sources */,
 				3DDF6B1E1D2F51040046E163 /* AESCrypt.m in Sources */,
@@ -1446,9 +1456,11 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Shenzhen ZhongDingZhiXin information technology Co.,Ltd (AK5T28Y6FV)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Shenzhen ZhongDingZhiXin information technology Co.,Ltd (AK5T28Y6FV)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_BITCODE = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -1469,6 +1481,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				PROVISIONING_PROFILE = "9d3fcaad-cf0a-428d-ba1e-7353d877cfec";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALID_ARCHS = "armv7 armv7s arm64";
@@ -1492,9 +1505,11 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Shenzhen ZhongDingZhiXin information technology Co.,Ltd (AK5T28Y6FV)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Shenzhen ZhongDingZhiXin information technology Co.,Ltd (AK5T28Y6FV)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_BITCODE = NO;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -1507,6 +1522,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				PROVISIONING_PROFILE = "9d3fcaad-cf0a-428d-ba1e-7353d877cfec";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -1521,7 +1537,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_CXX_LIBRARY = "libstdc++";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Shenzhen ZhongDingZhiXin information technology Co.,Ltd (AK5T28Y6FV)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"/Users/zdzx-008/Desktop",
@@ -1540,7 +1556,7 @@
 				OTHER_LDFLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = "zdzx-008.";
 				PRODUCT_NAME = "个人职业信用";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "9d3fcaad-cf0a-428d-ba1e-7353d877cfec";
 				TARGETED_DEVICE_FAMILY = 1;
 				VALID_ARCHS = "armv7 armv7s arm64";
 			};
@@ -1553,7 +1569,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_CXX_LIBRARY = "libstdc++";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Shenzhen ZhongDingZhiXin information technology Co.,Ltd (AK5T28Y6FV)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"/Users/zdzx-008/Desktop",
@@ -1572,7 +1588,7 @@
 				OTHER_LDFLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = "zdzx-008.";
 				PRODUCT_NAME = "个人职业信用";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "9d3fcaad-cf0a-428d-ba1e-7353d877cfec";
 				TARGETED_DEVICE_FAMILY = 1;
 				VALID_ARCHS = "armv7 armv7s arm64";
 			};
