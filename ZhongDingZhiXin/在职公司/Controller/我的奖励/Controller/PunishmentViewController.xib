@@ -7,6 +7,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PunishmentViewController">
             <connections>
+                <outlet property="backImage" destination="hB0-PY-XNm" id="j39-jh-LyM"/>
+                <outlet property="tableView" destination="tU3-fp-s8p" id="GTN-pe-nsi"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -15,7 +17,15 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="jiangli" translatesAutoresizingMaskIntoConstraints="NO" id="hB0-PY-XNm">
+                <tableView hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="tU3-fp-s8p">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="t7M-Cq-ymE"/>
+                        <outlet property="delegate" destination="-1" id="WWN-Et-h9D"/>
+                    </connections>
+                </tableView>
+                <imageView userInteractionEnabled="NO" alpha="0.5" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="jiangli" translatesAutoresizingMaskIntoConstraints="NO" id="hB0-PY-XNm">
                     <rect key="frame" x="97" y="200" width="125" height="200"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="200" id="OnN-vB-uIO"/>
@@ -24,9 +34,13 @@
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
+                <constraint firstAttribute="bottom" secondItem="tU3-fp-s8p" secondAttribute="bottom" id="5At-Eb-9a4"/>
                 <constraint firstItem="hB0-PY-XNm" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="97" id="PwV-iv-ARf"/>
                 <constraint firstAttribute="trailing" secondItem="hB0-PY-XNm" secondAttribute="trailing" constant="98" id="Sbf-iG-LWS"/>
+                <constraint firstAttribute="trailing" secondItem="tU3-fp-s8p" secondAttribute="trailing" id="V04-2H-ps9"/>
                 <constraint firstItem="hB0-PY-XNm" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="200" id="fkH-Vg-0HK"/>
+                <constraint firstItem="tU3-fp-s8p" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="ieq-4H-DB3"/>
+                <constraint firstItem="tU3-fp-s8p" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="lqQ-Er-85t"/>
             </constraints>
             <point key="canvasLocation" x="296" y="344"/>
         </view>

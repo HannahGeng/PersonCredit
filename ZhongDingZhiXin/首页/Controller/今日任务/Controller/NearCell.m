@@ -8,14 +8,6 @@
 
 #import "NearCell.h"
 
-@interface NearCell ()
-
-@property (weak, nonatomic) IBOutlet UIImageView *numView;
-@property (weak, nonatomic) IBOutlet UILabel *addName;
-@property (weak, nonatomic) IBOutlet UILabel *geoName;
-
-@end
-
 @implementation NearCell
 
 - (void)setNearmodel:(NearModel *)nearmodel
@@ -24,11 +16,6 @@
     
     self.addName.text = nearmodel.name;
     self.geoName.text = nearmodel.address;
-    
-    for (int i = 1; i < 7; i++) {
-        
-        self.numView.image = [UIImage imageNamed:[NSString stringWithFormat:@"jrrwdizhi%d",i]];
-    }
    
 }
 

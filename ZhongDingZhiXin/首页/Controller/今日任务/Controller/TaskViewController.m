@@ -460,6 +460,9 @@
     NearCell * cell = [NearCell cellWithTableView:tableView];
     cell.nearmodel = app.nearArray[indexPath.row];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    
+    cell.numView.image = [UIImage imageNamed:[NSString stringWithFormat:@"jrrwdizhi%ld",indexPath.row + 1]];
+    
     return cell;
 }
 

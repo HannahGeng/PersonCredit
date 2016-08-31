@@ -68,11 +68,8 @@
     [[HTTPSessionManager sharedManager] POST:CHXX_URL parameters:Dic result:^(id responseObject, NSError *error) {
         
         NSArray *array = (NSArray *)responseObject[@"result"];
-        if (array.count==0) {
-            UIAlertView* alter=[[UIAlertView alloc]initWithTitle:@"很抱歉" message:@"亲，没有你要的信息" delegate:nil cancelButtonTitle:@"取消" otherButtonTitles:@"返回", nil];
-            [alter show];
-        }
-        if (array.count!=0) {
+      
+        if ([responseObject[@"status"] integerValue] == 1) {
             
             app.request=responseObject[@"response"];
             
@@ -84,6 +81,7 @@
             self.rewardTableView.backgroundColor=[UIColor clearColor];
             self.rewardTableView.scrollEnabled =YES; //设置tableview滚动
             self.rewardTableView.tableFooterView=[[UIView alloc]init];//影藏多余的分割线
+            self.rewardTableView.hidden = NO;
             
             [self.rewardTableView reloadData];
             
@@ -91,6 +89,10 @@
             
             //隐藏HUD
             hudHide;
+            
+        }else{
+            
+            NSLog(@"暂无惩罚");
         }
 
     }];  

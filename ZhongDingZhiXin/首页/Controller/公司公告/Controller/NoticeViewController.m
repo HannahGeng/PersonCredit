@@ -82,6 +82,7 @@
             self.noticeTableView.scrollEnabled =YES; //设置tableview滚动
             self.noticeTableView.tableFooterView=[[UIView alloc]init];//影藏多余的分割线
             
+            self.noticeTableView.hidden = NO;
             [self.noticeTableView reloadData];
             //隐藏HUD
             hudHide;

@@ -17,7 +17,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <webView contentMode="scaleToFill" scalesPageToFit="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oyk-lL-Teh">
-                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="712"/>
                     <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="deviceRGB"/>
                 </webView>
             </subviews>
@@ -26,9 +26,15 @@
                 <constraint firstAttribute="trailing" secondItem="oyk-lL-Teh" secondAttribute="trailing" id="AP0-CO-Myy"/>
                 <constraint firstItem="oyk-lL-Teh" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="Ixy-VG-NUR"/>
                 <constraint firstAttribute="bottom" secondItem="oyk-lL-Teh" secondAttribute="bottom" id="LBC-MU-mwX"/>
+                <constraint firstAttribute="bottom" secondItem="oyk-lL-Teh" secondAttribute="bottom" constant="-45" id="iPN-w8-RHz"/>
                 <constraint firstItem="oyk-lL-Teh" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="yaH-tH-YGe"/>
             </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="LBC-MU-mwX"/>
+                </mask>
+            </variation>
             <point key="canvasLocation" x="34" y="472"/>
         </view>
     </objects>

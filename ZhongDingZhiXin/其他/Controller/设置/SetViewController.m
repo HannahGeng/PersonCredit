@@ -148,10 +148,13 @@
 {
     static NSString *cellIdentifier=@"cellIdentifier";
     UITableViewCell *cell=[tableView dequeueReusableCellWithIdentifier:cellIdentifier];
-    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    
     if (!cell) {
         
         cell=[[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
+        
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+
         if (indexPath.section==0) {
             //设置cell不可选择
             UIImage *image2=[UIImage imageNamed:@"ziti-5"];
@@ -347,6 +350,10 @@
     if ([btnTitle isEqualToString:@"确定"]) {
 
         LoginViewController *loginView=[[LoginViewController alloc]initWithNibName:@"LoginViewController" bundle:nil];
+        
+        [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"user"];
+        [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"pass"];
+        
         [self.navigationController pushViewController:loginView animated:NO];
         
     }else if ([btnTitle isEqualToString:@"取消"] ) {

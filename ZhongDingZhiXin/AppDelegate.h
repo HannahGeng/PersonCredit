@@ -111,5 +111,8 @@
 /** 工作电话 */
 @property (nonatomic,strong) NSString * workPhone;
 
+/** index */
+@property (nonatomic,assign) NSInteger numIndex;
+
 @end
 

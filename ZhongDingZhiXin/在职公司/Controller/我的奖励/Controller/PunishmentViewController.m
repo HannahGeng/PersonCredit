@@ -11,9 +11,11 @@
 @interface PunishmentViewController ()<UITableViewDataSource,UITableViewDelegate>
 {
     NSMutableArray *_punishmentInfoArray;
-    UITableView *_tableView;
     MBProgressHUD *mbHud;//提示
 }
+
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (weak, nonatomic) IBOutlet UIImageView *backImage;
 
 @end
 
@@ -73,7 +75,7 @@
         
         NSArray *array = (NSArray *)responseObject[@"result"];
         
-        if (array.count!=0) {
+        if ([responseObject[@"status"] integerValue] == 1) {
             app.request=responseObject[@"response"];
             for (NSDictionary *dictionary in array) {
                 PunishmentInfo *punishmentInfo = [[PunishmentInfo alloc] initWithDictionary:dictionary];
@@ -82,18 +84,18 @@
             
             app.punishArray = array;
             
-            _tableView=[[UITableView alloc]initWithFrame:CGRectMake(0, 10, [UIUtils getWindowWidth], [UIUtils getWindowHeight]-100) style:UITableViewStylePlain];
-            _tableView.backgroundColor=[UIColor clearColor];
-            _tableView.dataSource=self;
-            _tableView.delegate=self;
-            _tableView.scrollEnabled = YES;
-            _tableView.separatorStyle=UITableViewCellSeparatorStyleNone;
-            [self.view addSubview:_tableView];
+            self.tableView.hidden = NO;
             
             [_tableView reloadData];
             
             //隐藏HUD
             hudHide;
+        }else{
+            
+            hudHide;
+            
+            self.tableView.hidden = YES;
+            
         }
 
     }];
@@ -112,10 +114,10 @@
     static NSString *identifier=@"Identifier";
     
     PunishmentViewCell *cell=[tableView dequeueReusableCellWithIdentifier:identifier];
-    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+//    cell.selectionStyle = UITableViewCellSelectionStyleNone;
 
     if (!cell) {
-        cell=[[PunishmentViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
+        cell=[[PunishmentViewCell alloc]initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:identifier];
     }
     
     if (_punishmentInfoArray.count!=0) {

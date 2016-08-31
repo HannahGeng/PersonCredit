@@ -34,6 +34,7 @@
     NSString * str = [AESCrypt decrypt:market.invitationTime password:app.loginKeycode];
     timeCover;
     self.timeLabel.text = currentDateStr;
+        
 }
 
 @end

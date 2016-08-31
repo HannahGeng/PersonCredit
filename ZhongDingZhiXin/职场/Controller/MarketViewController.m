@@ -9,10 +9,14 @@
 #import "MarketViewController.h"
 
 @interface MarketViewController ()<UITableViewDataSource,UITableViewDelegate>
+{
+    MBProgressHUD * mbHud;
+}
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
-@property (weak, nonatomic) IBOutlet UIImageView *backgroundImageView;
+@property (weak, nonatomic) IBOutlet UIView *backView;
+
 @property (nonatomic,strong) NSMutableArray * tableDataArray;
 
 @end
@@ -29,6 +33,8 @@
     
     //加载数据
     [self loadData];
+    
+    mbHUDinit;
 
 }
 
@@ -53,8 +59,6 @@
         
         if ([responseObject[@"status"] integerValue] == 1) {
             
-            _backgroundImageView.hidden = YES;
-            
             app.request=responseObject[@"response"];
             
             NSArray * array = responseObject[@"result"];
@@ -72,22 +76,20 @@
             self.tableView.scrollEnabled =YES; //设置tableview滚动
             self.tableView.tableFooterView=[[UIView alloc]init];//影藏多余的分割线
             
+            self.tableView.hidden = NO;
+            
             [self.tableView reloadData];
+            
+            hudHide;
+            
+        }else
+        {
+            hudHide;
+            
+            self.backView.hidden = NO;
+            
+            self.tableView.hidden = YES;
         }
-        
-        NSLog(@"uid:%@",[AESCrypt decrypt:responseObject[@"result"][0][@"uid"] password:app.loginKeycode]);
-        
-        NSLog(@"invitationContent:%@",[AESCrypt decrypt:responseObject[@"result"][0][@"invitationContent"] password:app.loginKeycode]);
-        
-        NSLog(@"companyName:%@",[AESCrypt decrypt:responseObject[@"result"][0][@"companyName"] password:app.loginKeycode]);
-        
-        NSLog(@"invitationTime:%@",[AESCrypt decrypt:responseObject[@"result"][0][@"invitationTime"] password:app.loginKeycode]);
-        
-        NSString * str = [AESCrypt decrypt:responseObject[@"result"][0][@"invitationTime"] password:app.loginKeycode];
-        
-        timeCover;
-        
-        NSLog(@"时间:%@",currentDateStr);
 
     }];
 }
@@ -105,6 +107,8 @@
     
     cell.market = self.tableDataArray[indexPath.row];
     
+    cell.numIcon.image = [UIImage imageNamed:[NSString stringWithFormat:@"jrrwdizhi%ld",indexPath.row + 1]];
+
     return cell;
 }
 

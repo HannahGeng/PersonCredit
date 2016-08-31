@@ -186,8 +186,10 @@
                 _cell.detailTextLabel.text=app.name;
                 
             }else if (indexPath.row==2){
+                
                 _cell.detailTextLabel.font=[UIFont systemFontOfSize:15];
-                _cell.detailTextLabel.text = app.mobilephone;
+                NSString * change = [app.mobilephone stringByReplacingCharactersInRange:NSMakeRange(3, 5) withString:@"*****"];
+                _cell.detailTextLabel.text = change;
                 
             }else{
                 _cell.detailTextLabel.font=[UIFont systemFontOfSize:15];

@@ -7,7 +7,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MarketViewController">
             <connections>
-                <outlet property="backgroundImageView" destination="MUT-Cn-QeP" id="HnH-GH-bfc"/>
+                <outlet property="backView" destination="PVM-Of-p9q" id="fbt-5J-IIe"/>
                 <outlet property="tableView" destination="zDJ-9M-9wc" id="dxu-uF-fnF"/>
                 <outlet property="view" destination="iN0-l3-epB" id="oZD-dV-5QB"/>
             </connections>
@@ -17,19 +17,17 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="zDJ-9M-9wc">
-                    <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    <connections>
-                        <outlet property="dataSource" destination="-1" id="LPQ-JB-YTa"/>
-                        <outlet property="delegate" destination="-1" id="Emg-eT-7qi"/>
-                    </connections>
-                </tableView>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PVM-Of-p9q">
+                <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PVM-Of-p9q">
                     <rect key="frame" x="65" y="107" width="190" height="255"/>
                     <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="暂无职位邀请" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ho0-Po-uDK">
+                            <rect key="frame" x="18" y="234" width="154" height="21"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="zhichang" translatesAutoresizingMaskIntoConstraints="NO" id="MUT-Cn-QeP">
-                            <rect key="frame" x="-65" y="28" width="320" height="200"/>
+                            <rect key="frame" x="0.0" y="0.0" width="190" height="226"/>
                         </imageView>
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -38,6 +36,14 @@
                         <constraint firstAttribute="height" constant="255" id="gAZ-I7-e83"/>
                     </constraints>
                 </view>
+                <tableView hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="zDJ-9M-9wc">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="LPQ-JB-YTa"/>
+                        <outlet property="delegate" destination="-1" id="Emg-eT-7qi"/>
+                    </connections>
+                </tableView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>

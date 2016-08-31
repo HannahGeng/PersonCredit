@@ -47,7 +47,7 @@
         [[NSUserDefaults standardUserDefaults]synchronize];
     }
     
-    _topImage=[[UIImageView alloc] initWithFrame:CGRectMake(0, 0, [UIUtils getWindowWidth], 10)];
+    _topImage=[[UIImageView alloc] initWithFrame:CGRectMake(0, 0, [UIUtils getWindowWidth], 0)];
     _topImage.image=[UIImage imageNamed:@"backgroundImage"];
     [self addSubview:_topImage];
     

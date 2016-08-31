@@ -8,7 +8,7 @@
 
 #import "HomeViewController.h"
 
-@interface HomeViewController ()<UITableViewDataSource,UITableViewDelegate>
+@interface HomeViewController ()<UITableViewDataSource,UITableViewDelegate,UIActionSheetDelegate,UIImagePickerControllerDelegate>
 {
     TaskViewController *_taskVC;
     WordCarViewController *_wordCarVC;
@@ -241,6 +241,14 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
+    if (indexPath.row == 0) {
+        
+        //创建对象
+        UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:@"提示" delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:nil otherButtonTitles:@"从相册选择",@"拍照", nil];
+        
+        //在视图上展示
+        [actionSheet showInView:self.view];
+    }
     if (indexPath.row==1) {
         AFNetworkReachabilityManager * mgr = [AFNetworkReachabilityManager sharedManager];
         [mgr startMonitoring];
@@ -280,6 +288,84 @@
             afficheVC.noticeInfo=_noticeInfoArray[2];
         }
         [self.navigationController pushViewController:afficheVC animated:YES];
+    }
+}
+
+#pragma mark UIActionSheetDelegate
+-(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
+    
+    // 相册 0 拍照 1
+    switch (buttonIndex) {
+        case 0:
+            //从相册中读取
+            [self readImageFromAlbum];
+            break;
+        case 1:
+            //拍照
+            [self readImageFromCamera];
+            break;
+        default:
+            break;
+    }
+}
+
+//图片完成之后处理
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingImage:(UIImage *)image editingInfo:(nullable NSDictionary<NSString *,id> *)editingInfo {
+    
+    NSData *data;
+    
+    //判断图片是不是png格式的文件
+    if (UIImagePNGRepresentation(image)) {
+        
+        //返回为png图像。
+        data = UIImagePNGRepresentation(image);
+        
+    }else {
+        
+        //返回为JPEG图像。
+        data = UIImageJPEGRepresentation(image, 1.0);
+    }
+    
+    TitleViewCell * cell = [[TitleViewCell alloc] init];
+    cell.iconView.image = [UIImage imageWithData:data];
+    [[NSUserDefaults standardUserDefaults] setObject:data forKey:@"image"];
+    
+    //结束操作
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+//从相册中读取
+- (void)readImageFromAlbum {
+    
+    //创建对象
+    UIImagePickerController *imagePicker = [[UIImagePickerController alloc] init];
+    //（选择类型）表示仅仅从相册中选取照片
+    imagePicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+    imagePicker.delegate = self;
+    //设置在相册选完照片后，是否跳到编辑模式进行图片剪裁。(允许用户编辑)
+    imagePicker.allowsEditing = YES;
+    //显示相册
+    [self presentViewController:imagePicker animated:YES completion:nil];
+}
+
+- (void)readImageFromCamera {
+    
+    if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
+        UIImagePickerController *imagePicker = [[UIImagePickerController alloc] init];
+        imagePicker.sourceType = UIImagePickerControllerSourceTypeCamera;
+        imagePicker.delegate = self;
+        imagePicker.allowsEditing = YES;
+        //允许用户编辑
+        [self presentViewController:imagePicker animated:YES completion:nil];
+        
+    } else {
+        
+        //弹出窗口响应点击事件
+        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"警告" message:@"未检测到摄像头" preferredStyle:UIAlertControllerStyleAlert];
+        [alert addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction *action) {
+        }]];
+        [self presentViewController:alert animated:YES completion:^{
+        }];
     }
 }
 

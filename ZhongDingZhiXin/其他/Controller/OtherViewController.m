@@ -52,7 +52,7 @@
 -(void)loadData{
     
     _tableDataArray=@[@{@"image":@"guanyuzhongding",@"title":@"关于我们"},
-                      @{@"image":@"tuijianpy",@"title":@"推荐给朋友"},
+                      @{@"image":@"tuijianpy",@"title":@"推荐我们给朋友"},
                       @{@"image":@"fankui",@"title":@"用户反馈"},
                       @{@"image":@"shezhi",@"title":@"设置"}];
 }

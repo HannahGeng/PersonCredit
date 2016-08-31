@@ -46,6 +46,7 @@
      @{NSFontAttributeName:[UIFont systemFontOfSize:20],
        NSForegroundColorAttributeName:[UIColor whiteColor]}];
 }
+
 -(void)loadData{
     
     _tableDataArray=@[@{@"image":@"xinxi",@"title":@"基本信息"},
@@ -248,7 +249,9 @@
             
             //初始化请求（同时也创建了一个线程）
             [[HTTPSessionManager sharedManager] POST:JYJL_URL parameters:Dic result:^(id responseObject, NSError *error) {
-                                
+                
+                NSLog(@"教育经历:%@",responseObject);
+                
                 NSMutableArray * educate = [NSMutableArray new];
                 app.request=responseObject[@"response"];
 

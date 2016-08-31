@@ -12,6 +12,10 @@
 
 @interface NearCell : UITableViewCell
 
+@property (weak, nonatomic) IBOutlet UIImageView *numView;
+@property (weak, nonatomic) IBOutlet UILabel *addName;
+@property (weak, nonatomic) IBOutlet UILabel *geoName;
+
 @property (nonatomic,strong)NearModel * nearmodel;
 
 + (instancetype)cellWithTableView:(UITableView *)tableView;

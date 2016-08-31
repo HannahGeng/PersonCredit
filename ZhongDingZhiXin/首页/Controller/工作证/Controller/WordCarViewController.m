@@ -159,7 +159,7 @@
                 //隐藏HUD
                 hudHide;
                 
-                arr=[NSArray arrayWithObjects:@"gongzuoz2",@"gongzuoz2", nil];
+                arr=[NSArray arrayWithObjects:@"gongzuoz2",@"gongzuoz1.2", nil];
                 
                 workType;
             
@@ -203,7 +203,7 @@
                 //隐藏HUD
                 hudHide; 
                 
-                arr=[NSArray arrayWithObjects:@"gongzuoz",@"gongzuoz", nil];
+                arr=[NSArray arrayWithObjects:@"gongzuoz",@"gongzuoz1.1", nil];
                 
                 workType;
             }];

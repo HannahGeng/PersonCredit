@@ -143,19 +143,35 @@
     
     [self.view endEditing:YES];
     
-    mbHUDinit;
     
-    if (_userName.text.length==0 && _userPass.text.length==0)
-    {
-        UIAlertView* alter=[[UIAlertView alloc]initWithTitle:@"温馨提示" message:@"亲，输入你的账号密码就可以登录咯" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:@"取消", nil];
-        [alter show];
-        hudHide;
+    AFNetworkReachabilityManager * mgr = [AFNetworkReachabilityManager sharedManager];
+    [mgr startMonitoring];
+    
+    [mgr setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {
         
-    }else{
+        if (status != 0) {
+            
+            mbHUDinit;
+
+            if (_userName.text.length==0 && _userPass.text.length==0)
+            {
+                UIAlertView* alter=[[UIAlertView alloc]initWithTitle:@"温馨提示" message:@"亲，输入你的账号密码就可以登录咯" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:@"取消", nil];
+                [alter show];
+                hudHide;
+                
+            }else{
+                
+                [self loginSuccess];
+                
+            }
+            
+        }else
+        {
+            noWebhud;
+        }
         
-        [self loginSuccess];
-        
-    }
+    }];
+
 }
 
 - (IBAction)forgetPass {

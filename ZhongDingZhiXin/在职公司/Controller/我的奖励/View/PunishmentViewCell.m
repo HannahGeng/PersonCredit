@@ -32,7 +32,7 @@
     
     if (self) {
         
-        self.selectionStyle = UITableViewCellSelectionStyleNone;
+//        self.selectionStyle = UITableViewCellSelectionStyleNone;
         //添加内容视图
         [self addContentView];
     }
@@ -50,7 +50,7 @@
         [[NSUserDefaults standardUserDefaults]synchronize];
     }
     
-    _topImage=[[UIImageView alloc] initWithFrame:CGRectMake(0, 0, [UIUtils getWindowWidth], 10)];
+    _topImage=[[UIImageView alloc] initWithFrame:CGRectMake(0, 0, [UIUtils getWindowWidth], 0)];
     _topImage.image=[UIImage imageNamed:@"backgroundImage"];
     [self addSubview:_topImage];
     
@@ -69,16 +69,8 @@
 
     NSString *strTitle  = [AESCrypt decrypt:punishmentInfo.topic password:app.loginKeycode];
     
-    if (strTitle.length == 0) {
-        
-        NSLog(@"暂无内容");
-        
-    }else{
-        
-        [_titleLable setText:strTitle];
+    _titleLable.text = strTitle;
 
-    }
-    
 }
 
 @end
