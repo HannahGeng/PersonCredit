@@ -9,7 +9,7 @@
 #import "TaskViewController.h"//系统自带地图框架
 #import "XMGAnno.h"
 
-@interface TaskViewController ()<BMKMapViewDelegate,BMKPoiSearchDelegate,BMKLocationServiceDelegate,BMKGeoCodeSearchDelegate,CLLocationManagerDelegate,UITableViewDelegate,UITableViewDataSource>
+@interface TaskViewController ()<BMKMapViewDelegate,BMKPoiSearchDelegate,BMKLocationServiceDelegate,BMKGeoCodeSearchDelegate,CLLocationManagerDelegate,UITableViewDelegate,UITableViewDataSource,MKMapViewDelegate>
 {
     int curPage;
     TaskView *_taskView;
@@ -64,6 +64,8 @@
 
 - (void)viewDidAppear:(BOOL)animated {
     
+    AppShare;
+    
     //创建定位管理器
     manager = [[CLLocationManager alloc] init];
     
@@ -72,6 +74,12 @@
     
     //开启定位
     [manager startUpdatingLocation];
+    
+    BMKPointAnnotation* annotation = [[BMKPointAnnotation alloc]init];
+    
+    annotation.coordinate = app.coordinate;
+    annotation.title = @"我的位置";
+    [_mapView addAnnotation:annotation];
     
 }
 
@@ -427,6 +435,7 @@
 {
     AppShare;
     XMGAnno *anno = [[XMGAnno alloc] init];
+    
     anno.coordinate = pt;
     
     [self.mapView addAnnotation:anno];

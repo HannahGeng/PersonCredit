@@ -41,7 +41,16 @@
     [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"backgroundImage"]]];
     //设置导航栏
     [self setNavigationBar];
-
+    
+    UILabel * alertLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 10, self.writeTextView.frame.size.width, 60)];
+    
+    alertLabel.backgroundColor = [UIColor greenColor];
+    
+    alertLabel.numberOfLines = 0;
+    
+    alertLabel.text = @"请描述您遇到的问题或想提供的建议，我们将尽快回复，如果没有联系方式，请留下联系方式！";
+    
+    [self.writeTextView addSubview:alertLabel];
 }
 
 //设置导航栏
