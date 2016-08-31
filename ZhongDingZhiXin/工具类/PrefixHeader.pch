@@ -339,8 +339,12 @@ for (int i=0; i<arr.count; i++) { \
         [imageView addSubview:line3]; \
     } \
     if (i==1) { \
-        UIImageView *photoImageView=[[UIImageView alloc]initWithFrame:CGRectMake(([UIUtils getWindowWidth]-200)/2, ([UIUtils getWindowHeight]-300)/2, 200, 200)]; \
+        UIImageView *photoImageView=[[UIImageView alloc]initWithFrame:CGRectMake(([UIUtils getWindowWidth]-200)/2, ([UIUtils getWindowHeight]-400)/2, 200, 200)]; \
         [imageView addSubview:photoImageView]; \
+        UILabel * titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(([UIUtils getWindowWidth]-200)/2, CGRectGetMaxY(photoImageView.frame) + 10, 200, 30)];\
+        titleLabel.text = @"请用微信扫一扫";\
+        titleLabel.textAlignment = NSTextAlignmentCenter;\
+        [imageView addSubview:titleLabel];\
         photoImageView.layer.shadowOffset = CGSizeMake(0, 2); \
         photoImageView.layer.shadowRadius = 2; \
         photoImageView.layer.shadowColor = [UIColor blackColor].CGColor; \

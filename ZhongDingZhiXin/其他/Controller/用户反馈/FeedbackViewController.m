@@ -16,7 +16,6 @@
 {
     MBProgressHUD * mbHud;
     UILabel *_placeholderLabel;
-
 }
 
 @property (weak, nonatomic) IBOutlet UIButton *presentButton;
@@ -34,6 +33,7 @@
     
     self.tabBarController.tabBar.hidden=YES;
 }
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -75,6 +75,7 @@
         MBhud(@"内容为空或格式错误");
         
     }else{
+        
         AFNetworkReachabilityManager * mgr = [AFNetworkReachabilityManager sharedManager];
         [mgr startMonitoring];
         
@@ -97,7 +98,6 @@
                         MBhud(@"请求错误")
                     }
                     
-                    NSLog(@"%@",responseObject);
                 }];
                 
             }else

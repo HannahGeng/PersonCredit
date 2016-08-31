@@ -54,6 +54,9 @@
         self.questions = questionM;
         
         app.questionArray = questionArr;
+        
+        self.questionTableView.hidden = NO;
+        
         [self.questionTableView reloadData];
         
         hudHide;

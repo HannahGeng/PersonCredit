@@ -162,8 +162,8 @@
         //地址信息
         CLPlacemark *placemark = [placemarks firstObject];
         
-        app.firAddress = [NSString stringWithFormat:@"%@ %@ %@",placemark.country,placemark.administrativeArea,placemark.locality];
-        app.address = [NSString stringWithFormat:@"%@ %@ %@,%@",placemark.country,placemark.administrativeArea,placemark.locality,placemark.name];
+        app.firAddress = [NSString stringWithFormat:@"%@%@%@",placemark.country,placemark.administrativeArea,placemark.locality];
+        app.address = [NSString stringWithFormat:@"%@%@%@%@",placemark.country,placemark.administrativeArea,placemark.locality,placemark.name];
         
         _addressText.text = app.address;
 
