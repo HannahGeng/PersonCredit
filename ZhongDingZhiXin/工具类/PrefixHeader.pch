@@ -192,7 +192,7 @@ typedef enum _UpdateType {
 #pragma mark - 导航栏统一样式
 #define NavBarType(navName) \
 self.navigationController.navigationBar.barTintColor=LIGHT_WHITE_COLOR; \
-self.title= navName; \
+self.navigationItem.title = navName; \
 [self.navigationController.navigationBar setTitleTextAttributes: \
  @{NSFontAttributeName:[UIFont systemFontOfSize:20], \
    NSForegroundColorAttributeName:[UIColor whiteColor]}]; \

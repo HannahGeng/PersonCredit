@@ -32,6 +32,8 @@
     //设置导航栏不透明
     self.navigationController.navigationBar.translucent = NO;
     
+    self.navigationItem.hidesBackButton = YES;
+    
     //设置导航栏
     [self setNavigationBar];
     
