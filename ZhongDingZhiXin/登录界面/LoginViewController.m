@@ -13,7 +13,7 @@
     NSMutableArray *_cityInfoArray;
     MBProgressHUD * mbHud;
     NSDictionary *dic;
-    CLLocationManager * manager;
+    CLLocationManager * _manager;
 }
 
 @property (strong, nonatomic) IBOutlet UIView *headImageView;
@@ -56,15 +56,20 @@
             
             mbHUDinit;
             
+
             //创建定位管理器
-            manager = [[CLLocationManager alloc] init];
+            _manager = [[CLLocationManager alloc] init];
             
-            //设置代理, 通过代理方法接收坐标
-            manager.delegate = self;
-            
+            if ([UIDevice currentDevice].systemVersion.floatValue >= 8.0) {
+                [_manager requestAlwaysAuthorization]; //总是定位
+                [_manager requestWhenInUseAuthorization]; //在使用期间定位
+            }
+
+            _manager.delegate = self;
+
             //开启定位
-            [manager startUpdatingLocation];
-            
+            [_manager startUpdatingLocation];
+
             [self loadData];
             
         }else
@@ -76,9 +81,14 @@
 
 }
 
-//定位成功
+- (void)willStartLocatingUser
+{
+    NSLog(@"start locate");
+}
+
 -(void)locationManager:(CLLocationManager *)manager1 didUpdateLocations:(NSArray *)locations
 {
+    
     AppShare;
     
     //位置信息
@@ -86,9 +96,11 @@
     
     //定位到的坐标
     CLLocationCoordinate2D coordinate = location.coordinate;
+    
     app.coordinate = coordinate;
     
     //反地理编码(逆地理编码) : 把位置信息转换成地址信息
+    //地理编码 : 把地址信息转换成位置信息
     CLGeocoder *geocoder = [[CLGeocoder alloc] init];
     //反地理编码
     [geocoder reverseGeocodeLocation:location completionHandler:^(NSArray *placemarks, NSError *error) {
@@ -101,14 +113,24 @@
         //地址信息
         CLPlacemark *placemark = [placemarks firstObject];
         
-        app.firAddress = [NSString stringWithFormat:@"%@ %@ %@",placemark.country,placemark.administrativeArea,placemark.locality];
-        app.address = [NSString stringWithFormat:@"%@ %@ %@,%@",placemark.country,placemark.administrativeArea,placemark.locality,placemark.name];
+        app.firAddress = [NSString stringWithFormat:@"%@%@", placemark.country, placemark.locality];
         
+//        NSLog(@"%@%@", placemark.country, placemark.locality);
     }];
     
     //停止定位
-    [manager stopUpdatingLocation];
-    
+    [_manager stopUpdatingLocation];
+}
+
+//定位失败
+-(void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error
+{
+    NSLog(@"定位失败:%@", error);
+}
+
+- (void)didStopLocatingUser
+{
+    NSLog(@"stop locate");
 }
 
 - (void)loadData

@@ -19,8 +19,8 @@
     BMKGeoCodeSearch * _searcher;
     BMKLocationService * _locService;
     BMKPoiSearch * _poiSearch;
-    //定位管理器
-    CLLocationManager *manager;
+    double _latA;
+    double _lonA;
 }
 
 @property (retain,nonatomic) NSMutableArray *poiResultArray;
@@ -56,8 +56,8 @@
     [_mapView viewWillAppear];
     _mapView.delegate = self; // 此处记得不用的时候需要置nil，否则影响内存的释放
     _searcher.delegate = self;
-    manager.delegate = self;
-
+    _locService.delegate = self;
+    
     self.tabBarController.tabBar.hidden=YES;
     
 }
@@ -65,22 +65,13 @@
 - (void)viewDidAppear:(BOOL)animated {
     
     AppShare;
+
+    //添加圆圈
+    BMKCircle* circle = [BMKCircle circleWithCenterCoordinate:app.coordinate radius:1000];
     
-    //创建定位管理器
-    manager = [[CLLocationManager alloc] init];
+    [_mapView addOverlay:circle];
     
-    //设置代理, 通过代理方法接收坐标
-    manager.delegate = self;
-    
-    //开启定位
-    [manager startUpdatingLocation];
-    
-    BMKPointAnnotation* annotation = [[BMKPointAnnotation alloc]init];
-    
-    annotation.coordinate = app.coordinate;
-    annotation.title = @"我的位置";
-    [_mapView addAnnotation:annotation];
-    
+
 }
 
 -(void)viewWillDisappear:(BOOL)animated
@@ -89,12 +80,14 @@
     _mapView.delegate = nil; // 不用时，置nil
     _searcher.delegate = nil;
     _poiSearch.delegate = nil;
+    _locService.delegate = nil;
 }
 
 - (void)viewDidLoad {
     
     [super viewDidLoad];
     
+    //mapView尺寸
     if ([UIUtils getWindowWidth] == 375) {//6
        
         _mapView=[[BMKMapView alloc]initWithFrame:CGRectMake(0, 0, [UIUtils getWindowWidth], 370)];
@@ -109,13 +102,12 @@
         
     }
     
+    //大头针背景图
     UIView * topView = [[UIView alloc] init];
     topView.frame = _mapView.frame;
     topView.backgroundColor = [UIColor whiteColor];
     topView.alpha = 0.05;
-    
     [_mapView addSubview:topView];
-    
     [_backView addSubview:_mapView];
     
     //添加内容视图
@@ -124,74 +116,28 @@
     //设置导航栏
     [self setNavigationBar];
     
-    //初始化BMKLocationService
-    _locService = [[BMKLocationService alloc]init];
-    _locService.delegate = self;
-    
     //启动LocationService
+    _locService = [[BMKLocationService alloc]init];
     [_locService startUserLocationService];
-
     self.backListView.hidden = YES;
     
-    //创建定位管理器
-    manager = [[CLLocationManager alloc] init];
+    _mapView.userTrackingMode = BMKUserTrackingModeFollow;//设置定位的状态
+    _mapView.showsUserLocation = YES;//显示定位图层
     
-    //设置代理, 通过代理方法接收坐标
-    manager.delegate = self;
+    _mapView.zoomLevel=16;//地图级别
+    BMKLocationViewDisplayParam *displayParam = [[BMKLocationViewDisplayParam alloc]init];
+    displayParam.isAccuracyCircleShow = false;//精度圈是否显示
     
-    //开启定位
-    [manager startUpdatingLocation];
+    //是否允许缩放
+    _mapView.zoomEnabled = YES;
+    
+    //是否允许移动
+    _mapView.scrollEnabled = YES;
+    
+    //是否允许旋转
+    _mapView.rotateEnabled = NO;
 
-}
-
-#pragma mark - CLLocationManagerDelegate定位代理
--(void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations
-{
-    AppShare;
-
-    //位置信息
-    CLLocation *location = [locations firstObject];
-    
-    //定位到的坐标
-    CLLocationCoordinate2D coordinate = location.coordinate;
-    
-    app.coordinate = coordinate;
-    
-    //反地理编码(逆地理编码) : 把位置信息转换成地址信息
-    CLGeocoder *geocoder = [[CLGeocoder alloc] init];
-    //反地理编码
-    [geocoder reverseGeocodeLocation:location completionHandler:^(NSArray *placemarks, NSError *error) {
-        
-        if (error) {
-            NSLog(@"反地理编码失败!");
-            return ;
-        }
-        
-        //地址信息
-        CLPlacemark *placemark = [placemarks firstObject];
-        
-        app.firAddress = [NSString stringWithFormat:@"%@%@%@",placemark.country,placemark.administrativeArea,placemark.locality];
-        app.address = [NSString stringWithFormat:@"%@%@%@%@",placemark.country,placemark.administrativeArea,placemark.locality,placemark.name];
-        
-        _addressText.text = app.address;
-
-    }];
-    
-    CLLocationCoordinate2D center = app.coordinate;
-    BMKCoordinateSpan span = BMKCoordinateSpanMake(0.038325, 0.028045);
-    _mapView.limitMapRegion = BMKCoordinateRegionMake(center, span);////限制地图显示范围
-    _mapView.rotateEnabled = YES;//禁用旋转手势
-    
-    //停止定位
-    [manager stopUpdatingLocation];
-    
-    //添加圆圈
-    BMKCircle* circle = [BMKCircle circleWithCenterCoordinate:app.coordinate radius:1000];
-    
-    [_mapView addOverlay:circle];
-    
-    _mapView.showsUserLocation = YES;
-
+    [_mapView updateLocationViewWithParam:displayParam];
 }
 
 // 圆形
@@ -205,6 +151,19 @@
         return circleView;
     }
     return nil;
+}
+
+- (void)didUpdateBMKUserLocation:(BMKUserLocation *)userLocation
+{
+    AppShare;
+
+    _latA=userLocation.location.coordinate.latitude;
+    _lonA=userLocation.location.coordinate.longitude;
+    
+    app.coordinate = userLocation.location.coordinate;
+
+    [_mapView updateLocationData:userLocation];
+    
 }
 
 //设置导航栏
