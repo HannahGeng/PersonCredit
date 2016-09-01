@@ -71,7 +71,6 @@
     
     [_mapView addOverlay:circle];
     
-
 }
 
 -(void)viewWillDisappear:(BOOL)animated
@@ -86,6 +85,8 @@
 - (void)viewDidLoad {
     
     [super viewDidLoad];
+    
+    AppShare;
     
     //mapView尺寸
     if ([UIUtils getWindowWidth] == 375) {//6
@@ -138,6 +139,8 @@
     _mapView.rotateEnabled = NO;
 
     [_mapView updateLocationViewWithParam:displayParam];
+    
+    _addressText.text = app.address;
 }
 
 // 圆形
@@ -271,7 +274,6 @@
             {
                 NSLog(@"周边检索发送失败");
             }
-
             
         }else
         {
