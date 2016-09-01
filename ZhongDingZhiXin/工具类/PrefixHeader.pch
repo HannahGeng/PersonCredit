@@ -207,7 +207,9 @@ mbHud = [MBProgressHUD showHUDAddedTo:self.view animated:YES]; \
 [mbHud setMode:MBProgressHUDModeText]; \
 mbHud.label.text = alertname; \
 [mbHud setOffset:CGPointMake(0, 0)]; \
-[mbHud hideAnimated:YES afterDelay:1.0];
+[mbHud hideAnimated:YES afterDelay:1.0];\
+mbHud.offset = CGPointMake(0, 180);\
+mbHud.label.numberOfLines = 0;
 
 //接上
 #define alertname  [NSString stringWithFormat:@"%@",##alertname];

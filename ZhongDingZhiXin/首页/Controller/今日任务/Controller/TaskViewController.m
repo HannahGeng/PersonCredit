@@ -111,6 +111,8 @@
     [_mapView addSubview:topView];
     [_backView addSubview:_mapView];
     
+//    [self.view addSubview:_mapView];
+
     //添加内容视图
     [self addContentView];
     
@@ -121,6 +123,8 @@
     _locService = [[BMKLocationService alloc]init];
     [_locService startUserLocationService];
     self.backListView.hidden = YES;
+    
+    _mapView.logoPosition = BMKLogoPositionRightTop;
     
     _mapView.userTrackingMode = BMKUserTrackingModeFollow;//设置定位的状态
     _mapView.showsUserLocation = YES;//显示定位图层
@@ -208,7 +212,7 @@
     NSDateFormatter * dateformatter2 = [[NSDateFormatter alloc] init];
     
     [dateformatter setDateFormat:@"YYYY/MM/dd"];
-    [dateformatter2 setDateFormat:@"hh:mm"];
+    [dateformatter2 setDateFormat:@"HH:mm"];
     
     NSString * detailStr = [dateformatter2 stringFromDate:senddate];
     NSString * timeStr = [dateformatter stringFromDate:senddate];
@@ -409,7 +413,14 @@
        
         NSString * placeName = [NSString stringWithFormat:@"%@%@%@%@",pl.administrativeArea,pl.locality,pl.subLocality,pl.thoroughfare];
         
-        MBhud(placeName);
+        if (pl.administrativeArea.length == 0 || pl.locality.length == 0 || pl.subLocality.length == 0 || pl.thoroughfare.length == 0) {
+            
+            MBhud(@"请重新选择");
+            
+        }else{
+            
+            MBhud(placeName);
+        }
         
         app.address = placeName;
     }];

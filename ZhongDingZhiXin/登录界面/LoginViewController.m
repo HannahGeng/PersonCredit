@@ -116,7 +116,6 @@
         app.firAddress = [NSString stringWithFormat:@"%@%@", placemark.country, placemark.locality];
         
         app.address = placemark.name;
-        NSLog(@"%@", placemark.name);
     }];
     
     //停止定位
