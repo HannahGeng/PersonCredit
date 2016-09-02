@@ -31,6 +31,7 @@
     self.tabBarController.tabBar.hidden=YES;
     
 }
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -41,6 +42,7 @@
     // 添加内容视图
     [self addContentView];
 }
+
 //设置导航栏
 -(void)setNavigationBar
 {
