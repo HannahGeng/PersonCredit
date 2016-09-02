@@ -93,8 +93,12 @@
         
         //时间
         NSString * str = [AESCrypt decrypt:self.noticeInfo.mark password:app.loginKeycode];
-        timeCover;
-        _timeLabel.text = currentDateStr;
+        
+        if (str.length != 0) {
+            
+            timeCover;
+            _timeLabel.text = currentDateStr;
+        }
         
     }else if ([lastVc isKindOfClass:[ques class]]){
         
@@ -109,8 +113,10 @@
         //时间
         NSString * str = [AESCrypt decrypt:app.questionArray[app.index][@"pubtime"] password:app.loginKeycode];
         
-        timeCover;
-        self.timeLabel.text = currentDateStr;
+        if (str.length != 0) {
+            timeCover;
+            self.timeLabel.text = currentDateStr;
+        }
         
     }else if ([lastVc isKindOfClass:[punish class]]){
      
@@ -123,9 +129,13 @@
         _textView.text=[self filterHtmlTag:strContent];
         
         //时间
-        NSString * str = [AESCrypt decrypt:app.punishArray[app.index][@"realname"] password:app.loginKeycode];
+        NSString * str = [AESCrypt decrypt:app.punishArray[app.index][@"point"] password:app.loginKeycode];
         
-        self.timeLabel.text = str;
+        if (str.length != 0) {
+            
+            timeCover;
+            self.timeLabel.text = currentDateStr;
+        }
 
     }else if([lastVc isKindOfClass:[reward class]]){
         
@@ -138,9 +148,14 @@
         _textView.text = [self filterHtmlTag: strContent];
         
         //时间
-        NSString * str = [AESCrypt decrypt:app.rewardArray[app.index][@"realname"] password:app.loginKeycode];
+        NSString * str = [AESCrypt decrypt:app.rewardArray[app.index][@"point"] password:app.loginKeycode];
         
-        self.timeLabel.text = str;
+        if (str.length != 0) {
+            
+            timeCover;
+            
+            self.timeLabel.text = currentDateStr;
+        }
 
     }
     

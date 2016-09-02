@@ -13,9 +13,9 @@
 {
     self = [super init];
     if (self) {
-        self.job = dictionary[@"organization"];
+        self.job = dictionary[@"record"];
         self.worktime = dictionary[@"period"];
-        self.company = dictionary[@"period"];
+        self.company = dictionary[@"organization"];
     }
     return self;
 }

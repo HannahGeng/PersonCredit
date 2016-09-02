@@ -89,11 +89,11 @@
 //添加内容视图
 -(void)addContentView
 {
-    NSString *str=APP_Font;
-    if (!str){
-        [[NSUserDefaults standardUserDefaults]setObject:@"1" forKey:@"change_font"];
-        [[NSUserDefaults standardUserDefaults]synchronize];
-    }
+//    NSString *str=APP_Font;
+//    if (!str){
+//        [[NSUserDefaults standardUserDefaults]setObject:@"1" forKey:@"change_font"];
+//        [[NSUserDefaults standardUserDefaults]synchronize];
+//    }
 
     self.messageTableView.backgroundColor=[UIColor clearColor];
     self.messageTableView.scrollEnabled =NO; //设置tableview 不能滚动

@@ -14,6 +14,7 @@
     NSArray * array;
     MBProgressHUD * mbHud;//提示
 }
+
 @property (weak, nonatomic) IBOutlet UITableView *educationTableView;
 @property (weak, nonatomic) IBOutlet UIView *noneView;
 
@@ -83,24 +84,17 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    static NSString *identifier=@"Identifier";
-    EducationViewCell *cell=[tableView dequeueReusableCellWithIdentifier:identifier];
-    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    EducationViewCell * cell = [EducationViewCell cellWithTableView:tableView];
     
-    if (!cell) {
-        cell=[[EducationViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
-    }
-    if (_educationInfoArray.count!=0) {
-        EducationInfo *educationInfo = _educationInfoArray[indexPath.row];
-        [cell setContentView:educationInfo];
-    }
+    cell.education = _educationInfoArray[indexPath.row];
+    
     return cell;
 }
 
 #pragma mark UITableViewDelegate
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 60;
+    return 80;
 }
 
 @end

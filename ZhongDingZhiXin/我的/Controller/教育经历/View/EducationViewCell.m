@@ -1,69 +1,36 @@
 //
 //  EducationViewCell.m
-//  ZhongDingZhiXin
+//  个人职业信用
 //
-//  Created by zdzx-008 on 15/11/12.
-//  Copyright (c) 2015年 张豪. All rights reserved.
+//  Created by zdzx-008 on 16/9/2.
+//  Copyright © 2016年 北京职信鼎程. All rights reserved.
 //
 
 #import "EducationViewCell.h"
 
-@interface EducationViewCell ()
-{
-    UIImageView *_topImage;
-    UILabel *_titleLable;
-    UILabel *_timeLable;
-}
-@end
-
 @implementation EducationViewCell
 
--(void)viewWillAppear:(BOOL)animated{
++ (instancetype)cellWithTableView:(UITableView *)tableView
+{
+    EducationViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"education"];
     
-    NSString *string=APP_Font;
-    _titleLable.font=[UIFont systemFontOfSize:15*[string floatValue]];
-    _timeLable.font=[UIFont systemFontOfSize:15*[string floatValue]];
-}
-
--(instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier{
-    
-    self=[super initWithStyle:style reuseIdentifier:reuseIdentifier];
-    if (self) {
+    if (cell == nil) {
         
-        self.selectionStyle = UITableViewCellSelectionStyleNone;
-        //添加内容视图
-        [self addContentView];
-    }
-    return self;
-    
-}
-//添加内容视图
--(void)addContentView{
-    
-    NSString *str=APP_Font;
-    if (!str){
-        [[NSUserDefaults standardUserDefaults]setObject:@"1" forKey:@"change_font"];
-        [[NSUserDefaults standardUserDefaults]synchronize];
+        cell = [[[NSBundle mainBundle] loadNibNamed:NSStringFromClass(self) owner:nil options:nil] lastObject];
     }
     
-    _topImage=[[UIImageView alloc] initWithFrame:CGRectMake(0, 0, [UIUtils getWindowWidth], 10)];
-    _topImage.image=[UIImage imageNamed:@"backgroundImage"];
-    [self addSubview:_topImage];
-    
-    _titleLable=[[UILabel alloc] initWithFrame:CGRectMake(15, CGRectGetMaxY(_topImage.frame)+5, 210, 40)];
-    _titleLable.font=[UIFont systemFontOfSize:15];
-    [self addSubview:_titleLable];
-    
-    _timeLable =[[UILabel alloc] initWithFrame:CGRectMake([UIUtils getWindowWidth]-150, CGRectGetMaxY(_topImage.frame)+5, 140, 40)];
-    _timeLable.font=[UIFont systemFontOfSize:15];
-    [self addSubview:_timeLable];
+    return cell;
 }
 
--(void)setContentView:(EducationInfo *)educationInfo{
+- (void)setEducation:(EducationInfo *)education
+{
+    _education = education;
+    
     AppShare;
-    NSString *strMark=[AESCrypt decrypt:educationInfo.job password:app.loginKeycode];
-    [_titleLable setText:strMark];
-    [_timeLable setText:[AESCrypt decrypt:educationInfo.worktime password:app.loginKeycode]];
+    
+    self.educationLabel.text = [AESCrypt decrypt:education.company password:app.loginKeycode];
+    self.timeLabel.text = [AESCrypt decrypt:education.worktime password:app.loginKeycode];
+    self.subjectLabel.text = [AESCrypt decrypt:education.job password:app.loginKeycode];
 }
 
 @end

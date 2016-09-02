@@ -64,6 +64,10 @@
     NSString *strTitle  = [AESCrypt decrypt:rewardInfo.topic password:app.loginKeycode];
     [_titleLable setText:strTitle];
     
+    NSString * str = [AESCrypt decrypt:rewardInfo.point password:app.loginKeycode];
+    timeCover;
+    _timeLable.text = currentDateStr;
+    
 }
 
 @end

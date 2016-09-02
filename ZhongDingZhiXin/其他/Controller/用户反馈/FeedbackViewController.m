@@ -16,6 +16,7 @@
 {
     MBProgressHUD * mbHud;
     UILabel *_placeholderLabel;
+    UILabel * alertLabel;
 }
 
 @property (weak, nonatomic) IBOutlet UIButton *presentButton;
@@ -39,18 +40,46 @@
     
     //设置背景颜色
     [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"backgroundImage"]]];
+    
     //设置导航栏
     [self setNavigationBar];
     
-    UILabel * alertLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 10, self.writeTextView.frame.size.width, 60)];
+    if ([UIUtils getWindowWidth] == 320){
     
-    alertLabel.backgroundColor = [UIColor greenColor];
+        alertLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 10, self.writeTextView.frame.size.width - 10, 80)];
+        
+    }else if([UIUtils getWindowWidth] == 414){
+        
+        alertLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 10, self.writeTextView.frame.size.width + 80, 50)];
+        
+    }else{
+        
+        alertLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 10, self.writeTextView.frame.size.width + 40, 80)];
+    }
     
     alertLabel.numberOfLines = 0;
-    
+
     alertLabel.text = @"请描述您遇到的问题或想提供的建议，我们将尽快回复，如果没有联系方式，请留下联系方式！";
     
+    alertLabel.textColor = [UIColor grayColor];
+    
     [self.writeTextView addSubview:alertLabel];
+    
+    // 监听键盘通知
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillChangeFrame:) name:UIKeyboardWillChangeFrameNotification object:nil];
+}
+
+#pragma mark - 键盘处理
+- (void)keyboardWillChangeFrame:(NSNotification *)note {
+    
+    // 取出键盘最终的frame
+    CGRect rect = [note.userInfo[UIKeyboardFrameEndUserInfoKey] CGRectValue];
+        
+    if (rect.size.height > 0) {
+        
+        alertLabel.hidden = YES;
+    }
+    
 }
 
 //设置导航栏
@@ -77,15 +106,18 @@
 
 - (IBAction)presentButton:(UIButton *)sender {
     
+    [self.view endEditing:YES];
+    
     AppShare;
     
-    if (self.writeTextView.text.length == 0 || [self.writeTextView.text containsString:@" "]) {
+    if (self.writeTextView.text.length == 0) {
         
-        MBhud(@"内容为空或格式错误");
+        MBhud(@"内容不能为空");
         
     }else{
         
         AFNetworkReachabilityManager * mgr = [AFNetworkReachabilityManager sharedManager];
+        
         [mgr startMonitoring];
         
         [mgr setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {
@@ -104,7 +136,7 @@
                         
                     }else{
                         
-                        MBhud(@"请求错误")
+                        MBhud(@"请求错误");
                     }
                     
                 }];
@@ -115,7 +147,6 @@
             }
             
         }];
-        
     }
     
 }

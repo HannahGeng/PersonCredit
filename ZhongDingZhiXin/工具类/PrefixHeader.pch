@@ -331,7 +331,7 @@ for (int i=0; i<arr.count; i++) { \
         if(jobNum.length == 0){\
         BHLabel.text=@"暂无"; \
         }else{\
-        BHLabel.text=post; \
+        BHLabel.text=jobNum; \
         } \
         BHLabel.textAlignment = NSTextAlignmentLeft; \
         BHLabel.textColor=LIGHT_WHITE_COLOR; \
@@ -343,8 +343,9 @@ for (int i=0; i<arr.count; i++) { \
     if (i==1) { \
         UIImageView *photoImageView=[[UIImageView alloc]initWithFrame:CGRectMake(([UIUtils getWindowWidth]-200)/2, ([UIUtils getWindowHeight]-400)/2, 200, 200)]; \
         [imageView addSubview:photoImageView]; \
-        UILabel * titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(([UIUtils getWindowWidth]-200)/2, CGRectGetMaxY(photoImageView.frame) + 10, 200, 30)];\
-        titleLabel.text = @"请用微信扫一扫";\
+        UILabel * titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(([UIUtils getWindowWidth]-200)/2, CGRectGetMaxY(photoImageView.frame) + 30, 200, 30)];\
+        titleLabel.text = @"微信扫一扫";\
+        titleLabel.font = [UIFont systemFontOfSize:26];\
         titleLabel.textAlignment = NSTextAlignmentCenter;\
         [imageView addSubview:titleLabel];\
         photoImageView.layer.shadowOffset = CGSizeMake(0, 2); \

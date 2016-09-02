@@ -17,6 +17,7 @@
         self.realname = dictionary[@"realname"];
         self.topic = dictionary[@"topic"];
         self.descrip = dictionary[@"description"];
+        self.point = dictionary[@"point"];
     }
     return self;
 }

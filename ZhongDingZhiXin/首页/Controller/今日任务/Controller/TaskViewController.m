@@ -362,7 +362,7 @@
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
 {
     AppShare;
-    
+        
     CGPoint point = [[touches anyObject] locationInView:self.mapView];
     
     CLLocationCoordinate2D pt = [self.mapView convertPoint:point toCoordinateFromView:self.mapView];
@@ -422,7 +422,7 @@
             MBhud(placeName);
         }
         
-        app.address = placeName;
+        app.address = [NSString stringWithFormat:@"%@%@%@%@",pl.administrativeArea,pl.locality,pl.subLocality,pl.thoroughfare];
     }];
     
 }

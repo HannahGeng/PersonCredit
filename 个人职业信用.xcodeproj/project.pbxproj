@@ -21,6 +21,8 @@
 		3D24EAC21D45E75A00F2447B /* BaiduMapAPI_Radar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D24EABB1D45E75A00F2447B /* BaiduMapAPI_Radar.framework */; };
 		3D24EAC31D45E75A00F2447B /* BaiduMapAPI_Search.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D24EABC1D45E75A00F2447B /* BaiduMapAPI_Search.framework */; };
 		3D24EAC41D45E75A00F2447B /* BaiduMapAPI_Utils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D24EABD1D45E75A00F2447B /* BaiduMapAPI_Utils.framework */; };
+		3D2A7E261D7922F900CE0C5A /* EducationViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D2A7E241D7922F900CE0C5A /* EducationViewCell.m */; };
+		3D2A7E271D7922F900CE0C5A /* EducationViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D2A7E251D7922F900CE0C5A /* EducationViewCell.xib */; };
 		3D4F9EF81D2B63EB00A1C1A5 /* UIUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D4F9EF41D2B63EB00A1C1A5 /* UIUtils.m */; };
 		3D4F9EF91D2B63EB00A1C1A5 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D4F9EF71D2B63EB00A1C1A5 /* ViewController.m */; };
 		3D4F9EFE1D2B641D00A1C1A5 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D4F9EFC1D2B641D00A1C1A5 /* LoginViewController.m */; };
@@ -61,7 +63,6 @@
 		3D4F9F8C1D2B67C100A1C1A5 /* EducationExperienceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D4F9F791D2B67C100A1C1A5 /* EducationExperienceViewController.m */; };
 		3D4F9F8D1D2B67C100A1C1A5 /* EducationExperienceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D4F9F7A1D2B67C100A1C1A5 /* EducationExperienceViewController.xib */; };
 		3D4F9F8E1D2B67C100A1C1A5 /* EducationInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D4F9F7D1D2B67C100A1C1A5 /* EducationInfo.m */; };
-		3D4F9F8F1D2B67C100A1C1A5 /* EducationViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D4F9F801D2B67C100A1C1A5 /* EducationViewCell.m */; };
 		3D4F9F901D2B67C100A1C1A5 /* MyViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D4F9F841D2B67C100A1C1A5 /* MyViewCell.m */; };
 		3D4F9FAF1D2B80B800A1C1A5 /* CompanyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D4F9F941D2B80B800A1C1A5 /* CompanyViewController.m */; };
 		3D4F9FB01D2B80B800A1C1A5 /* PunishmentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D4F9F981D2B80B800A1C1A5 /* PunishmentViewController.m */; };
@@ -150,6 +151,9 @@
 		3D24EABB1D45E75A00F2447B /* BaiduMapAPI_Radar.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BaiduMapAPI_Radar.framework; path = Pods/BaiduMapKit/BaiduMapKit/BaiduMapAPI_Radar.framework; sourceTree = "<group>"; };
 		3D24EABC1D45E75A00F2447B /* BaiduMapAPI_Search.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BaiduMapAPI_Search.framework; path = Pods/BaiduMapKit/BaiduMapKit/BaiduMapAPI_Search.framework; sourceTree = "<group>"; };
 		3D24EABD1D45E75A00F2447B /* BaiduMapAPI_Utils.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BaiduMapAPI_Utils.framework; path = Pods/BaiduMapKit/BaiduMapKit/BaiduMapAPI_Utils.framework; sourceTree = "<group>"; };
+		3D2A7E231D7922F900CE0C5A /* EducationViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EducationViewCell.h; sourceTree = "<group>"; };
+		3D2A7E241D7922F900CE0C5A /* EducationViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EducationViewCell.m; sourceTree = "<group>"; };
+		3D2A7E251D7922F900CE0C5A /* EducationViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EducationViewCell.xib; sourceTree = "<group>"; };
 		3D3845951D2F7E27000E10B6 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		3D4F9EF21D2B63EB00A1C1A5 /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		3D4F9EF31D2B63EB00A1C1A5 /* UIUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIUtils.h; sourceTree = "<group>"; };
@@ -219,8 +223,6 @@
 		3D4F9F7A1D2B67C100A1C1A5 /* EducationExperienceViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EducationExperienceViewController.xib; sourceTree = "<group>"; };
 		3D4F9F7C1D2B67C100A1C1A5 /* EducationInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EducationInfo.h; sourceTree = "<group>"; };
 		3D4F9F7D1D2B67C100A1C1A5 /* EducationInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EducationInfo.m; sourceTree = "<group>"; };
-		3D4F9F7F1D2B67C100A1C1A5 /* EducationViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EducationViewCell.h; sourceTree = "<group>"; };
-		3D4F9F801D2B67C100A1C1A5 /* EducationViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EducationViewCell.m; sourceTree = "<group>"; };
 		3D4F9F831D2B67C100A1C1A5 /* MyViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyViewCell.h; sourceTree = "<group>"; };
 		3D4F9F841D2B67C100A1C1A5 /* MyViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyViewCell.m; sourceTree = "<group>"; };
 		3D4F9F931D2B80B800A1C1A5 /* CompanyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CompanyViewController.h; sourceTree = "<group>"; };
@@ -727,8 +729,9 @@
 		3D4F9F7E1D2B67C100A1C1A5 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				3D4F9F7F1D2B67C100A1C1A5 /* EducationViewCell.h */,
-				3D4F9F801D2B67C100A1C1A5 /* EducationViewCell.m */,
+				3D2A7E231D7922F900CE0C5A /* EducationViewCell.h */,
+				3D2A7E241D7922F900CE0C5A /* EducationViewCell.m */,
+				3D2A7E251D7922F900CE0C5A /* EducationViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1284,6 +1287,7 @@
 				3D7C9BAF1D4845890099FAB8 /* RegisterViewController.xib in Resources */,
 				3DFC2FA21BB3A46B004A83B0 /* Images.xcassets in Resources */,
 				3D4F9F4E1D2B663800A1C1A5 /* ButtonViewCell.xib in Resources */,
+				3D2A7E271D7922F900CE0C5A /* EducationViewCell.xib in Resources */,
 				3D4F9F871D2B67C100A1C1A5 /* MessageViewController.xib in Resources */,
 				3D4F9F521D2B663800A1C1A5 /* NoticeViewCell.xib in Resources */,
 			);
@@ -1374,6 +1378,7 @@
 				3D4F9F491D2B663800A1C1A5 /* WordCarViewController.m in Sources */,
 				3DDF6B211D2F51040046E163 /* NSString+Base64.m in Sources */,
 				3DC0B0471D3CC30100194166 /* QuestionViewController.m in Sources */,
+				3D2A7E261D7922F900CE0C5A /* EducationViewCell.m in Sources */,
 				3DD68B701D2C91CE002BCDD6 /* Foundation+Log.m in Sources */,
 				3D4F9EF91D2B63EB00A1C1A5 /* ViewController.m in Sources */,
 				3D4F9FB81D2B80B800A1C1A5 /* CompanyViewCell.m in Sources */,
@@ -1387,7 +1392,6 @@
 				3D4F9FCE1D2B817100A1C1A5 /* OtherViewController.m in Sources */,
 				3D4F9F8E1D2B67C100A1C1A5 /* EducationInfo.m in Sources */,
 				3D4F9F8A1D2B67C100A1C1A5 /* WorkInfo.m in Sources */,
-				3D4F9F8F1D2B67C100A1C1A5 /* EducationViewCell.m in Sources */,
 				3D4F9F471D2B663800A1C1A5 /* NoticeInfo.m in Sources */,
 				3DDF6B201D2F51040046E163 /* NSData+CommonCrypto.m in Sources */,
 				3D4F9F4B1D2B663800A1C1A5 /* WordCarInfo.m in Sources */,

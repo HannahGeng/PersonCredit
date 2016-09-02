@@ -58,7 +58,7 @@
     _titleLable.font=[UIFont systemFontOfSize:15];
     [self addSubview:_titleLable];
     
-    _timeLable =[[UILabel alloc] initWithFrame:CGRectMake([UIUtils getWindowWidth]-125, CGRectGetMaxY(_topImage.frame)+5, 110, 40)];
+    _timeLable =[[UILabel alloc] initWithFrame:CGRectMake([UIUtils getWindowWidth]-115, CGRectGetMaxY(_topImage.frame)+5, 110, 40)];
     _timeLable.font=[UIFont systemFontOfSize:15];
     [self addSubview:_timeLable];
 }
@@ -70,7 +70,16 @@
     NSString *strTitle  = [AESCrypt decrypt:punishmentInfo.topic password:app.loginKeycode];
     
     _titleLable.text = strTitle;
+    
+    NSString * str = [AESCrypt decrypt:punishmentInfo.point password:app.loginKeycode];
+    
+    timeCover;
+    
+    if (str.length != 0) {
+        
+        _timeLable.text = currentDateStr;
 
+    }
 }
 
 @end
