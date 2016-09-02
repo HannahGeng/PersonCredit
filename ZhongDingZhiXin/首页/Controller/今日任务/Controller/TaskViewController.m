@@ -145,6 +145,7 @@
     [_mapView updateLocationViewWithParam:displayParam];
     
     _addressText.text = app.address;
+    
 }
 
 // 圆形
