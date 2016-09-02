@@ -41,13 +41,14 @@
 //隐藏TabBar
 -(void)viewWillAppear:(BOOL)animated{
     
-    NSString *string=APP_Font;
-    _fontLabel1.font=[UIFont systemFontOfSize:15*[string floatValue]];
-    _fontLabel2.font=[UIFont systemFontOfSize:15*[string floatValue]];
-    _fontLabel3.font=[UIFont systemFontOfSize:15*[string floatValue]];
-    _fontLabel4.font=[UIFont systemFontOfSize:15*[string floatValue]];
-    _fontLabel5.font=[UIFont systemFontOfSize:15*[string floatValue]];
-    _cell.detailTextLabel.font=[UIFont systemFontOfSize:15*[string floatValue]];
+//    NSString *string=APP_Font;
+//    _fontLabel1.font=[UIFont systemFontOfSize:15*[string floatValue]];
+//    _fontLabel2.font=[UIFont systemFontOfSize:15*[string floatValue]];
+//    _fontLabel3.font=[UIFont systemFontOfSize:15*[string floatValue]];
+//    _fontLabel4.font=[UIFont systemFontOfSize:15*[string floatValue]];
+//    _fontLabel5.font=[UIFont systemFontOfSize:15*[string floatValue]];
+//    _cell.detailTextLabel.font=[UIFont systemFontOfSize:15*[string floatValue]];
+    
     self.tabBarController.tabBar.hidden=YES;
     
 }
@@ -192,16 +193,20 @@
                 _cell.detailTextLabel.text = change;
                 
             }else{
+                
                 _cell.detailTextLabel.font=[UIFont systemFontOfSize:15];
                 _cell.detailTextLabel.text=@"修改";
             }
         }
         if (indexPath.section==1) {
+            
             if (indexPath.row==0) {
+                
                 _cell.detailTextLabel.font=[UIFont systemFontOfSize:15];
                 _cell.detailTextLabel.text=app.sex;
 
             }else{
+                
                 _cell.detailTextLabel.font=[UIFont systemFontOfSize:15];
                 _cell.detailTextLabel.text=app.from;
             }

@@ -9,6 +9,9 @@
 #import "PasswordViewController.h"
 
 @interface PasswordViewController ()
+{
+    MBProgressHUD * mbHud;
+}
 
 @property (weak, nonatomic) IBOutlet UITextField *oldPasswordText;
 
@@ -42,13 +45,54 @@
     
     NSDictionary * pdic = [NSDictionary dictionaryWithObjectsAndKeys:app.request,@"request",app.uid,@"uid",newPass,@"newpass",oldpass,@"oldpass", nil];
     
-    [[HTTPSessionManager sharedManager] POST:changePass parameters:pdic result:^(id responseObject, NSError *error) {
+    if (self.oldPasswordText.text.length == 0 || self.newpasswordText.text.length == 0 || self.twopasswordText.text.length == 0) {
         
-        NSLog(@"%@",responseObject);
+        MBhud(@"信息不完善");
         
-        app.request = responseObject[@"response"];
+    }else if (![self.newpasswordText.text isEqualToString:self.twopasswordText.text]){
         
-    }];
+        MBhud(@"两次密码输入不一致");
+        
+    }else{
+     
+        AFNetworkReachabilityManager * mgr = [AFNetworkReachabilityManager sharedManager];
+        [mgr startMonitoring];
+        
+        [mgr setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {
+            
+            if (status != 0) {
+                
+                [[HTTPSessionManager sharedManager] POST:changePass parameters:pdic result:^(id responseObject, NSError *error) {
+                    
+                    NSLog(@"%@",responseObject);
+                    
+                    app.request = responseObject[@"response"];
+                    
+                    if ([responseObject[@"status"] integerValue] == 1) {
+                        
+                        MBhud(@"密码修改成功");
+                        
+                        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                            
+                            [self.navigationController popToRootViewControllerAnimated:YES];
+                        });
+                        
+                    }else{
+                        
+                        MBhud(responseObject[@"result"]);
+                    }
+                    
+                }];
+                
+            }else
+            {
+                noWebhud;
+            }
+            
+        }];
+
+    }
+    
 }
 
 - (IBAction)cancelClick {
