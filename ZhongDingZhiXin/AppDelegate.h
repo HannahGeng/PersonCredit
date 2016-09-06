@@ -114,8 +114,5 @@
 /** index */
 @property (nonatomic,assign) NSInteger numIndex;
 
-/** data */
-@property (nonatomic,strong) NSData * data;
-
 @end
 

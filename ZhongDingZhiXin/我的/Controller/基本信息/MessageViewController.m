@@ -183,6 +183,7 @@
             if (indexPath.row==0) {
                 _cell.detailTextLabel.font=[UIFont systemFontOfSize:15];
                 _cell.detailTextLabel.text=@"设置头像";
+                 _cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator; //显示最右边的箭头
                 
             }else if (indexPath.row==1){
                 _cell.detailTextLabel.font=[UIFont systemFontOfSize:15];
@@ -198,6 +199,7 @@
                 
                 _cell.detailTextLabel.font=[UIFont systemFontOfSize:15];
                 _cell.detailTextLabel.text=@"修改";
+                 _cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator; //显示最右边的箭头
             }
         }
         if (indexPath.section==1) {
@@ -214,7 +216,7 @@
             }
         }
     }
-    _cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator; //显示最右边的箭头
+   
     _cell.detailTextLabel.textColor=PASS_COLOR;
     _cell.detailTextLabel.font=[UIFont systemFontOfSize:13];
     return _cell;

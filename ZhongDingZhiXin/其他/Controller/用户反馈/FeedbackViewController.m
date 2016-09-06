@@ -16,9 +16,9 @@
 {
     MBProgressHUD * mbHud;
     UILabel *_placeholderLabel;
-    UILabel * alertLabel;
 }
 
+@property (weak, nonatomic) IBOutlet UILabel *alertLabel;
 @property (weak, nonatomic) IBOutlet UIButton *presentButton;
 @property (weak, nonatomic) IBOutlet UITextView *writeTextView;
 
@@ -43,43 +43,7 @@
     
     //设置导航栏
     [self setNavigationBar];
-    
-    if ([UIUtils getWindowWidth] == 320){
-    
-        alertLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 10, self.writeTextView.frame.size.width - 10, 80)];
-        
-    }else if([UIUtils getWindowWidth] == 414){
-        
-        alertLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 10, self.writeTextView.frame.size.width + 80, 50)];
-        
-    }else{
-        
-        alertLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 10, self.writeTextView.frame.size.width + 40, 80)];
-    }
-    
-    alertLabel.numberOfLines = 0;
 
-    alertLabel.text = @"请描述您遇到的问题或想提供的建议，我们将尽快回复，如果没有联系方式，请留下联系方式！";
-    
-    alertLabel.textColor = [UIColor grayColor];
-    
-    [self.writeTextView addSubview:alertLabel];
-    
-    // 监听键盘通知
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillChangeFrame:) name:UIKeyboardWillChangeFrameNotification object:nil];
-}
-
-#pragma mark - 键盘处理
-- (void)keyboardWillChangeFrame:(NSNotification *)note {
-    
-    // 取出键盘最终的frame
-    CGRect rect = [note.userInfo[UIKeyboardFrameEndUserInfoKey] CGRectValue];
-        
-    if (rect.size.height > 0) {
-        
-        alertLabel.hidden = YES;
-    }
-    
 }
 
 //设置导航栏
@@ -155,6 +119,20 @@
 - (BOOL)textViewShouldBeginEditing:(UITextView *)textView{
     
     return YES;
+}
+
+- (void)textViewDidChange:(UITextView *)textView
+{
+    NSLog(@"%@",textView.text);
+    
+    if (textView.text.length > 0) {
+        
+        self.alertLabel.hidden = YES;
+        
+    }else{
+        
+        self.alertLabel.hidden = NO;
+    }
 }
 
 @end

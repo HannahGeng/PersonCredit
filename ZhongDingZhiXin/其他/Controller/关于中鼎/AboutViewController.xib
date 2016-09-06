@@ -111,7 +111,7 @@
                                 <fragment>
                                     <string key="content">  北京职信鼎程信息技术有限公司是国内专业致力于职业信用的人力资源管理综合性服务机构，加强职业信用建设，弘扬诚信文化，通过发展职业信用平台，改变企业用人方式，构建和谐的劳动关系。   职信鼎程致力于提供高效、现代、保密、诚信的服务平台，让每一个职业人或企业在社会的交往活动中形成的信用信息能够真实有效的记录，形成统一的数学模式下的信用信息数据库，将庞杂的、散乱的、琐碎的个人或企业的社会诚信行为转换为直观的、量化的信用数据。</string>
                                     <attributes>
-                                        <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="NSColor" red="0.7019608021" green="0.7019608021" blue="0.7019608021" alpha="1" colorSpace="calibratedRGB"/>
                                         <font key="NSFont" size="16" name="PingFangSC-Regular"/>
                                         <integer key="NSLigature" value="0"/>
                                         <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineSpacing="5" defaultTabInterval="43.299999999999997" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO">
