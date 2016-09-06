@@ -204,7 +204,6 @@
                 
                 workType;
                 
-                
             }];
 
         }else

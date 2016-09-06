@@ -106,6 +106,7 @@
     _imageView.layer.cornerRadius=25;
     
     NSData *data=[[NSUserDefaults standardUserDefaults]objectForKey:@"image"];
+    
     if (!data) {
         _imageView.image=[UIImage imageNamed:@"touxiang.png"];
     }else{
@@ -113,6 +114,7 @@
     }
 
     [self.messageTableView addSubview:_imageView];
+    
     //发送通知
     [[NSNotificationCenter defaultCenter]
      postNotificationName:@"image" object:nil];

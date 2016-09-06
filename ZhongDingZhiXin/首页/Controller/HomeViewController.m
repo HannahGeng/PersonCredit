@@ -8,11 +8,12 @@
 
 #import "HomeViewController.h"
 
-@interface HomeViewController ()<UITableViewDataSource,UITableViewDelegate,UIActionSheetDelegate,UIImagePickerControllerDelegate>
+@interface HomeViewController ()<UITableViewDataSource,UITableViewDelegate,UIActionSheetDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate>
 {
     TaskViewController *_taskVC;
     WordCarViewController *_wordCarVC;
     MBProgressHUD * mbHud;
+    TitleViewCell * _cell;
 }
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -80,33 +81,33 @@
     
     if (indexPath.row==0) {
         
-        TitleViewCell *cell=[TitleViewCell cellWithTableView:self.tableView];
-        cell.selectionStyle = UITableViewCellSelectionStyleNone;
-        cell.nameLable.text = app.name;
+        _cell=[TitleViewCell cellWithTableView:self.tableView];
+        _cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        _cell.nameLable.text = app.name;
         
         if (app.firAddress.length == 0) {
             
-            cell.addressLabel.text = @"最近登录信息：暂无";
+            _cell.addressLabel.text = @"最近登录信息：暂无";
 
         }else{
             
-            cell.addressLabel.text = [NSString stringWithFormat:@"最近登录信息：%@",app.firAddress];
+            _cell.addressLabel.text = [NSString stringWithFormat:@"最近登录信息：%@",app.firAddress];
         }
-        cell.iconView.layer.masksToBounds = YES;
-        cell.iconView.layer.cornerRadius=40;
+        _cell.iconView.layer.masksToBounds = YES;
+        _cell.iconView.layer.cornerRadius=40;
         
         NSData *data=[[NSUserDefaults standardUserDefaults]objectForKey:@"image"];
         
         if (!data) {
             
-            cell.iconView.image = [UIImage imageNamed:@"touxiang"];
+            _cell.iconView.image = [UIImage imageNamed:@"touxiang"];
             
         }else{
             
-            cell.iconView.image=[UIImage imageWithData:data];
+            _cell.iconView.image=[UIImage imageWithData:data];
         }
         
-        return cell;
+        return _cell;
     }
     if (indexPath.row==1) {
         
@@ -252,6 +253,11 @@
         
         //在视图上展示
         [actionSheet showInView:self.view];
+        
+        //发送通知
+        [[NSNotificationCenter defaultCenter]
+         postNotificationName:@"image" object:nil];
+
     }
     if (indexPath.row==1) {
         AFNetworkReachabilityManager * mgr = [AFNetworkReachabilityManager sharedManager];
@@ -330,8 +336,7 @@
         data = UIImageJPEGRepresentation(image, 1.0);
     }
     
-    TitleViewCell * cell = [[TitleViewCell alloc] init];
-    cell.iconView.image = [UIImage imageWithData:data];
+    _cell.iconView.image = [UIImage imageWithData:data];
     [[NSUserDefaults standardUserDefaults] setObject:data forKey:@"image"];
     
     //结束操作
