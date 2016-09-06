@@ -35,6 +35,7 @@
 @property (weak, nonatomic) IBOutlet UITableView *nearTableView;
 @property (nonatomic,strong) NSMutableArray * nearArray;
 @property (weak, nonatomic) IBOutlet UIView *backListView;
+@property (weak, nonatomic) IBOutlet UIView *backTableView;
 
 @end
 
@@ -111,8 +112,6 @@
     [_mapView addSubview:topView];
     [_backView addSubview:_mapView];
     
-//    [self.view addSubview:_mapView];
-
     //添加内容视图
     [self addContentView];
     
@@ -235,7 +234,6 @@
     NSLog(@"参数字典:%@",pdic);
     
     NSLog(@"地址:%@",app.address);
-
     
     [[HTTPSessionManager sharedManager] POST:JIANDAO_URL parameters:pdic result:^(id responseObject, NSError *error) {
         
@@ -324,6 +322,9 @@
         
         self.nearArray = nearA;
         
+        self.backTableView.layer.masksToBounds = YES;
+        self.backTableView.layer.cornerRadius = 25;
+        
         [self.nearTableView reloadData];
         
         if (self.nearArray.count != 0) {
@@ -368,33 +369,40 @@
     
     CLLocationCoordinate2D pt = [self.mapView convertPoint:point toCoordinateFromView:self.mapView];
     
-    NSLog(@"\n标注位置:(%f,%f)",pt.latitude,pt.longitude);
-    
     BMKMapPoint point1 = BMKMapPointForCoordinate(pt);
     BMKMapPoint point2 = BMKMapPointForCoordinate(app.coordinate);
-    CLLocationDistance distance = BMKMetersBetweenMapPoints(point1,point2);
     
-    if (distance > 1000) {
+    if (self.backListView.hidden == YES) {
         
-        MBhud(@"超出范围");
+        CLLocationDistance distance = BMKMetersBetweenMapPoints(point1,point2);
         
-    }else{
-        
-        NSArray *annos = self.mapView.annotations;
-        
-        if (annos.count > 0) {
+        if (distance > 1000) {
             
-            [self.mapView removeAnnotations:annos];
-
-            [self addAnnoWithPT:pt];
+            MBhud(@"超出范围");
             
         }else{
             
-            // 3. 添加大头针
-            [self addAnnoWithPT:pt];
+            NSArray *annos = self.mapView.annotations;
+            
+            if (annos.count > 0) {
+                
+                [self.mapView removeAnnotations:annos];
+                
+                [self addAnnoWithPT:pt];
+                
+            }else{
+                
+                // 3. 添加大头针
+                [self addAnnoWithPT:pt];
+            }
         }
+        
+    }else if(self.backListView.hidden == NO){
+        
+        self.backListView.hidden = YES;
     }
-
+    
+    
 }
 
 - (void)addAnnoWithPT:(CLLocationCoordinate2D)pt

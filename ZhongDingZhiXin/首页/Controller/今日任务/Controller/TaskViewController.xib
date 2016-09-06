@@ -10,6 +10,7 @@
             <connections>
                 <outlet property="addressText" destination="cXi-Z1-rfN" id="cWs-h4-BRO"/>
                 <outlet property="backListView" destination="lO3-8L-9TN" id="OyY-0d-r3B"/>
+                <outlet property="backTableView" destination="Fua-Wb-1YY" id="q0t-NG-pZN"/>
                 <outlet property="backView" destination="q56-kl-bzs" id="PhM-gf-1j7"/>
                 <outlet property="confirmButton" destination="a4N-iS-lrW" id="pey-ya-p8e"/>
                 <outlet property="detailTimeLabel" destination="W17-gc-gkY" id="hfn-z7-AC3"/>
@@ -148,13 +149,12 @@
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fua-Wb-1YY">
                             <rect key="frame" x="20" y="98" width="280" height="440"/>
                             <subviews>
-                                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" allowsSelectionDuringEditing="YES" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Nne-oy-Lma">
+                                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" style="plain" separatorStyle="default" allowsSelectionDuringEditing="YES" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Nne-oy-Lma">
                                     <rect key="frame" x="0.0" y="0.0" width="280" height="440"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="440" id="pyl-fp-r9j"/>
                                     </constraints>
-                                    <color key="sectionIndexBackgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <connections>
                                         <outlet property="dataSource" destination="-1" id="KPM-nt-U7Q"/>
                                         <outlet property="delegate" destination="-1" id="ESd-5c-ghX"/>

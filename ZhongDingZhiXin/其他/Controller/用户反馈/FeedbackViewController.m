@@ -44,6 +44,7 @@
     //设置导航栏
     [self setNavigationBar];
 
+    [self.writeTextView.layer setCornerRadius:10];
 }
 
 //设置导航栏
