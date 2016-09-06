@@ -188,7 +188,16 @@
 {
     if (self.backListView.hidden == NO) {
         
-        self.backListView.hidden = YES;
+        [UIView animateWithDuration:0.25 animations:^{
+            
+            self.backListView.alpha = 0;
+            self.backTableView.alpha = 0;
+            
+        } completion:^(BOOL finished) {
+            
+            self.backListView.hidden = YES;
+            
+        }];
         
     }else{
         
@@ -331,7 +340,13 @@
             
             hudHide;
             
-            self.backListView.hidden = NO;
+            [UIView animateWithDuration:0.25 animations:^{
+                
+                self.backListView.hidden = NO;
+                self.backListView.alpha = 1;
+                self.backTableView.alpha = 1;
+            }];
+            
             
         }else{
             
@@ -399,7 +414,16 @@
         
     }else if(self.backListView.hidden == NO){
         
-        self.backListView.hidden = YES;
+        [UIView animateWithDuration:0.25 animations:^{
+            
+            self.backListView.alpha = 0;
+            self.backTableView.alpha = 0;
+
+        } completion:^(BOOL finished) {
+            
+            self.backListView.hidden = YES;
+
+        }];
     }
     
     

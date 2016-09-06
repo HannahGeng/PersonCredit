@@ -143,10 +143,10 @@
                         <constraint firstAttribute="bottom" secondItem="a4N-iS-lrW" secondAttribute="bottom" constant="20" id="xKS-wv-4He"/>
                     </constraints>
                 </view>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lO3-8L-9TN" userLabel="backTableView">
+                <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lO3-8L-9TN" userLabel="backTableView">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                     <subviews>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fua-Wb-1YY">
+                        <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fua-Wb-1YY">
                             <rect key="frame" x="20" y="98" width="280" height="440"/>
                             <subviews>
                                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" style="plain" separatorStyle="default" allowsSelectionDuringEditing="YES" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Nne-oy-Lma">
@@ -170,7 +170,7 @@
                             </constraints>
                         </view>
                     </subviews>
-                    <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                    <color key="backgroundColor" red="0.7019608021" green="0.7019608021" blue="0.7019608021" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="bottom" secondItem="Fua-Wb-1YY" secondAttribute="bottom" constant="30" id="4fn-VT-KA9"/>
                         <constraint firstItem="Fua-Wb-1YY" firstAttribute="leading" secondItem="lO3-8L-9TN" secondAttribute="leading" constant="20" id="SQf-mX-VDH"/>
