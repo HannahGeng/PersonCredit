@@ -163,7 +163,6 @@
         
             }];
 
-            
         }else
         {
             hudHide;
@@ -204,6 +203,8 @@
                 arr=[NSArray arrayWithObjects:@"gongzuoz",@"gongzuoz1.1", nil];
                 
                 workType;
+                
+                
             }];
 
         }else

@@ -263,11 +263,15 @@ for (int i=0; i<arr.count; i++) { \
         if ([UIUtils getWindowWidth] == 320) {\
             AImageView=[[UIImageView alloc]initWithFrame:CGRectMake(([UIUtils getWindowWidth]-110)/2, ([UIUtils getWindowHeight]-300)/2, 110, 110)]; \
             AImageView.layer.masksToBounds = YES; \
-            AImageView.layer.cornerRadius=55; \
+            AImageView.layer.cornerRadius = 55; \
+            AImageView.layer.borderWidth = 5;\
+            AImageView.layer.borderColor = LIGHT_WHITE_COLOR.CGColor;\
         }else{\
             AImageView=[[UIImageView alloc]initWithFrame:CGRectMake(([UIUtils getWindowWidth]-150)/2, ([UIUtils getWindowHeight]-350)/2, 150, 150)]; \
             AImageView.layer.masksToBounds = YES; \
-            AImageView.layer.cornerRadius=75; \
+            AImageView.layer.cornerRadius= 75; \
+            AImageView.layer.borderWidth = 5;\
+            AImageView.layer.borderColor = LIGHT_WHITE_COLOR.CGColor;\
         }\
         AImageView.backgroundColor=LIGHT_WHITE_COLOR; \
         NSData *data=[[NSUserDefaults standardUserDefaults]objectForKey:@"image"];\

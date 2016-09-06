@@ -77,6 +77,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     AppShare;
+    
     if (indexPath.row==0) {
         
         TitleViewCell *cell=[TitleViewCell cellWithTableView:self.tableView];
@@ -88,6 +89,7 @@
             cell.addressLabel.text = @"最近登录信息：暂无";
 
         }else{
+            
             cell.addressLabel.text = [NSString stringWithFormat:@"最近登录信息：%@",app.firAddress];
         }
         cell.iconView.layer.masksToBounds = YES;
@@ -96,7 +98,9 @@
         NSData *data=[[NSUserDefaults standardUserDefaults]objectForKey:@"image"];
         
         if (!data) {
+            
             cell.iconView.image = [UIImage imageNamed:@"touxiang"];
+            
         }else{
             
             cell.iconView.image=[UIImage imageWithData:data];
@@ -166,6 +170,7 @@
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         [cell.taskButton addTarget:self action:@selector(taskButtonClick) forControlEvents:UIControlEventTouchUpInside];
         [cell.wordCardButton addTarget:self action:@selector(wordCardButtonClick) forControlEvents:UIControlEventTouchUpInside];
+        
         return cell;
     }
     
