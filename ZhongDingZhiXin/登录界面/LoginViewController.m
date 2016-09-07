@@ -29,7 +29,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    
     //设置导航栏不透明
     self.navigationController.navigationBar.translucent = NO;
     
@@ -159,7 +158,7 @@
 -(void)setNavigationBar
 {
     //设置导航栏的颜色
-    NavBarType(@"登陆");
+    NavBarType(@"登录");
 }
 
 #pragma mark - 登录按钮

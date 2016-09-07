@@ -156,6 +156,7 @@
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
 
         if (indexPath.section==0) {
+            
             //设置cell不可选择
             UIImage *image2=[UIImage imageNamed:@"ziti-5"];
             _btn2 = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -164,9 +165,10 @@
         
             _string=APP_Font;
             _btn2.titleLabel.font=[UIFont systemFontOfSize:15*[_string floatValue]];
-            
+            [_btn2 setSelected:YES];
             [_btn2 setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
             [_btn2 setBackgroundImage:image2 forState:UIControlStateSelected];
+            [_btn2 setTitleColor:[UIColor whiteColor] forState:UIControlStateSelected];
             [_btn2 addTarget:self action:@selector(onClick1) forControlEvents:UIControlEventTouchUpInside];
             [cell addSubview:_btn2];
             
@@ -179,6 +181,7 @@
             _btn3.titleLabel.font=[UIFont systemFontOfSize:17*[string3 floatValue]];
            
             [_btn3 setBackgroundImage:image3 forState:UIControlStateSelected];
+            [_btn3 setTitleColor:[UIColor whiteColor] forState:UIControlStateSelected];
             [_btn3 setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
             [_btn3 addTarget:self action:@selector(onClick2) forControlEvents:UIControlEventTouchUpInside];
             [cell addSubview:_btn3];
@@ -208,11 +211,11 @@
     
     _btn2.selected=YES;
     _btn3.selected=NO;
+    
 }
 
 -(void)onClick2
 {
-    
     [[NSUserDefaults standardUserDefaults]setObject:@"1.23" forKey:@"change_font"];
     
     _btn2.selected=NO;
