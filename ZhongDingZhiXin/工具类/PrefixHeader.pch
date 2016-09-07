@@ -96,6 +96,7 @@
 #import "RegistModel.h"
 #import "RegistCell.h"
 #import "Masonry.h"
+#import "UILabel+LabelFontChange.h"
 
 //定位框架
 #import <CoreLocation/CoreLocation.h>

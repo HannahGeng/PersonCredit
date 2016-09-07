@@ -36,10 +36,6 @@
     
     AppShare;
     
-    NSString *string3 = APP_Font
-    
-    NSLog(@"FONT:%@",string3);
-    
     //设置背景颜色
     [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"backgroundImage"]]];
     

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		22958E282956D3CA1C97637F /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A1C2B9738B0F727D91CD021 /* libPods.a */; };
+		3D131A4B1D7FC280005B968F /* UILabel+LabelFontChange.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D131A4A1D7FC280005B968F /* UILabel+LabelFontChange.m */; };
 		3D150F3B1D4734BB00E30A14 /* NearCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D150F391D4734BB00E30A14 /* NearCell.m */; };
 		3D150F3C1D4734BB00E30A14 /* NearCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D150F3A1D4734BB00E30A14 /* NearCell.xib */; };
 		3D150F3F1D4734CB00E30A14 /* NearModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D150F3E1D4734CB00E30A14 /* NearModel.m */; };
@@ -135,6 +136,8 @@
 
 /* Begin PBXFileReference section */
 		0A1C2B9738B0F727D91CD021 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		3D131A491D7FC280005B968F /* UILabel+LabelFontChange.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+LabelFontChange.h"; sourceTree = "<group>"; };
+		3D131A4A1D7FC280005B968F /* UILabel+LabelFontChange.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+LabelFontChange.m"; sourceTree = "<group>"; };
 		3D150F381D4734BB00E30A14 /* NearCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NearCell.h; sourceTree = "<group>"; };
 		3D150F391D4734BB00E30A14 /* NearCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NearCell.m; sourceTree = "<group>"; };
 		3D150F3A1D4734BB00E30A14 /* NearCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NearCell.xib; sourceTree = "<group>"; };
@@ -358,6 +361,8 @@
 		3D4F9EF01D2B63EB00A1C1A5 /* 工具类 */ = {
 			isa = PBXGroup;
 			children = (
+				3D131A491D7FC280005B968F /* UILabel+LabelFontChange.h */,
+				3D131A4A1D7FC280005B968F /* UILabel+LabelFontChange.m */,
 				3DD68B6F1D2C91CE002BCDD6 /* Foundation+Log.m */,
 				3DC3C6501D2B859100D40844 /* 网络请求 */,
 				3D4F9EF21D2B63EB00A1C1A5 /* PrefixHeader.pch */,
@@ -1390,6 +1395,7 @@
 				3D4F9F4C1D2B663800A1C1A5 /* WordCarViewCell.m in Sources */,
 				3D4F9F851D2B67C100A1C1A5 /* MyViewController.m in Sources */,
 				3D4F9FCE1D2B817100A1C1A5 /* OtherViewController.m in Sources */,
+				3D131A4B1D7FC280005B968F /* UILabel+LabelFontChange.m in Sources */,
 				3D4F9F8E1D2B67C100A1C1A5 /* EducationInfo.m in Sources */,
 				3D4F9F8A1D2B67C100A1C1A5 /* WorkInfo.m in Sources */,
 				3D4F9F471D2B663800A1C1A5 /* NoticeInfo.m in Sources */,
