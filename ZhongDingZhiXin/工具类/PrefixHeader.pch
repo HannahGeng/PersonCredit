@@ -81,6 +81,10 @@
 #import "XMGAnno.h"
 #import "ForgetPassWebViewController.h"
 #import "MarketModel.h"
+#define MAS_SHORTHAND
+//define this constant if you want to enable auto-boxing for default syntax
+#define MAS_SHORTHAND_GLOBALS
+#import "Masonry.h"
 
 #import <BaiduMapAPI_Base/BMKBaseComponent.h>//引入base相关所有的头文件
 #import <BaiduMapAPI_Map/BMKMapComponent.h>//引入地图功能所有的头文件
@@ -95,7 +99,6 @@
 #import "RegisterViewController.h"
 #import "RegistModel.h"
 #import "RegistCell.h"
-#import "Masonry.h"
 #import "UILabel+LabelFontChange.h"
 
 //定位框架

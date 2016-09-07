@@ -16,6 +16,7 @@
 {
     MBProgressHUD * mbHud;
     UILabel *_placeholderLabel;
+    int a ;
 }
 
 @property (weak, nonatomic) IBOutlet UILabel *alertLabel;
@@ -29,9 +30,6 @@
 //隐藏TabBar
 -(void)viewWillAppear:(BOOL)animated{
     
-    NSString *string=APP_Font;
-    _presentButton.titleLabel.font=[UIFont systemFontOfSize:17*[string floatValue]];
-    
     self.tabBarController.tabBar.hidden=YES;
 }
 
@@ -43,8 +41,7 @@
     
     //设置导航栏
     [self setNavigationBar];
-
-    [self.writeTextView.layer setCornerRadius:10];
+    
 }
 
 //设置导航栏
@@ -81,37 +78,56 @@
         
     }else{
         
-        AFNetworkReachabilityManager * mgr = [AFNetworkReachabilityManager sharedManager];
-        
-        [mgr startMonitoring];
-        
-        [mgr setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {
+        for(int i=0; i< self.writeTextView.text.length;i++){
             
-            if (status != 0) {
-                
-                NSDictionary * pdic = [[NSDictionary alloc]initWithObjectsAndKeys:app.uid,@"uid",app.request,@"request",[AESCrypt encrypt:self.writeTextView.text password:app.loginKeycode],@"tickling",nil];
-                
-                [[HTTPSessionManager sharedManager] POST:FANKUI_URL parameters:pdic  result:^(id responseObject, NSError *error) {
-                    
-                    if ([responseObject[@"status"] integerValue] == 1) {
-                        
-                        app.request = responseObject[@"response"];
-                        
-                        MBhud(responseObject[@"result"]);
-                        
-                    }else{
-                        
-                        MBhud(@"请求错误");
-                    }
-                    
-                }];
-                
-            }else
-            {
-                noWebhud;
-            }
+            a = [self.writeTextView.text characterAtIndex:i];
+        }
+        
+        if(!(a > 0x4e00 && a < 0x9fff)){
             
-        }];
+            MBhud(@"请输入汉字");
+            
+        }else{
+            
+            AFNetworkReachabilityManager * mgr = [AFNetworkReachabilityManager sharedManager];
+            
+            [mgr startMonitoring];
+            
+            [mgr setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {
+                
+                if (status != 0) {
+                    
+                    NSDictionary * pdic = [[NSDictionary alloc]initWithObjectsAndKeys:app.uid,@"uid",app.request,@"request",[AESCrypt encrypt:self.writeTextView.text password:app.loginKeycode],@"tickling",nil];
+                    
+                    [[HTTPSessionManager sharedManager] POST:FANKUI_URL parameters:pdic  result:^(id responseObject, NSError *error) {
+                        
+                        if ([responseObject[@"status"] integerValue] == 1) {
+                            
+                            app.request = responseObject[@"response"];
+                            
+                            MBhud(responseObject[@"result"]);
+                            
+                            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                                
+                                [self.navigationController popToRootViewControllerAnimated:YES];
+                            });
+                            
+                        }else{
+                            
+                            MBhud(@"请求错误");
+                        }
+                        
+                    }];
+                    
+                }else
+                {
+                    noWebhud;
+                }
+                
+            }];
+
+        }
+        
     }
     
 }
