@@ -16,7 +16,8 @@
 {
     MBProgressHUD * mbHud;
     UILabel *_placeholderLabel;
-    int a ;
+    int a;
+    unichar c;
 }
 
 @property (weak, nonatomic) IBOutlet UILabel *alertLabel;
@@ -81,11 +82,12 @@
         for(int i=0; i< self.writeTextView.text.length;i++){
             
             a = [self.writeTextView.text characterAtIndex:i];
+            c = [self.writeTextView.text characterAtIndex:i];
         }
         
-        if(!(a > 0x4e00 && a < 0x9fff)){
+        if((!(a > 0x4e00 && a < 0x9fff)) && ((c<'A'||c>'Z')&&(c<'a'||c>'z')) && (a)){
             
-            MBhud(@"请输入汉字");
+            MBhud(@"请输入文字");
             
         }else{
             
