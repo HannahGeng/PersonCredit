@@ -15,6 +15,7 @@
 
 @property (nonatomic,strong) NSArray * registArray;
 @property (weak, nonatomic) IBOutlet UITableView *resgistTableView;
+@property (weak, nonatomic) IBOutlet UIView *noneView;
 
 @end
 
@@ -36,8 +37,12 @@
     
     self.registArray = app.registArray;
     
+    self.noneView.hidden = YES;
+
     if (self.registArray == NULL) {
         
+        self.resgistTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+        self.noneView.hidden = NO;
         
     }else{
         

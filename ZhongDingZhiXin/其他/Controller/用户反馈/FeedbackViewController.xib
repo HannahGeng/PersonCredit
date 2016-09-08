@@ -23,7 +23,6 @@
                     <subviews>
                         <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3SW-GH-cIx">
                             <rect key="frame" x="0.0" y="0.0" width="335" height="349"/>
-                            <color key="backgroundColor" red="0.27306501039999997" green="1" blue="0.37749504" alpha="1" colorSpace="calibratedRGB"/>
                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             <connections>

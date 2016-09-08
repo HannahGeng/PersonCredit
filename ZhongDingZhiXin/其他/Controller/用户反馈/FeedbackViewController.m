@@ -140,7 +140,6 @@
 
 - (void)textViewDidChange:(UITextView *)textView
 {
-    NSLog(@"%@",textView.text);
     
     if (textView.text.length > 0) {
         

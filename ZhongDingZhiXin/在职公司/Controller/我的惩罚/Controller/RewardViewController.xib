@@ -7,6 +7,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RewardViewController">
             <connections>
+                <outlet property="noneView" destination="XK4-CD-LdJ" id="X1f-cm-znF"/>
                 <outlet property="rewardTableView" destination="DXx-bO-sKa" id="LDS-Eg-nMx"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -24,15 +25,48 @@
                         <outlet property="delegate" destination="-1" id="z8f-BC-CJd"/>
                     </connections>
                 </tableView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XK4-CD-LdJ">
+                    <rect key="frame" x="126" y="100" width="69" height="115"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="暂无信息" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kfa-FJ-Rm8">
+                            <rect key="frame" x="0.0" y="94" width="69" height="18"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="zwxx" translatesAutoresizingMaskIntoConstraints="NO" id="qFq-8q-lWp">
+                            <rect key="frame" x="0.0" y="0.0" width="69" height="80"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="80" id="BYi-Ao-tSY"/>
+                            </constraints>
+                        </imageView>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="115" id="1CU-K3-NTy"/>
+                        <constraint firstItem="qFq-8q-lWp" firstAttribute="leading" secondItem="XK4-CD-LdJ" secondAttribute="leading" id="6aQ-SR-y8C"/>
+                        <constraint firstItem="qFq-8q-lWp" firstAttribute="trailing" secondItem="Kfa-FJ-Rm8" secondAttribute="trailing" id="UlB-ba-uKq"/>
+                        <constraint firstItem="qFq-8q-lWp" firstAttribute="centerX" secondItem="XK4-CD-LdJ" secondAttribute="centerX" id="aCv-DM-zaq"/>
+                        <constraint firstItem="Kfa-FJ-Rm8" firstAttribute="top" secondItem="qFq-8q-lWp" secondAttribute="bottom" constant="14" id="dVX-IO-LOm"/>
+                        <constraint firstItem="qFq-8q-lWp" firstAttribute="leading" secondItem="Kfa-FJ-Rm8" secondAttribute="leading" id="fu4-9g-Hs3"/>
+                        <constraint firstItem="qFq-8q-lWp" firstAttribute="top" secondItem="XK4-CD-LdJ" secondAttribute="top" id="kZd-O2-3ZZ"/>
+                        <constraint firstAttribute="width" constant="69" id="mA8-U2-q3H"/>
+                    </constraints>
+                </view>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="DXx-bO-sKa" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="0e2-ct-J4U"/>
                 <constraint firstAttribute="trailing" secondItem="DXx-bO-sKa" secondAttribute="trailing" id="2pf-cv-HgF"/>
+                <constraint firstItem="XK4-CD-LdJ" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="PQP-bs-aEm"/>
+                <constraint firstItem="XK4-CD-LdJ" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="100" id="UcG-GN-jgd"/>
                 <constraint firstItem="DXx-bO-sKa" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="lvU-Z6-Wmk"/>
                 <constraint firstAttribute="bottom" secondItem="DXx-bO-sKa" secondAttribute="bottom" id="os9-Bb-fs4"/>
             </constraints>
             <point key="canvasLocation" x="403" y="340"/>
         </view>
     </objects>
+    <resources>
+        <image name="zwxx" width="137" height="159"/>
+    </resources>
 </document>

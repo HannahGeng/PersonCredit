@@ -7,6 +7,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RegisterViewController">
             <connections>
+                <outlet property="noneView" destination="d5V-8q-bSO" id="xk9-6z-2Yu"/>
                 <outlet property="resgistTableView" destination="IBH-6c-TFC" id="zXi-DB-2r5"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -16,6 +17,34 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="d5V-8q-bSO">
+                    <rect key="frame" x="153" y="100" width="69" height="115"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="暂无信息" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="REI-31-1xe">
+                            <rect key="frame" x="0.0" y="94" width="69" height="18"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="zwxx" translatesAutoresizingMaskIntoConstraints="NO" id="H42-Cn-bDP">
+                            <rect key="frame" x="0.0" y="0.0" width="69" height="80"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="80" id="4Vb-xr-o2e"/>
+                            </constraints>
+                        </imageView>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="H42-Cn-bDP" firstAttribute="leading" secondItem="REI-31-1xe" secondAttribute="leading" id="2dg-Tv-Htb"/>
+                        <constraint firstAttribute="width" constant="69" id="7i2-Qf-vgy"/>
+                        <constraint firstItem="H42-Cn-bDP" firstAttribute="trailing" secondItem="REI-31-1xe" secondAttribute="trailing" id="Gpd-RU-jNW"/>
+                        <constraint firstItem="H42-Cn-bDP" firstAttribute="top" secondItem="d5V-8q-bSO" secondAttribute="top" id="W79-DB-LP3"/>
+                        <constraint firstItem="H42-Cn-bDP" firstAttribute="centerX" secondItem="d5V-8q-bSO" secondAttribute="centerX" id="baG-Xx-MjD"/>
+                        <constraint firstItem="H42-Cn-bDP" firstAttribute="leading" secondItem="d5V-8q-bSO" secondAttribute="leading" id="fEc-vu-xF9"/>
+                        <constraint firstItem="REI-31-1xe" firstAttribute="top" secondItem="H42-Cn-bDP" secondAttribute="bottom" constant="14" id="oU3-86-UGc"/>
+                        <constraint firstAttribute="height" constant="115" id="xFu-Fl-Ugx"/>
+                    </constraints>
+                </view>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="IBH-6c-TFC">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -27,12 +56,17 @@
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
+                <constraint firstItem="d5V-8q-bSO" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="100" id="BC0-2u-2Td"/>
                 <constraint firstAttribute="trailing" secondItem="IBH-6c-TFC" secondAttribute="trailing" id="Le9-jW-2S0"/>
                 <constraint firstItem="IBH-6c-TFC" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="PUJ-uP-2yM"/>
                 <constraint firstItem="IBH-6c-TFC" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="RS3-aw-J6e"/>
+                <constraint firstItem="d5V-8q-bSO" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="wAT-aD-NxE"/>
                 <constraint firstAttribute="bottom" secondItem="IBH-6c-TFC" secondAttribute="bottom" id="zpE-ty-Leo"/>
             </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
         </view>
     </objects>
+    <resources>
+        <image name="zwxx" width="137" height="159"/>
+    </resources>
 </document>

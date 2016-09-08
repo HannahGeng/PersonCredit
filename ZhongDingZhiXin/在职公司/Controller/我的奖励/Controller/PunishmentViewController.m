@@ -16,6 +16,7 @@
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UIImageView *backImage;
+@property (weak, nonatomic) IBOutlet UILabel *noneLabel;
 
 @end
 
@@ -38,6 +39,8 @@
     
     //加载数据
     [self loadData];
+    
+    self.noneLabel.hidden = YES;
 }
 
 //设置导航栏
@@ -90,11 +93,13 @@
             
             //隐藏HUD
             hudHide;
+            
         }else{
             
             hudHide;
             
             self.tableView.hidden = YES;
+            self.noneLabel.hidden = NO;
             
         }
 

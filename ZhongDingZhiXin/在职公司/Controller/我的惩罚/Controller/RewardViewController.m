@@ -13,7 +13,9 @@
     NSMutableArray *_rewardInfoArray;
     MBProgressHUD *mbHud;//提示
 }
+
 @property (weak, nonatomic) IBOutlet UITableView *rewardTableView;
+@property (weak, nonatomic) IBOutlet UIView *noneView;
 
 @end
 
@@ -35,7 +37,10 @@
     
     //加载数据
     [self loadData];
+    
+    self.noneView.hidden = YES;
 }
+
 //设置导航栏
 -(void)setNavigationBar
 {
@@ -94,14 +99,15 @@
             
         }else{
             
-            NSLog(@"暂无惩罚");
+            self.rewardTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+            self.noneView.hidden = NO;
         }
 
     }];  
     
 }
-#pragma mark UITableViewDataSource
 
+#pragma mark UITableViewDataSource
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     return _rewardInfoArray.count;

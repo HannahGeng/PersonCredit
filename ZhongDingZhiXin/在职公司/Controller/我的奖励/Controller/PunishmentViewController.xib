@@ -8,6 +8,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PunishmentViewController">
             <connections>
                 <outlet property="backImage" destination="hB0-PY-XNm" id="j39-jh-LyM"/>
+                <outlet property="noneLabel" destination="onD-V2-UyK" id="VQU-bc-Qp9"/>
                 <outlet property="tableView" destination="tU3-fp-s8p" id="GTN-pe-nsi"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -26,19 +27,27 @@
                     </connections>
                 </tableView>
                 <imageView userInteractionEnabled="NO" alpha="0.5" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="jiangli" translatesAutoresizingMaskIntoConstraints="NO" id="hB0-PY-XNm">
-                    <rect key="frame" x="97" y="200" width="125" height="200"/>
+                    <rect key="frame" x="97" y="100" width="125" height="200"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="200" id="OnN-vB-uIO"/>
                     </constraints>
                 </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="暂无奖励" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="onD-V2-UyK">
+                    <rect key="frame" x="126" y="310" width="68" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstAttribute="bottom" secondItem="tU3-fp-s8p" secondAttribute="bottom" id="5At-Eb-9a4"/>
+                <constraint firstItem="onD-V2-UyK" firstAttribute="centerX" secondItem="hB0-PY-XNm" secondAttribute="centerX" id="LTa-DN-VWn"/>
+                <constraint firstItem="onD-V2-UyK" firstAttribute="top" secondItem="hB0-PY-XNm" secondAttribute="bottom" constant="10" id="O0K-H9-Oge"/>
                 <constraint firstItem="hB0-PY-XNm" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="97" id="PwV-iv-ARf"/>
                 <constraint firstAttribute="trailing" secondItem="hB0-PY-XNm" secondAttribute="trailing" constant="98" id="Sbf-iG-LWS"/>
                 <constraint firstAttribute="trailing" secondItem="tU3-fp-s8p" secondAttribute="trailing" id="V04-2H-ps9"/>
-                <constraint firstItem="hB0-PY-XNm" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="200" id="fkH-Vg-0HK"/>
+                <constraint firstItem="hB0-PY-XNm" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="100" id="fkH-Vg-0HK"/>
                 <constraint firstItem="tU3-fp-s8p" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="ieq-4H-DB3"/>
                 <constraint firstItem="tU3-fp-s8p" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="lqQ-Er-85t"/>
             </constraints>
