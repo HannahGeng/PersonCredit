@@ -43,6 +43,7 @@
     //设置导航栏
     [self setNavigationBar];
     
+    [_writeTextView becomeFirstResponder];
 }
 
 //设置导航栏

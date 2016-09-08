@@ -16,11 +16,7 @@
     CLLocationManager * _manager;
 }
 
-@property (strong, nonatomic) IBOutlet UIView *headImageView;
-@property (strong, nonatomic) IBOutlet UIView *passImageView;
-@property (weak, nonatomic) IBOutlet UITextField *userName;
-@property (strong, nonatomic) IBOutlet UIView *phoneInageView;
-@property (weak, nonatomic) IBOutlet UITextField *userPass;
+
 
 @end
 

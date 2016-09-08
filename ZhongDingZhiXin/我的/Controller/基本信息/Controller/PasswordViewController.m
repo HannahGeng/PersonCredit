@@ -8,7 +8,7 @@
 
 #import "PasswordViewController.h"
 
-@interface PasswordViewController ()
+@interface PasswordViewController ()<UITextFieldDelegate>
 {
     MBProgressHUD * mbHud;
 }
@@ -30,6 +30,11 @@
     NavBarType(@"修改密码");
     
     leftButton;
+    
+    _oldPasswordText.tag = 1;
+    _newpasswordText.tag = 2;
+    _twopasswordText.tag = 3;
+    [_oldPasswordText becomeFirstResponder];
 }
 
 - (void)backButton
@@ -38,6 +43,8 @@
 }
 
 - (IBAction)confirmClick {
+    
+    [self.view endEditing:YES];
     
     AppShare;
     NSString * oldpass = [AESCrypt encrypt:self.oldPasswordText.text password:app.loginKeycode];
@@ -52,6 +59,10 @@
     }else if (![self.newpasswordText.text isEqualToString:self.twopasswordText.text]){
         
         MBhud(@"两次密码输入不一致");
+        
+    }else if (_newpasswordText.text.length < 6){
+        
+        MBhud(@"密码必须大于6位数");
         
     }else{
      
@@ -74,7 +85,14 @@
                         
                         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
                             
-                            [self.navigationController popToRootViewControllerAnimated:YES];
+                            LoginViewController * login = [[LoginViewController alloc] init];
+                            
+                            [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"pass"];
+                            
+                            [self.navigationController pushViewController:login animated:YES];
+                            
+                            [login.userPass becomeFirstResponder];
+                                                        
                         });
                         
                     }else{
@@ -98,6 +116,41 @@
 - (IBAction)cancelClick {
     
     [self.navigationController popViewControllerAnimated:YES];    
+}
+
+#pragma mark - textfield代理
+-(BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
+{
+    if (_oldPasswordText.tag == 1) {
+        NSString * phoneString = [textField.text stringByReplacingCharactersInRange:range withString:string];
+        
+        if (phoneString.length > 16 && range.length != 1) {
+            
+            _oldPasswordText.text = [phoneString substringToIndex:16];
+            return NO;
+            
+        }
+        
+    }else if (_newpasswordText.tag == 2){
+        
+        NSString * passString = [textField.text stringByReplacingCharactersInRange:range withString:string];
+        
+        if (passString.length > 16 && range.length != 1) {
+            _newpasswordText.text = [passString substringToIndex:16];
+            return NO;
+        }
+        
+    }else if(_twopasswordText.tag == 3){
+        NSString * passString = [textField.text stringByReplacingCharactersInRange:range withString:string];
+        
+        if (passString.length > 16 && range.length != 1) {
+            _twopasswordText.text = [passString substringToIndex:16];
+            return NO;
+        }
+        
+    }
+    
+    return YES;
 }
 
 @end
