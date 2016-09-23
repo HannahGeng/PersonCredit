@@ -26,7 +26,9 @@
 -(void)viewWillAppear:(BOOL)animated{
     
     self.tabBarController.tabBar.hidden=NO;
-    [UILabel appearance].font = [UILabel changeFont];
+
+    //加载tableView
+    [self addTableView];
 
 }
 
@@ -37,8 +39,6 @@
     [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"backgroundImage"]]];
     //设置导航栏
     [self setNavigationBar];
-    //加载tableView
-    [self addTableView];
     
     [self loadData];//假数据
     

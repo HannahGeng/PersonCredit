@@ -77,9 +77,7 @@
         NSArray *array = (NSArray *)responseObject[@"result"];
       
         if ([responseObject[@"status"] integerValue] == 1) {
-            
-            NSLog(@"我的惩罚:%@",responseObject);
-            
+                        
             app.request=responseObject[@"response"];
             
             for (NSDictionary *dictionary in array) {

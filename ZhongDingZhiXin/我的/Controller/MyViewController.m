@@ -14,6 +14,7 @@
     UITableView *_tableView;
     MBProgressHUD * mbHud;
     NSString * _font;
+    UITableViewCell * _cell;
 }
 @end
 
@@ -23,8 +24,9 @@
 -(void)viewWillAppear:(BOOL)animated{
     
     self.tabBarController.tabBar.hidden=NO;
-    [UILabel appearance].font = [UILabel changeFont];
-
+    
+    [self addTableView];
+    
 }
 
 - (void)viewDidLoad {
@@ -35,11 +37,12 @@
     //设置导航栏
     [self setNavigationBar];
     //加载tableView
-    [self addTableView];
+//    [self addTableView];
     
     [self loadData];//假数据
-    
+
 }
+
 //设置导航栏
 -(void)setNavigationBar
 {
@@ -54,7 +57,6 @@
                       @{@"image":@"jyjl",@"title":@"教育经历"},
                       @{@"image":@"qdjl",@"title":@"签到列表"}];
     
-    _tableDataArray[0][@"title"];
 }
 
 //加载tableView
@@ -71,7 +73,6 @@
 }
 
 #pragma mark UITableViewDataSource
-
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     return 4;
@@ -84,18 +85,19 @@
     if (!cell) {
         cell=[[MyViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
     }
+    
     //无色
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator; //显示最右边的箭头
-    [cell setContentView:_tableDataArray[indexPath.row]];
+    
     _font = APP_Font;
-    cell.textLabel.font = [UIFont systemFontOfSize:15 * [_font floatValue]];
+
+    [cell setContentView:_tableDataArray[indexPath.row]];
     
     return cell;
 }
 
 #pragma mark UITableViewDelegate
-
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     
     return 80;
@@ -112,7 +114,6 @@
     if (indexPath.row==0) {
         
         [self loadMessageData];
-        
     }
     if (indexPath.row==1) {
         
@@ -124,9 +125,7 @@
     }
     if (indexPath.row == 3)
     {
-        
         [self loadRegist];
-        
     }
 }
 
@@ -146,8 +145,6 @@
 
             //初始化请求（同时也创建了一个线程）
             [[HTTPSessionManager sharedManager] POST:GZJL_URL parameters:Dic result:^(id responseObject, NSError *error) {
-                
-                NSLog(@"工作经验:%@",responseObject);
                 
                 NSArray *array = responseObject[@"result"];
                 
@@ -209,9 +206,7 @@
                 app.sex = [AESCrypt decrypt:responseObject[@"result"][@"sex"] password:app.loginKeycode];
                 
                 NSMutableArray *array = responseObject[@"result"];
-                
-                NSLog(@"个人资料%@",array);
-                
+                                
                 if (array.count != 0) {
                     
                     app.request=responseObject[@"response"];
@@ -252,9 +247,7 @@
             
             //初始化请求（同时也创建了一个线程）
             [[HTTPSessionManager sharedManager] POST:JYJL_URL parameters:Dic result:^(id responseObject, NSError *error) {
-                
-                NSLog(@"教育经历:%@",responseObject);
-                
+                                
                 NSMutableArray * educate = [NSMutableArray new];
                 app.request=responseObject[@"response"];
 

@@ -210,11 +210,12 @@
 //字体变小
 -(void)onClick1
 {
+
     _btn2.selected=YES;
     _btn3.selected=NO;
     
     _string = @"1";
-    
+
     _titleLable1.font = [UIFont systemFontOfSize:15 * [_string floatValue]];
     _titleLable2.font = [UIFont systemFontOfSize:15 * [_string floatValue]];
     _titleLable3.font = [UIFont systemFontOfSize:15 * [_string floatValue]];
@@ -230,6 +231,7 @@
 //字体变大
 -(void)onClick2
 {
+    
     _btn2.selected=NO;
     _btn3.selected=YES;
     

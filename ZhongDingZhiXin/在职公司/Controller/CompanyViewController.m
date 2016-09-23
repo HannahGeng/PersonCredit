@@ -20,9 +20,11 @@
 
 //显示TabBar
 -(void)viewWillAppear:(BOOL)animated{
+    
     self.tabBarController.tabBar.hidden=NO;
-    [UILabel appearance].font = [UILabel changeFont];
-
+    
+    //加载tableView
+    [self addTableView];
 }
 
 - (void)viewDidLoad {
@@ -33,9 +35,7 @@
     
     //设置导航栏
     [self setNavigationBar];
-    
-    //加载tableView
-    [self addTableView];
+
     
     //假数据
     [self loadData];
@@ -68,7 +68,6 @@
     _tableView.separatorStyle=UITableViewCellSeparatorStyleNone;
     [self.view addSubview:_tableView];
     
-    [_tableView reloadData];
 }
 
 #pragma mark UITableViewDataSource

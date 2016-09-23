@@ -50,8 +50,8 @@
     
     [self addSubview:_titleLable];
     
-    _timeLable =[[UILabel alloc] initWithFrame:CGRectMake([UIUtils getWindowWidth]-115, CGRectGetMaxY(_topImage.frame)+5, 100, 40)];
-    _timeLable.font=[UIFont systemFontOfSize:15];
+    _timeLable =[[UILabel alloc] initWithFrame:CGRectMake([UIUtils getWindowWidth]-115, CGRectGetMaxY(_topImage.frame)+5, 110, 40)];
+    _timeLable.font=[UIFont systemFontOfSize:15 * [_font floatValue]];
     [self addSubview:_timeLable];
 }
 

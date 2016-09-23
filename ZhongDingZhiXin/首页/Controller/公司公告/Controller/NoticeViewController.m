@@ -72,9 +72,7 @@
         NSArray *array = (NSArray *)responseObject[@"result"];
         
         if ([responseObject[@"status"] integerValue] == 1) {
-            
-            NSLog(@"公司公告:%@",responseObject);
-            
+                        
             app.request=responseObject[@"response"];
             
             for (NSDictionary *dictionary in array) {

@@ -26,6 +26,7 @@
     NSString * _education;
     NSString * _sex;
     NSString * _state;
+    NSString * _font;
     
     MBProgressHUD * mbHud;
 }
@@ -41,13 +42,13 @@
 //隐藏TabBar
 -(void)viewWillAppear:(BOOL)animated{
     
-//    NSString *string=APP_Font;
-//    _fontLabel1.font=[UIFont systemFontOfSize:15*[string floatValue]];
-//    _fontLabel2.font=[UIFont systemFontOfSize:15*[string floatValue]];
-//    _fontLabel3.font=[UIFont systemFontOfSize:15*[string floatValue]];
-//    _fontLabel4.font=[UIFont systemFontOfSize:15*[string floatValue]];
-//    _fontLabel5.font=[UIFont systemFontOfSize:15*[string floatValue]];
-//    _cell.detailTextLabel.font=[UIFont systemFontOfSize:15*[string floatValue]];
+    _font = APP_Font;
+    _fontLabel1.font=[UIFont systemFontOfSize:15*[_font floatValue]];
+    _fontLabel2.font=[UIFont systemFontOfSize:15*[_font floatValue]];
+    _fontLabel3.font=[UIFont systemFontOfSize:15*[_font floatValue]];
+    _fontLabel4.font=[UIFont systemFontOfSize:15*[_font floatValue]];
+    _fontLabel5.font=[UIFont systemFontOfSize:15*[_font floatValue]];
+    _cell.detailTextLabel.font=[UIFont systemFontOfSize:15*[_font floatValue]];
     
     self.tabBarController.tabBar.hidden=YES;
     
@@ -90,12 +91,6 @@
 //添加内容视图
 -(void)addContentView
 {
-//    NSString *str=APP_Font;
-//    if (!str){
-//        [[NSUserDefaults standardUserDefaults]setObject:@"1" forKey:@"change_font"];
-//        [[NSUserDefaults standardUserDefaults]synchronize];
-//    }
-
     self.messageTableView.backgroundColor=[UIColor clearColor];
     self.messageTableView.scrollEnabled =NO; //设置tableview 不能滚动
     self.messageTableView.tableFooterView=[[UIView alloc]init];//影藏多余的分割线
@@ -121,27 +116,22 @@
     
     _fontLabel1=[[UILabel alloc]initWithFrame:CGRectMake(15, 90, 50, 30)];
     _fontLabel1.text=@"姓名";
-    _fontLabel1.font=[UIFont systemFontOfSize:15];
     [self.messageTableView addSubview:_fontLabel1];
     
     _fontLabel2=[[UILabel alloc]initWithFrame:CGRectMake(15, 140, 70, 30)];
     _fontLabel2.text=@"手机号";
-    _fontLabel2.font=[UIFont systemFontOfSize:15];
     [self.messageTableView addSubview:_fontLabel2];
     
     _fontLabel3=[[UILabel alloc]initWithFrame:CGRectMake(15, 190, 130, 30)];
     _fontLabel3.text=@"密码";
-    _fontLabel3.font=[UIFont systemFontOfSize:15];
     [self.messageTableView addSubview:_fontLabel3];
     
     _fontLabel4=[[UILabel alloc]initWithFrame:CGRectMake(15, 250, 50, 30)];
     _fontLabel4.text=@"性别";
-    _fontLabel4.font=[UIFont systemFontOfSize:15];
     [self.messageTableView addSubview:_fontLabel4];
     
     _fontLabel5=[[UILabel alloc]initWithFrame:CGRectMake(15, 300, 50, 30)];
     _fontLabel5.text=@"地区";
-    _fontLabel5.font=[UIFont systemFontOfSize:15];
     [self.messageTableView addSubview:_fontLabel5];
     
 }
@@ -181,23 +171,19 @@
         if (indexPath.section==0) {
             
             if (indexPath.row==0) {
-                _cell.detailTextLabel.font=[UIFont systemFontOfSize:15];
                 _cell.detailTextLabel.text=@"设置头像";
                  _cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator; //显示最右边的箭头
                 
             }else if (indexPath.row==1){
-                _cell.detailTextLabel.font=[UIFont systemFontOfSize:15];
                 _cell.detailTextLabel.text=app.name;
                 
             }else if (indexPath.row==2){
                 
-                _cell.detailTextLabel.font=[UIFont systemFontOfSize:15];
                 NSString * change = [app.mobilephone stringByReplacingCharactersInRange:NSMakeRange(3, 5) withString:@"*****"];
                 _cell.detailTextLabel.text = change;
                 
             }else{
                 
-                _cell.detailTextLabel.font=[UIFont systemFontOfSize:15];
                 _cell.detailTextLabel.text=@"修改";
                  _cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator; //显示最右边的箭头
             }
@@ -206,19 +192,17 @@
             
             if (indexPath.row==0) {
                 
-                _cell.detailTextLabel.font=[UIFont systemFontOfSize:15];
                 _cell.detailTextLabel.text=app.sex;
 
             }else{
                 
-                _cell.detailTextLabel.font=[UIFont systemFontOfSize:15];
                 _cell.detailTextLabel.text=app.from;
             }
         }
     }
    
     _cell.detailTextLabel.textColor=PASS_COLOR;
-    _cell.detailTextLabel.font=[UIFont systemFontOfSize:13];
+    _cell.detailTextLabel.font=[UIFont systemFontOfSize:13*[_font floatValue]];
     return _cell;
 }
 
