@@ -49,17 +49,11 @@
 {
     AppShare;
     
-    if (!_tableDataArray) {
-        _tableDataArray = [[NSMutableArray alloc] init];
-    }
-    
     [[HTTPSessionManager sharedManager] POST:WORK_URL parameters:Dic result:^(id responseObject, NSError *error) {
-       
-        NSLog(@"职位邀请:%@",responseObject);
+        
+        app.request=responseObject[@"response"];
         
         if ([responseObject[@"status"] integerValue] == 1) {
-            
-            app.request=responseObject[@"response"];
             
             NSArray * array = responseObject[@"result"];
             
@@ -69,14 +63,8 @@
                 
                 [_tableDataArray addObject:market];
             }
-            
-            NSLog(@"数组:%@",_tableDataArray);
-            
-            self.tableView.backgroundColor=[UIColor clearColor];
-            self.tableView.scrollEnabled =YES; //设置tableview滚动
+                        
             self.tableView.tableFooterView=[[UIView alloc]init];//影藏多余的分割线
-            
-            self.tableView.hidden = NO;
             
             [self.tableView reloadData];
             
@@ -95,7 +83,6 @@
 }
 
 #pragma mark UITableViewDataSource
-
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     return self.tableDataArray.count;

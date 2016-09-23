@@ -74,18 +74,24 @@
                                         <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                     </state>
                                 </button>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="copyright@ 2010 北京职信鼎程信息技术有限公司" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lfy-Nb-vRv">
-                                    <rect key="frame" x="43" y="264" width="290" height="16"/>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="copyright@ 2010 北京职信鼎程信息技术有限公司" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lfy-Nb-vRv">
+                                    <rect key="frame" x="5" y="265" width="365" height="15"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="290" id="GJA-tZ-97r"/>
                                         <constraint firstAttribute="height" constant="16" id="W8L-Tz-NE2"/>
                                     </constraints>
-                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                     <nil key="highlightedColor"/>
+                                    <variation key="default">
+                                        <mask key="constraints">
+                                            <exclude reference="GJA-tZ-97r"/>
+                                            <exclude reference="W8L-Tz-NE2"/>
+                                        </mask>
+                                    </variation>
                                 </label>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="联系我们" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HSG-OU-QeN">
-                                    <rect key="frame" x="35" y="30" width="68" height="21"/>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="联系我们" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HSG-OU-QeN">
+                                    <rect key="frame" x="35" y="30" width="332" height="21"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                     <nil key="highlightedColor"/>
@@ -94,8 +100,10 @@
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="260" id="Xtb-nV-kH8"/>
+                                <constraint firstAttribute="trailing" secondItem="lfy-Nb-vRv" secondAttribute="trailing" constant="5" id="cjY-Oh-43m"/>
                                 <constraint firstAttribute="bottom" secondItem="lfy-Nb-vRv" secondAttribute="bottom" constant="-20" id="lN5-eS-lGe"/>
                                 <constraint firstItem="lfy-Nb-vRv" firstAttribute="centerX" secondItem="R7k-nR-Ot7" secondAttribute="centerX" id="ln5-EI-1Yo"/>
+                                <constraint firstItem="lfy-Nb-vRv" firstAttribute="leading" secondItem="R7k-nR-Ot7" secondAttribute="leading" constant="5" id="nl5-Rx-Ayk"/>
                                 <constraint firstAttribute="bottom" secondItem="lfy-Nb-vRv" secondAttribute="bottom" constant="10" id="rmz-n6-lPA"/>
                             </constraints>
                             <variation key="default">

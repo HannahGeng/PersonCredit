@@ -147,6 +147,8 @@
             //初始化请求（同时也创建了一个线程）
             [[HTTPSessionManager sharedManager] POST:ZUOZHENG_URL parameters:Dic result:^(id responseObject, NSError *error) {
                 
+                NSLog(@"工作证:%@",responseObject);
+                
                 _resultDic=responseObject[@"result"];
                 app.request=responseObject[@"response"];
                 

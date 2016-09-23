@@ -49,7 +49,7 @@
     _topImage.image=[UIImage imageNamed:@"backgroundImage"];
     [self addSubview:_topImage];
     
-    _titleLable=[[UILabel alloc] initWithFrame:CGRectMake(15, CGRectGetMaxY(_topImage.frame)+5, 150, 40)];
+    _titleLable=[[UILabel alloc] initWithFrame:CGRectMake(15, CGRectGetMaxY(_topImage.frame)+5, 200, 40)];
     _titleLable.font=[UIFont systemFontOfSize:15];
     [self addSubview:_titleLable];
     

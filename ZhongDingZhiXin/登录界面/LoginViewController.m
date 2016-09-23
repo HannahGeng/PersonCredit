@@ -16,8 +16,6 @@
     CLLocationManager * _manager;
 }
 
-
-
 @end
 
 @implementation LoginViewController

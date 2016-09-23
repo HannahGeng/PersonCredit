@@ -37,16 +37,24 @@
 -(void)viewWillAppear:(BOOL)animated{
     
     [UILabel appearance].font = [UILabel changeFont];
+    
+    [self setHidesBottomBarWhenPushed:NO];
+    self.tabBarController.tabBar.hidden=YES;
+    [super viewDidDisappear:animated];
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     //设置背景颜色
     [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"backgroundImage"]]];
+    
     //设置导航栏
     [self setNavigationBar];
+    
     //添加内容视图
     [self addContentView];
+    
 }
 
 //设置导航栏
@@ -184,7 +192,6 @@
     _string = APP_Font;
     
     [[NSUserDefaults standardUserDefaults]setObject:@"1" forKey:@"change_font"];
-    [[NSUserDefaults standardUserDefaults]synchronize];
     _btn2.selected=YES;
     _btn3.selected=NO;
     
@@ -195,14 +202,12 @@
 -(void)onClick2
 {
     _string = APP_Font;
-
+    
     [[NSUserDefaults standardUserDefaults]setObject:@"1.3" forKey:@"change_font"];
-    [[NSUserDefaults standardUserDefaults]synchronize];
     _btn2.selected=NO;
     _btn3.selected=YES;
     
     [UILabel appearance].font = [UILabel changeFont];
-    
 }
 
 #pragma mark UITableViewDelegate
@@ -330,7 +335,7 @@
 
 //监听点击事件 代理方法
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
- {
+{
     NSString *btnTitle = [alertView buttonTitleAtIndex:buttonIndex];
 
     if ([btnTitle isEqualToString:@"确定"]) {

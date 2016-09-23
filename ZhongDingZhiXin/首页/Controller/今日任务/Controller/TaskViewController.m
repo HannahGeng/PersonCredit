@@ -284,7 +284,8 @@
                 NSLog(@"周边检索发送成功");
             }else
             {
-                NSLog(@"周边检索发送失败");
+                MBhud(@"周边检索发送失败");
+                hudHide;
             }
             
         }else
