@@ -36,15 +36,19 @@
 //隐藏TabBar
 -(void)viewWillAppear:(BOOL)animated{
     
-    [UILabel appearance].font = [UILabel changeFont];
-    
+    [super viewDidDisappear:animated];
+
     [self setHidesBottomBarWhenPushed:NO];
     self.tabBarController.tabBar.hidden=YES;
-    [super viewDidDisappear:animated];
+    
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    _string = APP_Font;
+    
+    NSLog(@"%@",_string);
     
     //设置背景颜色
     [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"backgroundImage"]]];
@@ -84,22 +88,27 @@
     
     _titleLable1=[[UILabel alloc]initWithFrame:CGRectMake(20, 20, 150, 30)];
     _titleLable1.text=@"字号设置";
+    _titleLable1.font = [UIFont systemFontOfSize:15 * [_string floatValue]];
     [self.view addSubview:_titleLable1];
     
     _titleLable2=[[UILabel alloc]initWithFrame:CGRectMake(20, 80, 150, 30)];
     _titleLable2.text=@"常见问题";
+    _titleLable2.font = [UIFont systemFontOfSize:15 * [_string floatValue]];
     [self.view addSubview:_titleLable2];
     
     _titleLable3=[[UILabel alloc]initWithFrame:CGRectMake(20, 130, 300, 30)];
     _titleLable3.text=@"亲 去App Store给个好评吧";
+    _titleLable3.font = [UIFont systemFontOfSize:15 * [_string floatValue]];
     [self.view addSubview:_titleLable3];
     
     _titleLable4=[[UILabel alloc]initWithFrame:CGRectMake(20, 190, 150, 30)];
     _titleLable4.text=@"检测更新";
+    _titleLable4.font = [UIFont systemFontOfSize:15 * [_string floatValue]];
     [self.view addSubview:_titleLable4];
     
     _titleLable5=[[UILabel alloc]initWithFrame:CGRectMake(([UIUtils getWindowWidth]-200)/2 + 50, 250, 200, 30)];
     _titleLable5.text=@"退出当前账号";
+    _titleLable5.font = [UIFont systemFontOfSize:15 * [_string floatValue]];
     [self.view addSubview:_titleLable5];
     
 }
@@ -149,21 +158,33 @@
             //点击事件（变小）
             [_btn2 addTarget:self action:@selector(onClick1) forControlEvents:UIControlEventTouchUpInside];
             [cell addSubview:_btn2];
-            _string=APP_Font;
+            
             [_btn2.titleLabel setFont:[UIFont systemFontOfSize:15*[_string floatValue]]];
-            [_btn2 setSelected:YES];
+            if ([_string isEqualToString:@"1"]) {
+                
+                [_btn2 setSelected:YES];
+            }else{
+                
+                [_btn2 setSelected:NO];
+            }
             [_btn2 setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
             [_btn2 setBackgroundImage:image2 forState:UIControlStateSelected];
             [_btn2 setTitleColor:[UIColor whiteColor] forState:UIControlStateSelected];
-            
             UIImage *image3=[UIImage imageNamed:@"ziti-5"];
             _btn3 = [UIButton buttonWithType:UIButtonTypeCustom];
             _btn3.frame = CGRectMake([UIUtils getWindowWidth]-40, 10, 30, 30);
             [_btn3 setTitle:@"大" forState:UIControlStateNormal];
             //点击事件（变大）
             [_btn3 addTarget:self action:@selector(onClick2) forControlEvents:UIControlEventTouchUpInside];
-            _string = APP_Font;
+
             [_btn3.titleLabel setFont:[UIFont systemFontOfSize:15*[_string floatValue]]];
+            if ([_string isEqualToString:@"1.3"]) {
+                
+                [_btn3 setSelected:YES];
+            }else{
+                
+                [_btn3 setSelected:NO];
+            }
             [_btn3 setBackgroundImage:image3 forState:UIControlStateSelected];
             [_btn3 setTitleColor:[UIColor whiteColor] forState:UIControlStateSelected];
             [_btn3 setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
@@ -189,25 +210,41 @@
 //字体变小
 -(void)onClick1
 {
-    _string = APP_Font;
-    
-    [[NSUserDefaults standardUserDefaults]setObject:@"1" forKey:@"change_font"];
     _btn2.selected=YES;
     _btn3.selected=NO;
     
+    _string = @"1";
+    
+    _titleLable1.font = [UIFont systemFontOfSize:15 * [_string floatValue]];
+    _titleLable2.font = [UIFont systemFontOfSize:15 * [_string floatValue]];
+    _titleLable3.font = [UIFont systemFontOfSize:15 * [_string floatValue]];
+    _titleLable4.font = [UIFont systemFontOfSize:15 * [_string floatValue]];
+    _titleLable5.font = [UIFont systemFontOfSize:15 * [_string floatValue]];
+    
+    [[NSUserDefaults standardUserDefaults]setObject:_string forKey:@"change_font"];
+
     [UILabel appearance].font = [UILabel changeFont];
+
 }
 
 //字体变大
 -(void)onClick2
 {
-    _string = APP_Font;
-    
-    [[NSUserDefaults standardUserDefaults]setObject:@"1.3" forKey:@"change_font"];
     _btn2.selected=NO;
     _btn3.selected=YES;
     
+    _string = @"1.3";
+    
+    _titleLable1.font = [UIFont systemFontOfSize:15 * [_string floatValue]];
+    _titleLable2.font = [UIFont systemFontOfSize:15 * [_string floatValue]];
+    _titleLable3.font = [UIFont systemFontOfSize:15 * [_string floatValue]];
+    _titleLable4.font = [UIFont systemFontOfSize:15 * [_string floatValue]];
+    _titleLable5.font = [UIFont systemFontOfSize:15 * [_string floatValue]];
+    
+    [[NSUserDefaults standardUserDefaults]setObject:_string forKey:@"change_font"];
+    
     [UILabel appearance].font = [UILabel changeFont];
+
 }
 
 #pragma mark UITableViewDelegate

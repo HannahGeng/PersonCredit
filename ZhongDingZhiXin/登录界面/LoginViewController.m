@@ -23,6 +23,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    [UILabel appearance].font = [UILabel changeFont];
+
     //设置导航栏不透明
     self.navigationController.navigationBar.translucent = NO;
     

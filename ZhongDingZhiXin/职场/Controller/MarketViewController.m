@@ -36,6 +36,8 @@
     
     mbHUDinit;
 
+    [UILabel appearance].font = [UILabel changeFont];
+//    NSString;
 }
 
 //设置导航栏

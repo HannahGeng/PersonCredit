@@ -29,7 +29,8 @@
     _textView.font=[UIFont systemFontOfSize:15*[string floatValue]];
     _timeLabel.font=[UIFont systemFontOfSize:15*[string floatValue]];
     self.tabBarController.tabBar.hidden=YES;
-    
+    [UILabel appearance].font = [UILabel changeFont];
+
 }
 
 - (void)viewDidLoad {
@@ -67,11 +68,6 @@
 -(void)addContentView
 {
     AppShare;
-    NSString *strr=APP_Font;
-    if (!strr){
-        [[NSUserDefaults standardUserDefaults]setObject:@"1" forKey:@"change_font"];
-        [[NSUserDefaults standardUserDefaults]synchronize];
-    }
 
     HomeViewController * home = [[HomeViewController alloc] init];
     QuestionViewController * ques = [[QuestionViewController alloc] init];

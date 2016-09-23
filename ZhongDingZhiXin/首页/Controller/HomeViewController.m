@@ -29,13 +29,15 @@
     [self setHidesBottomBarWhenPushed:NO];
     self.tabBarController.tabBar.hidden=NO;
     
+    [UILabel appearance].font = [UILabel changeFont];
+
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
     AppShare;
-    
+        
     //设置背景颜色
     [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"backgroundImage"]]];
     

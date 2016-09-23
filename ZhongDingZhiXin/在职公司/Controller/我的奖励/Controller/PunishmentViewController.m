@@ -26,7 +26,8 @@
 -(void)viewWillAppear:(BOOL)animated{
     
     self.tabBarController.tabBar.hidden=YES;
-    
+    [UILabel appearance].font = [UILabel changeFont];
+
 }
 
 - (void)viewDidLoad {

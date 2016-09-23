@@ -13,6 +13,7 @@
     NSArray *_tableDataArray;
     UITableView *_tableView;
     MBProgressHUD * mbHud;
+    NSString * _font;
 }
 @end
 
@@ -20,7 +21,10 @@
 
 //显示TabBar
 -(void)viewWillAppear:(BOOL)animated{
+    
     self.tabBarController.tabBar.hidden=NO;
+    [UILabel appearance].font = [UILabel changeFont];
+
 }
 
 - (void)viewDidLoad {
@@ -40,11 +44,7 @@
 -(void)setNavigationBar
 {
     //设置导航栏的颜色
-    self.navigationController.navigationBar.barTintColor=LIGHT_WHITE_COLOR;
-    self.title=@"我的";
-    [self.navigationController.navigationBar setTitleTextAttributes:
-     @{NSFontAttributeName:[UIFont systemFontOfSize:20],
-       NSForegroundColorAttributeName:[UIColor whiteColor]}];
+    NavBarType(@"我的");
 }
 
 -(void)loadData{
@@ -53,6 +53,8 @@
                       @{@"image":@"gzjy",@"title":@"工作经验"},
                       @{@"image":@"jyjl",@"title":@"教育经历"},
                       @{@"image":@"qdjl",@"title":@"签到列表"}];
+    
+    _tableDataArray[0][@"title"];
 }
 
 //加载tableView
@@ -66,7 +68,6 @@
     _tableView.separatorStyle=UITableViewCellSeparatorStyleNone;
     [self.view addSubview:_tableView];
     
-    [_tableView reloadData];
 }
 
 #pragma mark UITableViewDataSource
@@ -87,6 +88,8 @@
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator; //显示最右边的箭头
     [cell setContentView:_tableDataArray[indexPath.row]];
+    _font = APP_Font;
+    cell.textLabel.font = [UIFont systemFontOfSize:15 * [_font floatValue]];
     
     return cell;
 }

@@ -20,6 +20,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    [UILabel appearance].font = [UILabel changeFont];
+
     UITabBarController *rootTabBar=[[UITabBarController alloc]init];
     rootTabBar.tabBar.barStyle = UIBarStyleBlack;
     

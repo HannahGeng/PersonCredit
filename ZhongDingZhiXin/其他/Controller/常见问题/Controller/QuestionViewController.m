@@ -26,6 +26,9 @@
     leftButton;
     [self loadQuestion];
     mbHUDinit;
+    
+    [UILabel appearance].font = [UILabel changeFont];
+
 }
 
 - (void)backButton

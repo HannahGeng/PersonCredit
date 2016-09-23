@@ -32,7 +32,6 @@
     
     if (self) {
         
-//        self.selectionStyle = UITableViewCellSelectionStyleNone;
         //添加内容视图
         [self addContentView];
     }

@@ -19,6 +19,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
   
+    [UILabel appearance].font = [UILabel changeFont];
+
     NSURL * url = [NSURL URLWithString:@"http://www.newqc.cn/public/getpwd"];
     NSURLRequest* request = [NSURLRequest requestWithURL:url];//创建NSURLRequest
     [self.webView loadRequest:request];//加载

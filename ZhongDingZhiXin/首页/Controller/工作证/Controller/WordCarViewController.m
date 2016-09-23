@@ -30,6 +30,8 @@
     [self setHidesBottomBarWhenPushed:NO];
     self.tabBarController.tabBar.hidden=YES;
     [super viewDidDisappear:animated];
+    [UILabel appearance].font = [UILabel changeFont];
+
 }
 
 - (void)viewDidLoad {
