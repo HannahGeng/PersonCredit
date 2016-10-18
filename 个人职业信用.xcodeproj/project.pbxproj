@@ -319,13 +319,11 @@
 		3DFC2FAF1BB3A46B004A83B0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3DFC2FB01BB3A46B004A83B0 /* ZhongDingZhiXinTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZhongDingZhiXinTests.m; sourceTree = "<group>"; };
 		586C7B7D69CA59211CE7DAB9 /* Pods-个人职业信用.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-个人职业信用.debug.xcconfig"; path = "Pods/Target Support Files/Pods-个人职业信用/Pods-个人职业信用.debug.xcconfig"; sourceTree = "<group>"; };
-		677522D154E4D9E2F819AC15 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		6F38FBB826D41E4A979B4068 /* Pods-个人职业信用.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-个人职业信用.release.xcconfig"; path = "Pods/Target Support Files/Pods-个人职业信用/Pods-个人职业信用.release.xcconfig"; sourceTree = "<group>"; };
 		89504C7B1DB657110081EC51 /* AFNetworking.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AFNetworking.framework; path = "../../Library/Developer/Xcode/DerivedData/个人职业信用-dvbkitcjttipogfccpzjtivecudl/Build/Products/Debug-iphonesimulator/AFNetworking/AFNetworking.framework"; sourceTree = "<group>"; };
 		89504C7D1DB657140081EC51 /* MBProgressHUD.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MBProgressHUD.framework; path = "../../Library/Developer/Xcode/DerivedData/个人职业信用-dvbkitcjttipogfccpzjtivecudl/Build/Products/Debug-iphonesimulator/MBProgressHUD/MBProgressHUD.framework"; sourceTree = "<group>"; };
 		89504C7F1DB657180081EC51 /* MJExtension.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MJExtension.framework; path = "../../Library/Developer/Xcode/DerivedData/个人职业信用-dvbkitcjttipogfccpzjtivecudl/Build/Products/Debug-iphonesimulator/MJExtension/MJExtension.framework"; sourceTree = "<group>"; };
 		89504C811DB6571B0081EC51 /* Masonry.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Masonry.framework; path = "../../Library/Developer/Xcode/DerivedData/个人职业信用-dvbkitcjttipogfccpzjtivecudl/Build/Products/Debug-iphonesimulator/Masonry/Masonry.framework"; sourceTree = "<group>"; };
-		8C8186C7D14156CF41D1ACD5 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		E276B243CD6736109D205A96 /* Pods_______.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = "Pods_______.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -1179,8 +1177,6 @@
 		C79F6F5357FACFE677C04D75 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				8C8186C7D14156CF41D1ACD5 /* Pods.debug.xcconfig */,
-				677522D154E4D9E2F819AC15 /* Pods.release.xcconfig */,
 				586C7B7D69CA59211CE7DAB9 /* Pods-个人职业信用.debug.xcconfig */,
 				6F38FBB826D41E4A979B4068 /* Pods-个人职业信用.release.xcconfig */,
 			);
