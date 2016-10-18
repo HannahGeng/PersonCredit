@@ -76,7 +76,7 @@
 #import "QuestionViewController.h"
 #import "QuestionModel.h"
 #import "QuestionCell.h"
-#import <MJExtension.h>
+#import "MJExtension.h"
 #import "PasswordViewController.h"
 #import "XMGAnno.h"
 #import "ForgetPassWebViewController.h"
